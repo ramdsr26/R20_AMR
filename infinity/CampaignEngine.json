@@ -18,6 +18,7 @@
     "/Campaigns/getCampaign" : {
       "post" : {
         "tags" : [ "Campaigns" ],
+		"description" :" test",
         "summary" : "This API is triggered by Online Banking or Mobile Banking application to fetch campaigns from the client-side. The Campaigns such as advertisements for loans and deposits must be displayed to the customer based on his/her actions performed through his account. This API is used to trigger the occurrence of such actions and fetch the campaigns.",
         "operationId" : "getCampaignCampaigns",
         "consumes" : [ "application/json" ],
