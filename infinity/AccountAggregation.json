@@ -1,0 +1,179 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Account Aggregation is a provision for the user to access their accounts from other banks. The Account Aggregation API is associated with a third party provider called SaltEdge. This third party provider fetches your accounts from other banks and provides the data to the micro service.",
+    "version" : "1.0",
+    "title" : "AccountAggregation"
+  },
+  "host" : "vivekiyer1.konycloud.com/services",
+  "basePath" : "/data/v1/ExternalAccounts/objects",
+  "tags" : [ {
+    "name" : "Banks"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/Banks" : { },
+    "/Banks/getBanksForCountryCode" : {
+      "post" : {
+        "tags" : [ "Banks" ],
+        "summary" : "This API fetches the list of available banks in a country based on the country code. The third party provider Salt Edge has been leveraged to fetch the list of all the banks in a country.",
+        "operationId" : "getBanksForCountryCodeBanks",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Banks"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Response_Get_Banks" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Banks"
+          }
+        }
+      }
+    },
+    "Banks" : {
+      "type" : "object",
+      "properties" : {
+        "dbpErrCode" : {
+          "type" : "string",
+          "description" : "Specifies the generated error code"
+        },
+        "dbpErrMsg" : {
+          "type" : "string",
+          "description" : "Specifies the generated error message"
+        },
+        "bankCode" : {
+          "type" : "string",
+          "description" : "Specifies the unique bank code"
+        },
+        "supportedAccountNaturess" : {
+          "type" : "string",
+          "description" : "Specifies the account natures that the bank supports such as Loan, Savings, Debit, and so on."
+        },
+        "internalBankId" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the bank"
+        },
+        "supportedFetchScopess" : {
+          "type" : "string",
+          "description" : "Specifies the scope of data that the user can fetch. Based on the provided scopes the application fetches the data accordingly. Some examples for scopes are Accounts and Transactions."
+        },
+        "timeZone" : {
+          "type" : "string",
+          "description" : "Specifies the time zone in which the bank resides such as Europe, North America, and so on"
+        },
+        "bankName" : {
+          "type" : "string",
+          "description" : "Specifies the name of the bank"
+        },
+        "isActive" : {
+          "type" : "string",
+          "description" : "Speciifes the status of the operation (Active/Inactive)"
+        },
+        "supportedAccountTypess" : {
+          "type" : "string",
+          "description" : "Specifies the account types that the bank supports such as Personal and Business"
+        },
+        "logoUrl" : {
+          "type" : "string",
+          "description" : "Specifies the URL for the provider logo that may have a placeholder for providers with missing logos"
+        },
+        "mode" : {
+          "type" : "string",
+          "description" : "Specifies the mode of authorization provided by the third-party provider (oauth/web/api/file)"
+        },
+        "homeUrl" : {
+          "type" : "string",
+          "description" : "Specifies the URL of the main page of the provider"
+        },
+        "provider" : {
+          "type" : "string",
+          "description" : "Specifies the name of the third-party provider used to fetch the accounts from other banks. For Example, Salt Edge"
+        },
+        "loginUrl" : {
+          "type" : "string",
+          "description" : "Specifies the point of entrance to the provider’s login page"
+        },
+        "countryCode" : {
+          "type" : "string",
+          "description" : "Specifies the unique code of the country"
+        },
+        "providerStatus" : {
+          "type" : "string",
+          "description" : "Specifies the status of the third-party provider (active/inactive)"
+        }
+      }
+    },
+    "Response_Banks" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "bankCode" : {
+          "type" : "string",
+          "description" : "Specifies the unique bank code"
+        }
+      }
+    },
+    "Response_Custom" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Response_Delete" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "deletedRecords" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}

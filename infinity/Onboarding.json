@@ -1,0 +1,2892 @@
+{
+
+   "swagger": "2.0",
+   "info" : {
+    "description" : "The Infinity Onboarding app enables customers to open new accounts in a bank across multiple channels. The Experience APIs in Onboarding help in establishing communication between Client application, Quantum Fabric, Journey Manager, and the core backend system. These APIs allow you to perform various CRUD operations such as creating a profile, verifying an application by using IDology, funding operations, and so on.",
+    "version" : "1.0",
+    "title" : "OnBoarding"
+  },
+  "host" : "KH2606.temenosgroup.com:8080/services",
+  "basePath" : "/data/v1/OnBoarding/objects",
+  "tags" : [ {
+    "name" : "Account"
+  }, {
+    "name" : "AddressInfo"
+  }, {
+    "name" : "Application"
+  }, {
+    "name" : "Funding"
+  }, {
+    "name" : "IdentityInfo"
+  }, {
+    "name" : "IDV"
+  }, {
+    "name" : "PersonalInfo"
+  }, {
+    "name" : "ProductDashboard"
+  }, {
+    "name" : "ProductSelection"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/Funding/getFundingProducts" : {
+      "post" : {
+        "tags" : [ "Funding" ],
+        "summary" : "This API retrieves the products that are selected by the user for funding. This API is used to re-populate the data, while the user navigates back to the client app.",
+        "operationId" : "getFundingProductsFunding",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Funding"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/ProductDashboard/getProductDetails" : {
+      "post" : {
+        "tags" : [ "ProductDashboard" ],
+        "summary" : "This API fetches the details of the product that is selected, when the Learn More (product group page) onClick action is triggered. The API populates the response on the frmProductDetails page.",
+        "operationId" : "getProductDetailsProductDashboard",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductDashboard"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/Application/getbypk" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API is used to get the application details from Journey Manager. This API is used only internally through the workflow",
+        "operationId" : "getbypkApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/Funding/updateFundingAllocation" : {
+      "post" : {
+        "tags" : [ "Funding" ],
+        "summary" : "This API updates the products that were selected by the user for funding. It also updates the amount that the user decided to fund these products.",
+        "operationId" : "updateFundingAllocationFunding",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Funding"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Application/submitOnBoardingApplication" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API is used to update the application status based on the applicant's status and also to notify the applicant/co-applicant if the application is under review",
+        "operationId" : "submitOnBoardingApplicationApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Funding/createFunding" : {
+      "post" : {
+        "tags" : [ "Funding" ],
+        "summary" : "This API creates a funding application in the Journey Manager (a separate JS module in the Journey manager). The data that is passed to the Journey Manager includes the parent application ID.",
+        "operationId" : "createFundingFunding",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Funding"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/AddressInfo/getAddressInfo" : {
+      "post" : {
+        "tags" : [ "AddressInfo" ],
+        "summary" : "This API is a client-facing service that fetches the details provided in the Address Information section such as city, state, and zip code. This API is used to fetch the address detail during the application registration process.",
+        "operationId" : "getAddressInfoAddressInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AddressInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+
+    "/ProductDashboard" : { },
+    "/IDV" : { },
+    "/ProductSelection/updateProductSelection" : {
+      "post" : {
+        "tags" : [ "ProductSelection" ],
+        "summary" : "This API updates the selected products to the Journey Manager; and the Product IDs to Infinity.",
+        "operationId" : "updateProductSelectionProductSelection",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductSelection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Account" : { },
+    "/ProductSelection/updateProductSelectionHierarchy" : {
+      "post" : {
+        "tags" : [ "ProductSelection" ],
+        "summary" : "This API updates the products' hierarchy data in the Journey Manager based on the product selected.",
+        "operationId" : "updateProductSelectionHierarchyProductSelection",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductSelection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Application/signoutOnboardingApplication" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API captures the audit logs at the time of logout and idle time out. These logs contain the details of user's activity and are used for audit purpose.",
+        "operationId" : "signoutOnboardingApplicationApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/AddressInfo/updateAddressInfo" : {
+      "post" : {
+        "tags" : [ "AddressInfo" ],
+        "summary" : "This API is a client-facing service that updates the address information of the user. This API is used when the customer wants to update the address details in the application.",
+        "operationId" : "updateAddressInfoAddressInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/AddressInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/PersonalInfo/updatePersonalInfo" : {
+      "post" : {
+        "tags" : [ "PersonalInfo" ],
+        "summary" : "This API is a client-facing service that updates the personal information section with the applicant's and co-applicant's information such as First Name, Last Name, Date of Birth, Mobile Number, Email ID, and so on. The API fetches the XML data from the Journey Manager and updates the XML file accordingly.",
+        "operationId" : "updatePersonalInfoPersonalInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PersonalInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/ProductSelection/getFeaturesForProducts" : {
+      "post" : {
+        "tags" : [ "ProductSelection" ],
+        "summary" : "This API allows the user to fetch features that are specific to a product based on the product reference. For example, features such as CARD.ISSUE and E-Statement get fetched for Prime Saving Account product based on the SAVINGS.PRIME.INFINITY reference provided by the user",
+        "operationId" : "getFeaturesForProductsProductSelection",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductSelection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/PersonalInfo" : { },
+    "/PersonalInfo/getPersonalInfo" : {
+      "post" : {
+        "tags" : [ "PersonalInfo" ],
+        "summary" : "This API fetches and filters the application data from the Journey Manager based on the application ID. The filtered data that contains personal information such as First Name, Last Name, Date of Birth, and Email ID is sent as a response to the user.",
+        "operationId" : "getPersonalInfoPersonalInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PersonalInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/ProductSelection/getProductSelection" : {
+      "post" : {
+        "tags" : [ "ProductSelection" ],
+        "summary" : "This API fetches all the selected products from the Journey Manager.",
+        "operationId" : "getProductSelectionProductSelection",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductSelection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Application/resumeOnBoardingApplication" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API is used to verify and fetch the details of the application that is being resumed",
+        "operationId" : "resumeOnBoardingApplicationApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/IdentityInfo/getIdentityInfo" : {
+      "post" : {
+        "tags" : [ "IdentityInfo" ],
+        "summary" : "This API is a client-facing service that is used to fetch the details from the Identity Information section in the Onboarding application",
+        "operationId" : "getIdentityInfoIdentityInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/IdentityInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/ProductSelection" : { },
+    "/Application/createApplication" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API is a service that creates an application in the Journey Manager from the Onboarding application. This API is used in the Personal Information module of the Onboarding application",
+        "operationId" : "createApplicationApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/IdentityInfo/updateIdentityInfo" : {
+      "post" : {
+        "tags" : [ "IdentityInfo" ],
+        "summary" : "This API is a client-facing service that updates the Identity information section in the Onboarding application with details such as ID Type, ID Number, Issued Date, Issued State, and Expiration Date",
+        "operationId" : "updateIdentityInfoIdentityInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/IdentityInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/IDV/executeIDV" : {
+      "post" : {
+        "tags" : [ "IDV" ],
+        "summary" : "This API executes the identity verification module of an applicant by leveraging a third-party service called Idology. Based on the execution, the API might return a few security questions to complete the identity verification process. Based on the user's response to these questions, identity verification is completed.",
+        "operationId" : "executeIDVIDV",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/IDV"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/PersonalInfo/createProspectProfile" : {
+      "post" : {
+        "tags" : [ "PersonalInfo" ],
+        "summary" : "Journey Manager acts as an in-flight application storage unit. Whenever the user submits the details during the process of application creation, the createProspectProfile API creates a prospect in the DBX DB (Backend database) with these details. The API is also connected to Journey Manager Business Delegates that update the XML applicant data in the Journey Manager.",
+        "operationId" : "createProspectProfilePersonalInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PersonalInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Application/createUserAndLogin" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API is used to create a user with the username as same as the application ID and a random autogenerated password in the Onboarding application and to perform a server side log-in to place the subsequent calls which are authenticated.",
+        "operationId" : "createUserAndLoginApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/Funding/getFundingType" : {
+      "post" : {
+        "tags" : [ "Funding" ],
+        "summary" : "This API fetches the funding type that is set by the user. Inter Bank Funding and Intra Bank Funding are the two types of funding that are used in the Funding module (Intra/Inter).",
+        "operationId" : "getFundingTypeFunding",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Funding"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/ProductSelection/getProductsForPurpose" : {
+      "post" : {
+        "tags" : [ "ProductSelection" ],
+        "summary" : "This API fetches the list of products for the given purpose from the Marketing Catalog microservice. For example, the Deposit product group contains various products such as Long Term Deposits, 3 year Deposits, and so on. If the user sets the purpose as Onboarding then all the products associated with Onboarding get fetched.",
+        "operationId" : "getProductsForPurposeProductSelection",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductSelection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/PersonalInfo/createCoApplicant" : {
+      "post" : {
+        "tags" : [ "PersonalInfo" ],
+        "summary" : "This API creates a prospect for the co-applicant and saves the prospect's personal information in the Journey Manager. The saved information of the Journey Manager is stored in the form of XML data.",
+        "operationId" : "createCoApplicantPersonalInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PersonalInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Application/updateApplication" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API invokes the rules engines with the individual decision of the applicant and co-applicant to obtain the application status. After the API obtains the individual decisions, it submits the application to the Journey Manager.",
+        "operationId" : "updateApplicationApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Funding/getProductsSelected" : {
+      "post" : {
+        "tags" : [ "Funding" ],
+        "summary" : "This API retrieves the product that is selected by the user based on the application ID. The product is retrieved from the customer application and the Party back-end system.",
+        "operationId" : "getProductsSelectedFunding",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Funding"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Funding/updateFundingType" : {
+      "post" : {
+        "tags" : [ "Funding" ],
+        "summary" : "This API updates the type of funding used to fund the selected products. Inter Bank Funding and Intra Bank Funding are the two funding types used by the Funding module.",
+        "operationId" : "updateFundingTypeFunding",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Funding"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Funding" : { },
+    "/ProductDashboard/getProductGroupsWithPurpose" : {
+      "post" : {
+        "tags" : [ "ProductDashboard" ],
+        "summary" : "This API fetches the list of product groups. The product groups are displayed as cards on the landing page and the hamburger menu.",
+        "operationId" : "getProductGroupsWithPurposeProductDashboard",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductDashboard"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/ProductSelection/getAllCDPlansForProduct" : {
+      "post" : {
+        "tags" : [ "ProductSelection" ],
+        "summary" : "This API allows the user to fetch all the Certificate of Deposits associated with a product. The Certificate of Deposit plans are generated based on the amount range and time period",
+        "operationId" : "getAllCDPlansForProductProductSelection",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductSelection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Funding/updatePaymentDetails" : {
+      "post" : {
+        "tags" : [ "Funding" ],
+        "summary" : "This API updates the payment details for the funding request. The payment details include information such as account type, debit account number, routing number, and currency.",
+        "operationId" : "updatePaymentDetailsFunding",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Funding"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/IDV/verifyIDVResponses" : {
+      "post" : {
+        "tags" : [ "IDV" ],
+        "summary" : "This API leverages the Idology service to verify the response or answers to the identity verification questions provided by the user.",
+        "operationId" : "verifyIDVResponsesIDV",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/IDV"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Application/updateApplicationStatus" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API updates the decision of the application from the workspace whether to approve or deny the application.",
+        "operationId" : "updateApplicationStatusApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/Funding/updateFundingStatus" : {
+      "post" : {
+        "tags" : [ "Funding" ],
+        "summary" : "This API updates the status of the funding application in the Funding module of the Journey Manager. The possible values for the funding status are Initiated, OptedOut, and Opted.",
+        "operationId" : "updateFundingStatusFunding",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Funding"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Application/initiateWorkflow" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API is used to start the post-submission workflow process such as updating customer, creating accounts and so on.",
+        "operationId" : "initiateWorkflowApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/ProductSelection/getProductSelectionHierarchy" : {
+      "post" : {
+        "tags" : [ "ProductSelection" ],
+        "summary" : "This API fetches the products' hierarchy data from the Journey Manager based on the product selected.",
+        "operationId" : "getProductSelectionHierarchyProductSelection",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductSelection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/PersonalInfo/updateProspectProfile" : {
+      "post" : {
+        "tags" : [ "PersonalInfo" ],
+        "summary" : "Journey Manager acts as an in-flight application storage unit. Whenever the user submits the details during the process of application creation, the udpateProspectProfile API updates the DBX DB (Backend database) with these details. The API is also connected to Journey Manager Business Delegates that updates the XML applicant data in the Journey Manager.",
+        "operationId" : "updateProspectProfilePersonalInfo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PersonalInfo"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Application/decryptResumeLink" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API retrieves and de-crypts the URL that is required to resume the process of application creation.",
+        "operationId" : "decryptResumeLinkApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/IdentityInfo" : { },
+    "/AddressInfo" : { },
+    "/Application/updateLastEditedSection" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API is used to update the last edited section in the Jouney Manager. The API updates the section for every time the screen loads.",
+        "operationId" : "updateLastEditedSectionApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/ProductSelection/getProductList" : {
+      "post" : {
+        "tags" : [ "ProductSelection" ],
+        "summary" : "This API retrieves the list of products from the Marketing Catalog microservice.",
+        "operationId" : "getProductListProductSelection",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductSelection"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/ProductDashboard/getProductsFromProductGroup" : {
+      "post" : {
+        "tags" : [ "ProductDashboard" ],
+        "summary" : "This API fetches the list of products that are part of a product group. The list is displayed on the frmProductGroup page.",
+        "operationId" : "getProductsFromProductGroupProductDashboard",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ProductDashboard"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/Application/getJMApplicationData" : {
+      "post" : {
+        "tags" : [ "Application" ],
+        "summary" : "This API retrieves the application data of the Journey Manager. The Journey Manager contains the data that the user submitted while creating an application. In addition, it also contains details such as the application status, meta data, and start time of the application.",
+        "operationId" : "getJMApplicationDataApplication",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Application"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Account/getHoldings" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "This API is used to fetch all the account details of the logged-in user. The account details are fetched based on the username of the user. The username is fetched from the identity (Login) session.",
+        "operationId" : "getHoldingsAccount",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Account"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+	    "/ExternalAccountVerification/getAccountDetails" : {
+      "post" : {
+        "tags" : [ "ExternalAccountVerification" ],
+        "summary" : "This API is used to retrieve the account details of the external user based on the public token provided by the client. This API is invoked when the customer selects the funding type as External.",
+        "operationId" : "getAccountDetailsExternalAccountVerification",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ExternalAccountVerification"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Documents/verifyDocuments" : {
+      "post" : {
+        "tags" : [ "Documents" ],
+        "summary" : "This API retrieves the scanned doc details. The supported documents are Passport and Driving Licence. This API leverages a third-party vendor called AuthenticID.",
+        "operationId" : "verifyDocumentsDocuments",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Documents"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/SelfieVerify/verifySelfie" : {
+      "post" : {
+        "tags" : [ "SelfieVerify" ],
+        "summary" : "This API is used to verify the static selfie (Near selfie) and the Liveliness selfie (Far selfie) with the photo of the client in the document. This API leverages a third party vendor called AuthenticID",
+        "operationId" : "verifySelfieSelfieVerify",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/SelfieVerify"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+	
+	    "/Locations/getFormattedAddress" : {
+      "post" : {
+        "tags" : [ "Locations" ],
+        "summary" : "This API fetches the additional address details based on the address suggestion selected by the applicant. Each address suggestion is associated with a specific place_ID and by using this unique ID the API fetches the additional details. The address details include information on the street, city, country, and zip code.",
+        "operationId" : "getFormattedAddressLocations",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Locations"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/Locations/getAddressSuggestions" : {
+      "post" : {
+        "tags" : [ "Locations" ],
+        "summary" : "This API fetches the address suggestions based on the address being typed by the user and the user's current location by using Google APIs. For example, when a user is typing an address, this API creates a circle with the location of the user as the center of the circle. The API then provides address suggestions from locations within the circle that matches with the address being typed by the user. If there are no suggestions that can be provided within the circle, then the API fetches the locations from outside the circle and suggests the addresses to the user. The maximum number of address suggestions that the API can fetch is only 5. The API response contains a parameter called Place_ID, this unique ID is used by the getFormattedAddress API to fetch additional address details.",
+        "operationId" : "getAddressSuggestionsLocations",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Locations"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+	
+	    "/IdentityManagement/getUsernameAndPasswordRulesAndPolicies" : {
+      "post" : {
+        "tags" : [ "IdentityManagement" ],
+        "summary" : "The API retrieves the rules and policies for maintaining a username and a password in the DBX database.",
+        "operationId" : "getUsernameAndPasswordRulesAndPoliciesIdentityManagement",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/IdentityManagement"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/BundleConfigurations/getFunctionalFlowConfiguration" : {
+      "post" : {
+        "tags" : [ "BundleConfigurations" ],
+        "summary" : "",
+        "operationId" : "getFunctionalFlowConfigurationBundleConfigurations",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/BundleConfigurations"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/BundleConfigurations" : { },
+    "/IdentityManagement" : { },
+    "/MembershipEligibilityCriteria" : { },
+    "/BundleConfigurations/fetchConfigurations" : {
+      "post" : {
+        "tags" : [ "BundleConfigurations" ],
+        "summary" : "This API retrieves the key-value pairs present in the Configuration Bundle from the System Configurations in the Spotlight app.",
+        "operationId" : "fetchConfigurationsBundleConfigurations",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/BundleConfigurations"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/MembershipEligibilityCriteria/getMembershipEligibilityCriteriaList" : {
+      "post" : {
+        "tags" : [ "MembershipEligibilityCriteria" ],
+        "summary" : "This API retrieves the eligibility criteria list from the Business Configurations module in the Spotlight app by using the getEligibilityCriteria service. In the Onboarding application, this API is used in EligibilityCheck module.",
+        "operationId" : "getMembershipEligibilityCriteriaListMembershipEligibilityCriteria",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/MembershipEligibilityCriteria"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    }
+	
+  },
+  "securityDefinitions" : {
+    "basic" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "Account" : {
+      "type" : "object",
+      "properties" : {
+        "userName" : {
+          "type" : "string",
+          "description" : "Specifies the username fetched from the Identity response. The Identity response is generated when the user signs in to the account"
+        }
+      }
+    },
+    "Response_IdentityInfo" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "ID" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response_ProductDashboard" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "Specifies the unique ID of the product group" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Funding" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the account"
+        },
+        "Application_id" : {
+          "type" : "string",
+          "description" : "Specifies the Journey Manager Tracking ID"
+        },
+        "FundingProduct" : {
+          "type" : "string",
+          "description" : "Specifies the product to which the account is created and funded"
+        },
+        "FundingType" : {
+          "type" : "string",
+          "description" : "Specifies the nature of the funding operation. The possible values for Funding type are Intra (Within the bank) and Inter (External)"
+        },
+        "FundingStatus" : {
+          "type" : "string",
+          "description" : "Specifies the status of the funding operation. The possible values for the funding status are Initiated, OptedOut, and Opted"
+        },
+        "DebitAccount" : {
+          "type" : "string",
+          "description" : "Specifies the account from which the amount gets debited"
+        },
+        "DebitCurrency" : {
+          "type" : "string",
+          "description" : "Specifies the currency code used for the debit transactions. For example, for US Dollars the code is USD"
+        },
+        "DebitIBAN" : {
+          "type" : "string",
+          "description" : "Specifies the International Bank Account Number that is used for performing the debit transaction"
+        },
+        "DebitRoutingNumber" : {
+          "type" : "string",
+          "description" : "Specifies the bank identifier number for performing debit transactions"
+        },
+        "DebitAccountType" : {
+          "type" : "string",
+          "description" : "Specifies the type of the debit account such as Savings, Loan, Checking and so on"
+        },
+        "BankName" : {
+          "type" : "string",
+          "description" : "Specifies the name of the bank"
+        },
+        "FundingProducts" : {
+          "type" : "string",
+          "description" : "Specifies the products to which the accounts are created and funded"
+        }
+      }
+    },
+    "ProductSelection" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the user"
+        },
+        "Application_id" : {
+          "type" : "string",
+          "description" : "Specifies the Journey Manager Tracking ID"
+        },
+        "ProductIDs" : {
+          "type" : "string",
+          "description" : "Specifies an array of unique product IDs"
+        },
+        "ProductCurrency" : {
+          "type" : "string",
+          "description" : "Specifies an array of product currency codes"
+        },
+        "ProgressStatus" : {
+          "type" : "string"
+        },
+        "DateOfBirth" : {
+          "type" : "string",
+          "description" : "Specifies the date of birth of the user"
+        },
+        "ProductID1" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the product"
+        },
+        "ProductID2" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the product"
+        },
+        "ProductID3" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the product"
+        },
+        "ProductID4" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the product"
+        },
+        "ProductID5" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the product"
+        },
+        "ProductName1" : {
+          "type" : "string",
+          "description" : "Specifies the name of the product"
+        },
+        "ProductName2" : {
+          "type" : "string",
+          "description" : "Specifies the name of the product"
+        },
+        "ProductName3" : {
+          "type" : "string",
+          "description" : "Specifies the name of the product"
+        },
+        "ProductName4" : {
+          "type" : "string",
+          "description" : "Specifies the name of the product"
+        },
+        "ProductName5" : {
+          "type" : "string",
+          "description" : "Specifies the name of the product"
+        },
+        "ProductCurrency1" : {
+          "type" : "string",
+          "description" : "Specifies the currency code for the product"
+        },
+        "ProductCurrency2" : {
+          "type" : "string",
+          "description" : "Specifies the currency code for the product"
+        },
+        "ProductCurrency3" : {
+          "type" : "string",
+          "description" : "Specifies the currency code for the product"
+        },
+        "ProductCurrency4" : {
+          "type" : "string",
+          "description" : "Specifies the currency code for the product"
+        },
+        "ProductCurrency5" : {
+          "type" : "string",
+          "description" : "Specifies the currency code for the product"
+        },
+        "Products" : {
+          "type" : "string",
+          "description" : "Specifies an array that contains various products and the corresponding details"
+        },
+        "NoOfProducts" : {
+          "type" : "string",
+          "description" : "Specifies the number of products that must be updated. The NoOfProducts parameter can be skipped in the payload."
+        },
+        "currentSectionProgressStatus" : {
+          "type" : "string",
+          "description" : "Specifies the progress status for the roadmap (In-Progress/Done)"
+        },
+        "Purpose" : {
+          "type" : "string",
+          "description" : "Specifies the purpose that is assigned to each product"
+        },
+        "currentSection" : {
+          "type" : "string",
+          "description" : "Specifies the current section name in the roadmap"
+        }
+      }
+    },
+    "Response_Account" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "userName" : {
+          "type" : "string",
+          "description" : "Specifies the username fetched from the Identity response. The Identity response is generated when the user signs in to the account"
+        }
+      }
+    },
+    "ProductDashboard" : {
+      "type" : "object",
+      "properties" : {
+        "Specifies the unique ID of the product group" : {
+          "type" : "string"
+        },
+        "ProductGroupName" : {
+          "type" : "string",
+          "description" : "Specifies the name of the product group"
+        },
+        "ProductGroupImg" : {
+          "type" : "string",
+          "description" : "Specifies the image details associated with the product group"
+        },
+        "ProductID" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the product"
+        },
+        "Currency" : {
+          "type" : "string",
+          "description" : "Specifies the currency code. For example, for US dollars the currency code is USD"
+        },
+        "Purpose" : {
+          "type" : "string",
+          "description" : "Specifies the purpose of the product"
+        },
+        "ProductCatalogue" : {
+          "type" : "string",
+          "description" : "Specifies the various details contained in the Product Catalog"
+        },
+        "ProductGroups" : {
+          "type" : "string",
+          "description" : "Specifies an array of product groups and the corresponding details"
+        },
+        "Products" : {
+          "type" : "string",
+          "description" : "Specifies an array of products and the corresponding details"
+        },
+        "ProductName" : {
+          "type" : "string",
+          "description" : "Specifies the unique name of the product"
+        },
+        "ProductDescription" : {
+          "type" : "string",
+          "description" : "Specifies a brief description of the product"
+        },
+        "ImageDetails" : {
+          "type" : "string",
+          "description" : "Specifies the various details of the images in the product group, such as image type, height, and extension data"
+        },
+        "ProductDetailedDescription" : {
+          "type" : "string",
+          "description" : "Specifies the detailed description of the product"
+        },
+        "ProductNotes" : {
+          "type" : "string",
+          "description" : "Specifies the additional notes provided for the product"
+        },
+        "ProductTermsAndConditions" : {
+          "type" : "string",
+          "description" : "Specifies the terms and conditions associated with the product"
+        },
+        "ProductDisclosure" : {
+          "type" : "string",
+          "description" : ""
+        }
+      }
+    },
+    "Response_Get_ProductDashboard" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ProductDashboard"
+          }
+        }
+      }
+    },
+    "Response_Delete" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "deletedRecords" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Response_ProductSelection" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the user"
+        }
+      }
+    },
+    "Response_Funding" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the account"
+        }
+      }
+    },
+    "Response_Get_Account" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Account"
+          }
+        }
+      }
+    },
+    "Response_PersonalInfo" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the applicant"
+        }
+      }
+    },
+    "IDV" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the user"
+        },
+        "Application_id" : {
+          "type" : "string",
+          "description" : "Specifies the Journey Manager Tracking ID"
+        },
+        "ApplicantType" : {
+          "type" : "string",
+          "description" : "Specifies the type of applicant (Applicant/Co-Applicant)"
+        },
+        "decision" : {
+          "type" : "string",
+          "description" : "Specifies the decision taken after performing the identity verification (UnderReview/Approved/Denied)"
+        },
+        "vendorId" : {
+          "type" : "string",
+          "description" : "Specifies the unique Idology service ID"
+        },
+        "field1" : {
+          "type" : "string",
+          "description" : "Specifies the summary of the verification"
+        },
+        "field2" : {
+          "type" : "string",
+          "description" : "Specifies the result of the ID verification"
+        },
+        "field3" : {
+          "type" : "string",
+          "description" : "Specifies the restriction on the verification (For Example: Office of Foreign Asset Control)"
+        },
+        "field4" : {
+          "type" : "string",
+          "description" : "Specifies the Qualifiers (For Example: resultcode.zip.does.not.match)"
+        },
+        "field5" : {
+          "type" : "string",
+          "description" : "Specifies whether the IDV verification is required"
+        },
+        "field6" : {
+          "type" : "string",
+          "description" : "Specifies the result of the IDV verification"
+        },
+        "field7" : {
+          "type" : "string",
+          "description" : "Specifies the number of questions asked during the IDV verification"
+        },
+        "field8" : {
+          "type" : "string",
+          "description" : "Specifies the execution response"
+        },
+        "field9" : {
+          "type" : "string",
+          "description" : "Specifies the verification response"
+        },
+        "currentSectionProgressStatus" : {
+          "type" : "string",
+          "description" : "Specifies the progress status for the roadmap (In-Progress/Done)"
+        },
+        "currentSection" : {
+          "type" : "string",
+          "description" : "Specifies the current section name in the roadmap"
+        }
+      }
+    },
+    "Response_Get_Application" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Application"
+          }
+        }
+      }
+    },
+    "Response_IDV" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the user"
+        }
+      }
+    },
+    "Response_Get_IdentityInfo" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/IdentityInfo"
+          }
+        }
+      }
+    },
+    "Response_Get_PersonalInfo" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PersonalInfo"
+          }
+        }
+      }
+    },
+    "Response_Get_AddressInfo" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AddressInfo"
+          }
+        }
+      }
+    },
+    "Response_Get_ProductSelection" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ProductSelection"
+          }
+        }
+      }
+    },
+    "Response_Get_IDV" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/IDV"
+          }
+        }
+      }
+    },
+    "Response_Application" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "Application_id" : {
+          "type" : "string",
+          "description" : "Specifies the Journey Manager Tracking ID"
+        }
+      }
+    },
+    "AddressInfo" : {
+      "type" : "object",
+      "properties" : {
+        "ID" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the user"
+        },
+        "Application_id" : {
+          "type" : "string",
+          "description" : "Specifies the Journey Manager Tracking ID"
+        },
+        "ApplicantType" : {
+          "type" : "string",
+          "description" : "Specifies the type of applicant(Applicant/Co-Applicant)"
+        },
+        "AddressLine1" : {
+          "type" : "string",
+          "description" : "Specifies the first line of address of the user"
+        },
+        "AddressLine2" : {
+          "type" : "string",
+          "description" : "Specifies the second line of address of the user"
+        },
+        "City" : {
+          "type" : "string",
+          "description" : "Specifies the name of the city"
+        },
+        "State" : {
+          "type" : "string",
+          "description" : "Specifies the name of the state"
+        },
+        "Country" : {
+          "type" : "string",
+          "description" : "Specifies the name of the country"
+        },
+        "Zipcode" : {
+          "type" : "string",
+          "description" : "Specifies the zip-code"
+        },
+        "PersonalInfo_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID assigned to the personal information of the user"
+        },
+        "DateOfBirth" : {
+          "type" : "string",
+          "description" : "Specifies the date of birth of the user"
+        },
+        "currentSectionProgressStatus" : {
+          "type" : "string",
+          "description" : "Specifies the progress status for the roadmap (In-Progress/Done)"
+        },
+        "currentSection" : {
+          "type" : "string",
+          "description" : "Specifies the current section name in the roadmap"
+        }
+      }
+    },
+    "PersonalInfo" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the applicant"
+        },
+        "Application_id" : {
+          "type" : "string",
+          "description" : "Specifies the Journey Manager Tracking ID"
+        },
+        "ApplicantType" : {
+          "type" : "string",
+          "description" : "Specifies the type of applicant (Applicant/Co-Applicant)"
+        },
+        "FirstName" : {
+          "type" : "string",
+          "description" : "Specifies the first name of the applicant"
+        },
+        "LastName" : {
+          "type" : "string",
+          "description" : "Specifies the last name of the applicant"
+        },
+        "DateOfBirth" : {
+          "type" : "string",
+          "description" : "Specifies the data of birth of the applicant"
+        },
+        "Email" : {
+          "type" : "string",
+          "description" : "Specifies the Email ID of the applicant"
+        },
+        "MobileNumber" : {
+          "type" : "string",
+          "description" : "Specifies the mobile number of the applicant"
+        },
+        "MobileCountryCode" : {
+          "type" : "string",
+          "description" : "Specifies the unique country code for phone communication"
+        },
+        "SSN" : {
+          "type" : "string",
+          "description" : "Specifies the Social Security Number of the applicant"
+        },
+        "Party_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the Party microservice"
+        },
+        "Age" : {
+          "type" : "integer",
+          "description" : "Specifies the age of the applicant"
+        },
+        "Amount" : {
+          "type" : "string"
+        },
+        "IsExistentMember" : {
+          "type" : "string",
+          "description" : "Specifies whether the applicant is already an existing member. The value is Boolean"
+        },
+        "CIF" : {
+          "type" : "string",
+          "description" : "Specifies the Customer Information File data of the applicant"
+        },
+        "Product_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the product"
+        },
+        "currentSectionProgressStatus" : {
+          "type" : "string",
+          "description" : "Specifies the progress status for the roadmap (In-Progress/Done)"
+        },
+        "currentSection" : {
+          "type" : "string",
+          "description" : "Specifies the current section name in the roadmap"
+        },
+        "BranchRef" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Response_Get_Funding" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Funding"
+          }
+        }
+      }
+    },
+    "IdentityInfo" : {
+      "type" : "object",
+      "properties" : {
+        "ID" : {
+          "type" : "string"
+        },
+        "Application_id" : {
+          "type" : "string",
+          "description" : "Specifies the Journey Manager Tracking ID"
+        },
+        "ApplicantType" : {
+          "type" : "string",
+          "description" : "Specifies the type of applicant (Applicant/Co-Applicant)"
+        },
+        "TaxIdNum" : {
+          "type" : "string",
+          "description" : "Specifies the unqiue number assigned to the Tax ID"
+        },
+        "IDType" : {
+          "type" : "string"
+        },
+        "IssuedCountry" : {
+          "type" : "string",
+          "description" : "Specifies the country in which the ID ws issued"
+        },
+        "IdNum" : {
+          "type" : "string"
+        },
+        "IssuedState" : {
+          "type" : "string",
+          "description" : "Specifies the state in which the ID was issued"
+        },
+        "IssuedDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Specifies the date on which the ID was issued"
+        },
+        "ExpirationDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "Specifies the date on which the issued ID expires"
+        },
+        "currentSectionProgressStatus" : {
+          "type" : "string",
+          "description" : "Specifies the progress status for the roadmap (In-Progress/Done)"
+        },
+        "currentSection" : {
+          "type" : "string",
+          "description" : "Specifies the current section name in the roadmap"
+        }
+      }
+    },
+    "Response_AddressInfo" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "ID" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the user"
+        }
+      }
+    },
+    "Response_Custom" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Application" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the applicant"
+        },
+        "Party_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the Party Micro Service"
+        },
+        "Status" : {
+          "type" : "string",
+          "description" : "Specifies the status of the application (Approved/Denied)"
+        },
+        "ApplicationType" : {
+          "type" : "string",
+          "description" : "Specifies the type of application"
+        },
+        "EligibilityCriteria" : {
+          "type" : "string",
+          "description" : "Specifies the eligibility criteria for the applicant as set in the Spotlight app"
+        },
+        "TnCFlag" : {
+          "type" : "string",
+          "description" : "Specifies the status of the flag on whether the user has accepted the terms and conditions"
+        },
+        "LastSection" : {
+          "type" : "string",
+          "description" : "Specifies the name of the section that was last visited by the user"
+        },
+        "CoApplicantCount" : {
+          "type" : "string",
+          "description" : "Specifies the number of co-applicants"
+        },
+        "Application_id" : {
+          "type" : "string",
+          "description" : "Specifies the Journey Manager Tracking ID"
+        },
+        "ApplicantType" : {
+          "type" : "string",
+          "description" : "Specifies the type of applicant (Applicant/Co-Applicant)"
+        },
+        "DateOfBirth" : {
+          "type" : "string",
+          "description" : "Specifies the date of birth of the applicant"
+        },
+        "currentSectionProgressStatus" : {
+          "type" : "string",
+          "description" : "Specifies the progress status for the roadmap (In-Progress/Done)"
+        },
+        "LastUpdatedSection" : {
+          "type" : "string",
+          "description" : "Specifies the name of the section that was last updated"
+        },
+        "currentSection" : {
+          "type" : "string",
+          "description" : "Specifies the current section name in the roadmap"
+        },
+        "saveChallengeAnswer" : {
+          "type" : "string",
+          "description" : "Specifies the answer for the challenge question set by the user"
+        },
+        "TrackingCode" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the application"
+        }
+      }
+    },
+	
+	    "Response_ExternalAccountVerification" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "public_token" : {
+          "type" : "string",
+          "description" : "Specifies the public token to fetch the external account details of the user. The public token is used by the Plaid service to fetch the details"
+        },
+        "accountId" : {
+          "type" : "string",
+          "description" : "Specifies the account number of the user"
+        }
+      }
+    },
+    "Response_Get_ExternalAccountVerification" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ExternalAccountVerification"
+          }
+        }
+      }
+    },
+    "ExternalAccountVerification" : {
+      "type" : "object",
+      "properties" : {
+        "public_token" : {
+          "type" : "string",
+          "description" : "Specifies the public token to fetch the external account details of the user. The public token is used by the Plaid service to fetch the details"
+        },
+        "accountId" : {
+          "type" : "string",
+          "description" : "Specifies the account number of the user"
+        }
+      }
+    },
+	    "Response_Get_SelfieVerify" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SelfieVerify"
+          }
+        }
+      }
+    },
+    "Documents" : {
+      "type" : "object",
+      "properties" : {
+        "accountCode" : {
+          "type" : "string",
+          "description" : "Specifies the account code of the applicant"
+        },
+        "backImage64" : {
+          "type" : "string",
+          "description" : "Specifies the back image of the document. The image must be recorded in Base 64 format"
+        },
+        "documentType" : {
+          "type" : "string",
+          "description" : "Specifies the type of document (Passport/License)"
+        },
+        "frontImage64" : {
+          "type" : "string",
+          "description" : "Specifies the front image of the document. The image must be recorded in Base 64 format"
+        },
+        "verifyStatus" : {
+          "type" : "string",
+          "description" : "Specifies the verification status of the document"
+        },
+        "prefillData" : {
+          "type" : "string",
+          "description" : "Specifies the pre-filled data"
+        },
+        "executionStatus" : {
+          "type" : "string",
+          "description" : "Specifies the status of the scanned document"
+        },
+        "LocationCode" : {
+          "type" : "string",
+          "description" : "Specifies the location code for the scanned document"
+        },
+        "transactionId" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the transaction"
+        },
+        "FirstName" : {
+          "type" : "string",
+          "description" : "Specifies the first name of the applicant"
+        },
+        "errorCode" : {
+          "type" : "string",
+          "description" : "Specifies the error code fetched from the backend"
+        },
+        "errorMessage" : {
+          "type" : "string",
+          "description" : "Specifies the error message fetched from the backend"
+        }
+      }
+    },
+    "SelfieVerify" : {
+      "type" : "object",
+      "properties" : {
+        "accountCode" : {
+          "type" : "string",
+          "description" : "Specifies the account code that is necessary for hitting the Authentic ID APIs"
+        },
+        "farSelfieImage64" : {
+          "type" : "string",
+          "description" : "Specifies the base64 data of the Far Selfie (Liveliness Selfie)"
+        },
+        "nearSelfieImage64" : {
+          "type" : "string",
+          "description" : "Specifies the base 64 data of the Near Selfie (Static Selfie)"
+        },
+        "transactionId" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID that gets generated by the AuthenticID third party APIs and passed as the response"
+        }
+      }
+    },
+    "Response_Documents" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "accountCode" : {
+          "type" : "string",
+          "description" : "Specifies the account code of the applicant"
+        }
+      }
+    },
+    "Response_SelfieVerify" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Response_Get_Documents" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Documents"
+          }
+        }
+      }
+    },
+	
+	    "Response_Get_Locations" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Locations"
+          }
+        }
+      }
+    },
+    "Locations" : {
+      "type" : "object",
+      "properties" : {
+        "API_KEY" : {
+          "type" : "string",
+          "description" : "Specifies the Google API key to fetch the addresses"
+        },
+        "country" : {
+          "type" : "string",
+          "description" : "Specifies the name of the country"
+        },
+        "currLatitude" : {
+          "type" : "string",
+          "description" : "Specifies the latitiude information based on the current location of the user"
+        },
+        "currLongitude" : {
+          "type" : "string",
+          "description" : "Specifies the longitude information based on the current location of the user"
+        },
+        "formattedAddress" : {
+          "type" : "string",
+          "description" : "Specifies the formatted address that is suggested by the application"
+        },
+        "place_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID associated with a place or location suggested by the application"
+        },
+        "query" : {
+          "type" : "string",
+          "description" : "Specifies the address information typed by the user. Based on the query the address suggestions are fetched"
+        },
+        "address_components" : {
+          "type" : "string",
+          "description" : "Specifies the various components such as street, city, state, country and zip-code that together forms the address"
+        },
+        "radius" : {
+          "type" : "string",
+          "description" : "Specifies the radius of the circle with the location of the user at the center"
+        },
+        "errorCode" : {
+          "type" : "string",
+          "description" : "Specifies the error code that is received from the backend"
+        },
+        "errorMessage" : {
+          "type" : "string",
+          "description" : "Specifies the error message that is received from the backend"
+        }
+      }
+    },
+    "Response_Locations" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "API_KEY" : {
+          "type" : "string",
+          "description" : "Specifies the Google API key to fetch the addresses"
+        }
+      }
+    },
+	
+	    "MembershipEligibilityCriteria" : {
+      "type" : "object",
+      "properties" : {
+        "description" : {
+          "type" : "string",
+          "description" : "description"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the applicant"
+        },
+        "errcode" : {
+          "type" : "integer",
+          "description" : "Specifies the error code fetched from the backend"
+        },
+        "errorMessage" : {
+          "type" : "string",
+          "description" : "Specifies the error message fetched from the backend"
+        },
+        "errmsg" : {
+          "type" : "string",
+          "description" : "Specifies the error message fetched from the backend"
+        },
+        "Status_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID associated with the status of the applicant's eligibility"
+        }
+      }
+    },
+    "BundleConfigurations" : {
+      "type" : "object",
+      "properties" : {
+        "app_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the Spotlight app"
+        },
+        "bundle_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the Configuration bundle that is present in the Spotlight app"
+        },
+        "bundle_name" : {
+          "type" : "string",
+          "description" : "Specifies the name of the Configuration bundle that is present in the Spotlight app"
+        },
+        "configuration_id" : {
+          "type" : "string",
+          "description" : "Specfies the unique ID of the Configuration key"
+        },
+        "config_key" : {
+          "type" : "string",
+          "description" : "Specifies the configuration key name present in the Configuration bundle"
+        },
+        "errcode" : {
+          "type" : "integer",
+          "description" : "Specifies the error code fetched from the backend"
+        },
+        "errmsg" : {
+          "type" : "string",
+          "description" : "Specifies the error message fetched from the backend"
+        },
+        "isPreLoginConfiguration" : {
+          "type" : "string",
+          "description" : "Specfies the "
+        },
+        "key" : {
+          "type" : "string",
+          "description" : "Specifies the key that is set in the Configuration bundle"
+        },
+        "target" : {
+          "type" : "string",
+          "description" : "target"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "type"
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "value"
+        }
+      }
+    },
+    "Response_Get_BundleConfigurations" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/BundleConfigurations"
+          }
+        }
+      }
+    },
+    "Response_IdentityManagement" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Response_Get_IdentityManagement" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/IdentityManagement"
+          }
+        }
+      }
+    },
+    "IdentityManagement" : {
+      "type" : "object",
+      "properties" : {
+        "passwordPolicyForAllLocales" : {
+          "type" : "string",
+          "description" : "Specifies the password policy that is fetched for all different locales (Languages) set by the user in the application"
+        },
+        "usernamePolicyForAllLocales" : {
+          "type" : "string",
+          "description" : "Specifies the username policy that is fetched for all different locales (Languages) set by the user in the application"
+        }
+      }
+    },
+    "Response_MembershipEligibilityCriteria" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the applicant"
+        }
+      }
+    },
+    "Response_BundleConfigurations" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "bundle_name" : {
+          "type" : "string",
+          "description" : "Specifies the name of the Configuration bundle that is present in the Spotlight app"
+        }
+      }
+    },
+
+    "Response_Get_MembershipEligibilityCriteria" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/MembershipEligibilityCriteria"
+          }
+        }
+      }
+    }	
+  }
+
+}

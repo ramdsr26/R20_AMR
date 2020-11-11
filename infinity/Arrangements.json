@@ -1,0 +1,777 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Arrangements API is used to fetch the customer’s account-related information. This information includes Account details, Balance and other interest-related information. Arrangement APIs are connected to other microservices or T24 to fetch the customer’s account details based on the user requirement.",
+    "version" : "1.0",
+    "title" : "Arrangements"
+  },
+  "host" : "vivekiyer1.konycloud.com/services",
+  "basePath" : "/data/v1/RBObjects/objects",
+  "tags" : [ {
+    "name" : "Accounts"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/Accounts/getAccountsByCustomerIdForAdmin" : {
+      "post" : {
+        "tags" : [ "Accounts" ],
+        "summary" : "This API is used by the adminstrator to fetch all the accounts by using the customer ID. The customer ID is a unique ID that is specific to a customer. This API provides an admin based access to accounts",
+        "operationId" : "getAccountsByCustomerIdForAdminAccounts",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Accounts"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Accounts/getAccountDetails" : {
+      "post" : {
+        "tags" : [ "Accounts" ],
+        "summary" : "This API retrieves the details of an account. This API is invoked when the customer selects an account from the Dashboard screen. All the details about the account such as account holder name, available balance, account type, and so on are fetched and displayed to the customer.",
+        "operationId" : "getAccountDetailsAccounts",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Accounts"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Accounts/getAccountsPostLogin" : {
+      "post" : {
+        "tags" : [ "Accounts" ],
+        "summary" : "This API fetches all the accounts associated with the customer such as savings, deposit, credit accounts, and so on from the associated Microservice or T24. The accounts that are fetched are displayed to the customer based on the account type. This API gets invoked immediately after a customer signs in to his/her account.",
+        "operationId" : "getAccountsPostLoginAccounts",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Accounts"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Accounts" : {
+      "get" : {
+        "tags" : [ "Accounts" ],
+        "summary" : "This API is also used to fetch all the accounts similar to getAccountPostLogin API but contains certain additional capabilities such as pre-authentication for compatibility with smartwatches (Pre-Authentication eases the login process, as the user does not have to manually login which is difficult in smartwatches)",
+        "operationId" : "getAccounts",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Get_Accounts"
+            }
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      }
+    },
+    "/Accounts/getAccountsForAdmin" : {
+      "post" : {
+        "tags" : [ "Accounts" ],
+        "summary" : "This API is used by the administrator to fetch all the accounts by using the User ID. The User ID is the ID that gets generated for every user post login. This API provides an admin based access to accounts",
+        "operationId" : "getAccountsForAdminAccounts",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Accounts"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basic" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "Response_Accounts" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "accountID" : {
+          "type" : "string",
+          "description" : "Specifies the account ID of the customer."
+        }
+      }
+    },
+    "Response_Get_Accounts" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Accounts"
+          }
+        }
+      }
+    },
+    "Response_Custom" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Response_Delete" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "deletedRecords" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Accounts" : {
+      "type" : "object",
+      "properties" : {
+        "accountHolder" : {
+          "type" : "string",
+          "description" : "Specifies the name of the account holder"
+        },
+        "accountID" : {
+          "type" : "string",
+          "description" : "Specifies the account ID of the customer."
+        },
+        "accountli" : {
+          "type" : "string",
+          "description" : "Specifies the list of accounts of a customer"
+        },
+        "accountName" : {
+          "type" : "string",
+          "description" : "Specifies the name of the account"
+        },
+        "accountPreference" : {
+          "type" : "string",
+          "description" : "Specifies the preferred account set by the user. Based on the preference the accounts get displayed"
+        },
+        "accountType" : {
+          "type" : "string",
+          "description" : "Specifies the account type such as Savings, Loan, Debit, and so on. Based on the account type value the API fetches the respective accounts"
+        },
+        "availableBalance" : {
+          "type" : "string",
+          "description" : "Specifies the available balance that a person holds in his account."
+        },
+        "availableCredit" : {
+          "type" : "string",
+          "description" : "Specifies the available credit that a customer can avail to meet his requirements."
+        },
+        "availablePoints" : {
+          "type" : "string",
+          "description" : "Specifies the points that are available to the customer. The customer can use these points to avail the benefits that his/her bank offers"
+        },
+        "bankName" : {
+          "type" : "string",
+          "description" : "Specifies the name of the bank in which the customer has created an account"
+        },
+        "bondInterest" : {
+          "type" : "string",
+          "description" : "Specifies the interest amount that the bond provides to the customer"
+        },
+        "bondInterestLastYear" : {
+          "type" : "string",
+          "description" : "Specifies the interest amount that the bond provided during the previous year"
+        },
+        "bsbNum" : {
+          "type" : "string",
+          "description" : "Specifies the Bank-State-Branch number to identify various banks and branches. This number is exclusive to Australia."
+        },
+        "closingDate" : {
+          "type" : "string"
+        },
+        "creditCardNumber" : {
+          "type" : "string",
+          "description" : "Specifies the credit card number of the user"
+        },
+        "creditLimit" : {
+          "type" : "string",
+          "description" : "Specifies the limit on credit up to which the customer can avail"
+        },
+        "currencyCode" : {
+          "type" : "string",
+          "description" : "Specifies the code of your currency such as EUR, USD, JPY, and so on."
+        },
+        "currentAmountDue" : {
+          "type" : "string",
+          "description" : "Specifies the due amount that has to be paid by the customer."
+        },
+        "currentBalance" : {
+          "type" : "string",
+          "description" : "Specifies the current amount balance in the account"
+        },
+        "deviceID" : {
+          "type" : "string",
+          "description" : "Specifies the ID of the customer's device"
+        },
+        "dividendLastPaidAmount" : {
+          "type" : "string",
+          "description" : "Specifies the dividend amount that was paid to the customer last time"
+        },
+        "dividendLastPaidDate" : {
+          "type" : "string",
+          "description" : "Specifies the date on which the dividend amount that was paid last time."
+        },
+        "dividendPaidYTD" : {
+          "type" : "string",
+          "description" : "Specifies the dividend amount that was paid from the beginning of the current year to the present date (Year To Date)"
+        },
+        "dividendRate" : {
+          "type" : "string"
+        },
+        "dividendYTD" : {
+          "type" : "string"
+        },
+        "dueDate" : {
+          "type" : "string",
+          "description" : "Specifies the due date by which the dividend must be paid by the customer."
+        },
+        "errmsg" : {
+          "type" : "string",
+          "description" : "Specifies the error message that gets displayed when the operation fails"
+        },
+        "eStatementEnable" : {
+          "type" : "string",
+          "description" : "Specifies whether the provision of electronic statement has been enabled or not for the customer"
+        },
+        "favouriteStatus" : {
+          "type" : "string"
+        },
+        "interestEarned" : {
+          "type" : "string"
+        },
+        "interestPaidLastYear" : {
+          "type" : "string",
+          "description" : "Specifies the amount of interest that a customer has paid in the previous year"
+        },
+        "interestPaidPreviousYTD" : {
+          "type" : "string",
+          "description" : "Specifies the amount of interest that the customer has paid from the beginning of the last year to the present date in the previous year"
+        },
+        "interestPaidYTD" : {
+          "type" : "string",
+          "description" : "Specifies the interest paid by the customer from the beginning of the current year to the present date"
+        },
+        "interestRate" : {
+          "type" : "string",
+          "description" : "Specifies the rate of interest that a customer has to pay"
+        },
+        "isInternationalAccount" : {
+          "type" : "string",
+          "description" : "Specifies whether that account is internationally valid. The value is boolean"
+        },
+        "isPFM" : {
+          "type" : "string",
+          "description" : "Specifies whether the application supports Personal Finance Management feature. The value is boolean"
+        },
+        "jointHolders" : {
+          "type" : "string",
+          "description" : "Specifies an array of joint holders"
+        },
+        "lastDividendPaidAmount" : {
+          "type" : "string"
+        },
+        "lastDividendPaidDate" : {
+          "type" : "string"
+        },
+        "lastPaymentAmount" : {
+          "type" : "string"
+        },
+        "lastPaymentDate" : {
+          "type" : "string"
+        },
+        "lastStatementBalance" : {
+          "type" : "string",
+          "description" : "lastStatementBalance"
+        },
+        "lateFeesDue" : {
+          "type" : "string",
+          "description" : "Specifies the amount of fees that is in due"
+        },
+        "maturityAmount" : {
+          "type" : "string"
+        },
+        "maturityDate" : {
+          "type" : "string",
+          "description" : "Specifies the date on which the bond or deposit matures"
+        },
+        "maturityOption" : {
+          "type" : "string"
+        },
+        "minimumDue" : {
+          "type" : "string",
+          "description" : "minimumDue"
+        },
+        "nickName" : {
+          "type" : "string",
+          "description" : "nickName"
+        },
+        "openingDate" : {
+          "type" : "string",
+          "description" : "openingDate"
+        },
+        "originalAmount" : {
+          "type" : "string"
+        },
+        "outstandingBalance" : {
+          "type" : "string",
+          "description" : "Specifies the balance amount that the customer has to pay for the additional borrowing by the customer over the credit limit"
+        },
+        "paymentDue" : {
+          "type" : "string",
+          "description" : "Specifies the amount that is due for payment"
+        },
+        "paymentMethod" : {
+          "type" : "string",
+          "description" : "Specifies the method in which the payment transaction is made"
+        },
+        "paymentTerm" : {
+          "type" : "string",
+          "description" : "Specifies the time period before which the payment has to be made"
+        },
+        "payoffAmount" : {
+          "type" : "string"
+        },
+        "payOffCharge" : {
+          "type" : "string"
+        },
+        "pendingDeposit" : {
+          "type" : "string",
+          "description" : "Specifies the deposit amount that is pending to be paid"
+        },
+        "pendingWithdrawal" : {
+          "type" : "string",
+          "description" : "Specifies the pending withdrawals by the customer"
+        },
+        "phoneId" : {
+          "type" : "string",
+          "description" : "Specifies the ID of customer's mobile device"
+        },
+        "previousYearDividend" : {
+          "type" : "string",
+          "description" : "Specifies the dividend amount that was payed the previous year"
+        },
+        "previousYearsDividends" : {
+          "type" : "string",
+          "description" : "Specifies the list of all the dividends that were payed earlier"
+        },
+        "principalBalance" : {
+          "type" : "string",
+          "description" : "Specifies the principal balance in the customer's account"
+        },
+        "principalValue" : {
+          "type" : "string",
+          "description" : "Specifies the principal value for an interest that has to be paid by the customer"
+        },
+        "regularPaymentAmount" : {
+          "type" : "string",
+          "description" : "Specifies the amount that has to be paid in a time-bound period"
+        },
+        "routingNumber" : {
+          "type" : "string",
+          "description" : "Specifies the routing number of a customer"
+        },
+        "success" : {
+          "type" : "string",
+          "description" : "Specifies whether the operation is a success with a message"
+        },
+        "supportBillPay" : {
+          "type" : "string",
+          "description" : "Specifies whether the account supports bill pay. The value is boolean"
+        },
+        "supportCardlessCash" : {
+          "type" : "string",
+          "description" : "Specifies whether the account supports cardless cash. The value is boolean"
+        },
+        "supportDeposit" : {
+          "type" : "string",
+          "description" : "Specifies whether the account accepts deposits"
+        },
+        "supportTransferFrom" : {
+          "type" : "string",
+          "description" : "Specifies if the account can receive amount from other accounts"
+        },
+        "supportTransferTo" : {
+          "type" : "string",
+          "description" : "Specifies if the account supports transferring amount to another account"
+        },
+        "swiftCode" : {
+          "type" : "string",
+          "description" : "Specifies the swift code for international transactions"
+        },
+        "totalCreditMonths" : {
+          "type" : "string",
+          "description" : "Specifies the total number of credit months available to the customer"
+        },
+        "totalDebitsMonth" : {
+          "type" : "string",
+          "description" : "Specifies the total number of debit months available to the customer"
+        },
+        "transactionLimit" : {
+          "type" : "string",
+          "description" : "Specifies the limit of transactions that a customer can make"
+        },
+        "transferLimit" : {
+          "type" : "string",
+          "description" : "Specifies the limit on the amount that can be transferred to other account"
+        },
+        "unpaidInterest" : {
+          "type" : "string",
+          "description" : "Specifies the interest amount that is in due by the customer"
+        },
+        "userName" : {
+          "type" : "string",
+          "description" : "Specifies the user name of the customer"
+        },
+        "email" : {
+          "type" : "string",
+          "description" : "Specifies the email ID of the customer"
+        },
+        "jointAccountHolder1" : {
+          "type" : "string",
+          "description" : "Specifies the name of one of the joint account holder"
+        },
+        "jointAccountHolder2" : {
+          "type" : "string",
+          "description" : "Specifies the name of one of the joint account holders"
+        },
+        "bankAddress" : {
+          "type" : "string",
+          "description" : "Specifies the address details of the bank"
+        },
+        "intermediaryBankName" : {
+          "type" : "string",
+          "description" : "Specifies the name of intermediary bank that operates between the customer and the original bank"
+        },
+        "intermediaryBankAddress" : {
+          "type" : "string"
+        },
+        "intermediaryBankSwiftCode" : {
+          "type" : "string",
+          "description" : "Specifies the swift code of the intermediary bank that operates between the customer and the original bank for international transactions"
+        },
+        "StatusDesc" : {
+          "type" : "string",
+          "description" : "Specifies the description of the status"
+        },
+        "supportChecks" : {
+          "type" : "string",
+          "description" : "Specifies whether the bank carries out any checks or verifications for the customer"
+        },
+        "serviceName" : {
+          "type" : "string",
+          "description" : "Specifies the name of the service that is being used to fetch the account data"
+        },
+        "productLi" : {
+          "type" : "string",
+          "description" : "Specifies an array that contains a list of products."
+        },
+        "phone" : {
+          "type" : "string",
+          "description" : "Specifies the phone number of the customer"
+        },
+        "accountSubType" : {
+          "type" : "string",
+          "description" : "Specifies the sub-type of the account"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "schemeName" : {
+          "type" : "string",
+          "description" : "Specifies the name of the scheme."
+        },
+        "identification" : {
+          "type" : "string"
+        },
+        "secondaryIdentification" : {
+          "type" : "string",
+          "description" : "Specifies the secondary type of identification mechanism"
+        },
+        "servicerSchemeName" : {
+          "type" : "string",
+          "description" : "Specifies the name of the servicer scheme"
+        },
+        "servicerIdentification" : {
+          "type" : "string",
+          "description" : "Specifies the code to identify the servicer"
+        },
+        "dataCreditDebitIndicator" : {
+          "type" : "string"
+        },
+        "dataType" : {
+          "type" : "string"
+        },
+        "dataDateTime" : {
+          "type" : "string"
+        },
+        "dataCreditLineIncluded" : {
+          "type" : "string"
+        },
+        "dataCreditLineType" : {
+          "type" : "string"
+        },
+        "dataCreditLineAmount" : {
+          "type" : "string"
+        },
+        "dataCreditLineCurrency" : {
+          "type" : "string"
+        },
+        "IBAN" : {
+          "type" : "string",
+          "description" : "Specifies the International Bank Account Number that is necessary for international accounts"
+        },
+        "displayName" : {
+          "type" : "string",
+          "description" : "Specifies the name by which the account is displayed"
+        },
+        "Account_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the account"
+        },
+        "Organization_Id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID number of your organization"
+        },
+        "Account_Type" : {
+          "type" : "string",
+          "description" : "Specifies the type of the account such as Savings, Loan, Debit, and so on"
+        },
+        "Customer_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the customer"
+        },
+        "Membership_id" : {
+          "type" : "string",
+          "description" : "Specifies the unique membership ID number of the customer"
+        },
+        "Taxid" : {
+          "type" : "string",
+          "description" : "Specifies the unique Tax ID of the customer"
+        },
+        "CustomerType" : {
+          "type" : "string",
+          "description" : "Specifies the type of customer"
+        },
+        "Ssn" : {
+          "type" : "string",
+          "description" : "Specifies the social security number of the customer"
+        },
+        "Status" : {
+          "type" : "string",
+          "description" : "Specifies the status of the operation"
+        },
+        "searchString" : {
+          "type" : "string",
+          "description" : "searchString"
+        },
+        "Ownership" : {
+          "type" : "string",
+          "description" : "Specifies the ownership details over the account"
+        },
+        "LastUpdated" : {
+          "type" : "string"
+        },
+        "ActualUpdatedBY" : {
+          "type" : "string"
+        },
+        "UpdatedBy" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "userId" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the user/customer"
+        },
+        "address" : {
+          "type" : "string",
+          "description" : "Specifies the address details of the user"
+        },
+        "dateOfBirth" : {
+          "type" : "string",
+          "description" : "Specifies the date of birth of the customer"
+        },
+        "firstName" : {
+          "type" : "string",
+          "description" : "Specifies the first name of the customer"
+        },
+        "transactionCurrency" : {
+          "type" : "string",
+          "description" : "Specifies the currency in which the transaction must be made"
+        },
+        "lastName" : {
+          "type" : "string",
+          "description" : "Specifies the last name of the customer"
+        },
+        "stateId" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the customer"
+        },
+        "productId" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the product"
+        },
+        "payingAccount" : {
+          "type" : "string",
+          "description" : "Specifies the account out of which the amount is being debited"
+        },
+        "payoutAccount" : {
+          "type" : "string"
+        },
+        "amount" : {
+          "type" : "string"
+        },
+        "duration" : {
+          "type" : "string"
+        },
+        "externalIndicator" : {
+          "type" : "string"
+        },
+        "isBusinessAccount" : {
+          "type" : "string",
+          "description" : "Specifies whether the account is a business account or not"
+        },
+        "actions" : {
+          "type" : "string",
+          "description" : "Specifies the various acctions supported by the account such as credit, debit, and so on"
+        },
+        "campaignId" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the campaign. Campaign refers to the ads displayed in the application"
+        },
+        "processingTime" : {
+          "type" : "string",
+          "description" : "Specifies the time taken by the application to process the customer's request"
+        },
+        "logoURL" : {
+          "type" : "string"
+        },
+        "productType" : {
+          "type" : "string",
+          "description" : "Specifies the type of the product"
+        },
+        "term" : {
+          "type" : "string",
+          "description" : ""
+        },
+        "connectionAlertDays" : {
+          "type" : "string"
+        },
+        "expiresAt" : {
+          "type" : "string",
+          "description" : "Specifies the time/ date on which the account expires"
+        },
+        "bankCode" : {
+          "type" : "string",
+          "description" : "Specifies the code of the bank"
+        },
+        "futureInstallmentsCount" : {
+          "type" : "string",
+          "description" : "Specifies the count of installments that have to be paid by the customer in future"
+        },
+        "overDueInstallmentsCount" : {
+          "type" : "string",
+          "description" : "Specifies the count of installments that are in due"
+        },
+        "paidInstallmentsCount" : {
+          "type" : "string",
+          "description" : "Specifies the count of installements that have been paid by the customer"
+        }
+      }
+    }
+  }
+}
