@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Arrangements API is used to fetch the customer’s account-related information. This information includes Account details, Balance and other interest-related information. Arrangement APIs are connected to other microservices or T24 to fetch the customer’s account details based on the user requirement.",
+    "description" : "Arrangement services are used to fetch the customer’s account-related information. This information includes account details, balance, and other interest-related information. Arrangement APIs are connected to other microservices or Transact to fetch the customer’s account details based on the user requirement.",
     "version" : "1.0",
     "title" : "Arrangements"
   },
@@ -15,7 +15,8 @@
     "/Accounts/getAccountsByCustomerIdForAdmin" : {
       "post" : {
         "tags" : [ "Accounts" ],
-        "summary" : "This API is used by the adminstrator to fetch all the accounts by using the customer ID. The customer ID is a unique ID that is specific to a customer. This API provides an admin based access to accounts",
+        "summary" : "Retrieves all the accounts for an administrator, based on the Customer ID",
+		"description" : "Retrieves all the accounts for an administrator, based on the Customer ID . The Customer ID is a unique ID specific to a customer. This API provides an admin based access to accounts",
         "operationId" : "getAccountsByCustomerIdForAdminAccounts",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -45,7 +46,8 @@
     "/Accounts/getAccountDetails" : {
       "post" : {
         "tags" : [ "Accounts" ],
-        "summary" : "This API retrieves the details of an account. This API is invoked when the customer selects an account from the Dashboard screen. All the details about the account such as account holder name, available balance, account type, and so on are fetched and displayed to the customer.",
+        "summary" : "Retrieves the account details",
+		"description" : "Retrieves the account details. When a customer selects an account from the Dashboard screen, this API retrieves the account details, such as account holder name, available balance, account type, and then displays the details to the customer.",
         "operationId" : "getAccountDetailsAccounts",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -75,7 +77,8 @@
     "/Accounts/getAccountsPostLogin" : {
       "post" : {
         "tags" : [ "Accounts" ],
-        "summary" : "This API fetches all the accounts associated with the customer such as savings, deposit, credit accounts, and so on from the associated Microservice or T24. The accounts that are fetched are displayed to the customer based on the account type. This API gets invoked immediately after a customer signs in to his/her account.",
+        "summary" : "Retrieves all the accounts that are associated with the customer",
+		"description" : "Retrieves all the accounts that are associated with the customer, such as savings, deposit, and credit accounts from the associated microservice or Transact. The fetched accounts are displayed to the customer based on the account type. This API gets invoked immediately after a customer signs-in to the account.",
         "operationId" : "getAccountsPostLoginAccounts",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -105,7 +108,8 @@
     "/Accounts" : {
       "get" : {
         "tags" : [ "Accounts" ],
-        "summary" : "This API is also used to fetch all the accounts similar to getAccountPostLogin API but contains certain additional capabilities such as pre-authentication for compatibility with smartwatches (Pre-Authentication eases the login process, as the user does not have to manually login which is difficult in smartwatches)",
+        "summary" : "Retrieves all the accounts",
+		"description" : "Retrieves all the accounts. This API is similar to getAccountPostLogin but contains certain additional capabilities such as pre-authentication for compatibility with smartwatches. Pre-Authentication eases the login process, as the user does not have to manually login which is difficult in smartwatches",
         "operationId" : "getAccounts",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -125,7 +129,8 @@
     "/Accounts/getAccountsForAdmin" : {
       "post" : {
         "tags" : [ "Accounts" ],
-        "summary" : "This API is used by the administrator to fetch all the accounts by using the User ID. The User ID is the ID that gets generated for every user post login. This API provides an admin based access to accounts",
+        "summary" : "Retrieves all the accounts for an administrator, based on the User ID",
+		"description" : "Retrieves all the accounts for an administrator, based on the User ID. The User ID is a unique ID that gets generated for every user after a successful login. This API provides an admin based access to accounts",
         "operationId" : "getAccountsForAdminAccounts",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -237,23 +242,23 @@
         },
         "accountPreference" : {
           "type" : "string",
-          "description" : "Specifies the preferred account set by the user. Based on the preference the accounts get displayed"
+          "description" : "Specifies the preferred account that is set by the user. The accounts are displayed based on the preference"
         },
         "accountType" : {
           "type" : "string",
-          "description" : "Specifies the account type such as Savings, Loan, Debit, and so on. Based on the account type value the API fetches the respective accounts"
+          "description" : "Specifies the account type, such as Savings, Loan, Debit, and so on. Based on the account type value, the API fetches the respective accounts"
         },
         "availableBalance" : {
           "type" : "string",
-          "description" : "Specifies the available balance that a person holds in his account."
+          "description" : "Specifies the available balance that a person holds in the account."
         },
         "availableCredit" : {
           "type" : "string",
-          "description" : "Specifies the available credit that a customer can avail to meet his requirements."
+          "description" : "Specifies the available credit that a customer can avail to meet the requirements."
         },
         "availablePoints" : {
           "type" : "string",
-          "description" : "Specifies the points that are available to the customer. The customer can use these points to avail the benefits that his/her bank offers"
+          "description" : "Specifies the points that are available to the customer. The customer can use these points to avail the benefits that the bank offers"
         },
         "bankName" : {
           "type" : "string",
@@ -272,7 +277,8 @@
           "description" : "Specifies the Bank-State-Branch number to identify various banks and branches. This number is exclusive to Australia."
         },
         "closingDate" : {
-          "type" : "string"
+          "type" : "string",
+		  "description": "closingDate"
         },
         "creditCardNumber" : {
           "type" : "string",
@@ -280,15 +286,15 @@
         },
         "creditLimit" : {
           "type" : "string",
-          "description" : "Specifies the limit on credit up to which the customer can avail"
+          "description" : "Specifies the limit on credit that the customer can avail"
         },
         "currencyCode" : {
           "type" : "string",
-          "description" : "Specifies the code of your currency such as EUR, USD, JPY, and so on."
+          "description" : "Specifies the code of the currency, such as EUR, USD, JPY, and so on"
         },
         "currentAmountDue" : {
           "type" : "string",
-          "description" : "Specifies the due amount that has to be paid by the customer."
+          "description" : "Specifies the amount that must be paid by the customer"
         },
         "currentBalance" : {
           "type" : "string",
@@ -304,35 +310,39 @@
         },
         "dividendLastPaidDate" : {
           "type" : "string",
-          "description" : "Specifies the date on which the dividend amount that was paid last time."
+          "description" : "Specifies the date on which the dividend amount was paid last time"
         },
         "dividendPaidYTD" : {
           "type" : "string",
           "description" : "Specifies the dividend amount that was paid from the beginning of the current year to the present date (Year To Date)"
         },
         "dividendRate" : {
-          "type" : "string"
+          "type" : "string",
+		  "description" : "Specifies the rate of dividend"
         },
         "dividendYTD" : {
-          "type" : "string"
+          "type" : "string",
+		  "description" : "Specifies the total dividend amount paid from the beginning of the year to the current date",
         },
         "dueDate" : {
           "type" : "string",
-          "description" : "Specifies the due date by which the dividend must be paid by the customer."
+          "description" : "Specifies the date by which the dividend must be paid by the customer."
         },
         "errmsg" : {
           "type" : "string",
-          "description" : "Specifies the error message that gets displayed when the operation fails"
+          "description" : "Specifies the error message that is displayed when the operation fails"
         },
         "eStatementEnable" : {
           "type" : "string",
-          "description" : "Specifies whether the provision of electronic statement has been enabled or not for the customer"
+          "description" : "Specifies whether the provision of electronic statement has been enabled"
         },
         "favouriteStatus" : {
-          "type" : "string"
+          "type" : "string",
+		  "description" : "favouriteStatus"
         },
         "interestEarned" : {
-          "type" : "string"
+          "type" : "string",
+		  "description" : "string"
         },
         "interestPaidLastYear" : {
           "type" : "string",

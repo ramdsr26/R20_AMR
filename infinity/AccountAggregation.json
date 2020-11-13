@@ -1,9 +1,9 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Account Aggregation is a provision for the user to access their accounts from other banks. The Account Aggregation API is associated with a third party provider called SaltEdge. This third party provider fetches your accounts from other banks and provides the data to the micro service.",
+    "description" : "Account Aggregation is a provision for the user to access their accounts from other banks. The Account Aggregation API is associated with a third party provider called Salt Edge. This third party provider fetches the accounts from other banks and provides the data to the microservice.",
     "version" : "1.0",
-    "title" : "AccountAggregation"
+    "title" : "Account Aggregation"
   },
   "host" : "vivekiyer1.konycloud.com/services",
   "basePath" : "/data/v1/ExternalAccounts/objects",
@@ -16,8 +16,9 @@
     "/Banks/getBanksForCountryCode" : {
       "post" : {
         "tags" : [ "Banks" ],
-        "summary" : "This API fetches the list of available banks in a country based on the country code. The third party provider Salt Edge has been leveraged to fetch the list of all the banks in a country.",
-        "operationId" : "getBanksForCountryCodeBanks",
+        "summary" : "Retrieves the list of available banks in a country based on the country code",
+        "description" : "Retrieves the list of available banks in a country based on the country code. The third party provider Salt Edge is leveraged to fetch the list of all the banks in a country.",
+		"operationId" : "getBanksForCountryCodeBanks",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -79,7 +80,7 @@
         },
         "supportedAccountNaturess" : {
           "type" : "string",
-          "description" : "Specifies the account natures that the bank supports such as Loan, Savings, Debit, and so on."
+          "description" : "Specifies the account natures that the bank supports, such as Loan, Savings, Debit, and so on."
         },
         "internalBankId" : {
           "type" : "string",
@@ -87,11 +88,11 @@
         },
         "supportedFetchScopess" : {
           "type" : "string",
-          "description" : "Specifies the scope of data that the user can fetch. Based on the provided scopes the application fetches the data accordingly. Some examples for scopes are Accounts and Transactions."
+          "description" : "Specifies the scope of data that the user can fetch. Based on the provided scopes, the application fetches the data accordingly. Some examples for scopes are Accounts and Transactions."
         },
         "timeZone" : {
           "type" : "string",
-          "description" : "Specifies the time zone in which the bank resides such as Europe, North America, and so on"
+          "description" : "Specifies the time zone in which the bank is located, such as Europe, North America, and so on"
         },
         "bankName" : {
           "type" : "string",
@@ -103,7 +104,7 @@
         },
         "supportedAccountTypess" : {
           "type" : "string",
-          "description" : "Specifies the account types that the bank supports such as Personal and Business"
+          "description" : "Specifies the account types that the bank supports, such as Personal and Business"
         },
         "logoUrl" : {
           "type" : "string",
@@ -111,7 +112,7 @@
         },
         "mode" : {
           "type" : "string",
-          "description" : "Specifies the mode of authorization provided by the third-party provider (oauth/web/api/file)"
+          "description" : "Specifies the mode of authorization that is provided by the third-party provider (oauth/web/api/file)"
         },
         "homeUrl" : {
           "type" : "string",
@@ -146,7 +147,7 @@
         },
         "bankCode" : {
           "type" : "string",
-          "description" : "Specifies the unique bank code"
+          "description" : "Specifies the unique code of the bank"
         }
       }
     },

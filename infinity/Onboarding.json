@@ -2,9 +2,9 @@
 
    "swagger": "2.0",
    "info" : {
-    "description" : "The Infinity Onboarding app enables customers to open new accounts in a bank across multiple channels. The Experience APIs in Onboarding help in establishing communication between Client application, Quantum Fabric, Journey Manager, and the core backend system. These APIs allow you to perform various CRUD operations such as creating a profile, verifying an application by using IDology, funding operations, and so on.",
+    "description" : "The Infinity Onboarding app enables customers to open new accounts in a bank across multiple channels. The Experience APIs in Onboarding help in establishing communication between the client application, Quantum Fabric, Journey Manager, and the core back-end system. These APIs can be used to perform various CRUD operations, such as creating a profile, verifying an application by using IDology, funding operations, and so on.",
     "version" : "1.0",
-    "title" : "OnBoarding"
+    "title" : "Infinity Onboarding"
   },
   "host" : "KH2606.temenosgroup.com:8080/services",
   "basePath" : "/data/v1/OnBoarding/objects",
@@ -32,7 +32,8 @@
     "/Funding/getFundingProducts" : {
       "post" : {
         "tags" : [ "Funding" ],
-        "summary" : "This API retrieves the products that are selected by the user for funding. This API is used to re-populate the data, while the user navigates back to the client app.",
+        "summary" : "Retrieves the products that are selected by the user for funding",
+		"description" : "Retrieves the products that are selected by the user for funding. This API is used to re-populate the data while the user navigates back to the client app.",
         "operationId" : "getFundingProductsFunding",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -62,7 +63,8 @@
     "/ProductDashboard/getProductDetails" : {
       "post" : {
         "tags" : [ "ProductDashboard" ],
-        "summary" : "This API fetches the details of the product that is selected, when the Learn More (product group page) onClick action is triggered. The API populates the response on the frmProductDetails page.",
+        "summary" : "Retrieves the details of the product that is selected",
+		"description" : "Retrieves the details of the product that is selected, when the Learn More (product group page) onClick action is triggered. The API populates the response on the frmProductDetails page.",
         "operationId" : "getProductDetailsProductDashboard",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -89,7 +91,8 @@
     "/Application/getbypk" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API is used to get the application details from Journey Manager. This API is used only internally through the workflow",
+        "summary" : "Retrieves the application details from Journey Manager",
+		"description" : "Retrieves the application details from Journey Manager. This API is used only internally through the Workflow",
         "operationId" : "getbypkApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -116,7 +119,8 @@
     "/Funding/updateFundingAllocation" : {
       "post" : {
         "tags" : [ "Funding" ],
-        "summary" : "This API updates the products that were selected by the user for funding. It also updates the amount that the user decided to fund these products.",
+        "summary" : "Updates the products that are selected by the user for funding",
+		"description" : "Updates the products that are selected by the user for funding. The API also updates the amount that the user has set aside to fund these products.",
         "operationId" : "updateFundingAllocationFunding",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -146,7 +150,8 @@
     "/Application/submitOnBoardingApplication" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API is used to update the application status based on the applicant's status and also to notify the applicant/co-applicant if the application is under review",
+        "summary" : "Updates the application status based on the applicant's status",
+		"description" : "Updates the application status based on the applicant's status and also notifies the applicant or co-applicant if the application is under review",
         "operationId" : "submitOnBoardingApplicationApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -176,7 +181,8 @@
     "/Funding/createFunding" : {
       "post" : {
         "tags" : [ "Funding" ],
-        "summary" : "This API creates a funding application in the Journey Manager (a separate JS module in the Journey manager). The data that is passed to the Journey Manager includes the parent application ID.",
+        "summary" : "Creates a funding application (a separate JS module) in the Journey Manager",
+		"description" : "Creates a funding application (a separate JS module) in the Journey Manager. The data that is passed to the Journey Manager includes the parent application ID.",
         "operationId" : "createFundingFunding",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -206,7 +212,8 @@
     "/AddressInfo/getAddressInfo" : {
       "post" : {
         "tags" : [ "AddressInfo" ],
-        "summary" : "This API is a client-facing service that fetches the details provided in the Address Information section such as city, state, and zip code. This API is used to fetch the address detail during the application registration process.",
+        "summary" : "Retrieves the details that are provided in the Address Information section, such as city, state, and zip code",
+		"description" : "Retrieves the details that are provided in the Address Information section, such as city, state, and zip code. This API is used to retrieve the address details during the application registration process.",
         "operationId" : "getAddressInfoAddressInfo",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -239,7 +246,8 @@
     "/ProductSelection/updateProductSelection" : {
       "post" : {
         "tags" : [ "ProductSelection" ],
-        "summary" : "This API updates the selected products to the Journey Manager; and the Product IDs to Infinity.",
+        "summary" : "Updates the selected products in the Journey Manager",
+		"description" : "Updates the selected products in the Journey Manager; and the Product IDs in Infinity.",
         "operationId" : "updateProductSelectionProductSelection",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -270,7 +278,8 @@
     "/ProductSelection/updateProductSelectionHierarchy" : {
       "post" : {
         "tags" : [ "ProductSelection" ],
-        "summary" : "This API updates the products' hierarchy data in the Journey Manager based on the product selected.",
+        "summary" : "Updates the products' hierarchy data in the Journey Manager based on the product that is selected",
+		"description" : "Updates the products' hierarchy data in the Journey Manager based on the product that is selected.",
         "operationId" : "updateProductSelectionHierarchyProductSelection",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -300,7 +309,8 @@
     "/Application/signoutOnboardingApplication" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API captures the audit logs at the time of logout and idle time out. These logs contain the details of user's activity and are used for audit purpose.",
+        "summary" : "Captures and retrieves the audit logs at the time of logout and idle time out",
+		"description" : "Captures and retrieves the audit logs at the time of logout and idle time out. These logs contain details about user activity and are used for audit purpose.",
         "operationId" : "signoutOnboardingApplicationApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -330,7 +340,8 @@
     "/AddressInfo/updateAddressInfo" : {
       "post" : {
         "tags" : [ "AddressInfo" ],
-        "summary" : "This API is a client-facing service that updates the address information of the user. This API is used when the customer wants to update the address details in the application.",
+        "summary" : "Updates the address information of the user",
+		"description" : "Updates the address information of the user. This API is used when the customer wants to update the address details in the application.",
         "operationId" : "updateAddressInfoAddressInfo",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -360,7 +371,8 @@
     "/PersonalInfo/updatePersonalInfo" : {
       "post" : {
         "tags" : [ "PersonalInfo" ],
-        "summary" : "This API is a client-facing service that updates the personal information section with the applicant's and co-applicant's information such as First Name, Last Name, Date of Birth, Mobile Number, Email ID, and so on. The API fetches the XML data from the Journey Manager and updates the XML file accordingly.",
+        "summary" : "Updates the personal information section with the applicant's and co-applicant's information",
+		"description" : "Updates the personal information section with the applicant's and co-applicant's information, such as First Name, Last Name, Date of Birth, Mobile Number, Email ID, and so on. The API fetches the XML data from the Journey Manager and updates the XML file accordingly.",
         "operationId" : "updatePersonalInfoPersonalInfo",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -390,7 +402,8 @@
     "/ProductSelection/getFeaturesForProducts" : {
       "post" : {
         "tags" : [ "ProductSelection" ],
-        "summary" : "This API allows the user to fetch features that are specific to a product based on the product reference. For example, features such as CARD.ISSUE and E-Statement get fetched for Prime Saving Account product based on the SAVINGS.PRIME.INFINITY reference provided by the user",
+        "summary" : "Retrieves the features that are specific to a product based on the product reference",
+		"description" : "Retrieves the features that are specific to a product based on the product reference. For example, features such as CARD.ISSUE and E-Statement are fetched for Prime Saving Account product based on the SAVINGS.PRIME.INFINITY reference that is provided by the user",
         "operationId" : "getFeaturesForProductsProductSelection",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -418,7 +431,8 @@
     "/PersonalInfo/getPersonalInfo" : {
       "post" : {
         "tags" : [ "PersonalInfo" ],
-        "summary" : "This API fetches and filters the application data from the Journey Manager based on the application ID. The filtered data that contains personal information such as First Name, Last Name, Date of Birth, and Email ID is sent as a response to the user.",
+        "summary" : "Retrieves and filters the application data from the Journey Manager based on the application ID",
+		"description" : "Retrieves and filters the application data from the Journey Manager based on the application ID. The filtered data contains personal information such as First Name, Last Name, Date of Birth, and Email ID, which is sent as a response to the user.",
         "operationId" : "getPersonalInfoPersonalInfo",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -448,7 +462,8 @@
     "/ProductSelection/getProductSelection" : {
       "post" : {
         "tags" : [ "ProductSelection" ],
-        "summary" : "This API fetches all the selected products from the Journey Manager.",
+        "summary" : "Retrieves all the selected products from the Journey Manager",
+		"description" : "Retrieves all the selected products from the Journey Manager.",
         "operationId" : "getProductSelectionProductSelection",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -478,7 +493,8 @@
     "/Application/resumeOnBoardingApplication" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API is used to verify and fetch the details of the application that is being resumed",
+        "summary" : "Verifies and retrieves the details of the application that is being resumed",
+		"description" : "Verifies and retrieves the details of the application that is being resumed.",
         "operationId" : "resumeOnBoardingApplicationApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -508,7 +524,8 @@
     "/IdentityInfo/getIdentityInfo" : {
       "post" : {
         "tags" : [ "IdentityInfo" ],
-        "summary" : "This API is a client-facing service that is used to fetch the details from the Identity Information section in the Onboarding application",
+        "summary" : "Retrieves the details from the Identity Information section in the Onboarding application",
+		"description" : "Retrieves the details from the Identity Information section in the Onboarding application.",
         "operationId" : "getIdentityInfoIdentityInfo",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -539,7 +556,8 @@
     "/Application/createApplication" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API is a service that creates an application in the Journey Manager from the Onboarding application. This API is used in the Personal Information module of the Onboarding application",
+        "summary" : "Creates an application in the Journey Manager from the Onboarding application",
+		"description" : "Creates an application in the Journey Manager from the Onboarding application. This API is used in the Personal Information module of the Onboarding application",
         "operationId" : "createApplicationApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -566,7 +584,8 @@
     "/IdentityInfo/updateIdentityInfo" : {
       "post" : {
         "tags" : [ "IdentityInfo" ],
-        "summary" : "This API is a client-facing service that updates the Identity information section in the Onboarding application with details such as ID Type, ID Number, Issued Date, Issued State, and Expiration Date",
+        "summary" : "Updates the Identity information section in the Onboarding application",
+		"description" : "Updates the Identity information section in the Onboarding application with details such as ID Type, ID Number, Issued Date, Issued State, and Expiration Date.",
         "operationId" : "updateIdentityInfoIdentityInfo",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -596,7 +615,8 @@
     "/IDV/executeIDV" : {
       "post" : {
         "tags" : [ "IDV" ],
-        "summary" : "This API executes the identity verification module of an applicant by leveraging a third-party service called Idology. Based on the execution, the API might return a few security questions to complete the identity verification process. Based on the user's response to these questions, identity verification is completed.",
+        "summary" : "Executes the Identity verification module of an applicant by leveraging a third-party service called IDology",
+		"description" : "Executes the Identity verification module of an applicant by leveraging a third-party service called IDology. Based on the execution, the API might return a few security questions to complete the identity verification process. The identity verification is done based on the user's response to the questions.",
         "operationId" : "executeIDVIDV",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -626,7 +646,8 @@
     "/PersonalInfo/createProspectProfile" : {
       "post" : {
         "tags" : [ "PersonalInfo" ],
-        "summary" : "Journey Manager acts as an in-flight application storage unit. Whenever the user submits the details during the process of application creation, the createProspectProfile API creates a prospect in the DBX DB (Backend database) with these details. The API is also connected to Journey Manager Business Delegates that update the XML applicant data in the Journey Manager.",
+        "summary" : "Creates a prospect in the DBX DB (Backend database) with the details that are provided by the user",
+		"description" : "Journey Manager acts as an in-flight application storage unit. Whenever the user submits the details during the process of application creation, the createProspectProfile API creates a prospect in the DBX DB (Backend database) with the details. The API is also connected to the Journey Manager Business Delegates that update the XML applicant data in the Journey Manager.",
         "operationId" : "createProspectProfilePersonalInfo",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -656,7 +677,8 @@
     "/Application/createUserAndLogin" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API is used to create a user with the username as same as the application ID and a random autogenerated password in the Onboarding application and to perform a server side log-in to place the subsequent calls which are authenticated.",
+        "summary" : "Creates a user with a username that is the same as the application ID and an autogenerated password",
+		"description" : "Creates a user with a username that is the same as the application ID and an autogenerated password in the Onboarding application. The API also performs a server side login to place the subsequent calls that require authentication.",
         "operationId" : "createUserAndLoginApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -683,7 +705,8 @@
     "/Funding/getFundingType" : {
       "post" : {
         "tags" : [ "Funding" ],
-        "summary" : "This API fetches the funding type that is set by the user. Inter Bank Funding and Intra Bank Funding are the two types of funding that are used in the Funding module (Intra/Inter).",
+        "summary" : "Retrieves the funding type that is set by the user",
+		"description" : "Retrieves the funding type that is set by the user. Inter-Bank Funding and Intra-Bank Funding are the two types of funding that are used in the Funding module (Intra/Inter).",
         "operationId" : "getFundingTypeFunding",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -713,7 +736,8 @@
     "/ProductSelection/getProductsForPurpose" : {
       "post" : {
         "tags" : [ "ProductSelection" ],
-        "summary" : "This API fetches the list of products for the given purpose from the Marketing Catalog microservice. For example, the Deposit product group contains various products such as Long Term Deposits, 3 year Deposits, and so on. If the user sets the purpose as Onboarding then all the products associated with Onboarding get fetched.",
+        "summary" : "Retrieves the list of products from the Marketing Catalog microservice based on the specified purpose",
+		"description" : "Retrieves the list of products from the Marketing Catalog microservice based on the specified purpose. For example, the Deposit product group contains various products such as Long Term Deposits, 3 year Deposits, and so on. If the user sets the purpose as Onboarding then all the products that are associated with Onboarding are fetched.",
         "operationId" : "getProductsForPurposeProductSelection",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -743,7 +767,8 @@
     "/PersonalInfo/createCoApplicant" : {
       "post" : {
         "tags" : [ "PersonalInfo" ],
-        "summary" : "This API creates a prospect for the co-applicant and saves the prospect's personal information in the Journey Manager. The saved information of the Journey Manager is stored in the form of XML data.",
+        "summary" : "Creates a prospect for the co-applicant in the Journey Manager",
+		"description" : "Creates a prospect for the co-applicant and saves the prospect's personal information in the Journey Manager. The saved information of the Journey Manager is stored in the form of XML data.",
         "operationId" : "createCoApplicantPersonalInfo",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -773,7 +798,8 @@
     "/Application/updateApplication" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API invokes the rules engines with the individual decision of the applicant and co-applicant to obtain the application status. After the API obtains the individual decisions, it submits the application to the Journey Manager.",
+        "summary" : "Updates the application to the Journey Manager based on the application status",
+		"description" : "Updates the application to the Journey Manager after obtaining the application status. This API invokes the rules engine to fetch the individual decisions of the applicant and co-applicant, which contain information about the application status. After the API obtains the individual decisions, it submits the application to the Journey Manager.",
         "operationId" : "updateApplicationApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -803,7 +829,8 @@
     "/Funding/getProductsSelected" : {
       "post" : {
         "tags" : [ "Funding" ],
-        "summary" : "This API retrieves the product that is selected by the user based on the application ID. The product is retrieved from the customer application and the Party back-end system.",
+        "summary" : "Retrieves the product that is selected by the user based on the application ID",
+		"description" : "Retrieves the product that is selected by the user based on the application ID. The product is retrieved from the customer application and the Party back-end system.",
         "operationId" : "getProductsSelectedFunding",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -833,7 +860,8 @@
     "/Funding/updateFundingType" : {
       "post" : {
         "tags" : [ "Funding" ],
-        "summary" : "This API updates the type of funding used to fund the selected products. Inter Bank Funding and Intra Bank Funding are the two funding types used by the Funding module.",
+        "summary" : "Updates the type of funding that is used to fund the selected products",
+		"description" : "Updates the type of funding that is used to fund the selected products. Inter-Bank Funding and Intra-Bank Funding are the two funding types that are used by the Funding module.",
         "operationId" : "updateFundingTypeFunding",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -864,7 +892,8 @@
     "/ProductDashboard/getProductGroupsWithPurpose" : {
       "post" : {
         "tags" : [ "ProductDashboard" ],
-        "summary" : "This API fetches the list of product groups. The product groups are displayed as cards on the landing page and the hamburger menu.",
+        "summary" : "Retrieves the list of product groups based on the purpose",
+		"description" : "Retrieves the list of product groups based on the purpose. The product groups are displayed as cards on the landing page and the hamburger menu.",
         "operationId" : "getProductGroupsWithPurposeProductDashboard",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -891,7 +920,8 @@
     "/ProductSelection/getAllCDPlansForProduct" : {
       "post" : {
         "tags" : [ "ProductSelection" ],
-        "summary" : "This API allows the user to fetch all the Certificate of Deposits associated with a product. The Certificate of Deposit plans are generated based on the amount range and time period",
+        "summary" : "Retrieves all the Certificate of Deposit plans that are associated with a product",
+		"description" : "Retrieves all the Certificate of Deposit plans that are associated with a product. The Certificate of Deposit plans are generated based on the amount range and time period",
         "operationId" : "getAllCDPlansForProductProductSelection",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -921,7 +951,8 @@
     "/Funding/updatePaymentDetails" : {
       "post" : {
         "tags" : [ "Funding" ],
-        "summary" : "This API updates the payment details for the funding request. The payment details include information such as account type, debit account number, routing number, and currency.",
+        "summary" : "Updates the payment details for the funding request",
+		"description" : "Updates the payment details for the funding request. The payment details include information such as account type, debit account number, routing number, and currency.",
         "operationId" : "updatePaymentDetailsFunding",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -951,7 +982,8 @@
     "/IDV/verifyIDVResponses" : {
       "post" : {
         "tags" : [ "IDV" ],
-        "summary" : "This API leverages the Idology service to verify the response or answers to the identity verification questions provided by the user.",
+        "summary" : "Verifies the response or answers that are provided by the user to the identity verification questions",
+		"description" : "Verifies the response or answers that are provided by the user to the identity verification questions by leveraging the IDology service.",
         "operationId" : "verifyIDVResponsesIDV",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -981,7 +1013,8 @@
     "/Application/updateApplicationStatus" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API updates the decision of the application from the workspace whether to approve or deny the application.",
+        "summary" : "Updates the decision of the application from the workspace",
+		"description" : "Updates the decision of the application on whether to approve or deny the application from the workspace.",
         "operationId" : "updateApplicationStatusApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1008,7 +1041,8 @@
     "/Funding/updateFundingStatus" : {
       "post" : {
         "tags" : [ "Funding" ],
-        "summary" : "This API updates the status of the funding application in the Funding module of the Journey Manager. The possible values for the funding status are Initiated, OptedOut, and Opted.",
+        "summary" : "Updates the status of the funding application in the Funding module of the Journey Manager",
+		"description" : "Updates the status of the funding application in the Funding module of the Journey Manager. The possible values for the funding status are Initiated, OptedOut, and Opted.",
         "operationId" : "updateFundingStatusFunding",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1038,7 +1072,8 @@
     "/Application/initiateWorkflow" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API is used to start the post-submission workflow process such as updating customer, creating accounts and so on.",
+        "summary" : "Initiates the post-submission Workflow process on Fabric",
+		"description" : "Initiates the post-submission Workflow process on Fabric, such as updating customer, creating accounts and so on.",
         "operationId" : "initiateWorkflowApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1068,7 +1103,8 @@
     "/ProductSelection/getProductSelectionHierarchy" : {
       "post" : {
         "tags" : [ "ProductSelection" ],
-        "summary" : "This API fetches the products' hierarchy data from the Journey Manager based on the product selected.",
+        "summary" : "Retrieves the products' hierarchy data from the Journey Manager based on the product that is selected",
+		"description" : "Retrieves the products' hierarchy data from the Journey Manager based on the product that is selected",
         "operationId" : "getProductSelectionHierarchyProductSelection",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1098,7 +1134,8 @@
     "/PersonalInfo/updateProspectProfile" : {
       "post" : {
         "tags" : [ "PersonalInfo" ],
-        "summary" : "Journey Manager acts as an in-flight application storage unit. Whenever the user submits the details during the process of application creation, the udpateProspectProfile API updates the DBX DB (Backend database) with these details. The API is also connected to Journey Manager Business Delegates that updates the XML applicant data in the Journey Manager.",
+        "summary" : "Updates the DBX DB (Backend database) with the details that are provided by the user",
+		"description" : "Journey Manager acts as an in-flight application storage unit. Whenever the user submits the details during the process of application creation, the udpateProspectProfile API updates the DBX DB (Backend database) with these details. The API is also connected to Journey Manager Business Delegates that updates the XML applicant data in the Journey Manager.",
         "operationId" : "updateProspectProfilePersonalInfo",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1128,7 +1165,8 @@
     "/Application/decryptResumeLink" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API retrieves and de-crypts the URL that is required to resume the process of application creation.",
+        "summary" : "Retrieves and de-crypts the URL link",
+		"description" : "Retrieves and de-crypts the URL link that is required to resume the process of application creation.",
         "operationId" : "decryptResumeLinkApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1157,7 +1195,8 @@
     "/Application/updateLastEditedSection" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API is used to update the last edited section in the Jouney Manager. The API updates the section for every time the screen loads.",
+        "summary" : "Updates the last edited section in the Jouney Manager",
+		"description" : "Updates the last edited section in the Jouney Manager. The API updates the section every time the screen loads.",
         "operationId" : "updateLastEditedSectionApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1187,7 +1226,8 @@
     "/ProductSelection/getProductList" : {
       "post" : {
         "tags" : [ "ProductSelection" ],
-        "summary" : "This API retrieves the list of products from the Marketing Catalog microservice.",
+        "summary" : "Retrieves the list of products from the Marketing Catalog microservice",
+		"description" : "Retrieves the list of products from the Marketing Catalog microservice.",
         "operationId" : "getProductListProductSelection",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1214,7 +1254,8 @@
     "/ProductDashboard/getProductsFromProductGroup" : {
       "post" : {
         "tags" : [ "ProductDashboard" ],
-        "summary" : "This API fetches the list of products that are part of a product group. The list is displayed on the frmProductGroup page.",
+        "summary" : "Retrieves the list of products that are part of a product group",
+		"description" : "Retrieves the list of products that are part of a product group. The list is displayed on the frmProductGroup page.",
         "operationId" : "getProductsFromProductGroupProductDashboard",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1241,7 +1282,8 @@
     "/Application/getJMApplicationData" : {
       "post" : {
         "tags" : [ "Application" ],
-        "summary" : "This API retrieves the application data of the Journey Manager. The Journey Manager contains the data that the user submitted while creating an application. In addition, it also contains details such as the application status, meta data, and start time of the application.",
+        "summary" : "Retrieves the Journey Manager application data",
+		"description" : "Retrieves the Journey Manager application data. The Journey Manager contains the data that the user submitted while creating an application. In addition, it also contains details such as the application status, meta data, and start time of the application.",
         "operationId" : "getJMApplicationDataApplication",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1271,7 +1313,8 @@
     "/Account/getHoldings" : {
       "post" : {
         "tags" : [ "Account" ],
-        "summary" : "This API is used to fetch all the account details of the logged-in user. The account details are fetched based on the username of the user. The username is fetched from the identity (Login) session.",
+        "summary" : "Retrieves all the account details of the logged-in user",
+		"description" : "Retrieves all the account details of the logged-in user. The account details are retrieved based on the username. The username is retrieved from the identity (Login) session.",
         "operationId" : "getHoldingsAccount",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1301,7 +1344,8 @@
 	    "/ExternalAccountVerification/getAccountDetails" : {
       "post" : {
         "tags" : [ "ExternalAccountVerification" ],
-        "summary" : "This API is used to retrieve the account details of the external user based on the public token provided by the client. This API is invoked when the customer selects the funding type as External.",
+        "summary" : "Retrieves the account details of the external user based on the public token that is provided by the client",
+		"description" : "Retrieves the account details of the external user based on the public token that is provided by the client. This API is invoked when the customer selects the funding type as External.",
         "operationId" : "getAccountDetailsExternalAccountVerification",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1331,7 +1375,8 @@
     "/Documents/verifyDocuments" : {
       "post" : {
         "tags" : [ "Documents" ],
-        "summary" : "This API retrieves the scanned doc details. The supported documents are Passport and Driving Licence. This API leverages a third-party vendor called AuthenticID.",
+        "summary" : "Retrieves the details of the scanned document",
+		"description" : "Retrieves the details of the scanned document. The supported documents are Passport and Driving Licence. This API leverages a third-party vendor called AuthenticID.",
         "operationId" : "verifyDocumentsDocuments",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1355,7 +1400,8 @@
     "/SelfieVerify/verifySelfie" : {
       "post" : {
         "tags" : [ "SelfieVerify" ],
-        "summary" : "This API is used to verify the static selfie (Near selfie) and the Liveliness selfie (Far selfie) with the photo of the client in the document. This API leverages a third party vendor called AuthenticID",
+        "summary" : "Verifies the static selfie (Near selfie) and the Liveliness selfie (Far selfie) with the photo of the client in the document",
+		"description" : "Verifies the static selfie (Near selfie) and the Liveliness selfie (Far selfie) with the photo of the client in the document. This API leverages a third party vendor called AuthenticID",
         "operationId" : "verifySelfieSelfieVerify",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1386,7 +1432,8 @@
 	    "/Locations/getFormattedAddress" : {
       "post" : {
         "tags" : [ "Locations" ],
-        "summary" : "This API fetches the additional address details based on the address suggestion selected by the applicant. Each address suggestion is associated with a specific place_ID and by using this unique ID the API fetches the additional details. The address details include information on the street, city, country, and zip code.",
+        "summary" : "Retrieves the additional address details based on the address suggestion that is selected by the applicant",
+		"description" : "Retrieves the additional address details based on the address suggestion that is selected by the applicant. Every address suggestion is associated with a specific place_ID and by using this unique ID, the API fetches the additional details. The address details include information on the street, city, country, and zip code.",
         "operationId" : "getFormattedAddressLocations",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1413,7 +1460,8 @@
     "/Locations/getAddressSuggestions" : {
       "post" : {
         "tags" : [ "Locations" ],
-        "summary" : "This API fetches the address suggestions based on the address being typed by the user and the user's current location by using Google APIs. For example, when a user is typing an address, this API creates a circle with the location of the user as the center of the circle. The API then provides address suggestions from locations within the circle that matches with the address being typed by the user. If there are no suggestions that can be provided within the circle, then the API fetches the locations from outside the circle and suggests the addresses to the user. The maximum number of address suggestions that the API can fetch is only 5. The API response contains a parameter called Place_ID, this unique ID is used by the getFormattedAddress API to fetch additional address details.",
+        "summary" : "Retrieves the address suggestions based on the address that is being typed by the user and the user's current location by using Google APIs",
+		"description" : "Retrieves the address suggestions based on the address that is being typed by the user and the user's current location by using Google APIs. For example, when a user is typing an address, this API creates a circle with the location of the user as the center of the circle. The API then provides address suggestions from locations within the circle that match the address that is being typed by the user. If there are no suggestions that can be provided within the circle, then the API fetches the locations from outside the circle and suggests the addresses to the user. The maximum number of address suggestions that the API can fetch is 5. The API response contains a parameter called Place_ID, which is used by the getFormattedAddress API to fetch additional address details.",
         "operationId" : "getAddressSuggestionsLocations",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1441,7 +1489,8 @@
 	    "/IdentityManagement/getUsernameAndPasswordRulesAndPolicies" : {
       "post" : {
         "tags" : [ "IdentityManagement" ],
-        "summary" : "The API retrieves the rules and policies for maintaining a username and a password in the DBX database.",
+        "summary" : "Retrieves the rules and policies for maintaining a username and a password in the DBX database",
+		"description" : "Retrieves the rules and policies for maintaining a username and a password in the DBX database.",
         "operationId" : "getUsernameAndPasswordRulesAndPoliciesIdentityManagement",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1465,40 +1514,14 @@
         } ]
       }
     },
-    "/BundleConfigurations/getFunctionalFlowConfiguration" : {
-      "post" : {
-        "tags" : [ "BundleConfigurations" ],
-        "summary" : "",
-        "operationId" : "getFunctionalFlowConfigurationBundleConfigurations",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/BundleConfigurations"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "schema" : {
-              "$ref" : "#/definitions/Response_Custom"
-            }
-          }
-        },
-        "security" : [ {
-          "basic" : [ ]
-        } ]
-      }
-    },
     "/BundleConfigurations" : { },
     "/IdentityManagement" : { },
     "/MembershipEligibilityCriteria" : { },
     "/BundleConfigurations/fetchConfigurations" : {
       "post" : {
         "tags" : [ "BundleConfigurations" ],
-        "summary" : "This API retrieves the key-value pairs present in the Configuration Bundle from the System Configurations in the Spotlight app.",
+        "summary" : "Retrieves the key-value pairs that are present in the Configuration Bundle of the System Configurations in the Spotlight app",
+		"description" : "Retrieves the key-value pairs that are present in the Configuration Bundle of the System Configurations in the Spotlight app.",
         "operationId" : "fetchConfigurationsBundleConfigurations",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1525,7 +1548,8 @@
     "/MembershipEligibilityCriteria/getMembershipEligibilityCriteriaList" : {
       "post" : {
         "tags" : [ "MembershipEligibilityCriteria" ],
-        "summary" : "This API retrieves the eligibility criteria list from the Business Configurations module in the Spotlight app by using the getEligibilityCriteria service. In the Onboarding application, this API is used in EligibilityCheck module.",
+        "summary" : "Retrieves the eligibility criteria list from the Business Configurations module in the Spotlight app",
+		"description" : "Retrieves the eligibility criteria list from the Business Configurations module in the Spotlight app by using the getEligibilityCriteria service. In the Onboarding application, this API is used in the EligibilityCheck module.",
         "operationId" : "getMembershipEligibilityCriteriaListMembershipEligibilityCriteria",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -2761,7 +2785,7 @@
         },
         "isPreLoginConfiguration" : {
           "type" : "string",
-          "description" : "Specfies the "
+          "description" : ""
         },
         "key" : {
           "type" : "string",

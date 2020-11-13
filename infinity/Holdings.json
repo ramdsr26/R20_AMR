@@ -1,9 +1,9 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Holdings APIs allow the user to fetch the account level pending and posted transactions from the Holdings Microservice. In the Infinity application, when a user navigates to the transactions section of the account, the Holdings APIs are leveraged to fetch all the transactions and balance details. These details include the beneficiary details along with the respective time stamps.",
+    "description" : "Holdings services enable the user to fetch the account-level pending and posted transactions from the Holdings Microservice. In the Infinity application, when a user navigates to the transactions section of the account, the Holdings APIs are leveraged to fetch all the transactions and balance details. These details include the beneficiary details along with the respective time stamps.",
     "version" : "1.0",
-    "title" : "HoldingsAPI"
+    "title" : "Holdings"
   },
   "host" : "vivekiyer1.konycloud.com/services",
   "basePath" : "/data/v1/RBObjects/objects",
@@ -15,7 +15,8 @@
     "/Transactions/getAccountTransactionByType" : {
       "post" : {
         "tags" : [ "Transactions" ],
-        "summary" : "This API is invoked from the client to fetch the pending Transactions from Transact (customizable) and posted Transactions from the Holdings Micro Services. These APIs are used in the Online Banking application to fetch and display the list and details of all the recent transactions made by the customer through their account. The list of transactions is displayed when the user opens the Transactions list page from the Account Dashboard screen.",
+        "summary" : "Retrieves the pending Transactions from Transact, or any core banking system, and posted Transactions from the Holdings Micro Services",
+		"description" : "Retrieves the pending Transactions from Transact, or any core banking system, and posted Transactions from the Holdings Micro Services. These APIs are used in the Online Banking application to fetch and display the list and details of all the recent transactions that were made by the customer from the account. The list of transactions is displayed when the user opens the Transactions list page from the Account Dashboard screen.",
         "operationId" : "getAccountTransactionByTypeTransactions",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -45,7 +46,8 @@
     "/Transactions/getAccountPostedTransactions" : {
       "post" : {
         "tags" : [ "Transactions" ],
-        "summary" : "This API is invoked from the client to fetch the posted transactions from the Holdings Microservices. These APIs are used in the Mobile application to fetch and display the list and details of the recent successful transactions that have been made by the customer through their account.",
+        "summary" : "Retrieves the posted transactions from the Holdings Microservices",
+		"description" : "Retrieves the posted transactions from the Holdings Microservices. These APIs are used in the Mobile application to fetch and display the list and details of the recent successful transactions that were made by the customer from the account.",
         "operationId" : "getAccountPostedTransactionsTransactions",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -72,7 +74,158 @@
         }
       }
     },
-    "/Transactions" : { }
+	    "/Transactions/getAccountPostedTransactionsPreview" : {
+      "post" : {
+        "tags" : [ "Transactions" ],
+        "summary" : "Retrieves all the pending and posted transactions for all the accounts of the logged in user",
+		"description" : "Retrieves all the pending and posted transactions for all the accounts of the logged in user. This API is used in smartwatches, where the user can preview the transactions with ease",
+        "operationId" : "getAccountPostedTransactionsPreviewTransactions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Transactions"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+	
+		    "/Transactions/getAllTransactionsForAdmin" : {
+      "post" : {
+        "tags" : [ "Transactions" ],
+        "summary" : "Retrieves the pending and posted transactions from an account of a customer",
+		"description" : "Retrieves the pending and posted transactions from an account of a customer. This API provides an admin based access to accounts",
+        "operationId" : "getAllTransactionsForAdminTransactions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Transactions"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+	
+			    "/Transactions/getLoanSchedule" : {
+      "post" : {
+        "tags" : [ "Transactions" ],
+        "summary" : "Retrieves the overdue and future installments or schedules for a specific loan account",
+		"description" : "Retrieves the overdue and future installments or schedules for a specific loan account.",
+        "operationId" : "getLoanScheduleTransactions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Transactions"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+	
+				    "/Transactions" : {
+      "get" : {
+        "tags" : [ "Transactions" ],
+        "summary" : "Retrieves the pending and posted transactions of a specific account.",
+		"description" : "Retrieves the pending and posted transactions of a specific account.",
+        "operationId" : "getTransactions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        },  ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Get_Transactions"
+            }
+          }
+        }
+      }
+    },
+	
+					    "/Transactions/getPostedUserTransactions" : {
+      "post" : {
+        "tags" : [ "Transactions" ],
+        "summary" : "Retrieves all the completed (posted) transactions of a specific user based on the User ID",
+		"description" : "Retrieves all the completed (posted) transactions of a specific user based on the User ID. The User ID gets generated for every user after a successful login. This API is used in mobile applications.",
+        "operationId" : "getPostedUserTransactionsTransactions",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "X-Kony-Authorization",
+          "in" : "header",
+          "description" : "This service invocation requires authentication.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Transactions"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
   },
   "definitions" : {
     "Transactions" : {
@@ -120,7 +273,7 @@
         },
         "billGeneratedDate" : {
           "type" : "string",
-          "description" : "Specifies the date that is generated during the billing process"
+          "description" : "Specifies the date on which the bill was generated"
         },
         "billid" : {
           "type" : "string",
@@ -144,11 +297,11 @@
         },
         "cashlessMode" : {
           "type" : "string",
-          "description" : "Specifies whether the transaction supports cashless mode or not"
+          "description" : "Specifies whether the transaction supports cashless mode"
         },
         "cashlessOTP" : {
           "type" : "string",
-          "description" : "Specifies the generated OTP for the cashless transaction"
+          "description" : "Specifies the generated OTP for performing the cashless transaction"
         },
         "cashlessOTPValidDate" : {
           "type" : "string",
@@ -176,15 +329,11 @@
         },
         "category" : {
           "type" : "string",
-          "description" : "category"
+          "description" : "Specifies the transaction category such as withdrawal or deposit"
         },
         "checkImage" : {
           "type" : "string",
           "description" : "Specifies the check image URL"
-        },
-        "checkImageBack" : {
-          "type" : "string",
-          "description" : "Specifies the back image URL."
         },
         "checkNumber" : {
           "type" : "string",
@@ -196,7 +345,7 @@
         },
         "description" : {
           "type" : "string",
-          "description" : "description"
+          "description" : "Specifies spe"
         },
         "eBillEnable" : {
           "type" : "string",
@@ -212,7 +361,7 @@
         },
         "errmsg" : {
           "type" : "string",
-          "description" : "errmsg"
+          "description" : "Specifies the error message generated by the application"
         },
         "ExternalAccountNumber" : {
           "type" : "string",
@@ -220,7 +369,7 @@
         },
         "firstDeposit" : {
           "type" : "string",
-          "description" : "firstDeposit"
+          "description" : "Specfies the first deposit made by the customer"
         },
         "firstRecordNumber" : {
           "type" : "string",
@@ -392,7 +541,7 @@
         },
         "searchType" : {
           "type" : "string",
-          "description" : "Specifies the type of search operation"
+          "description" : "Specifies the type of search based on the status value, such as PENDING and COMPLETED"
         },
         "secondaryEmail" : {
           "type" : "string",
@@ -611,11 +760,11 @@
         },
         "checkDateOfIssue" : {
           "type" : "string",
-          "description" : "Specifies the issued check date"
+          "description" : "Specifies the date on which the cheque was issued"
         },
         "checkReason" : {
           "type" : "string",
-          "description" : "Specifies the reason for check"
+          "description" : "Specifies the reason for stopping the cheque"
         },
         "isPayeeDeleted" : {
           "type" : "string",
@@ -651,7 +800,7 @@
         },
         "isDisputed" : {
           "type" : "string",
-          "description" : "Specifies whether a transaction is in a disputed status or not"
+          "description" : "Specifies whether a transaction is in a disputed status"
         },
         "cardId" : {
           "type" : "string",
@@ -675,7 +824,7 @@
         },
         "statementReference" : {
           "type" : "string",
-          "description" : "Specifies the reference for the statement provided by the customer/bank"
+          "description" : "Specifies the transaction statement ID"
         },
         "transCreditDebitIndicator" : {
           "type" : "string",
@@ -703,11 +852,11 @@
         },
         "transactionCurrency" : {
           "type" : "string",
-          "description" : "Specifies the currency type of the transaction such as USD, Euro, or Pound."
+          "description" : "Specifies the currency type of the transaction such as USD, EUR, and so on"
         },
         "chargeAmount" : {
           "type" : "string",
-          "description" : "Specifies the additional amount charged on the transaction by the customer"
+          "description" : "Specifies the additional amount charged on the transaction made by the customer"
         },
         "chargeCurrency" : {
           "type" : "string",
