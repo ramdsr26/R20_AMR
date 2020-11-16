@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Arrangement services are used to fetch the customer’s account-related information. This information includes account details, balance, and other interest-related information. Arrangement APIs are connected to other microservices or Transact to fetch the customer’s account details based on the user requirement.",
+    "description" : "Arrangement services are used to retrieve the customer’s account-related information. This information includes account details, balance, and other interest-related information. Arrangement APIs are connected to other microservices or Transact to fetch the customer’s account details based on the user requirement.",
     "version" : "1.0",
     "title" : "Arrangements"
   },

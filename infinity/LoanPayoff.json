@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Loans Payoff is a Transact module that is used to simulate and calculate the interest and loan amount that a user must pay before a particular date. By using the Experience APIs that are associated with the Loans Payoff module, you can create the simulation for a loan amount and fetch the response.",
+    "description" : "Loans Payoff API provides functionality to simulate and calculate the interest and loan amount that is due to be paid before a particular date and uses the Transact Loans payoff module.",
     "version" : "1.0",
     "title" : "Loans Payoff"
   },

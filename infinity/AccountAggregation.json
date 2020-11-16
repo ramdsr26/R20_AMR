@@ -1,7 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "Account Aggregation is a provision for the user to access their accounts from other banks. The Account Aggregation API is associated with a third party provider called Salt Edge. This third party provider fetches the accounts from other banks and provides the data to the microservice.",
+    "description" : "Account Aggregation API provides functionality to retrieve accounts from other banks via third-party provider Salt Edge and updates the account aggregation microservice.",
     "version" : "1.0",
     "title" : "Account Aggregation"
   },
