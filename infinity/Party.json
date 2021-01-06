@@ -1,0 +1,348 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Party API enables you to interact and manage the various party details stored in the Party microservice such as personal, communication and address details.",
+    "version" : "1.0",
+    "title" : "Party"
+  },
+  "host" : "KH2606.temenosgroup.com:8080/services",
+  "basePath" : "/data/v1/PartyServices/objects",
+  "tags" : [ {
+    "name" : "Party"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/Party/createParty" : {
+      "post" : {
+        "tags" : [ "Party" ],
+        "summary" : "Creates a new Party in the Party microservice",
+		"description" : "Creates a new Party in the Party microservice. This API is used during the Infinity user creation to create a Party. The created party is associated with the Infinity user in the back-end identifier table",
+        "operationId" : "createPartyParty",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Party"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Party/updateParty" : {
+      "post" : {
+        "tags" : [ "Party" ],
+        "summary" : "Updates the party associated with the Infinity user in the Party microservice",
+		"description" : "Updates the party associated with the Infinity user in the Party microservice. The updated information can be personal, communication, or address information.",
+        "operationId" : "updatePartyParty",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Party"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Party/getParty" : {
+      "post" : {
+        "tags" : [ "Party" ],
+        "summary" : "Retrieves the Party associated with the Infinity user from the Party microservice",
+		"description" : "Retrieves the Party associated with the Infinity user from the Party microservice. The fetched Party includes details about the Infinity user such as Personal, communication, and address information.",
+        "operationId" : "getPartyParty",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Party"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "schema" : {
+              "$ref" : "#/definitions/Response_Custom"
+            }
+          }
+        }
+      }
+    },
+    "/Party" : { }
+  },
+  "definitions" : {
+    "Party" : {
+      "type" : "object",
+      "properties" : {
+        "partyStatus" : {
+          "type" : "string",
+          "description" : "Specifies the status of the party related to bank (active/prospect)"
+        },
+        "contactAddresss" : {
+          "type" : "string",
+          "description" : "Specifies the physical address details of a party"
+        },
+        "dateOfBirth" : {
+          "type" : "string",
+          "description" : "Specifies the date of birth of the party"
+        },
+        "employments" : {
+          "type" : "string",
+		  "description": "Specifies an array of employment details about the party such as employment status"
+        },
+        "partyType" : {
+          "type" : "string",
+          "description" : "Specifies the type of the party. The party type can be either Individual or Business."
+        },
+        "occupations" : {
+          "type" : "string",
+          "description" : "Specifies an array of occupation details about the party"
+        },
+        "taxDetailss" : {
+          "type" : "string",
+          "description" : "Specifies an array of tax details of the party"
+        },
+        "citizenships" : {
+          "type" : "string",
+          "description" : "Specifies the country where the party has been naturalised"
+        },
+        "nationalitys" : {
+          "type" : "string",
+          "description" : "Specifies the nationality of the person, standard country code"
+        },
+        "partyId" : {
+          "type" : "string",
+          "description" : "Specifies the unique Identifier of the party"
+        },
+        "residences" : {
+          "type" : "string",
+          "description" : "Specifies an array of residence details of the party"
+        },
+        "vulnerabilitys" : {
+          "type" : "string",
+          "description" : "Specifies an array of vulnerability details of the party"
+        },
+        "partyLifeCycles" : {
+          "type" : "string",
+          "description" : "Specifies an array of details on the party life cycles"
+        },
+        "partyNamess" : {
+          "type" : "string",
+          "description" : "Specifies an array that consists of various names."
+        },
+        "contactPoints" : {
+          "type" : "string",
+          "description" : "Specifies the different end-points at which a party could be contacted. "
+        },
+        "partyLanguages" : {
+          "type" : "string",
+          "description" : "Specifies the party's language to be used for correspondence"
+        },
+        "otherRiskIndicators" : {
+          "type" : "string",
+          "description" : "Specifies an array of risk indicators for the party"
+        },
+        "partyIdentifiers" : {
+          "type" : "string",
+          "description" : "Specifies the legal identification documents that are associated with a party"
+        },
+        "partyAssessments" : {
+          "type" : "string",
+		  "description" : " Specifies the various assessments stored by a Party. These assessments are done by third-party systems such as AML and PEP Screening"
+        },
+        "phoneAddress" : {
+          "type" : "string",
+          "description" : "Specifies a JSON array that consists of a phone number. Each JSON object consists of a property of the phone number."
+        },
+        "electronicAddress" : {
+          "type" : "string",
+          "description" : "Specifies a JSON array that consists of an Email ID and its attributes in each JSON object."
+        },
+        "error" : {
+          "type" : "string",
+          "description" : "Specifies the error generated from the backend"
+        },
+        "createStatus" : {
+          "type" : "string",
+          "description" : "Specifies whether the create party operation was a success or a failure"
+        },
+        "updateStatus" : {
+          "type" : "string",
+          "description" : "Specifies whether the update party operation was a success or failure"
+        },
+        "partyNames" : {
+          "type" : "string",
+          "description" : "Specifies an array that consists of various names."
+        },
+        "contactAddress" : {
+          "type" : "string",
+          "description" : "Specifies a JSON array that consists of the contact address and its attributes in each JSON object."
+        },
+        "dbpErrMsg" : {
+          "type" : "string",
+          "description" : "Specifies the error message fetched from the backend"
+        },
+        "dbpErrCode" : {
+          "type" : "string",
+          "description" : "Specifies the error code fetched from the backend"
+        },
+        "FirstName" : {
+          "type" : "string",
+          "description" : "Specifies the first name of the party"
+        },
+        "LastName" : {
+          "type" : "string",
+          "description" : "Specifies the last name of the party"
+        },
+        "EmailAddress" : {
+          "type" : "string",
+          "description" : "Specifies the email address of the party"
+        },
+        "CountryCode" : {
+          "type" : "string",
+          "description" : "Specifies the country code of the party"
+        },
+        "PhoneNumber" : {
+          "type" : "string",
+          "description" : "Specifies the phone number of the party"
+        },
+        "TaxId" : {
+          "type" : "string",
+          "description" : "Specifies the tax ID of the party"
+        },
+        "IdentityType" : {
+          "type" : "string",
+          "description" : "Specifies the unique identifiers type for a party such as Other System Reference"
+        },
+        "IdentityNumber" : {
+          "type" : "string",
+          "description" : "Specifies the identification number of a party"
+        },
+        "IssuingCountry" : {
+          "type" : "string",
+          "description" : "Specifies the identifier to the country where identity document belongs"
+        },
+        "IssuingState" : {
+          "type" : "string",
+          "description" : "Specifies the identifier to the state where identity document belongs"
+        },
+        "IssueDate" : {
+          "type" : "string",
+          "description" : "Specifies the date on which the Identity document was issued"
+        },
+        "ExpiryDate" : {
+          "type" : "string",
+          "description" : "Specifies the date when the assessment will expiry, the assessment availability date"
+        },
+        "AddressLine1" : {
+          "type" : "string",
+          "description" : "Specifies the first line of address of the applicant"
+        },
+        "AddressLine2" : {
+          "type" : "string",
+          "description" : "Specifies the second line of address of the applicant"
+        },
+        "Country" : {
+          "type" : "string",
+          "description" : "Specifies the name of the country of the applicant"
+        },
+        "State" : {
+          "type" : "string",
+          "description" : "Specifies the name of the state of the applicant"
+        },
+        "City" : {
+          "type" : "string",
+          "description" : "Specifies the name of the city in which the applicant resides"
+        },
+        "ZipCode" : {
+          "type" : "string",
+          "description" : "Specifies the zip-code of the applicant"
+        },
+        "ApplicationStartDate" : {
+          "type" : "string",
+          "description" : "Specifies the date on which the application has started running"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the party"
+        }
+      }
+    },
+    "Response_Get_Party" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "records" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Party"
+          }
+        }
+      }
+    },
+    "Response_Custom" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Response_Party" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "partyId" : {
+          "type" : "string",
+          "description" : "Specifies the unique ID of the party"
+        }
+      }
+    },
+    "Response_Delete" : {
+      "type" : "object",
+      "properties" : {
+        "opstatus" : {
+          "type" : "integer"
+        },
+        "httpStatusCode" : {
+          "type" : "integer"
+        },
+        "deletedRecords" : {
+          "type" : "integer"
+        }
+      }
+    }
+  }
+}
