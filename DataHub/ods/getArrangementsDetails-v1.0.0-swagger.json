@@ -1,0 +1,429 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API to retrieve the arrangement details",
+    "version" : "v1.0.0",
+    "title" : "Arrangement Details"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "https", "http" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/holdings/customers/{customerId}/arrangements" : {
+      "get" : {
+        "summary" : "Retrieves the arrangement details for specific customer ",
+        "operationId" : "getArrangementsForCustomers",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementStatus",
+          "in" : "query",
+          "description" : "Indicates the status of the Arrangement during the life cycle of the contract",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "recordId",
+          "in" : "query",
+          "description" : "Unique identifier of an entity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productLineId",
+          "in" : "query",
+          "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productGroupId",
+          "in" : "query",
+          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getArrangementsForCustomersResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getArrangementsForCustomersResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/arrangements/{recordId}" : {
+      "get" : {
+        "summary" : "Retrieves the arrangement details for specific id ",
+        "operationId" : "getArrangement",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "recordId",
+          "in" : "path",
+          "description" : "Unique identifier of an entity",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementStatus",
+          "in" : "query",
+          "description" : "Indicates the status of the Arrangement during the life cycle of the contract",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerId",
+          "in" : "query",
+          "description" : "Identifier of the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productLineId",
+          "in" : "query",
+          "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productGroupId",
+          "in" : "query",
+          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getArrangementResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getArrangementResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/customers/{customerId}/arrangements/{recordId}" : {
+      "get" : {
+        "summary" : "API to retrieve the arrangement details for specific id and specific customer",
+        "operationId" : "getArrangementsForCustomer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "recordId",
+          "in" : "path",
+          "description" : "Unique identifier of an entity",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementStatus",
+          "in" : "query",
+          "description" : "Indicates the status of the Arrangement during the life cycle of the contract",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productLineId",
+          "in" : "query",
+          "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productGroupId",
+          "in" : "query",
+          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getArrangementsForCustomerResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getArrangementsForCustomerResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "getArrangementsForCustomersResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getArrangementsForCustomersResponseBody"
+        }
+      },
+      "description" : "getArrangementsForCustomersResponse"
+    },
+    "getArrangementsForCustomersResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "aaArraangement" : {
+          "type" : "array",
+          "description" : "The AA.ARRANGEMENT file records generic information of the arrangement contract, which is common for all product lines.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "recordId" : {
+                "type" : "string",
+                "description" : "Unique identifier of an entity"
+              },
+              "linkedAppl" : {
+                "type" : "object",
+                "description" : "Denotes the T24 application linked to the Arrangement contrac",
+                "properties" : {
+                  "accountId" : {
+                    "type" : "string",
+                    "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                  }
+                }
+              },
+              "currencyId" : {
+                "type" : "string",
+                "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+              },
+              "depProduct" : {
+                "type" : "object",
+                "description" : "The deposit account product ",
+                "properties" : {
+                  "productId" : {
+                    "type" : "string",
+                    "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+                  }
+                }
+              },
+              "productGroupId" : {
+                "type" : "string",
+                "description" : "The group, as defined by the institution, that the product belongs to."
+              },
+              "productLineId" : {
+                "type" : "string",
+                "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products."
+              }
+            }
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "getArrangementResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getArrangementResponseBody"
+        }
+      },
+      "description" : "getArrangementResponse"
+    },
+    "getArrangementResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "aaArraangement" : {
+          "type" : "array",
+          "description" : "The AA.ARRANGEMENT file records generic information of the arrangement contract, which is common for all product lines.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "recordId" : {
+                "type" : "string",
+                "description" : "Unique identifier of an entity"
+              },
+              "linkedAppl" : {
+                "type" : "object",
+                "description" : "Denotes the T24 application linked to the Arrangement contrac",
+                "properties" : {
+                  "accountId" : {
+                    "type" : "string",
+                    "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                  }
+                }
+              },
+              "currencyId" : {
+                "type" : "string",
+                "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+              },
+              "depProduct" : {
+                "type" : "object",
+                "description" : "The deposit account product ",
+                "properties" : {
+                  "productId" : {
+                    "type" : "string",
+                    "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+                  }
+                }
+              },
+              "productGroupId" : {
+                "type" : "string",
+                "description" : "The group, as defined by the institution, that the product belongs to."
+              },
+              "productLineId" : {
+                "type" : "string",
+                "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products."
+              }
+            }
+          }
+        }
+      }
+    },
+    "getArrangementsForCustomerResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getArrangementsForCustomerResponseBody"
+        }
+      },
+      "description" : "getArrangementsForCustomerResponse"
+    },
+    "getArrangementsForCustomerResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "aaArraangement" : {
+          "type" : "array",
+          "description" : "The AA.ARRANGEMENT file records generic information of the arrangement contract, which is common for all product lines.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "recordId" : {
+                "type" : "string",
+                "description" : "Unique identifier of an entity"
+              },
+              "linkedAppl" : {
+                "type" : "object",
+                "description" : "Denotes the T24 application linked to the Arrangement contrac",
+                "properties" : {
+                  "accountId" : {
+                    "type" : "string",
+                    "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN"
+                  }
+                }
+              },
+              "currencyId" : {
+                "type" : "string",
+                "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+              },
+              "depProduct" : {
+                "type" : "object",
+                "description" : "The deposit account product ",
+                "properties" : {
+                  "productId" : {
+                    "type" : "string",
+                    "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+                  }
+                }
+              },
+              "productGroupId" : {
+                "type" : "string",
+                "description" : "The group, as defined by the institution, that the product belongs to."
+              },
+              "productLineId" : {
+                "type" : "string",
+                "description" : "The top level product line, which the product is ultimately attached to. May be a Temenos-defined product line such as ACCOUNTS, AGENT, BUNDLE, CONSENT, DEPOSITS, LENDING, REWARDS, etc. or one defined by the institution to manage external products."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

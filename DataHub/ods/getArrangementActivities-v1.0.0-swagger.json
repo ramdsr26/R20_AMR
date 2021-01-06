@@ -1,0 +1,164 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API to retrieve the Arrangement Activity details ",
+    "version" : "v1.0.0",
+    "title" : "Cash management  Bundle arrangement details"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/holdings/cashManagement/customers/bundles/drafts" : {
+      "get" : {
+        "summary" : "Retrieves the Arrangement Activity details ",
+        "operationId" : "getArrangementActivities",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "getArrangementActivitiesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getArrangementActivitiesResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "getArrangementActivitiesResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getArrangementActivitiesResponseBody"
+        }
+      },
+      "description" : "getArrangementActivitiesResponse"
+    },
+    "getArrangementActivitiesResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "aaArrangementActivity" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "recordId" : {
+                "type" : "string",
+                "description" : "Unique identifier of an entity"
+              },
+              "activityClass" : {
+                "type" : "string",
+                "description" : "The identifier of the activity class"
+              },
+              "currencyId" : {
+                "type" : "string",
+                "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
+              },
+              "arrangementId" : {
+                "type" : "string",
+                "description" : "The unique identifier of an arrangement contract."
+              },
+              "activity" : {
+                "type" : "string",
+                "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+              },
+              "arrangementEffectiveDate" : {
+                "type" : "string",
+                "description" : "It is a date on/upon which an account is considered to take effect"
+              },
+              "arrangementLinkType" : {
+                "type" : "string",
+                "description" : "Capture the type of relationship between the arrangements"
+              },
+              "productId" : {
+                "type" : "string",
+                "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              },
+              "channelId" : {
+                "type" : "string",
+                "description" : "Id of the (digital) channel"
+              },
+              "txnAmount" : {
+                "type" : "string",
+                "description" : "When external applications credit/debit an arrangement, the details need to be fed into the Arrangement Activity so that the Actions can raise accounting entries based on this"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API to retrieve the Limit Group allocation details",
+    "version" : "v1.0.0",
+    "title" : "Limit group allocation"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/holdings/limits/groups/{masterGroupKey}/allocations" : {
+      "get" : {
+        "summary" : "Retrieves the Limit Group allocation details",
+        "operationId" : "getLimitGroupAllocations",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "masterGroupKey",
+          "in" : "path",
+          "description" : "Automatically updated by system during authorization with the master group key in which the sharing group key is linked. It will be updated only for the Main group and not for the sub groups.",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getLimitGroupAllocationsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getLimitGroupAllocationsResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "getLimitGroupAllocationsResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getLimitGroupAllocationsResponseBody"
+        }
+      },
+      "description" : "getLimitGroupAllocationsResponse"
+    },
+    "getLimitGroupAllocationsResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "groupAllocation" : {
+          "type" : "array",
+          "description" : "Holds the Limit Group allocation details ",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "recordId" : {
+                "type" : "string",
+                "description" : "Unique identifier of an entity"
+              },
+              "relatedReference" : {
+                "type" : "object",
+                "description" : "An external reference id for the transaction.",
+                "properties" : {
+                  "relatedReference" : {
+                    "type" : "string",
+                    "description" : "An external reference id for the transaction."
+                  },
+                  "dealCurrency" : {
+                    "type" : "string",
+                    "description" : "Identifies the transaction currency involved in the Deal"
+                  },
+                  "dealAmount" : {
+                    "type" : "string",
+                    "description" : "Identifies the transaction amount involved in the Deal"
+                  },
+                  "commitOverdrawnAmount" : {
+                    "type" : "string",
+                    "description" : "Excess amount that are made as commitments under the Deal using the Group Limit"
+                  },
+                  "limitAmount" : {
+                    "type" : "string",
+                    "description" : "The Limit amount that is actually available for use. The system limit checks are preformed against the online limit"
+                  },
+                  "limitId" : {
+                    "type" : "object",
+                    "description" : "The identifier of credit limit",
+                    "properties" : {
+                      "commitAmountAlloc" : {
+                        "type" : "string",
+                        "description" : "Allocated Group limit amount for the commitments under the Deal"
+                      }
+                    }
+                  },
+                  "commitAmountAlloc" : {
+                    "type" : "string",
+                    "description" : "Allocated Group limit amount for the commitments under the Deal"
+                  },
+                  "limitKey" : {
+                    "type" : "string",
+                    "description" : "The identifier of credit limit"
+                  }
+                }
+              },
+              "masterGroupKey" : {
+                "type" : "object",
+                "description" : "Automatically updated by system during authorization with the master group key in which the sharing group key is linked. It will be updated only for the Main group and not for the sub groups.",
+                "properties" : {
+                  "totalAllocation" : {
+                    "type" : "string",
+                    "description" : "The total amount allocated for different deals under the limit"
+                  },
+                  "groupCurrency" : {
+                    "type" : "string",
+                    "description" : "Identifies the currency of the Limit under the Limit sharing group"
+                  },
+                  "masterGroupKey" : {
+                    "type" : "string",
+                    "description" : "Automatically updated by system during authorization with the master group key in which the sharing group key is linked. It will be updated only for the Main group and not for the sub groups."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    }
+  }
+}

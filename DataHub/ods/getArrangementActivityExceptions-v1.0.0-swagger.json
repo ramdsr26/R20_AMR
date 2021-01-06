@@ -1,0 +1,466 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API Retrieve the list of exception Arrangement Activity details",
+    "version" : "v1.0.0",
+    "title" : "Pending Arrangement Activities"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "https", "http" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/holdings/pending/activity/" : {
+      "get" : {
+        "summary" : "Retrieve the list of pending Arrangement Activity details",
+        "operationId" : "getPendingArrangementActivity",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "activity",
+          "in" : "query",
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "recordStatus",
+          "in" : "query",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPendingArrangementActivityResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingArrangementActivityResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/pending/activity/bundles" : {
+      "get" : {
+        "summary" : "Retrieve the list of pending bundle Arragement Activity details",
+        "operationId" : "getPendingBundleArrangement",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "activity",
+          "in" : "query",
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "recordStatus",
+          "in" : "query",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPendingBundleArrangementResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingBundleArrangementResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/pending/activity/deposits" : {
+      "get" : {
+        "summary" : "Retrieve the list of pending deposit Arragement Activity details",
+        "operationId" : "getPendingDepositArrangement",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "activity",
+          "in" : "query",
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "recordStatus",
+          "in" : "query",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPendingDepositArrangementResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingDepositArrangementResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/pending/activity/loans" : {
+      "get" : {
+        "summary" : "Retrieve the list of pending loan Arragement Activity details",
+        "operationId" : "getPendingLoanArrangement",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "activity",
+          "in" : "query",
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "recordStatus",
+          "in" : "query",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPendingLoanArrangementResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingLoanArrangementResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/holdings/pending/activity/consents" : {
+      "get" : {
+        "summary" : "Retrieve the list of pending consents Arragement Activity details",
+        "operationId" : "getPendingConsentArrangement",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "activity",
+          "in" : "query",
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "recordStatus",
+          "in" : "query",
+          "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPendingConsentArrangementResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingConsentArrangementResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "getPendingArrangementActivityResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getPendingArrangementActivityResponseBody"
+        }
+      },
+      "description" : "getPendingArrangementActivityResponse"
+    },
+    "getPendingArrangementActivityResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "aaArrangementActivity" : {
+          "type" : "array",
+          "description" : "Arrangement Activity application serves both as a mechanism to allow a user to initiate an Activity and as a record of each Activity that has been processed against the Arrangement.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "arrangementId" : {
+                "type" : "string",
+                "description" : "The unique identifier of an arrangement contract."
+              },
+              "masterArrangement" : {
+                "type" : "string",
+                "description" : "Indicate the Master arrangement activity which initiated the transaction"
+              },
+              "productId" : {
+                "type" : "string",
+                "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              },
+              "customerId" : {
+                "type" : "object",
+                "properties" : {
+                  "customerId" : {
+                    "type" : "string",
+                    "description" : "Identifier of the customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "getPendingBundleArrangementResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getPendingBundleArrangementResponseBody"
+        }
+      },
+      "description" : "getPendingBundleArrangementResponse"
+    },
+    "getPendingBundleArrangementResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "aaArrangementActivity" : {
+          "type" : "array",
+          "description" : "Arrangement Activity application serves both as a mechanism to allow a user to initiate an Activity and as a record of each Activity that has been processed against the Arrangement.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "arrangementId" : {
+                "type" : "string",
+                "description" : "The unique identifier of an arrangement contract."
+              },
+              "masterArrangement" : {
+                "type" : "string",
+                "description" : "Indicate the Master arrangement activity which initiated the transaction"
+              },
+              "productId" : {
+                "type" : "string",
+                "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              },
+              "customerId" : {
+                "type" : "object",
+                "properties" : {
+                  "customerId" : {
+                    "type" : "string",
+                    "description" : "Identifier of the customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "getPendingDepositArrangementResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getPendingDepositArrangementResponseBody"
+        }
+      },
+      "description" : "getPendingDepositArrangementResponse"
+    },
+    "getPendingDepositArrangementResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "aaArrangementActivity" : {
+          "type" : "array",
+          "description" : "Arrangement Activity application serves both as a mechanism to allow a user to initiate an Activity and as a record of each Activity that has been processed against the Arrangement.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "arrangementId" : {
+                "type" : "string",
+                "description" : "The unique identifier of an arrangement contract."
+              },
+              "masterArrangement" : {
+                "type" : "string",
+                "description" : "Indicate the Master arrangement activity which initiated the transaction"
+              },
+              "productId" : {
+                "type" : "string",
+                "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              },
+              "customerId" : {
+                "type" : "object",
+                "properties" : {
+                  "customerId" : {
+                    "type" : "string",
+                    "description" : "Identifier of the customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "getPendingLoanArrangementResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getPendingLoanArrangementResponseBody"
+        }
+      },
+      "description" : "getPendingLoanArrangementResponse"
+    },
+    "getPendingLoanArrangementResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "aaArrangementActivity" : {
+          "type" : "array",
+          "description" : "Arrangement Activity application serves both as a mechanism to allow a user to initiate an Activity and as a record of each Activity that has been processed against the Arrangement.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "arrangementId" : {
+                "type" : "string",
+                "description" : "The unique identifier of an arrangement contract."
+              },
+              "masterArrangement" : {
+                "type" : "string",
+                "description" : "Indicate the Master arrangement activity which initiated the transaction"
+              },
+              "productId" : {
+                "type" : "string",
+                "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              },
+              "customerId" : {
+                "type" : "object",
+                "properties" : {
+                  "customerId" : {
+                    "type" : "string",
+                    "description" : "Identifier of the customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "getPendingConsentArrangementResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getPendingConsentArrangementResponseBody"
+        }
+      },
+      "description" : "getPendingConsentArrangementResponse"
+    },
+    "getPendingConsentArrangementResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "aaArrangementActivity" : {
+          "type" : "array",
+          "description" : "Arrangement Activity application serves both as a mechanism to allow a user to initiate an Activity and as a record of each Activity that has been processed against the Arrangement.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "arrangementId" : {
+                "type" : "string",
+                "description" : "The unique identifier of an arrangement contract."
+              },
+              "masterArrangement" : {
+                "type" : "string",
+                "description" : "Indicate the Master arrangement activity which initiated the transaction"
+              },
+              "productId" : {
+                "type" : "string",
+                "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+              },
+              "customerId" : {
+                "type" : "object",
+                "properties" : {
+                  "customerId" : {
+                    "type" : "string",
+                    "description" : "Identifier of the customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

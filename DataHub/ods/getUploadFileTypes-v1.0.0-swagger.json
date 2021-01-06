@@ -1,0 +1,142 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API to retrieve the file uploading details which includes extension of the file, directory and maximum file size details",
+    "version" : "v1.0.0",
+    "title" : "Bulk Payments"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/order/bulkPayments/uploads/fileTypes" : {
+      "get" : {
+        "summary" : "Retrieves the file uploading details which includes extension of the file, directory and maximum file size details",
+        "operationId" : "getUploadFileTypes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "recordId",
+          "in" : "query",
+          "description" : "Unique identifier of an entity",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getUploadFileTypesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getUploadFileTypesResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "getUploadFileTypesResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getUploadFileTypesResponseBody"
+        }
+      },
+      "description" : "getUploadFileTypesResponse"
+    },
+    "getUploadFileTypesResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "fileUploadType" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "uploadDir" : {
+                "type" : "string",
+                "description" : "specifies in which directory files will be uploaded to"
+              },
+              "extension" : {
+                "type" : "string",
+                "description" : "The system generated files will be given in the extension provided."
+              },
+              "maxSize" : {
+                "type" : "string",
+                "description" : "specifies a maximum size (in bytes) to be uploaded"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    }
+  }
+}

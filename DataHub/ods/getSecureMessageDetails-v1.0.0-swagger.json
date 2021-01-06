@@ -1,0 +1,369 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API to retrieve the list of messages of a customer from Bank to Customer and from customer to Bank",
+    "version" : "v1.0.0",
+    "title" : "Customer secure messages"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/party/customers/{fromCustomerId}/secureMessages" : {
+      "get" : {
+        "summary" : "Retrieves the list of messages of a customer from Bank to Customer and from customer to Bank",
+        "operationId" : "getSecureMessagesForCustomer",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "fromCustomerId",
+          "in" : "path",
+          "description" : "The Customer ID from which the message is triggered.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "recordId",
+          "in" : "query",
+          "description" : "Unique identifier of an entity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "parentMessageId",
+          "in" : "query",
+          "description" : "Identifier of the parent message.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "toCustomerId",
+          "in" : "query",
+          "description" : "The unique customer identifier of the Payee, to whom the payment message is to be sent",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "messageStatus",
+          "in" : "query",
+          "description" : "Status of the message",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getSecureMessagesForCustomerResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getSecureMessagesForCustomerResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/party/customers/secureMessages" : {
+      "get" : {
+        "summary" : "Retrieves the list of messages from Bank to Customer and from customer to Bank ",
+        "operationId" : "getSecureMessages",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "recordId",
+          "in" : "query",
+          "description" : "Unique identifier of an entity",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "parentMessageId",
+          "in" : "query",
+          "description" : "Identifier of the parent message.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "toCustomerId",
+          "in" : "query",
+          "description" : "The unique customer identifier of the Payee, to whom the payment message is to be sent",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "fromCustomerId",
+          "in" : "query",
+          "description" : "The Customer ID from which the message is triggered.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "messageStatus",
+          "in" : "query",
+          "description" : "Status of the message",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getSecureMessagesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getSecureMessagesResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "getSecureMessagesForCustomerResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getSecureMessagesForCustomerResponseBody"
+        }
+      },
+      "description" : "getSecureMessagesForCustomerResponse"
+    },
+    "getSecureMessagesForCustomerResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "ebSecureMessage" : {
+          "type" : "array",
+          "description" : "To establish a secure messaging system in a bank.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "messageStatus" : {
+                "type" : "string",
+                "description" : "Indicates the status of Secured mail between the Customer and bank.  Allowed values: - READ - UNREAD"
+              },
+              "recordId" : {
+                "type" : "string",
+                "description" : "Unique identifier of an entity"
+              },
+              "subject" : {
+                "type" : "string",
+                "description" : "The subject of the message to be sent or received."
+              },
+              "dateSent" : {
+                "type" : "string",
+                "description" : "The date when the message is sent."
+              },
+              "sentAt" : {
+                "type" : "string",
+                "description" : "The time on which the message was sent."
+              },
+              "fromDepartmentId" : {
+                "type" : "string",
+                "description" : "The identifier of the originating department"
+              },
+              "toDepartmentId" : {
+                "type" : "string",
+                "description" : "The unique department identifier, to which the message is to be sent."
+              },
+              "parentMessageId" : {
+                "type" : "string",
+                "description" : "Identifier of the parent message."
+              },
+              "fromCustomerId" : {
+                "type" : "string",
+                "description" : "The Customer ID from which the message is triggered."
+              },
+              "toCustomerId" : {
+                "type" : "string",
+                "description" : "The unique customer identifier of the Payee, to whom the payment message is to be sent"
+              },
+              "uploadId" : {
+                "type" : "string",
+                "description" : "The unique identifier of the uploaded file"
+              },
+              "uploadPath" : {
+                "type" : "string",
+                "description" : "The directory path to which the file is uploaded"
+              },
+              "message" : {
+                "type" : "object",
+                "description" : "Specifies the record ID of parent message. ",
+                "properties" : {
+                  "message" : {
+                    "type" : "string",
+                    "description" : "Specifies the record ID of parent message. "
+                  }
+                }
+              }
+            }
+          }
+        },
+        "accountOfficer" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "name" : {
+                "type" : "string",
+                "description" : "Name of the Customer or Bank Employee or a Person"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "getSecureMessagesResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getSecureMessagesResponseBody"
+        }
+      },
+      "description" : "getSecureMessagesResponse"
+    },
+    "getSecureMessagesResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "ebSecureMessage" : {
+          "type" : "array",
+          "description" : "To establish a secure messaging system in a bank.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "messageStatus" : {
+                "type" : "string",
+                "description" : "Indicates the status of Secured mail between the Customer and bank.  Allowed values: - READ - UNREAD"
+              },
+              "recordId" : {
+                "type" : "string",
+                "description" : "Unique identifier of an entity"
+              },
+              "subject" : {
+                "type" : "string",
+                "description" : "The subject of the message to be sent or received."
+              },
+              "dateSent" : {
+                "type" : "string",
+                "description" : "The date when the message is sent."
+              },
+              "sentAt" : {
+                "type" : "string",
+                "description" : "The time on which the message was sent."
+              },
+              "fromDepartmentId" : {
+                "type" : "string",
+                "description" : "The identifier of the originating department"
+              },
+              "toDepartmentId" : {
+                "type" : "string",
+                "description" : "The unique department identifier, to which the message is to be sent."
+              },
+              "parentMessageId" : {
+                "type" : "string",
+                "description" : "Identifier of the parent message."
+              },
+              "fromCustomerId" : {
+                "type" : "string",
+                "description" : "The Customer ID from which the message is triggered."
+              },
+              "toCustomerId" : {
+                "type" : "string",
+                "description" : "The unique customer identifier of the Payee, to whom the payment message is to be sent"
+              },
+              "uploadId" : {
+                "type" : "string",
+                "description" : "The unique identifier of the uploaded file"
+              },
+              "uploadPath" : {
+                "type" : "string",
+                "description" : "The directory path to which the file is uploaded"
+              },
+              "message" : {
+                "type" : "object",
+                "description" : "Specifies the record ID of parent message. ",
+                "properties" : {
+                  "message" : {
+                    "type" : "string",
+                    "description" : "Specifies the record ID of parent message. "
+                  }
+                }
+              }
+            }
+          }
+        },
+        "accountOfficer" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "name" : {
+                "type" : "string",
+                "description" : "Name of the Customer or Bank Employee or a Person"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

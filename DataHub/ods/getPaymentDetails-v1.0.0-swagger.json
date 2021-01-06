@@ -1,0 +1,348 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API to retrieve the payment Transaction information",
+    "version" : "v1.0.0",
+    "title" : "Payment order and transfer details"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/order/payments/pendingOrders" : {
+      "get" : {
+        "summary" : "Retrieves the overall Transaction information",
+        "operationId" : "getPendingPayments",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "company",
+          "in" : "query",
+          "description" : "The company code",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "date",
+          "in" : "query",
+          "description" : "Indicates the date on which activity was performed",
+          "required" : false,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "transactionReference",
+          "in" : "query",
+          "description" : "",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "direction",
+          "in" : "query",
+          "description" : "Indicates the direction of the Direct debit claim for which mandate is received. The claim can be 'Outward' i.e. Claim is sent to the other bank or 'Inward'  i.e. other bank submit their claim to debit our customer's account. ",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "currency",
+          "in" : "query",
+          "description" : "Contains all details of each individual currency, for example, currency name, number of decimal places together with other information such as the buy and sell rates",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "amount",
+          "in" : "query",
+          "description" : "This is the payment amount",
+          "required" : false,
+          "type" : "number"
+        }, {
+          "name" : "DebitClientID",
+          "in" : "query",
+          "description" : "",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "CreditClientID",
+          "in" : "query",
+          "description" : "",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "debitMainAccountCurrencyCode",
+          "in" : "query",
+          "description" : "ISO Currency for Debit Main Account",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "debitAccountId",
+          "in" : "query",
+          "description" : "Indicates the debit account number of the payment or transaction.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "creditAccountId",
+          "in" : "query",
+          "description" : "Credit account identifier of the payment or transaction",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "getPendingPaymentsResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPendingPaymentsResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/order/payments/fees" : {
+      "get" : {
+        "summary" : "Retrieves the charge details applied for transactions",
+        "operationId" : "getPaymentFeesAndCharges",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "getPaymentFeesAndChargesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getPaymentFeesAndChargesResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "getPendingPaymentsResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getPendingPaymentsResponseBody"
+        }
+      },
+      "description" : "getPendingPaymentsResponse"
+    },
+    "getPendingPaymentsResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "porTransaction" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "company" : {
+                "type" : "string",
+                "description" : "The company code"
+              },
+              "debitMainAccountCurrencyCode" : {
+                "type" : "string",
+                "description" : "ISO Currency for Debit Main Account"
+              },
+              "creditMainAccountCurrencyCode" : {
+                "type" : "string",
+                "description" : "ISO Currency for Credit Main Account"
+              },
+              "ctrBtrIndicator" : {
+                "type" : "string",
+                "description" : "Indicates Customer transfer (CTR) or Bank transfer (BTR)"
+              },
+              "date" : {
+                "type" : "string",
+                "description" : "Date in the format YYYYMMDD. E.g. 20191231"
+              },
+              "customerSpecifiedReference" : {
+                "type" : "string",
+                "description" : "Indicates the customer sepecified reference"
+              },
+              "transactionReferenceIncoming" : {
+                "type" : "string",
+                "description" : "Indicates the transaction related reference"
+              },
+              "transactionReference" : {
+                "type" : "string",
+                "description" : "Transaction reference identifier."
+              },
+              "sendersReference" : {
+                "type" : "string",
+                "description" : "Indicates the incoming sender's reference i.e. tag 20 of incoming SWIFT or in case when transaction is received from other system/ application, this can also indicate the reference number of that system/ application"
+              },
+              "displayName" : {
+                "type" : "string",
+                "description" : "Contains the name used for display or enrichment purposes"
+              },
+              "receivedAt" : {
+                "type" : "string",
+                "description" : "Indicates the date and time when the record was created in DD MON YYYY HH:MM:SS.MMM format"
+              },
+              "recordId" : {
+                "type" : "string",
+                "description" : "Unique identifier of an entity"
+              },
+              "currency" : {
+                "type" : "string",
+                "description" : "Identifies the currency. E.g. USD, GBP etc"
+              },
+              "amount" : {
+                "type" : "string",
+                "description" : "This is the payment amount"
+              },
+              "direction" : {
+                "type" : "string",
+                "description" : "Indicates the direction of the Direct debit claim for which mandate is received. The claim can be 'Outward' i.e. Claim is sent to the other bank or 'Inward'  i.e. other bank submit their claim to debit our customer's account. "
+              },
+              "debitAccountId" : {
+                "type" : "string",
+                "description" : "Indicates the debit account number of the payment or transaction."
+              },
+              "creditAccountId" : {
+                "type" : "string",
+                "description" : "Credit account identifier of the payment or transaction"
+              },
+              "creditMainAccountCompanyID" : {
+                "type" : "string",
+                "description" : "Indicates the credit main account company ID"
+              },
+              "debitMainAccountCompanyID" : {
+                "type" : "string",
+                "description" : "Indicates the debit main account company ID"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "getPaymentFeesAndChargesResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getPaymentFeesAndChargesResponseBody"
+        }
+      },
+      "description" : "getPaymentFeesAndChargesResponse"
+    },
+    "getPaymentFeesAndChargesResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "postingAndConfirmation" : {
+          "type" : "array",
+          "description" : "Holds the charges applied for a transaction",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "chargeBearer" : {
+                "type" : "object",
+                "properties" : {
+                  "chargeAmtFeeCcy" : {
+                    "type" : "string",
+                    "description" : "Indicates the charge amount equivalent in fee currency"
+                  },
+                  "chargeBearer" : {
+                    "type" : "string",
+                    "description" : "Bearer of the charges of the order. For example: BEN(All transaction charges are to be borne by the beneficiary customer.), OUR(All transaction charges are to be borne by the ordering customer.), SHA(Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)"
+                  },
+                  "feeDescription" : {
+                    "type" : "string",
+                    "description" : "Describes the Fee type"
+                  },
+                  "chargeAmt" : {
+                    "type" : "string",
+                    "description" : "Indicates the charge amount equivalent in charge account currency"
+                  },
+                  "typeOfCharge" : {
+                    "type" : "string",
+                    "description" : "Indicates the type of fee calculated"
+                  },
+                  "feeCurrency" : {
+                    "type" : "string",
+                    "description" : "Indicates the currency code in which the fee will be charged"
+                  },
+                  "feeType" : {
+                    "type" : "string",
+                    "description" : "Indicates the Fee type applied from the PPT.FEETYPE table"
+                  },
+                  "chargeAmtCcy" : {
+                    "type" : "string",
+                    "description" : "Indicates the currency code of the charge account from where the fee is deducted"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

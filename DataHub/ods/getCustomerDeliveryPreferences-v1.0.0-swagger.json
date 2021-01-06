@@ -1,0 +1,167 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API to retrieve the list of preferred communication channels for the customer",
+    "version" : "v1.0.0",
+    "title" : "Management of Customer communication preferences"
+  },
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/party/customers/{recordId}/deliveryPreferences" : {
+      "get" : {
+        "summary" : "Retrieves the list of preferred communication channels for the customer",
+        "operationId" : "getCustomerDeliveryPreferences",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "recordId",
+          "in" : "path",
+          "description" : "Unique identifier of an entity",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Management of Customer communication preferencesResponse",
+            "schema" : {
+              "$ref" : "#/definitions/getCustomerDeliveryPreferencesResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "getCustomerDeliveryPreferencesResponse" : {
+      "properties" : {
+        "data" : {
+          "$ref" : "#/definitions/getCustomerDeliveryPreferencesResponseBody"
+        }
+      },
+      "description" : "getCustomerDeliveryPreferencesResponse"
+    },
+    "getCustomerDeliveryPreferencesResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "customerPreferences" : {
+          "type" : "array",
+          "description" : "user friendly interface for creating records in DE.PRODUCT.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "recordId" : {
+                "type" : "string",
+                "description" : "Unique identifier of an entity"
+              },
+              "messageGroupId" : {
+                "type" : "object",
+                "description" : "Specifies the Message group name that provides details of all Messages to be triggered",
+                "properties" : {
+                  "messageGroupId" : {
+                    "type" : "string",
+                    "description" : "Specifies the Message group name that provides details of all Messages to be triggered"
+                  },
+                  "carrierPosition" : {
+                    "type" : "string",
+                    "description" : "Specifies the Version of address to which the message should be sent to"
+                  },
+                  "carrierId" : {
+                    "type" : "object",
+                    "description" : "Contains the identifier associated to the carrier respective to a transaction of the account",
+                    "properties" : {
+                      "carrierPosition" : {
+                        "type" : "string",
+                        "description" : "Specifies the Version of address to which the message should be sent to"
+                      }
+                    }
+                  },
+                  "required" : {
+                    "type" : "string",
+                    "description" : "Flag to set the channel to communicate"
+                  }
+                }
+              },
+              "currNo" : {
+                "type" : "string",
+                "description" : "Current Number which indicates how many times the record is modified."
+              }
+            }
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "Status of the API(success/failed)"
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    }
+  }
+}
