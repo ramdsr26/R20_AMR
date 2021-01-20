@@ -3,7 +3,7 @@
   "info" : {
     "description" : "API to retrieve the details of all holds placed on an account ",
     "version" : "v1.0.0",
-    "title" : "US model bank  cash transaction management"
+    "title" : "US Model Bank  Cash transaction"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",

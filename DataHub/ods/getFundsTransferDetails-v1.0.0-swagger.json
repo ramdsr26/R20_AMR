@@ -162,6 +162,7 @@
       "properties" : {
         "fundsTransfer" : {
           "type" : "array",
+		  "description" : "Handle all types of Local and Foreign Currency, Inward, Outward and Onward payments",
           "items" : {
             "type" : "object",
             "properties" : {

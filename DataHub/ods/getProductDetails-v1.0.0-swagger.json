@@ -130,7 +130,7 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "fullDesc",
+          "name" : "fullDescription",
           "in" : "query",
           "description" : "Contains the name used for display or enrichment purposes",
           "required" : false,
@@ -404,7 +404,7 @@
                 "type" : "object",
                 "description" : "Contains the name used for display or enrichment purposes",
                 "properties" : {
-                  "fullDesc" : {
+                  "fullDescription" : {
                     "type" : "string",
                     "description" : "Contains the name used for display or enrichment purposes"
                   }

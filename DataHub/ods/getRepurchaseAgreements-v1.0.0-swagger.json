@@ -14,7 +14,7 @@
   "paths" : {
     "/holdings/instruments/repurchaseAgreements/positionMovements" : {
       "get" : {
-        "summary" : "Retrieve the repurchase agreement position movements ",
+        "summary" : "Retrieves the repurchase agreement position movements ",
         "operationId" : "getREPOPositionMovements",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -158,7 +158,7 @@
     },
     "/holdings/instruments/repurchaseAgreements/positions" : {
       "get" : {
-        "summary" : "Retrieve the repurchase agreement positions",
+        "summary" : "Retrieves the repurchase agreement positions",
         "operationId" : "getREPOPosition",
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -464,6 +464,7 @@
       "properties" : {
         "repoPosition" : {
           "type" : "array",
+		  "description" : "Holds all security positions which have been repo'd out of the Bank's own book(s)",
           "items" : {
             "type" : "object",
             "properties" : {

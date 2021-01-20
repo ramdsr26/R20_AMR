@@ -3,7 +3,7 @@
   "info" : {
     "description" : "API to get the list of Accounts",
     "version" : "v1.0.0",
-    "title" : "Account List"
+    "title" : "Nostro  Vostro Account list"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",

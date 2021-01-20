@@ -3,7 +3,7 @@
   "info" : {
     "description" : "API to retrieve the portfolio information ",
     "version" : "v1.0.0",
-    "title" : "Portfolio Management"
+    "title" : "Portfolio details"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
@@ -52,7 +52,7 @@
     "getPortfoliosResponseBody" : {
       "type" : "object",
       "properties" : {
-        "secAccMaster" : {
+        "secAccountMaster" : {
           "type" : "array",
           "description" : "contains information relating to a customers security account.",
           "items" : {
@@ -86,11 +86,11 @@
                 "type" : "string",
                 "description" : "Margin value for the associated position"
               },
-              "valuationAmt" : {
+              "valuationAmount" : {
                 "type" : "object",
                 "description" : "This is the valuation amount of the portfolio in reference currency",
                 "properties" : {
-                  "valuationAmt" : {
+                  "valuationAmount" : {
                     "type" : "string",
                     "description" : "This is the valuation amount of the portfolio in reference currency"
                   }

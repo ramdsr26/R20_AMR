@@ -3,7 +3,7 @@
   "info" : {
     "description" : "API to retrieve the Letter of credit details",
     "version" : "v1.0.0",
-    "title" : "Management of Letter of Credits"
+    "title" : "Letter of Credits"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",

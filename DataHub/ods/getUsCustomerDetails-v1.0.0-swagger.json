@@ -3,7 +3,7 @@
   "info" : {
     "description" : "API to retrieve the US customer details",
     "version" : "v1.0.0",
-    "title" : "US model bank  customer management"
+    "title" : "US model bank  customer details"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
@@ -58,7 +58,7 @@
     "searchUsDocumentsResponseBody" : {
       "type" : "object",
       "properties" : {
-        "custDocument" : {
+        "customerDocument" : {
           "type" : "array",
           "description" : "Stores details of   non-contract specific documents tracked for customers. Such documents could be Customer level documents tracked for CUSTOMER record input or Non-Contract specific documents tracked for record input in any application other than CUSTOMER.",
           "items" : {
@@ -86,7 +86,7 @@
               },
               "signatureDate" : {
                 "type" : "string",
-                "description" : ""
+                "description" : "The date when the document was signed"
               },
               "stateId" : {
                 "type" : "string",

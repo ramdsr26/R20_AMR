@@ -3,7 +3,7 @@
   "info" : {
     "description" : "API to retrieves the guarantee records ",
     "version" : "v1.0.0",
-    "title" : "Management of guarantees"
+    "title" : "Guarantees"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
@@ -14,7 +14,7 @@
   "paths" : {
     "/holdings/guarantees/requests" : {
       "get" : {
-        "summary" : "Retrieve the Corporate customer's guarantees issuance request details",
+        "summary" : "Retrieves the Corporate customer's guarantees issuance request details",
         "operationId" : "getGuaranteeIssuanceRequests",
         "produces" : [ "application/json" ],
         "parameters" : [ {

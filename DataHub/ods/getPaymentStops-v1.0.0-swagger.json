@@ -3,7 +3,7 @@
   "info" : {
     "description" : "API to retrieve the Payment Stop information of all accounts ",
     "version" : "v1.0.0",
-    "title" : "Management of Payment stops"
+    "title" : "Payment stops"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",

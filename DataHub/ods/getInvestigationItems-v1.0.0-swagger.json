@@ -3,7 +3,7 @@
   "info" : {
     "description" : "API to retrieve funds which require manual authorisation",
     "version" : "v1.0.0",
-    "title" : "Management of Transaction stops"
+    "title" : "Transaction stops"
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
@@ -20,7 +20,7 @@
         "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "Management of Transaction stopsResponse",
+            "description" : "getInvestigationItemsResponse",
             "schema" : {
               "$ref" : "#/definitions/getInvestigationItemsResponse"
             }
