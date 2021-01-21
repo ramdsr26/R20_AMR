@@ -342,10 +342,13 @@
         "operationId" : "getCustomerDeliveryPreferences",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "recordId",
           "in" : "path",
+          "required" : true
+        }, {
+          "name" : "recordId",
+          "in" : "query",
           "description" : "Unique identifier of an entity",
-          "required" : true,
+          "required" : false,
           "type" : "string"
         } ],
         "responses" : {
@@ -995,7 +998,6 @@
         },
         "accountOfficer" : {
           "type" : "array",
-		  "description" : "Identifier of Department Account Officer",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1088,7 +1090,6 @@
         },
         "accountOfficer" : {
           "type" : "array",
-		  "description" : "Identifier of Department Account Officer",
           "items" : {
             "type" : "object",
             "properties" : {
