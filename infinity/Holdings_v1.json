@@ -233,8 +233,7 @@
       "properties" : {
         "accountID" : {
           "type" : "string",
-          "description" : "Specifies the unique ID of the account",
-		  "required" : true
+          "description" : "Specifies the unique ID of the account"
         },
         "accountNumber" : {
           "type" : "string",
@@ -242,8 +241,7 @@
         },
         "amount" : {
           "type" : "string",
-          "description" : "Specifies the amount transferred by the customer",
-		  "required" : true
+          "description" : "Specifies the amount transferred by the customer"
         },
         "amountTransferedTillNow" : {
           "type" : "string",
@@ -331,8 +329,7 @@
         },
         "category" : {
           "type" : "string",
-          "description" : "Specifies the transaction category such as withdrawal or deposit",
-		  "required" : true
+          "description" : "Specifies the transaction category such as withdrawal or deposit"
         },
         "checkImage" : {
           "type" : "string",
@@ -400,9 +397,7 @@
         },
         "fromAccountNumber" : {
           "type" : "string",
-          "description" : "Specifies the Account Number from which the amount must be debited",
-		  "required" : true
-
+          "description" : "Specifies the Account Number from which the amount must be debited"
         },
         "fromAccountType" : {
           "type" : "string",
@@ -510,8 +505,7 @@
         },
         "scheduledDate" : {
           "type" : "string",
-          "description" : "Specifies the date on which the scheduled transfer payment must occur (This parameter is valid only if the isScheduled parameter is set to true)",
-		  "required" : true
+          "description" : "Specifies the date on which the scheduled transfer payment must occur (This parameter is valid only if the isScheduled parameter is set to true)"
         },
         "searchAmount" : {
           "type" : "string",
@@ -527,8 +521,7 @@
         },
         "searchEndDate" : {
           "type" : "string",
-          "description" : "Specifies the date on which the search operation ends",
-		  "required": true
+          "description" : "Specifies the date on which the search operation ends"
         },
         "searchMaxAmount" : {
           "type" : "string",
@@ -540,8 +533,7 @@
         },
         "searchStartDate" : {
           "type" : "string",
-          "description" : "Specifies the date on which the search operation must begin",
-		  "required": true
+          "description" : "Specifies the date on which the search operation must begin"
         },
         "searchTransactionType" : {
           "type" : "string",
@@ -620,8 +612,7 @@
         },
         "transactionType" : {
           "type" : "string",
-          "description" : "Specifies whether the transaction type is an internal transfer, an external transfer, or an international transfer.",
-		  "required": true
+          "description" : "Specifies whether the transaction type is an internal transfer, an external transfer, or an international transfer."
         },
         "validDate" : {
           "type" : "string",
@@ -861,8 +852,7 @@
         },
         "transactionCurrency" : {
           "type" : "string",
-          "description" : "Specifies the currency type of the transaction such as USD, EUR, and so on",
-		  "required" : true
+          "description" : "Specifies the currency type of the transaction such as USD, EUR, and so on"
         },
         "chargeAmount" : {
           "type" : "string",
@@ -1236,13 +1226,11 @@
         },
         "UserName" : {
           "type" : "string",
-          "description" : "Specifies the user name of the customer",
-		  "required":true
+          "description" : "Specifies the user name of the customer"
         },
         "deviceID" : {
           "type" : "string",
-          "description" : "Specifies a unique ID of the customer's device",
-		  "required": true
+          "description" : "Specifies a unique ID of the customer's device"
         },
         "fromAccountCurrency" : {
           "type" : "string",

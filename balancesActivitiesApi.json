@@ -1,0 +1,932 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Balances and Activities",
+    "version": "2.0",
+    "description": "API for the management of Balances and Activities microservice. This API allows for the update of the repository of activity and balance information and the retrieval of activity and balance from the same.",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8095/ms-balact-api/api/v2.0.0",
+      "description": "Swagger spec for Balances and Activities"
+    }
+  ],
+  "tags": [
+    {
+      "name": "balances",
+      "description": "Operations related to loading balances and retrieving balance information"
+    },
+    {
+      "name": "activities",
+      "description": "Operations related to loading activities and retrieving activity information"
+    }
+  ],
+  "paths": {
+    "/enterprise/arrangements/activities": {
+      "post": {
+        "tags": [
+          "activities"
+        ],
+        "summary": "Create an activity in the micro service database.",
+        "description": "Create an activity record in the database. Each activity must be  linked to one contract. The contract must be identified by the core system and company where it was booked and the contract id along with the contract currency. If there is no company identifier in the core system then it is recommened  that a suitable identifier is chosen, if not UNKNOWN will be used.  The value/effective date of the activity must be specified, the booking date of the activity is optional and will default to the value date if not specified. The activity can be linked to a specific channel, branch location and line of business, if any are unknown then it is recommended that a default value be assigned other than blank/null. If the activity relates to a financial one then the financial details can be added in both transaction and contract currency amounts. Contract currency amounts are mandatory if used.",
+        "operationId": "createActivity",
+        "requestBody": {
+          "description": "The body containing the data required to create an activity. Non-financial activities will not contain financial amounts but may still contain currency codes. Complex activities may create more than one database entry depending on the context and balances  associated with the activity.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateActivityBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "activity created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateActivityResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "activity load failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "activities"
+        ],
+        "summary": "Return the activity details for a product bundle. ",
+        "description": "Return the activity details for a specified product bundle for a specified list of activities for a specified date range. The product bundle will be defined by the combination of systemId, companyId and contractId. The eventType will define the list of activities for which the details are required. Optionally only activities that occured over a particular channel,  at a particular branch or related to a particular line of business can be returned by specifying lists for channelId, branchId and lineOfBusinessId respectively. The period for which activity details are required should be specified using fromDate and toDate, if toDate is not specified then only activities occurring on the specified fromDate will be considered. Activities can be included by refering to either their booking date or effective/value date by using dateType, if not set the activity effective date will be used.",
+        "operationId": "getActivities",
+        "parameters": [
+          {
+            "name": "systemId",
+            "description": "The three parameters; systemId, companyId and contractId will uniquely identify the individual item/product in the originating core system. All three must be used in strict association.",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": true,
+            "example": "TRANSACT_ACCOUNTS"
+          },
+          {
+            "name": "companyId",
+            "description": "The three parameters; systemId, companyId and contractId will uniquely identify the individual item/product in the originating core system. All three must be used in strict association.        ",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": true,
+            "example": "US0010001"
+          },
+          {
+            "name": "contractId",
+            "description": "The three parameters; systemId, companyId and contractId will uniquely identify the individual item/product in the originating core system. All three must be used in strict association.        ",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": true,
+            "example": "AA2007607PBK"
+          },
+          {
+            "name": "eventType",
+            "description": "The list of activity types for which the details are required for all of the listed product bundle",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": true,
+            "example": "ATMDEPOSIT"
+          },
+          {
+            "name": "channelId",
+            "description": "The list of channels for which the details are required for all of the listed product bundle. If not specified no filter by channel type will be applied          ",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": false,
+            "example": "INTERNET"
+          },
+          {
+            "name": "branchId",
+            "description": "The list of branches for which the details are required for all of the listed product bundle. If not specified no filter by branch  location will be applied        ",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": false,
+            "example": "OXFORD"
+          },
+          {
+            "name": "lineOfBusinessId",
+            "description": "The list of lines of business for which the details are required for all of the listed product bundle. If not specified no filter by line  of business will be applied        ",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": false,
+            "example": "RETAIL"
+          },
+          {
+            "name": "fromDate",
+            "description": "The date, inclusive, from which qualifying activities are to be included in the response",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "2020-08-31"
+          },
+          {
+            "name": "toDate",
+            "description": "The date, inclusive, up to which qualifying activities are to be included in the response. If not specified then will be set as the fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "example": "2020-08-31"
+          },
+          {
+            "name": "dateType",
+            "description": "The date type to be used on which activities are to be considered for inclusion in the response. Must be either VALUE or BOOK.  If not specified then VALUE will be used. VALUE - Use the activity value date/effective date. BOOK - Use the activity booking date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "VALUE",
+                "BOOK"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Evaluation of the activity query for the requested product bundle, activity type and date range",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetFamilyActivitiesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "activity query failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/enterprise/arrangements/{systemId}/{companyId}/{contractId}": {
+      "delete": {
+        "tags": [
+          "activities",
+          "balances"
+        ],
+        "summary": "Delete a contract and all associated activities and balances",
+        "operationId": "deleteContract",
+        "description": "Contains the data required to identify the contract to be deleted. All associated activities and balances will be deleted. The contract must be identified by the core system where it is booked, the company in that core system to which it belongs and the contract identifier.",
+        "parameters": [
+          {
+            "name": "systemId",
+            "description": "The identifier of the core system where the contract is booked",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "TRANSACT_ACCOUNTS"
+          },
+          {
+            "name": "companyId",
+            "description": "The identifier for the company in the corresponding core system where the contract is booked",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "US0010001"
+          },
+          {
+            "name": "contractId",
+            "description": "The identifier for the contract in the corresponding core system",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "AA2100112345"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contract deleted sucessfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContractDeleteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Contract delete has failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/enterprise/arrangements/balances": {
+      "post": {
+        "summary": "Load balance information",
+        "description": "To load any number of balances for any number of dates for any number of contracts. Each contract must be identified by the core system and company where it is booked and the contract id. The contract currency must be specified in which all amounts are specified. Balances must be time stamped (using the core system date/time) to ensure only the most upto date balances are processed. For each date on which a balance movement has occurred the total debit amount and total credit amount along with the closing balance should be specified, even if zero. The date should be quantified to distinguish booking date balances and value date balances, there should only be one date type used for all dates associated with each balance type object.",
+        "operationId": "loadBalances",
+        "tags": [
+          "balances"
+        ],
+        "requestBody": {
+          "description": "The body contains the details of the balances to be loaded",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/balancesBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The response from loading the balances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetFamilyBalancesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Balances load failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "balances"
+        ],
+        "summary": "Return the balance details for a product bundle. ",
+        "description": "Return the balance details for a defined product bundle for a defined list of balance types for a specified date range. The product bundle will be defined by the combination of systemId, companyId and contractId. The balanceType will define the list of balances for which the details are required. The period for which balance details are required should be specified using fromDate and toDate, if toDate is not specified then only the balance on the specified fromDate will be returned. Balances to be returned will be either booking date or effective/value date balances as specified by using dateType, if not set the effective/value date balances will be returned. Balance details will be returned for all dates within the period specified showing the details on date where a movement has occurred. If no movements have occurred within the period then the balance on the period start date will be returned.",
+        "operationId": "getBalances",
+        "parameters": [
+          {
+            "name": "systemId",
+            "description": "The three parameters; systemId, companyId and contractId will uniquely identify the individual item/product in the originating core system. All three must be used in strict association.",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": true,
+            "example": "TRANSACT_ACCOUNTS"
+          },
+          {
+            "name": "companyId",
+            "description": "The three parameters; systemId, companyId and contractId will uniquely identify the individual item/product in the originating core system. All three must be used in strict association.        ",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": true,
+            "example": "US0010001"
+          },
+          {
+            "name": "contractId",
+            "description": "The three parameters; systemId, companyId and contractId will uniquely identify the individual item/product in the originating core system. All three must be used in strict association.        ",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": true,
+            "example": "AA2007607PBK"
+          },
+          {
+            "name": "balanceType",
+            "description": "The list of balance types for which the details are required for all of the listed product bundle",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "style": "form",
+            "explode": false,
+            "required": true,
+            "example": "CURBALANCE"
+          },
+          {
+            "name": "fromDate",
+            "description": "The date, inclusive, from which qualifying balances are to be included in the response",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "2020-08-31"
+          },
+          {
+            "name": "toDate",
+            "description": "The date, inclusive, up to which qualifying balances are to be included in the response. If not specified then will be set as the fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "example": "2020-08-31"
+          },
+          {
+            "name": "dateType",
+            "description": "The date type of the balances in the response. Must be either VALUE or BOOK. If not specified then VALUE will be used. VALUE - Return the value date/effective date balances. BOOK - Return the booking date balances",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "VALUE",
+                "BOOK"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Evaluation of the balances query for the requested product bundle, activity type and date range",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetFamilyBalancesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Balance query failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "balancesBody": {
+        "properties": {
+          "balanceDetails": {
+            "description": "The balances body, will contain a list of contracts, balance types, dates, date type and a timestamp, dates and the associated balance amount, total debits & total credits",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/balanceDetails"
+            }
+          }
+        }
+      },
+      "balanceDetails": {
+        "properties": {
+          "contractId": {
+            "description": "Contract identifier, in the context of Transact this will be the arrangement id. The combination of the three fields,  contractId-systemId-companyId will provide the unique identifier in the MS  ",
+            "type": "string",
+            "example": "AA2007607PBK",
+            "maxLength": 255
+          },
+          "systemId": {
+            "description": "External core system identifier, to distiguish multiple back office systems updating the MS. The combination of the three fields,  contractId-systemId-companyId will provide the unique identifier in the MS  ",
+            "type": "string",
+            "example": "TRANSACT_ACCOUNTS",
+            "maxLength": 255
+          },
+          "companyId": {
+            "description": "Company code in the external system where the contract is booked. The combination of the three fields, contractId-systemId-companyId will provide the unique identifier in the MS        ",
+            "type": "string",
+            "example": "US0010001",
+            "maxLength": 255
+          },
+          "contractCurrency": {
+            "description": "The contract currency in which the amounts are specified. The expectation is that this would be an ISO currency code.",
+            "type": "string",
+            "example": "USD",
+            "maxLength": 255
+          },
+          "balanceTypesDateTime": {
+            "description": "Array of balance type and array of dates where movements occurred for those balance types",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BalanceTypesDateTime"
+            }
+          }
+        }
+      },
+      "GetFamilyActivitiesResponse": {
+        "type": "object",
+        "properties": {
+          "contractDetails": {
+            "type": "array",
+            "description": "The activity response body",
+            "items": {
+              "$ref": "#/components/schemas/ContractActivityDetails"
+            }
+          }
+        }
+      },
+      "ContractActivityDetails": {
+        "type": "object",
+        "properties": {
+          "uniqueContractId": {
+            "type": "string",
+            "description": "The unique ID of the contract in the form - systemId-companyid-contractId",
+            "example": "TRANSACT_ACCOUNTS-US0010001-AA2007607PBK"
+          },
+          "contractCurrency": {
+            "type": "string",
+            "description": "The contract currency, all amounts in the response are specified in this currency",
+            "example": "USD"
+          },
+          "activities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActivityDetail"
+            }
+          }
+        }
+      },
+      "ActivityDetail": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "The count of activities executed within the period, countEnd minus countStart ",
+            "example": 4
+          },
+          "amount": {
+            "type": "number",
+            "description": "The financial value/amount of activities executed within the period, amountEnd minus amountStart",
+            "example": 111.11
+          },
+          "eventType": {
+            "type": "string",
+            "description": "The activity to which the count and value/amount refer to",
+            "example": "ATM.DEPOSIT"
+          }
+        }
+      },
+      "GetFamilyBalancesResponse": {
+        "type": "object",
+        "properties": {
+          "contractDetails": {
+            "type": "array",
+            "description": "The balances response details",
+            "items": {
+              "$ref": "#/components/schemas/ContractDetail"
+            }
+          }
+        }
+      },
+      "CreateActivityResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "A simple code such as OK, NOTOK",
+            "example": "OK"
+          },
+          "successMessage": {
+            "type": "string",
+            "example": "Activity created sucessfully"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/BusinessContractActivity"
+          },
+          "errorDetails": {
+            "$ref": "#/components/schemas/ErrorDetails"
+          }
+        }
+      },
+      "ContractDeleteResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "A simple code such as OK, NOTOK",
+            "example": "OK"
+          },
+          "successMessage": {
+            "type": "string",
+            "description": "Description of action",
+            "example": "Contract deleted"
+          }
+        }
+      },
+      "ErrorDetails": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "System generated code",
+            "example": "E-123"
+          },
+          "errorMessage": {
+            "type": "array",
+            "description": "Sentence describing error in plain english",
+            "items": {
+              "type": "string",
+              "example": "ContractId is missing"
+            }
+          }
+        }
+      },
+      "ContractDetail": {
+        "type": "object",
+        "properties": {
+          "uniqueContractId": {
+            "type": "string",
+            "description": "The unique ID of the contract in the form of systemId-companyid-contractId",
+            "example": "TRANSACT_ACCOUNTS-US0010001-AA2007607PBK"
+          },
+          "contractCurrency": {
+            "type": "string",
+            "description": "The contract currency",
+            "example": "USD"
+          },
+          "balanceTypes": {
+            "type": "array",
+            "description": "Balance id/name to which amounts apply",
+            "items": {
+              "$ref": "#/components/schemas/BalanceTypes"
+            }
+          }
+        }
+      },
+      "BalanceTypes": {
+        "type": "object",
+        "properties": {
+          "balanceType": {
+            "type": "string",
+            "description": "The id/name of this Balance Type",
+            "example": "CURBALANCE"
+          },
+          "dateBalances": {
+            "type": "array",
+            "description": "List of dates on which a balance movement occurred and the  associated debit and credit movements",
+            "items": {
+              "$ref": "#/components/schemas/DateBalance"
+            }
+          }
+        }
+      },
+      "BalanceTypesDateTime": {
+        "type": "object",
+        "properties": {
+          "balanceType": {
+            "type": "string",
+            "description": "The id/name of this Balance Type",
+            "example": "CURBALANCE",
+            "maxLength": 255
+          },
+          "timeStamp": {
+            "type": "string",
+            "description": "The date & time stamp of the balances, should be the server time for the core system holding the balances. to recognise events received out of sequence",
+            "example": "2020-08-31T13:14:01.541",
+            "maxLength": 255
+          },
+          "dateType": {
+            "description": "The date type qualifying the balance dates if not set will be set to VALUE.        ",
+            "type": "string",
+            "default": "VALUE",
+            "enum": [
+              "VALUE",
+              "BOOK"
+            ],
+            "maxLength": 5
+          },
+          "dateBalances": {
+            "type": "array",
+            "description": "List of dates on which a balance movement occurred and the  associated debit and credit movements",
+            "items": {
+              "$ref": "#/components/schemas/DateBalance"
+            }
+          }
+        }
+      },
+      "DateBalance": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "The date to which the balance applies",
+            "example": "2020-08-01",
+            "maxLength": 11
+          },
+          "debitTotalAmount": {
+            "type": "number",
+            "description": "The sum of the debit movements on the date",
+            "example": -123.45,
+            "maxLength": 35
+          },
+          "creditTotalAmount": {
+            "type": "number",
+            "description": "The sum of the credit movements on the date",
+            "example": 345.67,
+            "maxLength": 35
+          },
+          "closingBalance": {
+            "type": "number",
+            "description": "The closing balance on the date, this is not the sum of the credits and debits on the date but the closing balance of all movements executed up to and including the date",
+            "example": 12345.67,
+            "maxLength": 35
+          }
+        }
+      },
+      "CreateActivityBody": {
+        "properties": {
+          "contractId": {
+            "type": "string",
+            "description": "Indicates the reference of the base contract in the core system. This should be a unique reference. ",
+            "example": "AA049ASDFGHJ",
+            "maxLength": 255
+          },
+          "systemId": {
+            "type": "string",
+            "description": "Indicates the system reference of the core system. This should be a unique reference.",
+            "example": "Transact.Accounts",
+            "maxLength": 255
+          },
+          "companyId": {
+            "type": "string",
+            "description": "If the core system has multiple entity implementation (global installation), they would segregate their systems into different entities. If it is such a core system, then this indicates the entity name to which this contract is part of.",
+            "example": "US0010001",
+            "maxLength": 255
+          },
+          "eventName": {
+            "type": "string",
+            "description": "Indicates the name of the event that is happening in the core system. For example, a Transaction type activity could be 'Prepayment' or 'Late payment' events. These event names need to be mapped in EPP system and rules defined accordingly.",
+            "example": "Prepayment",
+            "maxLength": 255
+          },
+          "baseEventIdentifier": {
+            "type": "string",
+            "description": "For reference only, will not be used",
+            "example": "string"
+          },
+          "effectiveDate": {
+            "type": "string",
+            "description": "Indicates the date on which this event was performed in the underlying system. Format YYYY-MM-DD",
+            "example": "2020-01-30",
+            "maxLength": 11
+          },
+          "bookingDate": {
+            "type": "string",
+            "description": "Indicates the date on which this event was booked in the system. Format YYYY-MM-DD",
+            "example": "2020-01-30",
+            "maxLength": 11
+          },
+          "contractCurrency": {
+            "description": "The currency code in which the contract is booked, if a financial transaction should be an ISO currency code",
+            "type": "string",
+            "example": "USD",
+            "maxLength": 255
+          },
+          "transactionCurrency": {
+            "description": "The currency code in which the event is booked, if a financial transaction should be an ISO currency code",
+            "type": "string",
+            "example": "USD",
+            "maxLength": 255
+          },
+          "transactionAmount": {
+            "description": "The event amount specified as transactionCurrency",
+            "type": "number",
+            "example": 100,
+            "maxLength": 35
+          },
+          "contractAmount": {
+            "description": "The amount specified in the contractCurrency",
+            "type": "number",
+            "example": 1000,
+            "maxLength": 35
+          },
+          "channelId": {
+            "description": "The channel where this activity occured",
+            "type": "string",
+            "example": "BRANCH",
+            "maxLength": 255
+          },
+          "branchId": {
+            "description": "The branch where the activity was initiated",
+            "type": "string",
+            "example": "OXFORD",
+            "maxLength": 255
+          },
+          "lineOfBusinessId": {
+            "description": "The line of business under which the activity is conducted",
+            "type": "string",
+            "example": "RETAIL",
+            "maxLength": 255
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Indicates the reference of the transaction in the core system which performed this event.",
+            "example": "AAACT03412DFVK3FK",
+            "maxLength": 255
+          },
+          "reversalIndicator": {
+            "type": "boolean",
+            "description": "Indicates whether this activity has been reversed/cancelled in the core system. If so it will not be included in any query responses",
+            "example": true
+          },
+          "feeDetails": {
+            "type": "array",
+            "description": "For reference only, will not be used",
+            "items": {
+              "type": "object",
+              "properties": {
+                "feeName": {
+                  "type": "string",
+                  "description": "For reference only, will not be used",
+                  "example": "MAINTENANCEFEE"
+                },
+                "feeAmount": {
+                  "type": "number",
+                  "description": "For reference only, will not be used",
+                  "example": 100
+                },
+                "feeCurrency": {
+                  "type": "string",
+                  "description": "For reference only, will not be used",
+                  "example": "USD"
+                },
+                "adjustFeeAmount": {
+                  "type": "number",
+                  "description": "For reference only, will not be used",
+                  "example": -20
+                },
+                "adjustFeeReason": {
+                  "type": "string",
+                  "description": "For reference only, will not be used",
+                  "example": "Valued customer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "BusinessContractActivity": {
+        "properties": {
+          "activityId": {
+            "type": "string",
+            "description": "The activity id executed in the core system",
+            "example": "AAACT03412DFVK3FK"
+          },
+          "uniqueContractId": {
+            "type": "string",
+            "description": "The unique id of the contract in the MS. Will consist of systemId-companyId-contractId",
+            "example": "TRANSACT.ACCOUNTS-US0010001-AA20123WTR12"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "The transaction id executed in the core system",
+            "example": "FT20123SWD03"
+          },
+          "eventType": {
+            "type": "string",
+            "description": "The event executed in the core system",
+            "example": "ATM.WITHDRAWAL"
+          },
+          "channelId": {
+            "type": "string",
+            "description": "The channel under which the transaction was executed",
+            "example": "INTERNET"
+          },
+          "branchId": {
+            "type": "string",
+            "description": "The branch where the transaction was executed",
+            "example": "OXFORD"
+          },
+          "lineOfBusinessId": {
+            "type": "string",
+            "description": "The line of business under which the transaction was executed",
+            "example": "RETAIL"
+          },
+          "eventCurrency": {
+            "type": "string",
+            "description": "The currency of the transaction executed",
+            "example": "USD"
+          },
+          "eventAmount": {
+            "type": "number",
+            "description": "The transaction amount, if applicable, in eventCurrency",
+            "example": 100
+          },
+          "contractCurrency": {
+            "type": "string",
+            "description": "The contract currency",
+            "example": "USD"
+          },
+          "contractCurrencyAmount": {
+            "type": "number",
+            "description": "The transaction amount, if applicable, in contractCurrency",
+            "example": 100
+          },
+          "bookingDate": {
+            "type": "integer",
+            "description": "The date on which the transaction was booked in the core system",
+            "example": "2021-02-08"
+          },
+          "valueDate": {
+            "type": "string",
+            "description": "the value/effective date of the transaction",
+            "example": "2021-02-09"
+          },
+          "eventCount": {
+            "type": "integer",
+            "description": "The number of events executed, will be 1 by default",
+            "example": 1
+          },
+          "isReversed": {
+            "type": "boolean",
+            "description": "Flag indicating whether the transaction has been reversed/cancelled in the core system.",
+            "example": false
+          },
+          "isAuthorised": {
+            "type": "boolean",
+            "description": "Flag indicating whether the transaction is approved/authorised in the core system. Currently can on be true.",
+            "example": true
+          },
+          "dateUpdated": {
+            "type": "string",
+            "description": "Date time stamp when the activity was updated in the MS.",
+            "example": "2021-02-10T13:14:15.012"
+          }
+        }
+      }
+    }
+  }
+}
