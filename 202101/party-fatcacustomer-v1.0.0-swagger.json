@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/customers/fatca/{customerId}" : {
@@ -23,7 +23,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100299"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -39,12 +40,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -58,12 +53,6 @@
               "$ref" : "#/definitions/FatcaCustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -74,6 +63,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -88,7 +83,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100299"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -104,12 +100,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -123,12 +113,6 @@
               "$ref" : "#/definitions/FatcaCustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -140,14 +124,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -202,7 +194,73 @@
           "$ref" : "#/definitions/FatcaCustomerBody"
         }
       },
-      "description" : "FatcaCustomer"
+      "description" : "FatcaCustomer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "NO MATCHING STATUS CONDITION FOUND",
+              "id" : "FA-NO.MATCH",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "tinDetails" : [ {
+            "tinId" : "string",
+            "tinCountry" : "string"
+          } ],
+          "Owner" : [ {
+            "formOwner" : "string",
+            "formDetails" : [ {
+              "formId" : "string",
+              "expiryDate" : "2015-07-20",
+              "formType" : "string",
+              "cutOffDate" : "2015-07-20",
+              "requestDate" : "2015-07-20",
+              "receivedDate" : "2015-07-20"
+            } ]
+          } ],
+          "currentStatusExpiry" : "2020-02-27",
+          "changeReason" : "string",
+          "isPoa" : "string",
+          "isPlaceOfBirthUs" : "NO",
+          "socialSecurityNumber" : "string",
+          "fatcaClientType" : "INDIVIDUAL",
+          "residenceId" : "string",
+          "statusChangeDate" : "2019-04-17",
+          "fatcaStatus" : "string",
+          "standingInstructionOnUsAccount" : "string",
+          "phoneNumber" : "string",
+          "entityStatus" : "string",
+          "citizenships" : [ {
+            "citizenship" : "string"
+          } ],
+          "giin" : "string",
+          "domicile" : "string",
+          "accountInstructionfromUs" : "string",
+          "JointOwner" : [ {
+            "firstName" : "string",
+            "holderName" : "string",
+            "role" : "string",
+            "ownershipParticipation" : "string",
+            "surname" : "string",
+            "holderTinCountry" : "string",
+            "legalEntityType" : "string",
+            "customerId" : "string",
+            "holderCountry" : "string",
+            "holderReference" : "string"
+          } ],
+          "greencardDetails" : "string",
+          "isKycChecked" : "string",
+          "isDormantAccount" : "string",
+          "statusNarrative" : "string"
+        }
+      }
     },
     "FatcaCustomerBody" : {
       "type" : "object",
@@ -1010,6 +1068,160 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "createFatcaCustomer" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/FatcaCustomerBody"
+        }
+      },
+      "description" : "FatcaCustomer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "NO MATCHING STATUS CONDITION FOUND",
+              "id" : "FA-NO.MATCH",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "tinDetails" : [ {
+            "tinId" : "string",
+            "tinCountry" : "string"
+          } ],
+          "Owner" : [ {
+            "formOwner" : "string",
+            "formDetails" : [ {
+              "formId" : "string",
+              "expiryDate" : "2015-07-20",
+              "formType" : "string",
+              "cutOffDate" : "2015-07-20",
+              "requestDate" : "2015-07-20",
+              "receivedDate" : "2015-07-20"
+            } ]
+          } ],
+          "currentStatusExpiry" : "2020-02-27",
+          "changeReason" : "string",
+          "isPoa" : "string",
+          "isPlaceOfBirthUs" : "NO",
+          "socialSecurityNumber" : "string",
+          "fatcaClientType" : "INDIVIDUAL",
+          "residenceId" : "string",
+          "statusChangeDate" : "2019-04-17",
+          "fatcaStatus" : "string",
+          "standingInstructionOnUsAccount" : "string",
+          "phoneNumber" : "string",
+          "entityStatus" : "string",
+          "citizenships" : [ {
+            "citizenship" : "string"
+          } ],
+          "giin" : "string",
+          "domicile" : "string",
+          "accountInstructionfromUs" : "string",
+          "JointOwner" : [ {
+            "firstName" : "string",
+            "holderName" : "string",
+            "role" : "string",
+            "ownershipParticipation" : "string",
+            "surname" : "string",
+            "holderTinCountry" : "string",
+            "legalEntityType" : "string",
+            "customerId" : "string",
+            "holderCountry" : "string",
+            "holderReference" : "string"
+          } ],
+          "greencardDetails" : "string",
+          "isKycChecked" : "string",
+          "isDormantAccount" : "string",
+          "statusNarrative" : "string"
+        }
+      }
+    },
+    "updateFatcaCustomer" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/FatcaCustomerBody"
+        }
+      },
+      "description" : "FatcaCustomer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "NO MATCHING STATUS CONDITION FOUND",
+              "id" : "FA-NO.MATCH",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "tinDetails" : [ {
+            "tinId" : "string",
+            "tinCountry" : "string"
+          } ],
+          "Owner" : [ {
+            "formOwner" : "string",
+            "formDetails" : [ {
+              "formId" : "string",
+              "expiryDate" : "2015-07-20",
+              "formType" : "string",
+              "cutOffDate" : "2015-07-20",
+              "requestDate" : "2015-07-20",
+              "receivedDate" : "2015-07-20"
+            } ]
+          } ],
+          "currentStatusExpiry" : "2020-02-27",
+          "changeReason" : "string",
+          "isPoa" : "string",
+          "isPlaceOfBirthUs" : "NO",
+          "socialSecurityNumber" : "string",
+          "fatcaClientType" : "INDIVIDUAL",
+          "residenceId" : "string",
+          "statusChangeDate" : "2019-04-17",
+          "fatcaStatus" : "string",
+          "standingInstructionOnUsAccount" : "string",
+          "phoneNumber" : "string",
+          "entityStatus" : "string",
+          "citizenships" : [ {
+            "citizenship" : "string"
+          } ],
+          "giin" : "string",
+          "domicile" : "string",
+          "accountInstructionfromUs" : "string",
+          "JointOwner" : [ {
+            "firstName" : "string",
+            "holderName" : "string",
+            "role" : "string",
+            "ownershipParticipation" : "string",
+            "surname" : "string",
+            "holderTinCountry" : "string",
+            "legalEntityType" : "string",
+            "customerId" : "string",
+            "holderCountry" : "string",
+            "holderReference" : "string"
+          } ],
+          "greencardDetails" : "string",
+          "isKycChecked" : "string",
+          "isDormantAccount" : "string",
+          "statusNarrative" : "string"
         }
       }
     }

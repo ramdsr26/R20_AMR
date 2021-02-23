@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v2.0.0/",
-  "tags" : [ ],
   "schemes" : [ "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/meta/payments/queryFilters" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the query filters which can be applied on payment transaction api",
         "description" : "Retrieves the payment transaction api query filters",
         "operationId" : "getQueryFilters",
@@ -40,12 +36,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -74,12 +64,6 @@
               "$ref" : "#/definitions/QueryFiltersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -91,15 +75,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

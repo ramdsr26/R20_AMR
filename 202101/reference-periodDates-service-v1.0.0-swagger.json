@@ -7,17 +7,13 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/reference/periodDates/{currencyOrPair}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves reference period dates",
         "description" : "Retrieves reference period dates under different time buckets for a currency or currency pair ",
         "operationId" : "getPeriodDates",
@@ -27,7 +23,8 @@
           "in" : "path",
           "description" : "A single currency or a currency pair.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "GBP"
         }, {
           "name" : "fromDate",
           "in" : "query",
@@ -52,12 +49,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -86,12 +77,6 @@
               "$ref" : "#/definitions/PeriodDatesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -103,15 +88,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

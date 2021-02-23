@@ -5,11 +5,11 @@
     "version" : "v1.0.0",
     "title" : "UserAdministration"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v1.0.0/v1.0.0/",
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/onlineServices" : {
@@ -39,12 +39,11 @@
           "required" : false,
           "type" : "string"
         }, {
-            "name": "masterArrangementId",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
+          "name" : "masterArrangementId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "productGroupId",
           "in" : "query",
           "description" : "The group, as defined by the institution, that the product belongs to.",
@@ -88,11 +87,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -105,12 +99,6 @@
               "$ref" : "#/definitions/OnlineServicesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -121,6 +109,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -142,11 +136,6 @@
             "$ref" : "#/definitions/OnlineService"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -157,12 +146,6 @@
             "description" : "validateOnlineServiceResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceResponse"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -176,6 +159,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
@@ -185,6 +174,16 @@
         "operationId" : "amendOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -197,11 +196,6 @@
           "schema" : {
             "$ref" : "#/definitions/OnlineService1"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -215,12 +209,6 @@
               "$ref" : "#/definitions/OnlineServiceResponse1"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -232,26 +220,26 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      }, {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServiceApprovals/{arrangementActivityId}" : {
       "put" : {
         "operationId" : "approveOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -265,11 +253,6 @@
             "$ref" : "#/definitions/OnlineService1"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -280,12 +263,6 @@
             "description" : "approveOnlineServiceResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceResponse1"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -299,6 +276,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       },
@@ -306,16 +289,16 @@
         "operationId" : "rejectOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -329,12 +312,6 @@
               "$ref" : "#/definitions/OnlineServiceResponse2"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -346,21 +323,31 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServiceApprovals/{arrangementActivityId}/{arrangementId}" : {
       "put" : {
         "operationId" : "initiateOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -374,11 +361,6 @@
             "$ref" : "#/definitions/OnlineService"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -389,12 +371,6 @@
             "description" : "initiateOnlineServiceResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceResponse"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -408,20 +384,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      }, {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/customers/{customerId}/productGroups/{productGroupId}/products" : {
       "get" : {
@@ -483,11 +454,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -500,12 +466,6 @@
               "$ref" : "#/definitions/CustomerProductsByProductGroupResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -516,6 +476,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -581,11 +547,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -598,12 +559,6 @@
               "$ref" : "#/definitions/CustomerProductsByProductGroupResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -614,6 +569,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -665,11 +626,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -680,12 +636,6 @@
             "description" : "ExternalUserAllocationsResponse",
             "schema" : {
               "$ref" : "#/definitions/ExternalUserAllocationsResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -699,6 +649,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
@@ -708,6 +664,11 @@
         "operationId" : "getOnlineServiceByArrangement",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "status",
           "in" : "query",
           "required" : false,
@@ -715,11 +676,6 @@
         }, {
           "name" : "arrangementActivityId",
           "in" : "query",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -735,12 +691,6 @@
               "$ref" : "#/definitions/OnlineServiceByArrangementResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -752,21 +702,26 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServices/activity/{arrangementActivityId}" : {
       "get" : {
         "operationId" : "getOnlineServiceByArrangementActivity",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "status",
           "in" : "query",
           "required" : false,
@@ -774,11 +729,6 @@
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -794,12 +744,6 @@
               "$ref" : "#/definitions/OnlineServiceByArrangementResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -811,21 +755,26 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServiceApprovals/{arrangementId}" : {
       "get" : {
         "operationId" : "getOnlineServiceApprovalByArrangement",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "status",
           "in" : "query",
           "required" : false,
@@ -833,11 +782,6 @@
         }, {
           "name" : "arrangementActivityId",
           "in" : "query",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -853,12 +797,6 @@
               "$ref" : "#/definitions/OnlineServiceByArrangementResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -870,21 +808,26 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServiceApprovals/activity/{arrangementActivityId}" : {
       "get" : {
         "operationId" : "getOnlineServiceApprovalByArrangementActivity",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "status",
           "in" : "query",
           "required" : false,
@@ -892,11 +835,6 @@
         }, {
           "name" : "arrangementId",
           "in" : "query",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -912,12 +850,6 @@
               "$ref" : "#/definitions/OnlineServiceByArrangementResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -929,15 +861,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServiceApprovals" : {
       "get" : {
@@ -966,10 +898,10 @@
           "required" : false,
           "type" : "string"
         }, {
-	      "name": "masterArrangementId",
-            "in": "query",
-            "required": false,
-            "type": "string"
+          "name" : "masterArrangementId",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
         }, {
           "name" : "productId",
           "in" : "query",
@@ -1019,11 +951,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -1034,12 +961,6 @@
             "description" : "OnlineServiceApprovalsResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceApprovalsResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -1053,6 +974,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
@@ -1062,6 +989,16 @@
         "operationId" : "createOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -1075,11 +1012,6 @@
             "$ref" : "#/definitions/OnlineService"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -1090,12 +1022,6 @@
             "description" : "createOnlineServiceResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceResponse"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -1109,25 +1035,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      }, {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -1216,8 +1139,7 @@
                       "description" : "The name of the field"
                     },
                     "fieldValue" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -1243,12 +1165,10 @@
           "description" : "Id of the product."
         },
         "masterArrangementId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "subArrangementName" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "currencyId" : {
           "type" : "string",
@@ -1285,16 +1205,13 @@
                     "description" : "The customer role with drop down of standard selections"
                   },
                   "taxLiabilityPercentage" : {
-                    "type" : "number",
-                    "description" : ""
+                    "type" : "number"
                   },
                   "limitAllocactionPercentage" : {
-                    "type" : "number",
-                    "description" : ""
+                    "type" : "number"
                   },
                   "GLAllocactionPercentage" : {
-                    "type" : "number",
-                    "description" : ""
+                    "type" : "number"
                   }
                 }
               }
@@ -1314,12 +1231,10 @@
                 "type" : "object",
                 "properties" : {
                   "definedCustomer" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "definedCustomerSel" : {
-                    "type" : "boolean",
-                    "description" : ""
+                    "type" : "boolean"
                   },
                   "definedCompanies" : {
                     "type" : "array",
@@ -1327,8 +1242,7 @@
                       "type" : "object",
                       "properties" : {
                         "definedCompany" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -1342,12 +1256,10 @@
                 "type" : "object",
                 "properties" : {
                   "definedProductGroups" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "definedProductGroupSel" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   }
                 }
               }
@@ -1359,16 +1271,14 @@
                 "type" : "object",
                 "properties" : {
                   "relationCustomer" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "productGroups" : {
                     "type" : "string",
                     "description" : "The group, as defined by the institution, that the product belongs to."
                   },
                   "productGroupSel" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "products" : {
                     "type" : "array",
@@ -1380,8 +1290,7 @@
                           "description" : "The product for which the pricing plan is applicable"
                         },
                         "productSel" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -1390,8 +1299,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         },
@@ -1409,8 +1317,7 @@
                     "description" : "Provides the id of the service that has to be run."
                   },
                   "serviceActive" : {
-                    "type" : "boolean",
-                    "description" : ""
+                    "type" : "boolean"
                   },
                   "operations" : {
                     "type" : "array",
@@ -1418,12 +1325,10 @@
                       "type" : "object",
                       "properties" : {
                         "operationId" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         },
                         "operationActive" : {
-                          "type" : "boolean",
-                          "description" : ""
+                          "type" : "boolean"
                         }
                       }
                     }
@@ -1432,8 +1337,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         },
@@ -1446,12 +1350,10 @@
                 "type" : "object",
                 "properties" : {
                   "dayName" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "daySelect" : {
-                    "type" : "boolean",
-                    "description" : ""
+                    "type" : "boolean"
                   },
                   "time" : {
                     "type" : "array",
@@ -1473,8 +1375,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         },
@@ -1483,7 +1384,6 @@
           "properties" : {
             "system" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
@@ -1508,7 +1408,6 @@
             },
             "transaction" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
@@ -1526,8 +1425,7 @@
                 "type" : "object",
                 "properties" : {
                   "allowedCurrency" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   }
                 }
               }
@@ -1538,15 +1436,13 @@
                 "type" : "object",
                 "properties" : {
                   "benRiskRate" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   }
                 }
               }
             },
             "timeOfDay" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -1562,12 +1458,10 @@
           "type" : "object",
           "properties" : {
             "noOfUsers" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "noOfRoles" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         }
@@ -1662,8 +1556,7 @@
                           "description" : "The name of the field"
                         },
                         "fieldValue" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -1693,12 +1586,10 @@
               "description" : "Id of the product."
             },
             "masterArrangementId" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "subArrangementName" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -1791,16 +1682,13 @@
                             "description" : "The customer role with drop down of standard selections"
                           },
                           "taxLiabilityPercentage" : {
-                            "type" : "number",
-                            "description" : ""
+                            "type" : "number"
                           },
                           "limitAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : ""
+                            "type" : "number"
                           },
                           "GLAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : ""
+                            "type" : "number"
                           }
                         }
                       }
@@ -1852,12 +1740,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedCustomer" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "definedCustomerSel" : {
-                            "type" : "boolean",
-                            "description" : ""
+                            "type" : "boolean"
                           },
                           "definedCompanies" : {
                             "type" : "array",
@@ -1865,8 +1751,7 @@
                               "type" : "object",
                               "properties" : {
                                 "definedCompany" : {
-                                  "type" : "string",
-                                  "description" : ""
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -1880,12 +1765,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedProductGroups" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "definedProductGroupSel" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           }
                         }
                       }
@@ -1897,16 +1780,14 @@
                         "type" : "object",
                         "properties" : {
                           "relationCustomer" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "productGroups" : {
                             "type" : "string",
                             "description" : "The group, as defined by the institution, that the product belongs to."
                           },
                           "productGroupSel" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "products" : {
                             "type" : "array",
@@ -1918,8 +1799,7 @@
                                   "description" : "The product for which the pricing plan is applicable"
                                 },
                                 "productSel" : {
-                                  "type" : "string",
-                                  "description" : ""
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -1928,8 +1808,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -1979,8 +1858,7 @@
                             "description" : "Provides the id of the service that has to be run."
                           },
                           "serviceActive" : {
-                            "type" : "boolean",
-                            "description" : ""
+                            "type" : "boolean"
                           },
                           "operations" : {
                             "type" : "array",
@@ -1988,12 +1866,10 @@
                               "type" : "object",
                               "properties" : {
                                 "operationId" : {
-                                  "type" : "string",
-                                  "description" : ""
+                                  "type" : "string"
                                 },
                                 "operationActive" : {
-                                  "type" : "boolean",
-                                  "description" : ""
+                                  "type" : "boolean"
                                 }
                               }
                             }
@@ -2002,8 +1878,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -2048,12 +1923,10 @@
                         "type" : "object",
                         "properties" : {
                           "dayName" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "daySelect" : {
-                            "type" : "boolean",
-                            "description" : ""
+                            "type" : "boolean"
                           },
                           "time" : {
                             "type" : "array",
@@ -2075,8 +1948,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -2117,7 +1989,6 @@
                   "properties" : {
                     "system" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -2142,7 +2013,6 @@
                     },
                     "transaction" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -2160,8 +2030,7 @@
                         "type" : "object",
                         "properties" : {
                           "allowedCurrency" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           }
                         }
                       }
@@ -2172,15 +2041,13 @@
                         "type" : "object",
                         "properties" : {
                           "benRiskRate" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           }
                         }
                       }
                     },
                     "timeOfDay" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "currencyId" : {
                       "type" : "string",
@@ -2228,12 +2095,10 @@
                   "type" : "object",
                   "properties" : {
                     "noOfUsers" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "noOfRoles" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -2451,8 +2316,7 @@
                       "description" : "The name of the field"
                     },
                     "fieldValue" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -2478,12 +2342,10 @@
           "description" : "Id of the product."
         },
         "masterArrangementId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "subArrangementName" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "currencyId" : {
           "type" : "string",
@@ -2520,16 +2382,13 @@
                     "description" : "The customer role with drop down of standard selections"
                   },
                   "taxLiabilityPercentage" : {
-                    "type" : "number",
-                    "description" : ""
+                    "type" : "number"
                   },
                   "limitAllocactionPercentage" : {
-                    "type" : "number",
-                    "description" : ""
+                    "type" : "number"
                   },
                   "GLAllocactionPercentage" : {
-                    "type" : "number",
-                    "description" : ""
+                    "type" : "number"
                   }
                 }
               }
@@ -2549,12 +2408,10 @@
                 "type" : "object",
                 "properties" : {
                   "definedCustomer" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "definedCustomerSel" : {
-                    "type" : "boolean",
-                    "description" : ""
+                    "type" : "boolean"
                   },
                   "definedCompanies" : {
                     "type" : "array",
@@ -2562,8 +2419,7 @@
                       "type" : "object",
                       "properties" : {
                         "definedCompany" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -2577,12 +2433,10 @@
                 "type" : "object",
                 "properties" : {
                   "definedProductGroups" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "definedProductGroupSel" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   }
                 }
               }
@@ -2594,16 +2448,14 @@
                 "type" : "object",
                 "properties" : {
                   "relationCustomer" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "productGroups" : {
                     "type" : "string",
                     "description" : "The group, as defined by the institution, that the product belongs to."
                   },
                   "productGroupSel" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "products" : {
                     "type" : "array",
@@ -2615,8 +2467,7 @@
                           "description" : "The product for which the pricing plan is applicable"
                         },
                         "productSel" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -2625,8 +2476,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         },
@@ -2644,8 +2494,7 @@
                     "description" : "Provides the id of the service that has to be run."
                   },
                   "serviceActive" : {
-                    "type" : "boolean",
-                    "description" : ""
+                    "type" : "boolean"
                   },
                   "operations" : {
                     "type" : "array",
@@ -2653,12 +2502,10 @@
                       "type" : "object",
                       "properties" : {
                         "operationId" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         },
                         "operationActive" : {
-                          "type" : "boolean",
-                          "description" : ""
+                          "type" : "boolean"
                         }
                       }
                     }
@@ -2667,8 +2514,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         },
@@ -2681,12 +2527,10 @@
                 "type" : "object",
                 "properties" : {
                   "dayName" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   },
                   "daySelect" : {
-                    "type" : "boolean",
-                    "description" : ""
+                    "type" : "boolean"
                   },
                   "time" : {
                     "type" : "array",
@@ -2708,8 +2552,7 @@
               }
             },
             "masterLevelChange" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         },
@@ -2718,7 +2561,6 @@
           "properties" : {
             "system" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
@@ -2743,7 +2585,6 @@
             },
             "transaction" : {
               "type" : "array",
-              "description" : "",
               "items" : {
                 "type" : "object",
                 "properties" : {
@@ -2761,8 +2602,7 @@
                 "type" : "object",
                 "properties" : {
                   "allowedCurrency" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   }
                 }
               }
@@ -2773,15 +2613,13 @@
                 "type" : "object",
                 "properties" : {
                   "benRiskRate" : {
-                    "type" : "string",
-                    "description" : ""
+                    "type" : "string"
                   }
                 }
               }
             },
             "timeOfDay" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -2797,12 +2635,10 @@
           "type" : "object",
           "properties" : {
             "noOfUsers" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "noOfRoles" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         }
@@ -2858,8 +2694,7 @@
                           "description" : "The name of the field"
                         },
                         "fieldValue" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -2889,12 +2724,10 @@
               "description" : "Id of the product."
             },
             "masterArrangementId" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "subArrangementName" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -2987,16 +2820,13 @@
                             "description" : "The customer role with drop down of standard selections"
                           },
                           "taxLiabilityPercentage" : {
-                            "type" : "number",
-                            "description" : ""
+                            "type" : "number"
                           },
                           "limitAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : ""
+                            "type" : "number"
                           },
                           "GLAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : ""
+                            "type" : "number"
                           }
                         }
                       }
@@ -3048,12 +2878,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedCustomer" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "definedCustomerSel" : {
-                            "type" : "boolean",
-                            "description" : ""
+                            "type" : "boolean"
                           },
                           "definedCompanies" : {
                             "type" : "array",
@@ -3061,8 +2889,7 @@
                               "type" : "object",
                               "properties" : {
                                 "definedCompany" : {
-                                  "type" : "string",
-                                  "description" : ""
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -3076,12 +2903,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedProductGroups" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "definedProductGroupSel" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           }
                         }
                       }
@@ -3093,16 +2918,14 @@
                         "type" : "object",
                         "properties" : {
                           "relationCustomer" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "productGroups" : {
                             "type" : "string",
                             "description" : "The group, as defined by the institution, that the product belongs to."
                           },
                           "productGroupSel" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "products" : {
                             "type" : "array",
@@ -3114,8 +2937,7 @@
                                   "description" : "The product for which the pricing plan is applicable"
                                 },
                                 "productSel" : {
-                                  "type" : "string",
-                                  "description" : ""
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -3124,8 +2946,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -3175,8 +2996,7 @@
                             "description" : "Provides the id of the service that has to be run."
                           },
                           "serviceActive" : {
-                            "type" : "boolean",
-                            "description" : ""
+                            "type" : "boolean"
                           },
                           "operations" : {
                             "type" : "array",
@@ -3184,12 +3004,10 @@
                               "type" : "object",
                               "properties" : {
                                 "operationId" : {
-                                  "type" : "string",
-                                  "description" : ""
+                                  "type" : "string"
                                 },
                                 "operationActive" : {
-                                  "type" : "boolean",
-                                  "description" : ""
+                                  "type" : "boolean"
                                 }
                               }
                             }
@@ -3198,8 +3016,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -3244,12 +3061,10 @@
                         "type" : "object",
                         "properties" : {
                           "dayName" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "daySelect" : {
-                            "type" : "boolean",
-                            "description" : ""
+                            "type" : "boolean"
                           },
                           "time" : {
                             "type" : "array",
@@ -3271,8 +3086,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -3313,7 +3127,6 @@
                   "properties" : {
                     "system" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -3338,7 +3151,6 @@
                     },
                     "transaction" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -3356,8 +3168,7 @@
                         "type" : "object",
                         "properties" : {
                           "allowedCurrency" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           }
                         }
                       }
@@ -3368,15 +3179,13 @@
                         "type" : "object",
                         "properties" : {
                           "benRiskRate" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           }
                         }
                       }
                     },
                     "timeOfDay" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "currencyId" : {
                       "type" : "string",
@@ -3424,12 +3233,10 @@
                   "type" : "object",
                   "properties" : {
                     "noOfUsers" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "noOfRoles" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -3519,8 +3326,7 @@
             "description" : "Description of the product group"
           },
           "productPermission" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "productGroupId" : {
             "type" : "string",
@@ -3660,12 +3466,10 @@
               "properties" : {
                 "linkedSubArrangementId" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 20
                 },
                 "linkedSubArrangementName" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 }
               }
@@ -3687,16 +3491,13 @@
                     "type" : "object",
                     "properties" : {
                       "inputterId" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       },
                       "inputterName" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       },
                       "externalInputterName" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       }
                     }
                   }
@@ -3716,7 +3517,6 @@
           },
           "subArrangementName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "productGroupId" : {
@@ -3751,7 +3551,6 @@
           },
           "masterArrangementId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 20
           },
           "activityId" : {
@@ -3759,8 +3558,7 @@
             "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE"
           },
           "pendingActivityId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -3800,12 +3598,10 @@
           },
           "subArrangementId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "subArrangementName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "externalUserStatus" : {
             "type" : "string",
@@ -3813,28 +3609,23 @@
           },
           "usersCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : ""
+            "format" : "int32"
           },
           "usersTotalCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : ""
+            "format" : "int32"
           },
           "userLicensesCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : ""
+            "format" : "int32"
           },
           "subArrangementsCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : ""
+            "format" : "int32"
           },
           "subArrangementLicensesCount" : {
             "type" : "integer",
-            "format" : "int32",
-            "description" : ""
+            "format" : "int32"
           }
         }
       }
@@ -3888,8 +3679,7 @@
                       "type" : "object",
                       "properties" : {
                         "subArrangementId" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -3935,16 +3725,14 @@
               "description" : "\"Description of the product line, e.g. \"\"Client Consent\"\" for product line CONSENT.\""
             },
             "subArrangementName" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "arrangementStatus" : {
               "type" : "string",
               "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure"
             },
             "masterArrangementId" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         },
@@ -4020,16 +3808,13 @@
                             "description" : "The customer role with drop down of standard selections"
                           },
                           "taxLiabilityPercentage" : {
-                            "type" : "number",
-                            "description" : ""
+                            "type" : "number"
                           },
                           "limitAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : ""
+                            "type" : "number"
                           },
                           "GLAllocactionPercentage" : {
-                            "type" : "number",
-                            "description" : ""
+                            "type" : "number"
                           }
                         }
                       }
@@ -4081,12 +3866,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedCustomer" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "definedCustomerSel" : {
-                            "type" : "boolean",
-                            "description" : ""
+                            "type" : "boolean"
                           },
                           "definedCompanies" : {
                             "type" : "array",
@@ -4094,8 +3877,7 @@
                               "type" : "object",
                               "properties" : {
                                 "definedCompany" : {
-                                  "type" : "string",
-                                  "description" : ""
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -4109,12 +3891,10 @@
                         "type" : "object",
                         "properties" : {
                           "definedProductGroups" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "definedProductGroupSel" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           }
                         }
                       }
@@ -4126,16 +3906,14 @@
                         "type" : "object",
                         "properties" : {
                           "relationCustomer" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "productGroups" : {
                             "type" : "string",
                             "description" : "The group, as defined by the institution, that the product belongs to."
                           },
                           "productGroupSel" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "products" : {
                             "type" : "array",
@@ -4147,8 +3925,7 @@
                                   "description" : "The product for which the pricing plan is applicable"
                                 },
                                 "productSel" : {
-                                  "type" : "string",
-                                  "description" : ""
+                                  "type" : "string"
                                 }
                               }
                             }
@@ -4157,8 +3934,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -4208,8 +3984,7 @@
                             "description" : "Provides the id of the service that has to be run."
                           },
                           "serviceActive" : {
-                            "type" : "boolean",
-                            "description" : ""
+                            "type" : "boolean"
                           },
                           "operations" : {
                             "type" : "array",
@@ -4217,12 +3992,10 @@
                               "type" : "object",
                               "properties" : {
                                 "operationId" : {
-                                  "type" : "string",
-                                  "description" : ""
+                                  "type" : "string"
                                 },
                                 "operationActive" : {
-                                  "type" : "boolean",
-                                  "description" : ""
+                                  "type" : "boolean"
                                 }
                               }
                             }
@@ -4231,8 +4004,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -4277,12 +4049,10 @@
                         "type" : "object",
                         "properties" : {
                           "dayName" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           },
                           "daySelect" : {
-                            "type" : "boolean",
-                            "description" : ""
+                            "type" : "boolean"
                           },
                           "time" : {
                             "type" : "array",
@@ -4304,8 +4074,7 @@
                       }
                     },
                     "masterLevelChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -4346,7 +4115,6 @@
                   "properties" : {
                     "system" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -4371,7 +4139,6 @@
                     },
                     "transaction" : {
                       "type" : "array",
-                      "description" : "",
                       "items" : {
                         "type" : "object",
                         "properties" : {
@@ -4389,8 +4156,7 @@
                         "type" : "object",
                         "properties" : {
                           "allowedCurrency" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           }
                         }
                       }
@@ -4401,15 +4167,13 @@
                         "type" : "object",
                         "properties" : {
                           "benRiskRate" : {
-                            "type" : "string",
-                            "description" : ""
+                            "type" : "string"
                           }
                         }
                       }
                     },
                     "timeOfDay" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "currencyId" : {
                       "type" : "string",
@@ -4457,12 +4221,10 @@
                   "type" : "object",
                   "properties" : {
                     "noOfUsers" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "noOfRoles" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -4494,12 +4256,10 @@
               "type" : "object",
               "properties" : {
                 "linkedSubArrangementId" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "linkedSubArrangementName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 }
               }
             }
@@ -4520,16 +4280,13 @@
                     "type" : "object",
                     "properties" : {
                       "inputterId" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       },
                       "inputterName" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       },
                       "externalInputterName" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       }
                     }
                   }
@@ -4546,8 +4303,7 @@
             "description" : "Status of the arrangement: UNAUTH - input but not authorised yet. AUTH - authorised. AUTH-FWD (Forward) - authorised, will become active on a future date. CURRENT - the arrangement has begun full or partial disbursement. MATURED - the contract has matured and all dues have been cleared. EXPIRED - the contract has gone past its final payment date with some dues left unsettled. REVERSED - reversed. CANCELLED - cancelled (only for deposits) CLOSE - closed PENDING.CLOSURE - ready for closure"
           },
           "subArrangementName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "productGroupId" : {
             "type" : "string",
@@ -4579,16 +4335,14 @@
             "description" : "Specifies the start date when the instruction will be made active"
           },
           "masterArrangementId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "activityId" : {
             "type" : "string",
             "description" : "Id of the activity, e.g. ACCOUNTS-CAPITALISE-ACCHARGE*CARDISSUEFEE"
           },
           "pendingActivityId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -4643,8 +4397,7 @@
                           "description" : "The name of the field"
                         },
                         "fieldValue" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -4674,12 +4427,10 @@
               "description" : "Id of the product."
             },
             "masterArrangementId" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "subArrangementName" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             },
             "currencyId" : {
               "type" : "string",
@@ -4762,25 +4513,20 @@
                       "description" : "The customer number"
                     },
                     "taxLiabilityPerc1" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "limitAllocPerc1" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "glAllocPerc1" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "jsLiable" : {
                       "type" : "string",
-                      "description" : "",
                       "enum" : [ "Joint & Severally Liable" ]
                     },
                     "includeInCraOf" : {
                       "type" : "string",
-                      "description" : "",
                       "enum" : [ "Include in CRA of" ]
                     }
                   }
@@ -4821,48 +4567,39 @@
                   "type" : "object",
                   "properties" : {
                     "definedCustomer" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "definedCompany" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "definedCustomerSel" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "definedProductGroups" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "definedProductGroupSel" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "relCustomer" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "productGroups" : {
                       "type" : "string",
                       "description" : "The group, as defined by the institution, that the product belongs to."
                     },
                     "productGroupSel" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "Product" : {
                       "type" : "string",
                       "description" : "The product for which the pricing plan is applicable"
                     },
                     "productSel" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "masterLvlChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -4902,24 +4639,20 @@
                   "type" : "object",
                   "properties" : {
                     "Service" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "serviceActive" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "Operation" : {
                       "type" : "string",
                       "description" : "Identifies the required operation to be executed for a Trade Finance contract. Input of valid codes as: O for opening of LC, P for Pre-advise of LC, A for Amend LC, C for Collect Charges, D for Decision on Amendments, T for Tracer, IO for LC through Internet Banking Operation and M for Ancillary Message (MT759)"
                     },
                     "operationActive" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "masterLvlChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -4959,12 +4692,10 @@
                   "type" : "object",
                   "properties" : {
                     "DayName" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "DaySelect" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "StartTime" : {
                       "type" : "string",
@@ -4975,8 +4706,7 @@
                       "description" : "The time the job was ended.  "
                     },
                     "masterLvlChange" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -5020,24 +4750,20 @@
                       "description" : "The system application identifier from which the entry was generated"
                     },
                     "Application" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "transactionType" : {
                       "type" : "string",
                       "description" : "This is the type of transaction for which Beneficiary is created i.e. within bank account transfer or other bank transfer etc."
                     },
                     "allowedCcy" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "benRiskRate" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "timeOfDay" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "Currency" : {
                       "type" : "string",
@@ -5085,12 +4811,10 @@
                   "type" : "object",
                   "properties" : {
                     "numberOfUsers" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "numberOfRoles" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }

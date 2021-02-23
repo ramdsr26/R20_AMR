@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/cashManagement/bundles/accounts/summaryAccounts/transactionStops" : {
@@ -32,12 +32,6 @@
             "$ref" : "#/definitions/BlockOnSummaryAccounts"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -51,12 +45,6 @@
               "$ref" : "#/definitions/BlockOnSummaryAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -67,6 +55,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -90,12 +84,6 @@
             "$ref" : "#/definitions/BlockOnSummaryAccounts"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -109,12 +97,6 @@
               "$ref" : "#/definitions/BlockOnSummaryAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -125,6 +107,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -150,12 +138,6 @@
             "$ref" : "#/definitions/BlockOnSummaryAccounts"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -169,12 +151,6 @@
               "$ref" : "#/definitions/BlockOnSummaryAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -185,6 +161,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -208,12 +190,6 @@
             "$ref" : "#/definitions/BlockOnSummaryAccounts"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -227,12 +203,6 @@
               "$ref" : "#/definitions/BlockOnSummaryAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -243,6 +213,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -268,12 +244,6 @@
             "$ref" : "#/definitions/BlockOnTransactionAccounts"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -287,12 +257,6 @@
               "$ref" : "#/definitions/BlockOnTransactionAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -303,6 +267,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -326,12 +296,6 @@
             "$ref" : "#/definitions/BlockOnTransactionAccounts"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -345,12 +309,6 @@
               "$ref" : "#/definitions/BlockOnTransactionAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -361,6 +319,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -386,12 +350,6 @@
             "$ref" : "#/definitions/BundleSettlementAccount"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -405,12 +363,6 @@
               "$ref" : "#/definitions/BundleSettlementAccountResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -422,14 +374,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -484,7 +444,39 @@
           "$ref" : "#/definitions/BlockOnSummaryAccountsBody"
         }
       },
-      "description" : "BlockOnSummaryAccounts"
+      "description" : "BlockOnSummaryAccounts",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "summary" : {
+            "expiryDate" : "2015-07-20",
+            "postingRestriction" : "string",
+            "unrestrictionText" : "string",
+            "restrictionReason" : "string",
+            "restrictionText" : "string",
+            "startDate" : "2015-07-20",
+            "unrestrictionReason" : "string"
+          },
+          "activityId" : "ACCOUNTS-UPDATE-SUMMARY",
+          "productId" : "SUMMARY.ACCOUNT",
+          "arrangementEffectiveDate" : "20190417",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
     },
     "BlockOnSummaryAccountsBody" : {
       "type" : "object",
@@ -973,7 +965,39 @@
           "$ref" : "#/definitions/BlockOnTransactionAccountsBody"
         }
       },
-      "description" : "BlockOnTransactionAccounts"
+      "description" : "BlockOnTransactionAccounts",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-BALANCE",
+          "productId" : "TR.ACCOUNT",
+          "balance" : {
+            "expiryDate" : "2015-07-20",
+            "postingRestriction" : "string",
+            "unrestrictionText" : "string",
+            "restrictionReason" : "string",
+            "restrictionText" : "string",
+            "startDate" : "2015-07-20",
+            "unrestrictionReason" : "string"
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
     },
     "BlockOnTransactionAccountsBody" : {
       "type" : "object",
@@ -1240,7 +1264,85 @@
           "$ref" : "#/definitions/BundleSettlementAccountBody"
         }
       },
-      "description" : "BundleSettlementAccount"
+      "description" : "BundleSettlementAccount",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Default Settlement Account not specified. Charges will not be processed.",
+              "id" : "AA-DEF.SETTLE.ACCOUNT.MAND",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "BUNDLE-UPDATE-SETTLEMENT",
+          "productId" : "MASTER.ACCOUNT",
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ],
+          "settlement" : {
+            "payout" : [ {
+              "payoutSettlementActivity" : "string",
+              "property" : [ {
+                "payoutAmount" : "string",
+                "payoutPropertyClass" : "string",
+                "payoutProperty" : "string",
+                "payoutActivity" : "string",
+                "payoutPOProduct" : "string",
+                "payoutAccount" : "string",
+                "payoutPercentage" : "string",
+                "payoutBeneficiary" : "string"
+              } ],
+              "payoutSettlement" : "string"
+            } ],
+            "defaultSettlementAccount" : "string",
+            "assocSettlement" : [ {
+              "payinRCType" : "string",
+              "reference" : [ {
+                "payinPercentage" : "string",
+                "payinActivity" : "string",
+                "payinAccount" : "string",
+                "payinPOProduct" : "string",
+                "payinAmount" : "string",
+                "payinBeneficiary" : "string",
+                "ddMandateReference" : "string"
+              } ],
+              "payinSettlement" : "string",
+              "payinSettlementActivity" : "string",
+              "payinRCCondition" : "string",
+              "payinRule" : "string"
+            } ],
+            "settlement" : [ {
+              "reference" : [ {
+                "payinPercentage" : "string",
+                "payoutAmount" : "string",
+                "payinAccount" : "string",
+                "payinAmount" : "string",
+                "payoutAccount" : "string",
+                "payoutPercentage" : "string",
+                "payinBeneficiary" : "string",
+                "payoutBeneficiary" : "string",
+                "ddMandateReference" : "string",
+                "payinPoProduct" : "string",
+                "payoutPoProduct" : "string"
+              } ],
+              "payinSettlement" : "string",
+              "payoutSettlement" : "string"
+            } ],
+            "fxSettlement" : [ {
+              "fxSettlementAccount" : "string",
+              "fxSettlementCurrency" : "string"
+            } ],
+            "paymentType" : "string"
+          }
+        }
+      }
     },
     "BundleSettlementAccountBody" : {
       "type" : "object",
@@ -1305,37 +1407,31 @@
                       "properties" : {
                         "ddMandateReference" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 18
                         },
                         "payinAccount" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 12
                         },
                         "payinBeneficiary" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 16
                         },
                         "payinPoProduct" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 16
                         },
                         "payinPercentage" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 15
                         },
                         "payinAmount" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 11
                         },
@@ -1353,19 +1449,16 @@
                         },
                         "payoutPoProduct" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 16
                         },
                         "payoutPercentage" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 16
                         },
                         "payoutAmount" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 12
                         }
@@ -1409,25 +1502,21 @@
                   },
                   "payinRule" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 9
                   },
                   "payinSettlementActivity" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 23
                   },
                   "payinRCType" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 11
                   },
                   "payinRCCondition" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 16
                   },
@@ -1438,43 +1527,36 @@
                       "properties" : {
                         "ddMandateReference" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 18
                         },
                         "payinAccount" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 12
                         },
                         "payinBeneficiary" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 16
                         },
                         "payinPOProduct" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 14
                         },
                         "payinPercentage" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 15
                         },
                         "payinAmount" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 11
                         },
                         "payinActivity" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 13
                         }
@@ -1498,7 +1580,6 @@
                   },
                   "payoutSettlementActivity" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 24
                   },
@@ -1509,13 +1590,11 @@
                       "properties" : {
                         "payoutPropertyClass" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 19
                         },
                         "payoutProperty" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 14
                         },
@@ -1533,25 +1612,21 @@
                         },
                         "payoutPOProduct" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 15
                         },
                         "payoutPercentage" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 16
                         },
                         "payoutAmount" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 12
                         },
                         "payoutActivity" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 14
                         }
@@ -1728,37 +1803,31 @@
                               "properties" : {
                                 "ddMandateReference" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 18
                                 },
                                 "payinAccount" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 12
                                 },
                                 "payinBeneficiary" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 16
                                 },
                                 "payinPoProduct" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 16
                                 },
                                 "payinPercentage" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 15
                                 },
                                 "payinAmount" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 11
                                 },
@@ -1776,19 +1845,16 @@
                                 },
                                 "payoutPoProduct" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 16
                                 },
                                 "payoutPercentage" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 16
                                 },
                                 "payoutAmount" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 12
                                 }
@@ -1832,25 +1898,21 @@
                           },
                           "payinRule" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 9
                           },
                           "payinSettlementActivity" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 23
                           },
                           "payinRCType" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 11
                           },
                           "payinRCCondition" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 16
                           },
@@ -1861,43 +1923,36 @@
                               "properties" : {
                                 "ddMandateReference" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 18
                                 },
                                 "payinAccount" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 12
                                 },
                                 "payinBeneficiary" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 16
                                 },
                                 "payinPOProduct" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 14
                                 },
                                 "payinPercentage" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 15
                                 },
                                 "payinAmount" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 11
                                 },
                                 "payinActivity" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 13
                                 }
@@ -1921,7 +1976,6 @@
                           },
                           "payoutSettlementActivity" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 24
                           },
@@ -1932,13 +1986,11 @@
                               "properties" : {
                                 "payoutPropertyClass" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 19
                                 },
                                 "payoutProperty" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 14
                                 },
@@ -1956,25 +2008,21 @@
                                 },
                                 "payoutPOProduct" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 15
                                 },
                                 "payoutPercentage" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 16
                                 },
                                 "payoutAmount" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 12
                                 },
                                 "payoutActivity" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 14
                                 }
@@ -2000,6 +2048,267 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "updateBlockOnSummaryAccounts" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BlockOnSummaryAccountsBody"
+        }
+      },
+      "description" : "BlockOnSummaryAccounts",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "summary" : {
+            "expiryDate" : "2015-07-20",
+            "postingRestriction" : "string",
+            "unrestrictionText" : "string",
+            "restrictionReason" : "string",
+            "restrictionText" : "string",
+            "startDate" : "2015-07-20",
+            "unrestrictionReason" : "string"
+          },
+          "activityId" : "ACCOUNTS-UPDATE-SUMMARY",
+          "productId" : "SUMMARY.ACCOUNT",
+          "arrangementEffectiveDate" : "20190417",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
+    },
+    "updateBlockOnTransactionAccounts" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BlockOnTransactionAccountsBody"
+        }
+      },
+      "description" : "BlockOnTransactionAccounts",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-BALANCE",
+          "productId" : "TR.ACCOUNT",
+          "balance" : {
+            "expiryDate" : "2015-07-20",
+            "postingRestriction" : "string",
+            "unrestrictionText" : "string",
+            "restrictionReason" : "string",
+            "restrictionText" : "string",
+            "startDate" : "2015-07-20",
+            "unrestrictionReason" : "string"
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
+    },
+    "createBlockOnSummaryAccounts" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BlockOnSummaryAccountsBody"
+        }
+      },
+      "description" : "BlockOnSummaryAccounts",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "summary" : {
+            "expiryDate" : "2015-07-20",
+            "postingRestriction" : "string",
+            "unrestrictionText" : "string",
+            "restrictionReason" : "string",
+            "restrictionText" : "string",
+            "startDate" : "2015-07-20",
+            "unrestrictionReason" : "string"
+          },
+          "activityId" : "ACCOUNTS-UPDATE-SUMMARY",
+          "productId" : "SUMMARY.ACCOUNT",
+          "arrangementEffectiveDate" : "20190417",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
+    },
+    "createBlockOnTransactionAccounts" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BlockOnTransactionAccountsBody"
+        }
+      },
+      "description" : "BlockOnTransactionAccounts",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-BALANCE",
+          "productId" : "TR.ACCOUNT",
+          "balance" : {
+            "expiryDate" : "2015-07-20",
+            "postingRestriction" : "string",
+            "unrestrictionText" : "string",
+            "restrictionReason" : "string",
+            "restrictionText" : "string",
+            "startDate" : "2015-07-20",
+            "unrestrictionReason" : "string"
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
+    },
+    "updateBundleSettlementAccount" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BundleSettlementAccountBody"
+        }
+      },
+      "description" : "BundleSettlementAccount",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Default Settlement Account not specified. Charges will not be processed.",
+              "id" : "AA-DEF.SETTLE.ACCOUNT.MAND",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "BUNDLE-UPDATE-SETTLEMENT",
+          "productId" : "MASTER.ACCOUNT",
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ],
+          "settlement" : {
+            "payout" : [ {
+              "payoutSettlementActivity" : "string",
+              "property" : [ {
+                "payoutAmount" : "string",
+                "payoutPropertyClass" : "string",
+                "payoutProperty" : "string",
+                "payoutActivity" : "string",
+                "payoutPOProduct" : "string",
+                "payoutAccount" : "string",
+                "payoutPercentage" : "string",
+                "payoutBeneficiary" : "string"
+              } ],
+              "payoutSettlement" : "string"
+            } ],
+            "defaultSettlementAccount" : "string",
+            "assocSettlement" : [ {
+              "payinRCType" : "string",
+              "reference" : [ {
+                "payinPercentage" : "string",
+                "payinActivity" : "string",
+                "payinAccount" : "string",
+                "payinPOProduct" : "string",
+                "payinAmount" : "string",
+                "payinBeneficiary" : "string",
+                "ddMandateReference" : "string"
+              } ],
+              "payinSettlement" : "string",
+              "payinSettlementActivity" : "string",
+              "payinRCCondition" : "string",
+              "payinRule" : "string"
+            } ],
+            "settlement" : [ {
+              "reference" : [ {
+                "payinPercentage" : "string",
+                "payoutAmount" : "string",
+                "payinAccount" : "string",
+                "payinAmount" : "string",
+                "payoutAccount" : "string",
+                "payoutPercentage" : "string",
+                "payinBeneficiary" : "string",
+                "payoutBeneficiary" : "string",
+                "ddMandateReference" : "string",
+                "payinPoProduct" : "string",
+                "payoutPoProduct" : "string"
+              } ],
+              "payinSettlement" : "string",
+              "payoutSettlement" : "string"
+            } ],
+            "fxSettlement" : [ {
+              "fxSettlementAccount" : "string",
+              "fxSettlementCurrency" : "string"
+            } ],
+            "paymentType" : "string"
           }
         }
       }

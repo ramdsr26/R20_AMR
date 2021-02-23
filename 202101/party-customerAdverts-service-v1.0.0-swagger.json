@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/customers/{customerId}/adverts" : {
@@ -23,7 +23,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100336"
         }, {
           "name" : "languageId",
           "in" : "query",
@@ -51,12 +52,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -70,12 +65,6 @@
               "$ref" : "#/definitions/CustomerAdvertsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -86,6 +75,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -117,12 +112,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -136,12 +125,6 @@
               "$ref" : "#/definitions/AdvertResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -152,6 +135,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -178,12 +167,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -197,12 +180,6 @@
               "$ref" : "#/definitions/AdvertResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -214,14 +191,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -566,7 +551,31 @@
           "$ref" : "#/definitions/AdvertBody"
         }
       },
-      "description" : "Advert"
+      "description" : "Advert",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "transactionApplication" : "string",
+          "opportunityTemplateId" : "string",
+          "opportunityProductId" : "string",
+          "customerId" : "string",
+          "opportunityDirection" : "INBOUND",
+          "startDate" : "2018-04-20",
+          "opportunityStatus" : "ACCEPTED",
+          "transactionId" : "string"
+        }
+      }
     },
     "AdvertBody" : {
       "type" : "object",
@@ -882,6 +891,41 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "updateAdvert" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/AdvertBody"
+        }
+      },
+      "description" : "Advert",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "transactionApplication" : "string",
+          "opportunityTemplateId" : "string",
+          "opportunityProductId" : "string",
+          "customerId" : "string",
+          "opportunityDirection" : "INBOUND",
+          "startDate" : "2018-04-20",
+          "opportunityStatus" : "ACCEPTED",
+          "transactionId" : "string"
         }
       }
     }

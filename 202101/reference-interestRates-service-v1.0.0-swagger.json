@@ -7,17 +7,13 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/reference/rateTexts" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves details of interest conditions",
         "description" : "Retrieves descriptions of the interest conditions",
         "operationId" : "getRateTexts",
@@ -55,12 +51,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -92,12 +82,6 @@
               "$ref" : "#/definitions/RateTextsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -109,13 +93,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/interestRates/{rateId}/floatingRates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves basic interest rate",
         "description" : "Retrieves Interest rate and negative interest rate. Input rate Id format example - 1USD20001025; 1USD20101025 ",
         "operationId" : "getBasicInterest",
@@ -123,14 +112,8 @@
         "parameters" : [ {
           "name" : "rateId",
           "in" : "path",
-		  "description" : "Identifies the periodic or floating interest rates",
+          "description" : "Identifies the periodic or floating interest rates",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -158,12 +141,6 @@
               "$ref" : "#/definitions/BasicInterestResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -175,13 +152,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/interestRates/{rateId}/floatingRates/dates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves effective date of floating rates",
         "description" : "Retrieves the effective date of the floating rate interest. Input rate Id format example - 1USD; 2USD; 1EUR ",
         "operationId" : "getBasicInterestChangeDates",
@@ -210,12 +192,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -250,12 +226,6 @@
               "$ref" : "#/definitions/BasicInterestChangeDatesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -267,13 +237,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/interestRates/dates/{date}/floatingRates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves floating rates for a specified date",
         "description" : "Retrieves currency, date and rates for the specified date ",
         "operationId" : "getBasicInterestRateChanges",
@@ -281,14 +256,8 @@
         "parameters" : [ {
           "name" : "date",
           "in" : "path",
-		  "description" : "Indicates the date on which activity was performed",
+          "description" : "Indicates the date on which activity was performed",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -316,12 +285,6 @@
               "$ref" : "#/definitions/BasicInterestRateChangesResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -333,13 +296,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/interestRates/{rateId}/periodicRates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves periodic interest details",
         "description" : "Retrieves details such as description, rest period,  rates, amount and history details. Input rate of format example - 01USD20091101; 01CAD20091101",
         "operationId" : "getPeriodicInterest",
@@ -347,14 +315,8 @@
         "parameters" : [ {
           "name" : "rateId",
           "in" : "path",
-		  "description" : "Identifies the periodic or floating interest rates",
+          "description" : "Identifies the periodic or floating interest rates",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -382,12 +344,6 @@
               "$ref" : "#/definitions/PeriodicInterestResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -399,13 +355,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/interestRates/dates/{date}/periodicRates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves periodic rates for a specified date",
         "description" : "Retrieves periodic rate changes for a specified date",
         "operationId" : "getPeriodicRateChanges",
@@ -434,12 +395,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -474,12 +429,6 @@
               "$ref" : "#/definitions/PeriodicRateChangesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -491,13 +440,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/interestRates/{rateId}/floatingRates/names" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves floating rate name",
         "description" : "Retrieves floating rate description",
         "operationId" : "getBasicInterestName",
@@ -505,14 +459,8 @@
         "parameters" : [ {
           "name" : "rateId",
           "in" : "path",
-		  "description" : "Identifies the periodic or floating interest rates",
+          "description" : "Identifies the periodic or floating interest rates",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -540,12 +488,6 @@
               "$ref" : "#/definitions/BasicInterestNameResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -557,13 +499,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/interestRates/{rateId}/periodicRates/names" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves periodic rate name",
         "description" : "Retrieves periodic rate description",
         "operationId" : "getPeriodicRateName",
@@ -571,14 +518,8 @@
         "parameters" : [ {
           "name" : "rateId",
           "in" : "path",
-		  "description" : "Identifies the periodic or floating interest rates",
+          "description" : "Identifies the periodic or floating interest rates",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -606,12 +547,6 @@
               "$ref" : "#/definitions/PeriodicRateNameResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -623,15 +558,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -1324,7 +1262,7 @@
           "description" : "Indicates the rate of return on an investment with zero risk",
           "minLength" : 0,
           "maxLength" : 20
-          },
+        },
         "receivedDate" : {
           "type" : "string",
           "description" : "Identifies the date on which the document was received",

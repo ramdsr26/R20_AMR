@@ -7,17 +7,13 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/reference/countries" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Country details",
         "description" : "Retrieves the list of country information that is used by the legal entity, either a list of countries or a specific country by ISO 3166-1 alpha-2 code.",
         "operationId" : "getCountries",
@@ -49,12 +45,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -80,12 +70,6 @@
               "$ref" : "#/definitions/CountriesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -97,13 +81,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/country/{countryCode}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Country details",
         "description" : "API to retrieve country codes as per ISO Standards",
         "operationId" : "getCountryCodes",
@@ -135,12 +124,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -166,12 +149,6 @@
               "$ref" : "#/definitions/CountryCodesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -183,13 +160,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/countries/{countryId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve the details of country",
         "description" : "Retrieve the details of country like country name, currency code, geographical block, business centre and reporting country.",
         "operationId" : "getCountryDetails",
@@ -199,12 +181,6 @@
           "in" : "path",
           "description" : "ISO country code of the financial institution. ",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -232,12 +208,6 @@
               "$ref" : "#/definitions/CountryDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -249,13 +219,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/countries/countryGroups/{groupId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve the details of country group",
         "description" : "Retrieve the description and list of all countries involved in the group",
         "operationId" : "getCountryGroup",
@@ -265,12 +240,6 @@
           "in" : "path",
           "description" : "Unique ID of the group",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -298,12 +267,6 @@
               "$ref" : "#/definitions/CountryGroupResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -315,13 +278,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/countries/countryGroups" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve the list of country groups",
         "description" : "Retrieves the list of all country group in the system with details such as description and countries involved in the group",
         "operationId" : "getCountryGroupList",
@@ -353,12 +321,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -384,12 +346,6 @@
               "$ref" : "#/definitions/CountryGroupListResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -401,13 +357,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/countries/regions/{regionId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve the details of region",
         "description" : "Retrieve the details of region such as description, inflation index and inflation index applicable date",
         "operationId" : "getCountryRegion",
@@ -417,12 +378,6 @@
           "in" : "path",
           "description" : "Identifier of the region",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -450,12 +405,6 @@
               "$ref" : "#/definitions/CountryRegionResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -467,15 +416,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/onboarding/customers/{customerId}" : {
@@ -25,12 +25,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -44,12 +38,6 @@
               "$ref" : "#/definitions/OnboardingCustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -60,6 +48,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -90,12 +84,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -109,12 +97,6 @@
               "$ref" : "#/definitions/OnboardingCustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -125,6 +107,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -151,12 +139,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -170,12 +152,6 @@
               "$ref" : "#/definitions/OnboardingCustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -187,14 +163,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -292,7 +276,6 @@
         },
         "communicationDevices" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -421,7 +404,6 @@
         },
         "legalDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -479,7 +461,6 @@
         },
         "employDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -529,7 +510,6 @@
         },
         "residenceDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -578,7 +558,6 @@
               },
               "jointCustomer" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 35
               },
@@ -646,13 +625,11 @@
               },
               "countryCode" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               },
               "contactData" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -666,13 +643,11 @@
             "properties" : {
               "externalSystemId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               },
               "externalCustomerId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -853,7 +828,6 @@
         },
         "domicile" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -871,7 +845,6 @@
         },
         "numberOfDependents" : {
           "type" : "number",
-          "description" : "",
           "minimum" : 0,
           "maximum" : 35
         },
@@ -883,7 +856,6 @@
         },
         "state" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         }
@@ -1189,7 +1161,6 @@
         },
         "communicationDevices" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1318,7 +1289,6 @@
         },
         "legalDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1376,7 +1346,6 @@
         },
         "employDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1426,7 +1395,6 @@
         },
         "residenceDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1475,7 +1443,6 @@
               },
               "jointCustomer" : {
                 "type" : "number",
-                "description" : "",
                 "minimum" : 0,
                 "maximum" : 35
               },
@@ -1563,13 +1530,11 @@
             "properties" : {
               "externalSystemId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               },
               "externalCustomerId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -1750,7 +1715,6 @@
         },
         "domicile" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -1768,7 +1732,6 @@
         },
         "numberOfDependents" : {
           "type" : "number",
-          "description" : "",
           "minimum" : 0,
           "maximum" : 35
         },

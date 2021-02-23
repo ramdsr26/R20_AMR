@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.1.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/loans/{loanId}" : {
@@ -21,20 +21,17 @@
         "parameters" : [ {
           "name" : "loanId",
           "in" : "path",
-          "description" : "",
           "required" : true,
           "type" : "string"
         }, {
           "name" : "dateFrom",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string",
           "format" : "date"
         }, {
           "name" : "dateTo",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string",
           "format" : "date"
@@ -65,12 +62,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -84,12 +75,6 @@
               "$ref" : "#/definitions/LoanDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -100,6 +85,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -137,11 +128,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -154,12 +140,6 @@
               "$ref" : "#/definitions/ArrangementCollateralDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -170,6 +150,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -184,7 +170,6 @@
         "parameters" : [ {
           "name" : "loanId",
           "in" : "path",
-          "description" : "",
           "required" : true,
           "type" : "string"
         }, {
@@ -220,12 +205,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -239,12 +218,6 @@
               "$ref" : "#/definitions/LoanBillDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -256,14 +229,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -345,12 +326,10 @@
                   "description" : "Indicates the interest property name"
                 },
                 "interestPropertyName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "compoundType" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "rateType" : {
                   "type" : "string",
@@ -382,32 +361,26 @@
               "type" : "object",
               "properties" : {
                 "paidScheduleCount" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "dueScheduleCount" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "futureScheduleCount" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "schedulePaymentType" : {
                   "type" : "string",
                   "description" : "Indicates payment schedule type"
                 },
                 "schedulePaymentMethod" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "scheduleProperty" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "schedulePaymentAmount" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "schedulePaymentFrequency" : {
                   "type" : "string",
@@ -453,8 +426,7 @@
             "description" : "Indicates next payment date for the contract"
           },
           "virtualBalance" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "lastPayment" : {
             "type" : "string",
@@ -468,12 +440,11 @@
           "payoffRequest" : {
             "type" : "string",
             "description" : "Loan Payoff Request"
-           },
+          },
           "pendingWithdrawals" : {
             "type" : "number",
             "description" : "The pending debit amount for the loan account"
           }
-          
         }
       }
     },

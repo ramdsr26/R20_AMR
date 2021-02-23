@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/system/tsaservice/{serviceId}/jobs" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "start or stop service with correlation id(Deprecated- A newer version V2.0.2 available)",
         "description" : "start or stop service with correlation id",
         "operationId" : "updateService",
@@ -26,7 +22,8 @@
           "name" : "serviceId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "BNK/AC.NSF.REVALUATION.SERVICE"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -41,12 +38,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -73,12 +64,6 @@
               "$ref" : "#/definitions/ServiceResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -90,6 +75,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -97,7 +88,6 @@
     },
     "/system/jobtimes" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Get all job times report(Deprecated- A newer version V2.0.2 available)",
         "description" : "Get all job times report",
         "operationId" : "getAllJobTimes",
@@ -120,12 +110,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -160,12 +144,6 @@
               "$ref" : "#/definitions/AllJobTimesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -177,6 +155,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -184,7 +168,6 @@
     },
     "/system/reportTimes/{batchDate}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Get all report times(Deprecated- A newer version V2.0.2 available)",
         "description" : "Get all report times",
         "operationId" : "getAllReportTimes",
@@ -194,7 +177,8 @@
           "in" : "path",
           "description" : "The bank date on which the particular report was generated.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "20190417"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -213,12 +197,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -253,12 +231,6 @@
               "$ref" : "#/definitions/AllReportTimesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -270,6 +242,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -277,9 +255,6 @@
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -338,7 +313,32 @@
           "$ref" : "#/definitions/ServiceBody"
         }
       },
-      "description" : "Service"
+      "description" : "Service",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "jobOperation" : "START",
+          "jobServerProfiles" : [ {
+            "serverName" : "string",
+            "jobProfileId" : "string",
+            "jobServerStatus" : "string"
+          } ],
+          "correlationId" : "string",
+          "userId" : "INPUTTER"
+        }
+      }
     },
     "ServiceBody" : {
       "type" : "object",
@@ -766,7 +766,6 @@
         "properties" : {
           "group" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -928,7 +927,6 @@
         "properties" : {
           "group" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -975,6 +973,42 @@
             "description" : "Key to the Report Times, containing Process Name and Report Type name ",
             "maxLength" : 70
           }
+        }
+      }
+    },
+    "updateService" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ServiceBody"
+        }
+      },
+      "description" : "Service",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "jobOperation" : "START",
+          "jobServerProfiles" : [ {
+            "serverName" : "string",
+            "jobProfileId" : "string",
+            "jobServerStatus" : "string"
+          } ],
+          "correlationId" : "string",
+          "userId" : "INPUTTER"
         }
       }
     }

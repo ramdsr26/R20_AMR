@@ -5,19 +5,15 @@
     "version" : "v1.0.0",
     "title" : "System Application Resources"
   },
-  "host" : "temenos.api-server.com",
-  "basePath" : "/ra/api/v1.0.0/",
-  "tags" : [ ],
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/system/resources/{resourceType}/{resourceId}/attributes" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Get a particular resource attributes(Deprecated- A newer version V2.0.0 available)",
         "description" : "Get a particular resource attributes",
         "operationId" : "getAttributeDetails",
@@ -55,12 +51,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -92,12 +82,6 @@
               "$ref" : "#/definitions/AttributeDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -109,6 +93,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -116,7 +106,6 @@
     },
     "/system/resourceManagers/{resourceManagerId}/resources" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "To get Details of all the resources in t24(Deprecated- A newer version V2.0.0 available)",
         "description" : "To get Details of all the resources in t24",
         "operationId" : "getDetailsForResources",
@@ -145,12 +134,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -185,12 +168,6 @@
               "$ref" : "#/definitions/DetailsForResourcesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -202,6 +179,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -209,9 +192,6 @@
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -286,7 +266,6 @@
         "properties" : {
           "options" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {

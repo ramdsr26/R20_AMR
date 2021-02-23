@@ -5,19 +5,15 @@
     "version" : "v1.0.0",
     "title" : "Security Orders"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v1.0.0/v1.0.0/",
-  "tags" : [ ],
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/securityOrders/" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates a security order",
         "description" : "Creates a security order with the transaction channel",
         "operationId" : "createSecurityOrder",
@@ -37,12 +33,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -68,12 +58,6 @@
               "$ref" : "#/definitions/SecurityOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -84,6 +68,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -91,7 +81,6 @@
     },
     "/order/securityOrders/{securityOrderId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the security order",
         "description" : "Retrieves the security order",
         "operationId" : "getSecurityOrder",
@@ -99,14 +88,7 @@
         "parameters" : [ {
           "name" : "securityOrderId",
           "in" : "path",
-          "description" : "",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -134,12 +116,6 @@
               "$ref" : "#/definitions/SecurityOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -151,11 +127,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Updates the security order",
         "description" : "Updates the security order",
         "operationId" : "updateSecurityOrder",
@@ -163,7 +144,6 @@
         "parameters" : [ {
           "name" : "securityOrderId",
           "in" : "path",
-          "description" : "",
           "required" : true,
           "type" : "string"
         }, {
@@ -181,12 +161,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -212,12 +186,6 @@
               "$ref" : "#/definitions/SecurityOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -229,13 +197,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/securityOrders/periodicFeeEstimates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Get Estimated Periodic Fees and charges for the deal",
         "description" : "Get Estimated Periodic Fees and charges for the deal",
         "operationId" : "getPeriodicFeeEstimates",
@@ -309,12 +282,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -340,12 +307,6 @@
               "$ref" : "#/definitions/PeriodicFeeEstimatesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -357,13 +318,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/securityOrders/stopPriceOrders" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates a stop price order",
         "description" : "Creates a stop price order with the transaction channel",
         "operationId" : "createStopPriceOrder",
@@ -382,12 +348,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -414,12 +374,6 @@
               "$ref" : "#/definitions/SecurityOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -431,13 +385,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/securityOrders/stopPriceLimitOrders" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates a stop price limit order",
         "description" : "Creates a stop price limit order with the transaction channel",
         "operationId" : "createStopPriceLimitOrder",
@@ -456,12 +415,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -488,12 +441,6 @@
               "$ref" : "#/definitions/SecurityOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -505,15 +452,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

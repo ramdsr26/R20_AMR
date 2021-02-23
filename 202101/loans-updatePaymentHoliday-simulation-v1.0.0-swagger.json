@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/arrangements/{arrangementId}/simulate/paymentHoliday/mortgages" : {
@@ -19,6 +19,11 @@
         "operationId" : "simulatePaymentHolidayMortgages",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -31,12 +36,6 @@
           "schema" : {
             "$ref" : "#/definitions/PaymentHolidayMortgages"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -51,12 +50,6 @@
               "$ref" : "#/definitions/PaymentHolidayMortgagesResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -68,15 +61,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/arrangements/{arrangementId}/simulate/paymentHoliday/homeLoans" : {
       "post" : {
@@ -85,6 +78,11 @@
         "operationId" : "simulatePaymentHolidayHomeLoans",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -97,12 +95,6 @@
           "schema" : {
             "$ref" : "#/definitions/PaymentHolidayHomeLoans"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -117,12 +109,6 @@
               "$ref" : "#/definitions/PaymentHolidayHomeLoansResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -134,15 +120,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/arrangements/{arrangementId}/simulate/paymentHoliday/personalLoans" : {
       "post" : {
@@ -151,6 +137,11 @@
         "operationId" : "simulatePaymentHolidayPersonalLoans",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -163,12 +154,6 @@
           "schema" : {
             "$ref" : "#/definitions/PaymentHolidayPersonalLoans"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -183,12 +168,6 @@
               "$ref" : "#/definitions/PaymentHolidayPersonalLoansResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -200,15 +179,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/arrangements/{arrangementId}/simulate/paymentHoliday/businessLoans" : {
       "post" : {
@@ -217,6 +196,11 @@
         "operationId" : "simulatePaymentHolidayBusinessLoans",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -229,12 +213,6 @@
           "schema" : {
             "$ref" : "#/definitions/PaymentHolidayBusinessLoans"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -249,12 +227,6 @@
               "$ref" : "#/definitions/PaymentHolidayBusinessLoansResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -266,15 +238,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/arrangements/{arrangementId}/simulate/paymentHoliday/creditLines" : {
       "post" : {
@@ -283,6 +255,11 @@
         "operationId" : "simulatePaymentHolidayCreditLines",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -295,12 +272,6 @@
           "schema" : {
             "$ref" : "#/definitions/PaymentHolidayCreditLines"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -315,12 +286,6 @@
               "$ref" : "#/definitions/PaymentHolidayCreditLinesResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -332,20 +297,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -484,7 +451,6 @@
         },
         "roleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -661,7 +627,6 @@
             },
             "roleName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 35
             },
@@ -712,8 +677,7 @@
           }
         },
         "properties" : {
-          "type" : "object",
-          "properties" : { }
+          "type" : "object"
         }
       }
     },
@@ -986,7 +950,6 @@
         },
         "roleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -1117,7 +1080,6 @@
             },
             "roleName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 35
             },
@@ -1168,8 +1130,7 @@
           }
         },
         "properties" : {
-          "type" : "object",
-          "properties" : { }
+          "type" : "object"
         }
       }
     },
@@ -1266,7 +1227,6 @@
         },
         "roleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -1397,7 +1357,6 @@
             },
             "roleName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 35
             },
@@ -1448,8 +1407,7 @@
           }
         },
         "properties" : {
-          "type" : "object",
-          "properties" : { }
+          "type" : "object"
         }
       }
     },
@@ -1546,7 +1504,6 @@
         },
         "roleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -1677,7 +1634,6 @@
             },
             "roleName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 35
             },
@@ -1728,8 +1684,7 @@
           }
         },
         "properties" : {
-          "type" : "object",
-          "properties" : { }
+          "type" : "object"
         }
       }
     },
@@ -1826,7 +1781,6 @@
         },
         "roleName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -1957,7 +1911,6 @@
             },
             "roleName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 35
             },
@@ -2008,8 +1961,7 @@
           }
         },
         "properties" : {
-          "type" : "object",
-          "properties" : { }
+          "type" : "object"
         }
       }
     }

@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/travelNotifications/{travelNotificationId}" : {
@@ -23,7 +23,8 @@
           "in" : "path",
           "description" : "Denotes the identifier associated with the travel for notifications",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "CTN19107HYTSBKY"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -39,12 +40,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -58,12 +53,6 @@
               "$ref" : "#/definitions/TravelNotificationResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -74,6 +63,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -88,7 +83,8 @@
           "in" : "path",
           "description" : "Denotes the identifier associated with the travel for notifications",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "CTN19107HYTSBKY"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -104,12 +100,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -123,12 +113,6 @@
               "$ref" : "#/definitions/TravelNotificationResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -139,6 +123,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -165,12 +155,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -184,12 +168,6 @@
               "$ref" : "#/definitions/TravelNotificationResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -200,6 +178,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -216,7 +200,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100297"
         }, {
           "name" : "overallStatus",
           "in" : "query",
@@ -256,12 +241,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -275,12 +254,6 @@
               "$ref" : "#/definitions/CustomerTravelNotificationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -292,14 +265,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -354,7 +335,47 @@
           "$ref" : "#/definitions/TravelNotificationBody"
         }
       },
-      "description" : "TravelNotification"
+      "description" : "TravelNotification",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "travelNotifications" : [ {
+            "additionalInformation" : "string",
+            "travelStatus" : "string",
+            "scheduleType" : "string",
+            "endDate" : "2019 04 18",
+            "accountIds" : [ {
+              "accountId" : "string"
+            } ],
+            "visitPurpose" : "string",
+            "startTime" : "00:00",
+            "endTime" : "23:59",
+            "contactDetails" : [ {
+              "contactDetail" : "string"
+            } ],
+            "countryId" : "IN",
+            "startDate" : "2019 04 18"
+          } ],
+          "customerId" : "100336",
+          "cancelRequest" : "NO",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "overallStatus" : "ACTIVE"
+        }
+      }
     },
     "TravelNotificationBody" : {
       "type" : "object",
@@ -1126,6 +1147,108 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "updateTravelNotification" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/TravelNotificationBody"
+        }
+      },
+      "description" : "TravelNotification",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "travelNotifications" : [ {
+            "additionalInformation" : "string",
+            "travelStatus" : "string",
+            "scheduleType" : "string",
+            "endDate" : "2019 04 18",
+            "accountIds" : [ {
+              "accountId" : "string"
+            } ],
+            "visitPurpose" : "string",
+            "startTime" : "00:00",
+            "endTime" : "23:59",
+            "contactDetails" : [ {
+              "contactDetail" : "string"
+            } ],
+            "countryId" : "IN",
+            "startDate" : "2019 04 18"
+          } ],
+          "customerId" : "100336",
+          "cancelRequest" : "NO",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "overallStatus" : "ACTIVE"
+        }
+      }
+    },
+    "deleteTravelNotification" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/TravelNotificationBody"
+        }
+      },
+      "description" : "TravelNotification",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "travelNotifications" : [ {
+            "additionalInformation" : "string",
+            "travelStatus" : "string",
+            "scheduleType" : "string",
+            "endDate" : "2019 04 18",
+            "accountIds" : [ {
+              "accountId" : "string"
+            } ],
+            "visitPurpose" : "string",
+            "startTime" : "00:00",
+            "endTime" : "23:59",
+            "contactDetails" : [ {
+              "contactDetail" : "string"
+            } ],
+            "countryId" : "IN",
+            "startDate" : "2019 04 18"
+          } ],
+          "customerId" : "100336",
+          "cancelRequest" : "NO",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "overallStatus" : "ACTIVE"
         }
       }
     }

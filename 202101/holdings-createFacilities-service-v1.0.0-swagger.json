@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/facilities" : {
@@ -32,11 +32,6 @@
             "$ref" : "#/definitions/Facilities"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -47,12 +42,6 @@
             "description" : "createFacilitiesResponse",
             "schema" : {
               "$ref" : "#/definitions/FacilitiesResponse"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -66,14 +55,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -150,7 +147,6 @@
         },
         "arrangmentId" : {
           "type" : "string",
-          "description" : "",
           "maxLength" : 12
         },
         "productId" : {
@@ -183,7 +179,6 @@
                 "properties" : {
                   "payInAccount" : {
                     "type" : "string",
-                    "description" : "",
                     "maxLength" : 12
                   }
                 }
@@ -242,7 +237,6 @@
                 "properties" : {
                   "allowedProductGroup" : {
                     "type" : "string",
-                    "description" : "",
                     "maxLength" : 25
                   }
                 }
@@ -269,12 +263,10 @@
             },
             "requiredCustomer" : {
               "type" : "string",
-              "description" : "",
               "maxLength" : 17
             },
             "subArrangementProduct" : {
               "type" : "string",
-              "description" : "",
               "maxLength" : 21
             }
           }
@@ -289,7 +281,6 @@
             },
             "limitSerial" : {
               "type" : "string",
-              "description" : "",
               "maxLength" : 11
             }
           }
@@ -378,7 +369,6 @@
             },
             "arrangmentId" : {
               "type" : "string",
-              "description" : "",
               "maxLength" : 12
             },
             "productId" : {
@@ -646,7 +636,6 @@
                         "properties" : {
                           "payInAccount" : {
                             "type" : "string",
-                            "description" : "",
                             "maxLength" : 12
                           }
                         }
@@ -804,7 +793,6 @@
                         "properties" : {
                           "allowedProductGroup" : {
                             "type" : "string",
-                            "description" : "",
                             "maxLength" : 25
                           }
                         }
@@ -831,12 +819,10 @@
                     },
                     "requiredCustomer" : {
                       "type" : "string",
-                      "description" : "",
                       "maxLength" : 17
                     },
                     "subArrangementProduct" : {
                       "type" : "string",
-                      "description" : "",
                       "maxLength" : 21
                     }
                   }
@@ -1062,7 +1048,6 @@
                     },
                     "limitSerial" : {
                       "type" : "string",
-                      "description" : "",
                       "maxLength" : 11
                     }
                   }

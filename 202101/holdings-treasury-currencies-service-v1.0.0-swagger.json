@@ -7,17 +7,13 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/currencies/{currencyId}/rates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the live market rate from  rate feeds",
         "description" : "Retrieves the live market rate from a given rate feed and displays the rate provider for a given currency ",
         "operationId" : "getCurrencyMarketRates",
@@ -85,12 +81,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -116,12 +106,6 @@
               "$ref" : "#/definitions/CurrencyMarketRatesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -133,13 +117,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/currencies/revaluationRates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the exchange rate(used in revaluation) of a foreign currency with respect to local currency",
         "description" : "Retrieves the exchange rate(market middle rate) of a foreign currency with respect to local currency, which is stored in the system. This middle rate is used in revaluation to revalue the  foreign exchange contracts.",
         "operationId" : "getCurrencyRevaluationRates",
@@ -171,12 +160,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -202,12 +185,6 @@
               "$ref" : "#/definitions/CurrencyRevaluationRatesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -219,15 +196,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

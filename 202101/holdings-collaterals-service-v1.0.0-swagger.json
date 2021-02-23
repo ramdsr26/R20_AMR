@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/customers/collaterals" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create customer collaterals",
         "description" : "Creates customer collateral with details such as collateral name, type, subtype, currency, amount and collateral item",
         "operationId" : "createCustomerCollaterals",
@@ -36,12 +32,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -68,12 +58,6 @@
               "$ref" : "#/definitions/CustomerCollateralsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -85,13 +69,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/customers/collaterals/{collateralId}" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Update customer collaterals",
         "description" : "Updates customer collateral with details such as collateral name, type, subtype, currency, amount and collateral item",
         "operationId" : "updateCustomerCollaterals",
@@ -117,12 +106,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -148,12 +131,6 @@
               "$ref" : "#/definitions/CustomerCollateralsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -165,13 +142,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/customers/{customerId}/collaterals" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves customer collaterals",
         "description" : "Retrieves customer collaterals with details such as collateral name, type, subtype, currency, amount and collateral item. Optional collateral status can be set with CUR - current/active, FWD - future dated, LIQ - liquidated, EXP - expired to get the corresponding collateral details",
         "operationId" : "getCustomerCollaterals",
@@ -221,12 +203,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -252,12 +228,6 @@
               "$ref" : "#/definitions/CustomerCollateralsResponse1"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -269,15 +239,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

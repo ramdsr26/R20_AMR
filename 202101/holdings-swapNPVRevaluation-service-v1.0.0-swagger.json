@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/treasury/swaps/NPV/revaluations" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the currency wise daily profit/loss details for net present value method of revaluation.",
         "description" : "Retrieves the currency wise daily profit/loss details of swap contract resulting from NPV revaluation based on the discount rate provided.",
         "operationId" : "getSwapNPVRevaluations",
@@ -55,12 +51,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -86,12 +76,6 @@
               "$ref" : "#/definitions/SwapNPVRevaluationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -103,13 +87,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/treasury/swaps/NPV" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves cash flow details for selected swap contract and calculates the present value total cash flow.",
         "description" : "Retrieves cash flow details for selected swap contract and calculates the present value for both asset leg and liability leg.",
         "operationId" : "getSwapNPVDetails",
@@ -147,12 +136,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -178,12 +161,6 @@
               "$ref" : "#/definitions/SwapNPVDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -195,13 +172,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/treasury/swaps/NPV/currencies/revaluations" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the present value of cross currency interest rate swap contracts and calculates the daily profit and loss.",
         "description" : "Retrieves the present value of asset leg and liability leg of cross currency interest rate swap contracts and calculates the daily profit and loss based on the discount rate provided.",
         "operationId" : "getSwapNPVCurrencyRevaluations",
@@ -239,12 +221,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -270,12 +246,6 @@
               "$ref" : "#/definitions/SwapNPVCurrencyRevaluationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -287,15 +257,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

@@ -5,19 +5,15 @@
     "version" : "v1.0.0",
     "title" : "Treasury currency positions"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v1.0.0/v1.0.0/",
-  "tags" : [ ],
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/currency/positions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves currency positions",
         "description" : "Retrieves forex positions by currency and provides a break-up of closed positions(asset and liability position) and open positions(spot and forward position). It also arrives at the net currency position across each currency.",
         "operationId" : "getCurrencyPositions",
@@ -55,12 +51,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -86,12 +76,6 @@
               "$ref" : "#/definitions/CurrencyPositionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -103,13 +87,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/currency/{currencyId}/calendarPositions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves currency positions",
         "description" : "Retrieves forex positions by currency,provides a break-up of closed positions(asset and liability position) and open positions(spot and forward position) and arranges them according to effective dates.",
         "operationId" : "getCurrencyCalendarPositions",
@@ -118,7 +107,8 @@
           "name" : "currencyId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "USD"
         }, {
           "name" : "currency",
           "in" : "query",
@@ -152,12 +142,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -183,12 +167,6 @@
               "$ref" : "#/definitions/CurrencyCalendarPositionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -200,15 +178,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

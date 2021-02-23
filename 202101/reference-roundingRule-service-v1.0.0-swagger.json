@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/reference/roundingRules/{ruleId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve the details of rounding rule",
         "description" : "Retrieve the details of rounding rule such as rounding type, description, no of decimals, lowest unit and rounding fractions.",
         "operationId" : "getRoundingRuleDetails",
@@ -27,12 +23,6 @@
           "in" : "path",
           "description" : "Identifier of rounding rule",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -60,12 +50,6 @@
               "$ref" : "#/definitions/RoundingRuleDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -77,15 +61,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

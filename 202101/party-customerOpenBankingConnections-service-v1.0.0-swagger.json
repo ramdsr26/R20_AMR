@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/customers/openBankingConnections/{connectionId}" : {
@@ -21,7 +21,7 @@
         "parameters" : [ {
           "name" : "connectionId",
           "in" : "path",
-		  "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
+          "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
           "required" : true,
           "type" : "string"
         }, {
@@ -39,12 +39,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -58,12 +52,6 @@
               "$ref" : "#/definitions/OpenBankingConnectionResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -74,6 +62,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -86,7 +80,7 @@
         "parameters" : [ {
           "name" : "connectionId",
           "in" : "path",
-		  "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
+          "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
           "required" : true,
           "type" : "string"
         }, {
@@ -104,12 +98,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -123,12 +111,6 @@
               "$ref" : "#/definitions/OpenBankingConnectionResponse1"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -139,6 +121,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -152,8 +140,8 @@
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "connectionId",
-		  "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
           "in" : "path",
+          "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
           "required" : true,
           "type" : "string"
         }, {
@@ -171,12 +159,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -190,12 +172,6 @@
               "$ref" : "#/definitions/OpenBankingConnectionResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -206,6 +182,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -220,7 +202,7 @@
         "parameters" : [ {
           "name" : "connectionId",
           "in" : "path",
-		  "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
+          "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
           "required" : true,
           "type" : "string"
         }, {
@@ -238,12 +220,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -257,12 +233,6 @@
               "$ref" : "#/definitions/OpenBankingConnectionResponse2"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -273,6 +243,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -287,7 +263,7 @@
         "parameters" : [ {
           "name" : "connectionId",
           "in" : "query",
-		  "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
+          "description" : "Contains the id associated to the connect reference respective to a transaction of the account",
           "required" : false,
           "type" : "string"
         }, {
@@ -327,12 +303,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -346,12 +316,6 @@
               "$ref" : "#/definitions/ThirdPartyProviderConsentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -363,14 +327,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -424,7 +396,7 @@
       "description" : "OpenBankingConnection"
     },
     "OpenBankingConnectionBody" : {
-           "type" : "object",
+      "type" : "object",
       "properties" : {
         "otherBankConsentTypes" : {
           "type" : "array",
@@ -643,7 +615,7 @@
       "description" : "OpenBankingConnectionResponse"
     },
     "OpenBankingConnectionResponseBody" : {
-       "type" : "object",
+      "type" : "object",
       "properties" : {
         "otherBankConsentTypes" : {
           "type" : "array",
@@ -799,7 +771,7 @@
           "description" : "Refers to when the Consent was given at.",
           "minLength" : 0,
           "maxLength" : 14
-        }, 
+        },
         "termsAccepted" : {
           "type" : "string",
           "description" : "Defines whether the user has accepted the Terms and Conditions first displayed when the user logs in to the system for the very first time.",
@@ -1022,7 +994,7 @@
       "description" : "OpenBankingConnection1"
     },
     "OpenBankingConnection1Body" : {
-       "type" : "object",
+      "type" : "object",
       "properties" : {
         "otherBankConsentTypes" : {
           "type" : "array",
@@ -1273,7 +1245,7 @@
       "description" : "OpenBankingConnectionResponse1"
     },
     "OpenBankingConnectionResponse1Body" : {
-            "type" : "object",
+      "type" : "object",
       "properties" : {
         "otherBankConsentTypes" : {
           "type" : "array",
@@ -1781,7 +1753,7 @@
           },
           "allTransactionsReceived" : {
             "type" : "array",
-             "description" : "Refers to when the Transactions where last received.",
+            "description" : "Refers to when the Transactions where last received.",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -2004,6 +1976,6 @@
           "description" : "The identifier of error type: System"
         }
       }
-    } 
+    }
   }
 }

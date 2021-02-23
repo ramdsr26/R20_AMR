@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/payments/fees" : {
@@ -19,7 +19,6 @@
         "parameters" : [ {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -40,12 +39,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -74,12 +67,6 @@
               "$ref" : "#/definitions/PaymentFeesAndChargesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -90,6 +77,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -102,7 +95,6 @@
         "parameters" : [ {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -123,12 +115,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -157,12 +143,6 @@
               "$ref" : "#/definitions/PaymentsAuditTrailResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -173,6 +153,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -209,12 +195,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -240,12 +220,6 @@
               "$ref" : "#/definitions/PaymentsAuditTrailResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -256,6 +230,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -281,7 +261,6 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -299,7 +278,6 @@
         }, {
           "name" : "toAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "number"
         }, {
@@ -353,12 +331,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -384,12 +356,6 @@
               "$ref" : "#/definitions/PendingPaymentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -400,6 +366,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -484,12 +456,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -515,12 +481,6 @@
               "$ref" : "#/definitions/PendingRepairPaymentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -531,6 +491,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -569,12 +535,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -600,12 +560,6 @@
               "$ref" : "#/definitions/CutoffGraphsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -616,6 +570,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -648,12 +608,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -679,12 +633,6 @@
               "$ref" : "#/definitions/QueryFiltersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -695,6 +643,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -817,7 +771,6 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -874,12 +827,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -905,12 +852,6 @@
               "$ref" : "#/definitions/PendingAndProcessedPaymentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -921,6 +862,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -968,12 +915,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -999,12 +940,6 @@
               "$ref" : "#/definitions/SwiftQueriesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1015,6 +950,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1074,12 +1015,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1105,12 +1040,6 @@
               "$ref" : "#/definitions/PendingAndProcessedPaymentsOthersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1121,6 +1050,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1158,12 +1093,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1189,12 +1118,6 @@
               "$ref" : "#/definitions/StatusMonitorResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1205,6 +1128,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1305,12 +1234,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1336,12 +1259,6 @@
               "$ref" : "#/definitions/PaymentsSepaInvestigationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1352,6 +1269,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1367,12 +1290,6 @@
           "name" : "id",
           "in" : "path",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -1400,12 +1317,6 @@
               "$ref" : "#/definitions/RepairViewScreenResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1416,6 +1327,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -1431,12 +1348,6 @@
           "name" : "id",
           "in" : "path",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -1464,12 +1375,6 @@
               "$ref" : "#/definitions/SepaViewScreenResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1480,6 +1385,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -1495,12 +1406,6 @@
           "name" : "id",
           "in" : "path",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -1528,12 +1433,6 @@
               "$ref" : "#/definitions/ViewScreenResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1544,6 +1443,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -1600,12 +1505,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1631,12 +1530,6 @@
               "$ref" : "#/definitions/PaymentReasonCodeResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1648,14 +1541,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -1946,7 +1847,6 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "currency" : {
@@ -2021,7 +1921,6 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "transactionCurrency" : {
@@ -2074,20 +1973,16 @@
         "type" : "object",
         "properties" : {
           "greenFlag" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "redFlag" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "NORECTODISPLAY" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "amberFlag" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "cutOffTime" : {
             "type" : "string",
@@ -2114,16 +2009,13 @@
             "description" : "Total amount"
           },
           "totalAmountInLocalCcy" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "noOfPayments" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "recId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -2146,7 +2038,6 @@
         "properties" : {
           "screenName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 60
           },
           "ZERONORECORDS" : {
@@ -2155,17 +2046,14 @@
           },
           "filterName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "filterField" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "filterValue" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 65
           }
         }
@@ -2198,7 +2086,6 @@
           },
           "fTNumber" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "currency" : {
@@ -2216,8 +2103,7 @@
             "maxLength" : 1
           },
           "accComp" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "channel" : {
             "type" : "string",
@@ -2248,7 +2134,6 @@
           },
           "sendersReferenceOutgoing" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "statusCode" : {
@@ -2258,12 +2143,10 @@
           },
           "statusDescription" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "cancelReq" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 2
           },
           "errorCode" : {
@@ -2272,24 +2155,19 @@
           },
           "batchIndicator" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 1
           },
           "tabName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "tabLine" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "oVersion" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "viewDetails" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -2312,7 +2190,6 @@
         "properties" : {
           "transactionRef" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 25
           },
           "ZERONORECORDS" : {
@@ -2321,31 +2198,25 @@
           },
           "msgType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 20
           },
           "referenceNo" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "receiverName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "ebAdvice" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 20
           },
           "tabName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "tabLine" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -2377,7 +2248,6 @@
           },
           "fTNumber" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "currency" : {
@@ -2395,8 +2265,7 @@
             "maxLength" : 1
           },
           "accComp" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "channel" : {
             "type" : "string",
@@ -2417,8 +2286,7 @@
             "maxLength" : 10
           },
           "customerSpecifiedReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "sendersReference" : {
             "type" : "string",
@@ -2427,7 +2295,6 @@
           },
           "sendersReferenceOutgoing" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "statusCode" : {
@@ -2436,38 +2303,30 @@
             "maxLength" : 3
           },
           "statusDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "entryDateTime" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 17
           },
           "cancelReq" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 2
           },
           "timeOut" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "tabName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "tabLine" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "oVersion" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "viewDetails" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -2493,12 +2352,10 @@
             "description" : "Short title for the Account to be created"
           },
           "totalCount" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "NORECTODISPLAY" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "type" : {
             "type" : "string",
@@ -2525,7 +2382,6 @@
         "properties" : {
           "OriginalTransactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "Status" : {
@@ -2534,17 +2390,14 @@
             "maxLength" : 18
           },
           "NOZERORECORDS" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "SettlementDate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 8
           },
           "ClearingName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 8
           },
           "TransactionAmount" : {
@@ -2554,57 +2407,46 @@
           },
           "TransactionAmountCurrency" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 3
           },
           "DebtorAccount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "CreditorAccount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "OriginatedBy" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 8
           },
           "RecallDate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 11
           },
           "CancellationRequestID" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "tabName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "tabLine" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "ORIG_TXN_TYPE" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 4
           },
           "ISO_MSG_TYPE" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "ORIGINAL_MSG_TYPE" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 3
           }
         }
@@ -2668,7 +2510,6 @@
       "properties" : {
         "fatalerror" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "status" : {
@@ -2680,14 +2521,12 @@
         },
         "processingCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Processing Company" ]
         },
         "transactionReferenceNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "FT Number" ]
@@ -2701,19 +2540,16 @@
         },
         "processingdateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "sender_sReferenceNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Sender's Reference Number" ]
         },
         "sender_sReferenceOutgoing" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Sender's Reference Outgoing" ]
@@ -2741,27 +2577,23 @@
         },
         "draftNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "source" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Source" ]
         },
         "outputChannel" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Output Channel" ]
         },
         "outputchannelimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Output Channel Imposed Flag" ]
         },
@@ -2781,14 +2613,12 @@
         },
         "instructedCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Instructed Currency" ]
         },
         "transferType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Transfer Type" ]
@@ -2808,7 +2638,6 @@
         },
         "incomingMessageType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Incoming Message Type" ]
@@ -2822,28 +2651,24 @@
         },
         "balanceReservation" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Balance Reservation" ]
         },
         "balanceReservationNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Balance Reservation Number" ]
         },
         "balanceReservationDebitChgAcct" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Balance Reservation Debit Chg Acct" ]
         },
         "pre_AuthorizationNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Pre-Authorization Number" ]
@@ -2856,744 +2681,620 @@
         },
         "senderInstitution" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "senderClearingCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Sender Clearing System Code" ]
         },
         "receiverInstitution" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Receiver Institution BIC" ]
         },
         "receiverinstitutionncc" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Institution NCC" ]
         },
         "receiverClearingCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Receiver Clearing System Code" ]
         },
         "intraCompPayment" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "uniqueEndToEndReference" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "UETR" ]
         },
         "dbCrInfo_debitAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_creditAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_orderPartyTagOptionFlag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_debitAccountNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitaccountnumberimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfo_creditAccountNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditaccountnumberimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfo_debitAccountNumberBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_creditAccountNumberBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_debitAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_creditAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_debitAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_creditAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_debitCustomerRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitexchangerateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfo_creditCustomerRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditexchangerateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfo_debitCustomerSpread" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitcustspreadimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "dbCrInfo_creditCustomerSpread" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditcustspreadimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfo_debitTreasuryRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debittreasuryrateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "dbCrInfo_creditTreasuryRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "credittreasuryrateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "dbCrInfo_debitExchangeRateReference" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_creditExchangeRateReference" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_debitValueDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitvaluedateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 3
         },
         "dbCrInfo_creditValueDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditvaluedateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfo_orderingAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_beneficiaryAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_orderingBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_beneficiaryBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_orderingName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_beneficiaryName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_debitInstruction" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfo_creditInstruction" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "errorInfo_rejectDescription" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_cancelDescription" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_return_rejectPayment" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_return_rejectCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_return_rejectDescription" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_return_rejectOriginatedBy" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_information" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_warning" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_acceptWarning" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_functionalError" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_technicalError" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "chargeInfo_waiveDebitCharges" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_repairFee" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_debitChargeImposedFlag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_debitChargeComponent" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_debitChargeCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 30
         },
         "chargeInfo_debitChargeAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 28
         },
         "chargeInfo_debitChargeAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_debitChargeAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitchargeaccountimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "chargeInfo_debitChargeAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_outgoingReceiver_sCharge" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitreceiverchargeimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 3
         },
         "chargeInfo_waiveCreditCharges" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_creditChargeImposedFlag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_creditChargeComponent" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_creditChargeCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 31
         },
         "chargeInfo_creditChargeAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 29
         },
         "chargeInfo_creditChargeAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chargeInfo_creditChargeAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditchargeaccountimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "chargeInfo_creditChargeAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "routingInfo_originalRoutingInfo" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 31,
           "enum" : [ "Original Routing Info" ]
         },
         "orderinginstidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "orderinginstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Ordering Institution Account" ]
         },
         "ordinstclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Ordering Institution Clearing System Code" ]
         },
         "orderinginstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Ordering Institution Address" ]
         },
         "senderscorresidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "senderscorresaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Sender's Correspondent Account" ]
         },
         "sendercorrclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Sender Correspondent Clearing System Code" ]
         },
         "senderscorresaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Sender's Correspondent Address" ]
         },
         "receiverscorresidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "receiverscorresaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Correspondent Account" ]
         },
         "receivcorrclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Correspondent Clearing System Code" ]
         },
         "receiverscorresaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Correspondent Address" ]
         },
         "thirdreimburseinstidentifiercd" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "thirdreimburseinstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Third Reimbursement Institution Account" ]
         },
         "thirdreimclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Third Reimbursement Inst Clearing System Code" ]
         },
         "thirdreimburseinstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Third Reimbursement Institution Address" ]
         },
         "intermediaryinstidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "intermediaryinstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Intermediary Institution Account" ]
         },
         "interclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Intermediary Inst Clearing System Code" ]
         },
         "intermediaryinstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Intermediary Institution Address" ]
         },
         "accountwithinstidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "accountwithinstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Account With Institution Account" ]
         },
         "acntwithclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Account With Inst Clearing System Code" ]
         },
         "accountwithinstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Account With Institution Address" ]
         },
         "adInfo_instructionCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Instruction Code" ]
         },
         "adInfo_paymentDetails" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Payment Details" ]
         },
         "adInfo_CategoryPurposeCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Category Purpose Code" ]
         },
         "adInfo_categoryPurposeProprietary" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Category Purpose Proprietary" ]
         },
         "adInfo_transactionPurposeCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Transaction Purpose Code" ]
         },
         "adInfo_originalSettlementDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Original Settlement Date" ]
         },
         "adInfo_originalCollectionDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Original Collection Date" ]
         },
         "adInfo_action" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "auditInfo_aoverride" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_recordStatus" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_currNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_inputterId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_dateTime" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_authoriser" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_companyCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_departmentCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_auditorId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditDate_Time" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "fieldprompt1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "oldvalue1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "newvalue1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         }
       }
@@ -3778,7 +3479,6 @@
       "properties" : {
         "fatalerror" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "status" : {
@@ -3790,14 +3490,12 @@
         },
         "processingCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Processing Company" ]
         },
         "transactionReferenceNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "FT Number" ]
@@ -3811,19 +3509,16 @@
         },
         "processingdateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "sender_sReferenceNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Sender's Reference Number" ]
         },
         "sender_sReferenceOutgoing" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Sender's Reference Outgoing" ]
@@ -3851,21 +3546,18 @@
         },
         "source" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Source" ]
         },
         "outputChannel" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Output Channel" ]
         },
         "outputchannelimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Output Channel Imposed Flag" ]
         },
@@ -3885,7 +3577,6 @@
         },
         "transferType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Transfer Type" ]
@@ -3899,7 +3590,6 @@
         },
         "incomingMessageType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Incoming Message Type" ]
@@ -3913,28 +3603,24 @@
         },
         "balanceReservation" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Balance Reservation" ]
         },
         "balanceReservationNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Balance Reservation Number" ]
         },
         "balanceReservationDebitChgAcct" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Balance Reservation Debit Chg Acct" ]
         },
         "pre_AuthorizationNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Pre-Authorization Number" ]
@@ -3948,40 +3634,34 @@
         },
         "receiverInstitution" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Receiver Institution BIC" ]
         },
         "receiverinstitutionncc" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Institution NCC" ]
         },
         "receiverClearingCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Receiver Clearing System Code" ]
         },
         "intraCompanyPayment" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "selectfromTemplate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Select from Template" ]
         },
         "saveAsTemplate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Save As Template" ]
@@ -3995,7 +3675,6 @@
         },
         "auditDateTime" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 15
         },
@@ -4007,1129 +3686,951 @@
         },
         "dbCrInfoCt_debitAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_creditAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_debitAccountNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitaccountnumberimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_creditAccountNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditaccountnumberimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_DebitAccountNumberBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_CreditAccountNumberBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_DebitAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_creditAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_debitAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_creditAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_debitCustomerRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitexchangerateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_creditCustomerRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditexchangerateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_debitCustomerSpread" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitcustspreadimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_creditCustomerSpread" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditcustspreadimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_debitTreasuryRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debittreasuryrateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_creditTreasuryRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "credittreasuryrateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_debitExchangeRateReference" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_creditExchangeRateReference" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_debitValueDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitvaluedateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_creditValueDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditvaluedateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "dbCrInfoCt_orderingAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_beneficiaryAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_orderingBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_beneficiaryBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_orderingName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_beneficiaryName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_vatDebitMainAmtIndicator" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_vatCreditMainAmtIndicator" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_vatDebitMainAmount_" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "dbCrInfoCt_vatCreditMainAmount_" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "errorInfo_rejectDescription" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_cancelDescription" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_returnPayment" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_returnCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_returnDesc" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_debitInstruction" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_creditInstruction" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_information" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_warning" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_acceptWarning" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_functionalError" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_technicalError" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "chrg_waiveDebitCharges" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_debitChargeImposedFlag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_debitChargeComponent" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_debitChargeCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27
         },
         "chrg_debitChargeAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27
         },
         "chrg_debitChargeAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_debitChargeAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debit Charge Account" ]
         },
         "debitchargeaccountimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "chrg_debitChargeAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_outgoingReceiver_sCharge" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitreceiverchargeimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 3
         },
         "chrg_waiveCreditCharges" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_creditChargeImposedFlag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_creditChargeComponent" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_creditChargeCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27
         },
         "chrg_creditChargeAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27
         },
         "chrg_creditChargeAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_creditChargeAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Credit Charge Account" ]
         },
         "creditchargeaccountimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "chrg_creditChargeAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_incomingReceiver_sCharge" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "orderinginstidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "orderinginstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Ordering Institution Account" ]
         },
         "ordinstclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Ordering Institution Clearing System Code" ]
         },
         "orderinginstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Ordering Institution Address" ]
         },
         "senderscorresidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "senderscorresaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Sender's Correspondent Account" ]
         },
         "sendercorrclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Sender Correspondent Clearing System Code" ]
         },
         "senderscorresaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Sender's Correspondent Address" ]
         },
         "receiverscorresidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "receiverscorresaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Correspondent Account" ]
         },
         "receivcorrclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Correspondent Clearing System Code" ]
         },
         "receiverscorresaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Correspondent Address" ]
         },
         "thirdreimburseinstidentifiercd" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "thirdreimburseinstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Third Reimbursement Institution Account" ]
         },
         "thirdreimclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Third Reimbursement Inst Clearing System Code" ]
         },
         "thirdreimburseinstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Third Reimbursement Institution Address" ]
         },
         "intermediaryinstidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "intermediaryinstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Intermediary Institution Account" ]
         },
         "interclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Intermediary Inst Clearing System Code" ]
         },
         "intermediaryinstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Intermediary Institution Address" ]
         },
         "accountwithinstidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "accountwithinstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Account With Institution Account" ]
         },
         "acntwithclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Account With Inst Clearing System Code" ]
         },
         "accountwithinstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Account With Institution Address" ]
         },
         "sepaAdDet_localInstrumentProprietary" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 36,
           "enum" : [ "Local Instrument Proprietary" ]
         },
         "sepaAdDet_instructionCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Instruction Code" ]
         },
         "sepaAdDet_paymentDetails" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Payment Details" ]
         },
         "sepaAdDet_categoryPurposeCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Category Purpose Code" ]
         },
         "sepaAdDet_categoryPurposeProprietary" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 36,
           "enum" : [ "Category Purpose Proprietary" ]
         },
         "sepaAdDet_transactionPurposeCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Transaction Purpose Code" ]
         },
         "sepaAdDet_transactionPurposeProprietary" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 39,
           "enum" : [ "Transaction Purpose Proprietary" ]
         },
         "sepaAdDet_viewAuditTrail" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "View Audit Trail" ]
         },
         "sepaAdDet_action" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Action" ]
         },
         "sepaUl_UltimateDebtorName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Debtor Name" ]
         },
         "sepaUl_ultimateDebtorBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Debtor BIC" ]
         },
         "sepaUl_ultimateDbtrOrgIdOtherId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtrr Org IdOther Id" ]
         },
         "sepaUl_ultimateDbtrOrgIdOtherSchCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr Org Id Other SchCode" ]
         },
         "sepaUl_UltimateDbtrOrgIdOtherSchProp" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr Org Id Other SchProp" ]
         },
         "sepaUl_ultimateDbtrOrgIdOtherIssuer" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr Org IdOther Issuer" ]
         },
         "sepaUl_ultimateDebtorBirthDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Debtor BirthDate" ]
         },
         "sepaUl_ultimateDbtrProvinceOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr Province Of Birth" ]
         },
         "sepaUl_ultimateDbtrCityOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr City Of Birth" ]
         },
         "sepaUl_ultimateDbtrCountryOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr Country Of Birth" ]
         },
         "sepaUl_ultimateDbtrPrvIdOtherId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr PrvId OtherId" ]
         },
         "sepaUl_ultimateDbtrPrvIdOtherSchCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr PrvIdOther SchCode" ]
         },
         "sepaUl_ultimateDbtrPrvIdOtherSchProp" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr PrvIdOther SchProp" ]
         },
         "sepaUl_UltimateDbtrPrvIdOtherIssuer" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr Prv IdOther Issuer" ]
         },
         "sepaUl_UltimateDbtrAddressLine" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr Address Line" ]
         },
         "sepaUl_ultimateDbtrCountry" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Dbtr Country" ]
         },
         "sepaUl_ultimateCreditorName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Creditor Name" ]
         },
         "sepaUl_ultimateCreditorBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Creditor BIC" ]
         },
         "sepaUl_ultimateCdtrOrgIdOtherId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr Org IdOther Id" ]
         },
         "sepaulultimatecdtrorgidotheSchcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr Org IdOther SchCode" ]
         },
         "sepaUl_ultimateCdtrOrgIdOtherSchProp" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr Org IdOther SchProp" ]
         },
         "sepaUl_ultimateCdtrOrgIdOtherIssuer" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr OrgId OtherIssuer" ]
         },
         "sepaUl_ultimateCreditorBirthDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Creditor BirthDate" ]
         },
         "sepaUl_ultimateCdtrProvinceOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr ProvinceOfBirth" ]
         },
         "sepaUl_ultimateCdtrCityOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr CityOfBirth" ]
         },
         "sepaUl_ultimateCdtrCountryOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr CountryOfBirth" ]
         },
         "sepaUl_ultimateCdtrPrvIdOtherId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr PrvIdOtherId" ]
         },
         "sepaUl_ultimateCdtrPrvIdOtherSchCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr PrvIdOther SchCode" ]
         },
         "sepaUl_ultimateCdtrPrvIdOtherSchProp" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr PrvIdOther SchProp" ]
         },
         "sepaUl_ultimateCdtrPrvIdOtherIssuer" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr PrvIdOtherIssuer" ]
         },
         "sepaUl_ultimateCdtrAddressLine" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr Address Line" ]
         },
         "sepaUl_ultimateCdtrCountry" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Ultimate Cdtr Country" ]
         },
         "sepaCt_DebtorOrgIdOtherId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Org IdOther Id" ]
         },
         "sepaCt_debtorOrgIdOtherSchCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Org IdOther SchCode" ]
         },
         "sepaCt_debtorOrgIdOtherSchProp" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Org IdOther SchProp" ]
         },
         "sepaCt_debtorOrgIdOtherIssuer" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Org IdOther Issuer" ]
         },
         "sepaCt_debtorBirthDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Birth Date" ]
         },
         "sepaCt_debtorProvinceOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Province Of Birth" ]
         },
         "sepaCt_debtorCityOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor City Of Birth" ]
         },
         "sepaCt_debtorCountryOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Country Of Birth" ]
         },
         "sepaCt_debtorPrvIdOtherId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Prv IdOther Id" ]
         },
         "sepaCt_debtorPrvIdOtherSchCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Prv IdOther SchCode" ]
         },
         "sepaCt_debtorPrvIdOtherSchProp" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Prv IdOther SchProp" ]
         },
         "sepaCt_debtorPrvIdOtherIssuer" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debtor Prv IdOther Issuer" ]
         },
         "sepaCt_creditorOrgIdOtherId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor Org IdOther Id" ]
         },
         "sepaCt_creditorOrgIdOtherSchCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor Org IdOther SchCode" ]
         },
         "sepaCt_cdtrOrgIdOtherSchProp" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Cdtr Org IdOther SchProp" ]
         },
         "sepaCt_CdtrOrgIdOtherIssuer" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Cdtr Org IdOther Issuer" ]
         },
         "sepaCt_creditorBirthDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor Birth Date" ]
         },
         "sepaCt_creditorProvinceOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor Province Of Birth" ]
         },
         "sepaCt_creditorCityOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor City Of Birth" ]
         },
         "sepaCt_creditorCountryOfBirth" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor CountryOfBirth" ]
         },
         "sepaCt_creditorPrvIdOtherId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor Prv IdOther Id" ]
         },
         "sepaCt_creditorPrvIdOtherSchCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor Prv IdOther SchCode" ]
         },
         "sepactcreditorprvidotherSchprop" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor Prv IdOther SchProp" ]
         },
         "sepaCt_creditorPrvIdOtherIssuer" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Creditor PrvIdOther Issuer" ]
         },
         "sepaRemit_CdtrReferenceInfoTypeCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Cdtr Reference Info TypeCode" ]
         },
         "sepaRemit_cdtrReferenceInfoTypeIssuer" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Cdtr Reference Info TypeIssuer" ]
         },
         "sepaRemit_cdtrReferenceInfoReference" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Cdtr Reference Info Reference" ]
         },
         "auditInfo_aoverride" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_recordStatus" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_currNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_inputterId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_dateTime" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_authoriser" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_companyCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_departmentCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_auditorId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditDate_Time" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "fieldprompt1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "oldvalue1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "newvalue1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         }
       }
@@ -5157,14 +4658,12 @@
         },
         "processingCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "processingCompany" ]
         },
         "transactionReferenceNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "FT Number" ]
@@ -5178,19 +4677,16 @@
         },
         "processingdateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "sender_sReferenceNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Sender's Reference Number" ]
         },
         "sender_sReferenceOutgoing" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "sender'sReferenceOutgoing" ]
@@ -5218,27 +4714,23 @@
         },
         "source" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "source" ]
         },
         "instructedCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "outputChannel" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "outputChannel" ]
         },
         "outputchannelimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Output Channel Imposed Flag" ]
         },
@@ -5264,7 +4756,6 @@
         },
         "transferType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "transferType" ]
@@ -5278,7 +4769,6 @@
         },
         "incomingMessageType" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "incomingMessageType" ]
@@ -5292,46 +4782,39 @@
         },
         "balanceReservation" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "balanceReservation" ]
         },
         "balanceReservationNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "balanceReservationNumber" ]
         },
         "balanceReservationDebitChgAcct" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "balanceReservationDebitChgAcct" ]
         },
         "preAuthorizationNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "preAuthorizationNumber" ]
         },
         "SenderInstitution" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "senderinstitutionncc" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "senderClearingCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Sender Clearing System Code" ]
@@ -5345,27 +4828,23 @@
         },
         "receiverinstitutionncc" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Institution NCC" ]
         },
         "receiverClearingCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "receiverClearingSystemCode" ]
         },
         "uniqueEndToEndReference" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "UETR" ]
         },
         "auditDateTime" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 15
         },
@@ -5377,698 +4856,582 @@
         },
         "viewdbcrinfodebitAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewdbcrinfocreditAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_orderPartyTagOption" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_debitAccountNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitaccountnumberimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_creditAccountNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditaccountnumberimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_debitAccountNumberBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_creditAccountNumberBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_debitAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_creditAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_debitAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_creditAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_debitCustomerRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitexchangerateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_creditCustomerRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditexchangerateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_debitCustomerSpread" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitcustspreadimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_creditCustomerSpread" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditcustspreadimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_debitTreasuryRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debittreasuryrateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_creditTreasuryRate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "credittreasuryrateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_debitExchangeRateReference" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_creditExchangeRateRef" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_debitValueDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitvaluedateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_creditValueDate" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "creditvaluedateimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 1
         },
         "viewDbCrInfo_orderingAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_beneficiaryAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_orderingBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_beneficiaryBIC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_orderingName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "viewDbCrInfo_beneficiaryName" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "errorInfo_rejectDescription" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_cancelDescription" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_returnPayment" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_returnCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_returnDesc" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_debitInstruction" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_creditInstruction" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_information" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_warning" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_acceptWarning" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_functionalError" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "errorInfo_technicalError" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "chrg_waiveDebitCharges" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_debitChargeImposedFlag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_debitChargeComponent" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_debitChargeCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27
         },
         "chrg_debitChargeAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27
         },
         "chrg_debitChargeAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_debitChargeAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Debit Charge Account" ]
         },
         "debitchargeaccountimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "chrg_debitChargeAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_outgoingReceiver_sCharge" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "debitreceiverchargeimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 3
         },
         "chrg_waiveCreditCharges" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_creditChargeImposedFlag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_creditChargeComponent" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_creditChargeCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27
         },
         "chrg_creditChargeAmount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 27
         },
         "chrg_creditChargeAccountCompany" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_creditChargeAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40,
           "enum" : [ "Credit Charge Account" ]
         },
         "creditchargeaccountimposedflag" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "chrg_creditChargeAccountCurrency" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "chrg_incomingReceiver_sCharge" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
         "orderinginstidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "orderinginstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Ordering Institution Account" ]
         },
         "ordinstclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Ordering Institution Clearing System Code" ]
         },
         "orderinginstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Ordering Institution Address" ]
         },
         "senderscorresidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "senderscorresaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Sender's Correspondent Account" ]
         },
         "sendercorrclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Sender Correspondent Clearing System Code" ]
         },
         "senderscorresaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Sender's Correspondent Address" ]
         },
         "receiverscorresidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "receiverscorresaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Correspondent Account" ]
         },
         "receivcorrclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Correspondent Clearing System Code" ]
         },
         "receiverscorresaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Receiver Correspondent Address" ]
         },
         "thirdreimburseinstidentifiercd" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "thirdreimburseinstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Third Reimbursement Institution Account" ]
         },
         "thirdreimclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Third Reimbursement Inst Clearing System Code" ]
         },
         "thirdreimburseinstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Third Reimbursement Institution Address" ]
         },
         "intermediaryinstidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "intermediaryinstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Intermediary Institution Account" ]
         },
         "interclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Intermediary Inst Clearing System Code" ]
         },
         "intermediaryinstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Intermediary Institution Address" ]
         },
         "accountwithinstidentifiercode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "accountwithinstaccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Account With Institution Account" ]
         },
         "acntwithclearingsystemidcode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Account With Inst Clearing System Code" ]
         },
         "accountwithinstaddress1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "enum" : [ "Account With Institution Address" ]
         },
         "sepaAdDet_localInstrumentProprietary" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 36,
           "enum" : [ "Local Instrument Proprietary" ]
         },
         "sepaAdDet_instructionCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Instruction Code" ]
         },
         "sepaAdDet_paymentDetails" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Payment Details" ]
         },
         "sepaAdDet_categoryPurposeCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Category Purpose Code" ]
         },
         "sepaAdDet_categoryPurposeProprietary" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 36,
           "enum" : [ "Category Purpose Proprietary" ]
         },
         "sepaAdDet_transactionPurposeCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Transaction Purpose Code" ]
         },
         "sepaAdDet_transactionPurposeProprietary" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 39,
           "enum" : [ "Transaction Purpose Proprietary" ]
         },
         "sepaAdDet_viewAuditTrail" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "View Audit Trail" ]
         },
         "sepaAdDet_action" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35,
           "enum" : [ "Action" ]
         },
         "auditInfo_aoverride" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_recordStatus" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_currNumber" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_inputterId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_dateTime" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_authoriser" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_companyCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_departmentCode" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditInfo_auditorId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "auditDate_Time" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
         "fieldprompt1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "oldvalue1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         },
         "newvalue1" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0
         }
       }

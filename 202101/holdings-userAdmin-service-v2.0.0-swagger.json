@@ -5,11 +5,11 @@
     "version" : "v2.0.0",
     "title" : "Channels User Administration"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v2.0.0/v2.0.0/",
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v2.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/onlineServices" : {
@@ -33,13 +33,13 @@
         }, {
           "name" : "masterOnly",
           "in" : "query",
-		  "description" : "Contains flag value to retrieve Online Service master contracts.",
+          "description" : "Contains flag value to retrieve Online Service master contracts.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "roleOnly",
           "in" : "query",
-		  "description" : "Contains flag value to retrieve Online Service role contracts or sub contracts.",
+          "description" : "Contains flag value to retrieve Online Service role contracts or sub contracts.",
           "required" : false,
           "type" : "string"
         }, {
@@ -87,15 +87,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -104,12 +98,6 @@
             "description" : "OnlineServicesResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServicesResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -122,6 +110,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -145,15 +139,9 @@
             "$ref" : "#/definitions/OnlineService"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -162,12 +150,6 @@
             "description" : "validateOnlineServiceResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceResponse"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -181,6 +163,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
@@ -192,6 +180,18 @@
         "operationId" : "amendOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "description" : "The unique identifiier of an arrangementactivity contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "The unique identifier of an arrangement contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -205,15 +205,9 @@
             "$ref" : "#/definitions/OnlineService1"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -222,12 +216,6 @@
             "description" : "amendOnlineServiceResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceResponse1"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -241,22 +229,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-		"description" : "The unique identifiier of an arrangementactivity contract.",
-        "required" : true,
-        "type" : "string"
-      }, {
-        "name" : "arrangementId",
-        "in" : "path",
-		"description" : "The unique identifier of an arrangement contract.",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServiceApprovals/activity/{arrangementActivityId}" : {
       "get" : {
@@ -265,27 +246,27 @@
         "operationId" : "getOnlineServiceApprovalByArrangementActivity",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "description" : "The unique identifiier of an arrangementactivity contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "status",
           "in" : "query",
-		  "description" : "The status of the record",
+          "description" : "The status of the record",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-		  "description" : "The unique identifier of an arrangement contract.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
+          "description" : "The unique identifier of an arrangement contract.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -294,12 +275,6 @@
             "description" : "getOnlineServiceApprovalByArrangementActivityResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceByArrangementResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -313,6 +288,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       },
@@ -322,6 +303,12 @@
         "operationId" : "approveOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "description" : "The unique identifiier of an arrangementactivity contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -335,15 +322,9 @@
             "$ref" : "#/definitions/OnlineService1"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -354,12 +335,6 @@
               "$ref" : "#/definitions/OnlineServiceResponse1"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -370,6 +345,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -380,21 +361,21 @@
         "operationId" : "rejectOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "description" : "The unique identifiier of an arrangementactivity contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -403,12 +384,6 @@
             "description" : "rejectOnlineServiceResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceResponse2"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -422,16 +397,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-		"description" : "The unique identifiier of an arrangementactivity contract.",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServiceApprovals/{arrangementActivityId}/{arrangementId}" : {
       "put" : {
@@ -440,6 +414,18 @@
         "operationId" : "initiateOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "description" : "The unique identifiier of an arrangementactivity contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "The unique identifier of an arrangement contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -453,15 +439,9 @@
             "$ref" : "#/definitions/OnlineService"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -470,12 +450,6 @@
             "description" : "initiateOnlineServiceResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceResponse"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -489,22 +463,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-		"description" : "The unique identifiier of an arrangementactivity contract.",
-        "required" : true,
-        "type" : "string"
-      }, {
-        "name" : "arrangementId",
-        "in" : "path",
-		"description" : "The unique identifier of an arrangement contract.",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/customers/{customerId}/productGroups/{productGroupId}/products" : {
       "get" : {
@@ -545,7 +512,7 @@
         }, {
           "name" : "onlineServicesProductId",
           "in" : "query",
-		  "description" : "Identifier of Online Service product, for eg: Retail Online Service, Corporate Online Server and etc..",
+          "description" : "Identifier of Online Service product, for eg: Retail Online Service, Corporate Online Server and etc..",
           "required" : false,
           "type" : "string"
         }, {
@@ -569,15 +536,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -586,12 +547,6 @@
             "description" : "CustomerProductsByProductGroupResponse",
             "schema" : {
               "$ref" : "#/definitions/CustomerProductsByProductGroupResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -604,6 +559,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -624,7 +585,7 @@
         }, {
           "name" : "onlineServicesProductId",
           "in" : "path",
-		  "description" : "Identifier of Online Service product, for eg: Retail Online Service, Corporate Online Server and etc..",
+          "description" : "Identifier of Online Service product, for eg: Retail Online Service, Corporate Online Server and etc..",
           "required" : true,
           "type" : "string"
         }, {
@@ -635,8 +596,8 @@
           "type" : "string"
         }, {
           "name" : "companyId",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
           "in" : "query",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         }, {
@@ -672,15 +633,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -689,12 +644,6 @@
             "description" : "CustomerProductsByOnlineServicesProductResponse",
             "schema" : {
               "$ref" : "#/definitions/CustomerProductsByProductGroupResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -707,6 +656,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -733,13 +688,13 @@
         }, {
           "name" : "masterOnly",
           "in" : "query",
-		  "description" : "Contains flag value to retrieve Online Service master contracts.",
+          "description" : "Contains flag value to retrieve Online Service master contracts.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "Contains flag value for retrieving count of user and arrangements linked to a paticular arrangement.",
           "in" : "query",
-		  "description" : "Contains flag value for retrieving count of user and arrangements linked to a paticular arrangement.",
+          "description" : "Contains flag value for retrieving count of user and arrangements linked to a paticular arrangement.",
           "required" : false,
           "type" : "string"
         }, {
@@ -763,15 +718,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -780,12 +729,6 @@
             "description" : "ExternalUserAllocationsResponse",
             "schema" : {
               "$ref" : "#/definitions/ExternalUserAllocationsResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -798,6 +741,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -810,27 +759,27 @@
         "operationId" : "getOnlineServiceByArrangement",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "The unique identifier of an arrangement contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "status",
           "in" : "query",
-		  "description" : "The status of the record",
+          "description" : "The status of the record",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementActivityId",
           "in" : "query",
-		  "description" : "The unique identifiier of an arrangementactivity contract.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
+          "description" : "The unique identifiier of an arrangementactivity contract.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -841,12 +790,6 @@
               "$ref" : "#/definitions/OnlineServiceByArrangementResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -858,16 +801,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-		"description" : "The unique identifier of an arrangement contract.",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServices/activity/{arrangementActivityId}" : {
       "get" : {
@@ -876,27 +818,27 @@
         "operationId" : "getOnlineServiceByArrangementActivity",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "description" : "The unique identifiier of an arrangementactivity contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "status",
           "in" : "query",
-		  "description" : "The status of the record",
+          "description" : "The status of the record",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementId",
           "in" : "query",
-		  "description" : "The unique identifier of an arrangement contract.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
+          "description" : "The unique identifier of an arrangement contract.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -907,12 +849,6 @@
               "$ref" : "#/definitions/OnlineServiceByArrangementResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -924,16 +860,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-		"description" : "The unique identifiier of an arrangementactivity contract.",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServiceApprovals/{arrangementId}" : {
       "get" : {
@@ -942,27 +877,26 @@
         "operationId" : "getOnlineServiceApprovalByArrangement",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "status",
           "in" : "query",
-		  "description" : "The status of the record",
+          "description" : "The status of the record",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "arrangementActivityId",
           "in" : "query",
-		  "description" : "The unique identifiier of an arrangementactivity contract.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
+          "description" : "The unique identifiier of an arrangementactivity contract.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -973,12 +907,6 @@
               "$ref" : "#/definitions/OnlineServiceByArrangementResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -990,15 +918,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/onlineServiceApprovals" : {
       "get" : {
@@ -1021,13 +949,13 @@
         }, {
           "name" : "masterOnly",
           "in" : "query",
-		  "description" : "Contains flag value to retrieve Online Service master contracts.",
+          "description" : "Contains flag value to retrieve Online Service master contracts.",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "roleOnly",
           "in" : "query",
-		  "description" : "Contains flag value to retrieve Online Service role contracts or sub contracts.",
+          "description" : "Contains flag value to retrieve Online Service role contracts or sub contracts.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1080,15 +1008,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
           "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1097,12 +1019,6 @@
             "description" : "OnlineServiceApprovalsResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceApprovalsResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -1116,6 +1032,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
@@ -1127,6 +1049,18 @@
         "operationId" : "createOnlineService",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementActivityId",
+          "in" : "path",
+          "description" : "The unique identifiier of an arrangementactivity contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrangementId",
+          "in" : "path",
+          "description" : "The unique identifier of an arrangement contract.",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -1140,15 +1074,9 @@
             "$ref" : "#/definitions/OnlineService"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-		  "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
-		  "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -1157,12 +1085,6 @@
             "description" : "createOnlineServiceResponse",
             "schema" : {
               "$ref" : "#/definitions/OnlineServiceResponse"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -1176,27 +1098,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementActivityId",
-        "in" : "path",
-		"description" : "The unique identifiier of an arrangementactivity contract.",
-        "required" : true,
-        "type" : "string"
-      }, {
-        "name" : "arrangementId",
-        "in" : "path",
-		"description" : "The unique identifier of an arrangement contract.",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -1585,7 +1502,7 @@
           "properties" : {
             "system" : {
               "type" : "array",
-              "description" : "	List of system ids that the protection limit applies to",
+              "description" : "List of system ids that the protection limit applies to",
               "items" : {
                 "type" : "object",
                 "properties" : {
@@ -4631,7 +4548,7 @@
                         "properties" : {
                           "definedCustomer" : {
                             "type" : "string",
-                            "description" :"Allowed customers for the selected arrangement; where in they can see their product in Internet Banking",
+                            "description" : "Allowed customers for the selected arrangement; where in they can see their product in Internet Banking",
                             "maxLength" : 35
                           },
                           "definedCustomerSel" : {

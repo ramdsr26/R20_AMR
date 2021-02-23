@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/messages/statusReportTrade" : {
@@ -33,11 +33,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -48,12 +43,6 @@
             "description" : "StatusReportResponse",
             "schema" : {
               "$ref" : "#/definitions/StatusReportResponse"
-            }
-          },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           },
           "400" : {
@@ -67,14 +56,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -137,7 +134,6 @@
             "properties" : {
               "orderDetsType" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -151,7 +147,6 @@
             "properties" : {
               "orderDetsRef" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -165,7 +160,6 @@
             "properties" : {
               "ordrSts" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -179,7 +173,6 @@
             "properties" : {
               "ordrStsCancCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -193,7 +186,6 @@
             "properties" : {
               "ordrStsCancId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -207,7 +199,6 @@
             "properties" : {
               "ordrStsCancSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -221,7 +212,6 @@
             "properties" : {
               "ordrStsCancIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -235,7 +225,6 @@
             "properties" : {
               "ordrStsCondlyAccptdNoSpcfdRsn" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -249,7 +238,6 @@
             "properties" : {
               "ordrStsCondlyAccptdCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -263,7 +251,6 @@
             "properties" : {
               "ordrStsCondlyAccptdId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -277,7 +264,6 @@
             "properties" : {
               "ordrStsCondlyAccptdSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -291,7 +277,6 @@
             "properties" : {
               "ordrStsCondlyAccptdIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -305,7 +290,6 @@
             "properties" : {
               "ordrStsRjctdCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -319,7 +303,6 @@
             "properties" : {
               "ordrStsRjctdId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -333,7 +316,6 @@
             "properties" : {
               "ordrStsRjctdSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -347,7 +329,6 @@
             "properties" : {
               "ordrStsRjctdIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -361,7 +342,6 @@
             "properties" : {
               "ordrStsSspdNoSpcfdRsn" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -375,7 +355,6 @@
             "properties" : {
               "ordrStsSspdCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -389,7 +368,6 @@
             "properties" : {
               "ordrStsSspdId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -403,7 +381,6 @@
             "properties" : {
               "ordrStsSspdSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -417,7 +394,6 @@
             "properties" : {
               "ordrStsSspdIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -431,7 +407,6 @@
             "properties" : {
               "ordrStsInRprNoSpcfdRsn" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -445,7 +420,6 @@
             "properties" : {
               "ordrStsInRprCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -459,7 +433,6 @@
             "properties" : {
               "ordrStsInRprId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -473,7 +446,6 @@
             "properties" : {
               "ordrStsInRprSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -487,7 +459,6 @@
             "properties" : {
               "ordrStsInRprIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -501,7 +472,6 @@
             "properties" : {
               "ordrStsPrtlySttldCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -515,7 +485,6 @@
             "properties" : {
               "ordrStsPrtlySttldId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -529,7 +498,6 @@
             "properties" : {
               "ordrStsPrtlySttldSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -543,7 +511,6 @@
             "properties" : {
               "ordrStsPrtlySttldIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -552,19 +519,16 @@
         },
         "msgId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "creDtTm" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "receiver" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         }
@@ -635,7 +599,6 @@
             "properties" : {
               "orderDetsType" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -649,7 +612,6 @@
             "properties" : {
               "orderDetsRef" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -663,7 +625,6 @@
             "properties" : {
               "ordrSts" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -677,7 +638,6 @@
             "properties" : {
               "ordrStsCancCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -691,7 +651,6 @@
             "properties" : {
               "ordrStsCancId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -705,7 +664,6 @@
             "properties" : {
               "ordrStsCancSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -719,7 +677,6 @@
             "properties" : {
               "ordrStsCancIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -733,7 +690,6 @@
             "properties" : {
               "ordrStsCondlyAccptdNoSpcfdRsn" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -747,7 +703,6 @@
             "properties" : {
               "ordrStsCondlyAccptdCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -761,7 +716,6 @@
             "properties" : {
               "ordrStsCondlyAccptdId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -775,7 +729,6 @@
             "properties" : {
               "ordrStsCondlyAccptdSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -789,7 +742,6 @@
             "properties" : {
               "ordrStsCondlyAccptdIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -803,7 +755,6 @@
             "properties" : {
               "ordrStsRjctdCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -817,7 +768,6 @@
             "properties" : {
               "ordrStsRjctdId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -831,7 +781,6 @@
             "properties" : {
               "ordrStsRjctdSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -845,7 +794,6 @@
             "properties" : {
               "ordrStsRjctdIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -859,7 +807,6 @@
             "properties" : {
               "ordrStsSspdNoSpcfdRsn" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -873,7 +820,6 @@
             "properties" : {
               "ordrStsSspdCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -887,7 +833,6 @@
             "properties" : {
               "ordrStsSspdId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -901,7 +846,6 @@
             "properties" : {
               "ordrStsSspdSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -915,7 +859,6 @@
             "properties" : {
               "ordrStsSspdIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -929,7 +872,6 @@
             "properties" : {
               "ordrStsInRprNoSpcfdRsn" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -943,7 +885,6 @@
             "properties" : {
               "ordrStsInRprCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -957,7 +898,6 @@
             "properties" : {
               "ordrStsInRprId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -971,7 +911,6 @@
             "properties" : {
               "ordrStsInRprSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -985,7 +924,6 @@
             "properties" : {
               "ordrStsInRprIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -999,7 +937,6 @@
             "properties" : {
               "ordrStsPrtlySttldCd" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -1013,7 +950,6 @@
             "properties" : {
               "ordrStsPrtlySttldId" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -1027,7 +963,6 @@
             "properties" : {
               "ordrStsPrtlySttldSchmeNm" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -1041,7 +976,6 @@
             "properties" : {
               "ordrStsPrtlySttldIssr" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 35
               }
@@ -1050,19 +984,16 @@
         },
         "msgId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "creDtTm" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
         "receiver" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         }

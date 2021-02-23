@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/customers/externalUser" : {
@@ -31,11 +31,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -48,12 +43,6 @@
               "$ref" : "#/definitions/ExternalUserCustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -64,6 +53,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -97,7 +92,7 @@
           "description" : "The identifier of the subarrangement",
           "required" : false,
           "type" : "string"
-        },{
+        }, {
           "name" : "channelId",
           "in" : "query",
           "description" : "Id of the (digital) channel",
@@ -136,11 +131,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -153,12 +143,6 @@
               "$ref" : "#/definitions/CustomerExternalUsersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -169,6 +153,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -191,11 +181,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -208,12 +193,6 @@
               "$ref" : "#/definitions/ExternalUserResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -224,6 +203,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -260,11 +245,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -277,12 +257,6 @@
               "$ref" : "#/definitions/ExternalUserResponse1"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -293,6 +267,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -320,11 +300,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -337,12 +312,6 @@
               "$ref" : "#/definitions/ExternalUserResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -353,6 +322,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -372,11 +347,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -389,12 +359,6 @@
               "$ref" : "#/definitions/ExternalUserResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -405,6 +369,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -429,11 +399,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -446,12 +411,6 @@
               "$ref" : "#/definitions/ExternalUserResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -462,6 +421,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -491,11 +456,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -508,12 +468,6 @@
               "$ref" : "#/definitions/ExternalUserResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -524,6 +478,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -539,11 +499,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -556,12 +511,6 @@
               "$ref" : "#/definitions/ExternalUserResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -572,6 +521,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -591,11 +546,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -608,12 +558,6 @@
               "$ref" : "#/definitions/ExternalUserResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -624,6 +568,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -645,11 +595,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -662,12 +607,6 @@
               "$ref" : "#/definitions/ExternalUserResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -678,6 +617,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -719,11 +664,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -736,12 +676,6 @@
               "$ref" : "#/definitions/UserProfileResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -752,6 +686,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -823,11 +763,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -840,12 +775,6 @@
               "$ref" : "#/definitions/ExternalUserApprovalsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -856,6 +785,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -870,7 +805,8 @@
           "in" : "path",
           "description" : "The identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190087"
         }, {
           "name" : "externalUserId",
           "in" : "query",
@@ -922,11 +858,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -939,12 +870,6 @@
               "$ref" : "#/definitions/CustomerExternalUsersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -955,6 +880,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1001,11 +932,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -1018,12 +944,6 @@
               "$ref" : "#/definitions/CustomerRelationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1034,6 +954,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1070,11 +996,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -1087,12 +1008,6 @@
               "$ref" : "#/definitions/CustomerResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1103,6 +1018,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1133,7 +1054,6 @@
         }, {
           "name" : "firstName",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1251,11 +1171,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -1268,12 +1183,6 @@
               "$ref" : "#/definitions/CustomersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1284,6 +1193,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1299,11 +1214,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -1314,12 +1224,6 @@
             "description" : "ExternalUserResponse",
             "schema" : {
               "$ref" : "#/definitions/ExternalUserResponse"
-            }
-          },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           },
           "400" : {
@@ -1333,14 +1237,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -1391,7 +1303,65 @@
           "$ref" : "#/definitions/ExternalUserCustomerBody"
         }
       },
-      "description" : "ExternalUserCustomer"
+      "description" : "ExternalUserCustomer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Have you received Business License or Incorportn Cert/CUS*200 from 190258}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "country" : [ {
+            "country" : "string"
+          } ],
+          "lastName" : "ME",
+          "sectorId" : "2001",
+          "gender" : "string",
+          "givenName" : "TEST",
+          "nationalityId" : "US",
+          "languageId" : "1",
+          "dateOfBirth" : "1994-11-05",
+          "title" : "Mr",
+          "residenceId" : "US",
+          "relation" : [ {
+            "relationCode" : "1",
+            "relatedCustomerId" : "100100"
+          } ],
+          "companyId" : "string",
+          "street" : [ {
+            "street" : "NY STREET"
+          } ],
+          "sms" : [ {
+            "smsNumber" : "string"
+          } ],
+          "postCode" : [ {
+            "postCode" : "string"
+          } ],
+          "override" : [ {
+            "override" : "string"
+          } ],
+          "townCountry" : [ {
+            "townCountry" : "string"
+          } ],
+          "email" : [ {
+            "email" : "string"
+          } ],
+          "legalDoc" : [ {
+            "expiryDate" : "2020-02-26",
+            "holderName" : "string",
+            "documentId" : "TEST NAME",
+            "documentName" : "CUIL",
+            "issueDate" : "1994-11-05"
+          } ]
+        }
+      }
     },
     "ExternalUserCustomerBody" : {
       "type" : "object",
@@ -1428,16 +1398,14 @@
             "type" : "object",
             "properties" : {
               "documentName" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "documentId" : {
                 "type" : "string",
                 "description" : "Based on documentCode, the field defaults the required document codes"
               },
               "holderName" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "issueDate" : {
                 "type" : "string",
@@ -1507,17 +1475,14 @@
         },
         "relation" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "relationCode" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "relatedCustomerId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             },
             "required" : [ "relationCode" ]
@@ -1541,8 +1506,7 @@
           "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages."
         },
         "givenName" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "lastName" : {
           "type" : "string",
@@ -1659,16 +1623,14 @@
             "type" : "object",
             "properties" : {
               "documentName" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "documentId" : {
                 "type" : "string",
                 "description" : "Based on documentCode, the field defaults the required document codes"
               },
               "holderName" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "issueDate" : {
                 "type" : "string",
@@ -1741,8 +1703,7 @@
             "type" : "object",
             "properties" : {
               "customerShortName" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -1761,17 +1722,14 @@
         },
         "relation" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
               "relationCode" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "relatedCustomerId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -1794,8 +1752,7 @@
           "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages."
         },
         "givenName" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "lastName" : {
           "type" : "string",
@@ -1827,12 +1784,10 @@
           "description" : "Specifies an alternative easy means of referencing the Customer"
         },
         "internetBankingService" : {
-          "type" : "boolean",
-          "description" : ""
+          "type" : "boolean"
         },
         "customerType" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "sectorId" : {
           "type" : "string",
@@ -2057,8 +2012,7 @@
                 "description" : "External User Access status. Can be Active,  Inactive, Barred, Initiated"
               },
               "statusChangeReason" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "productLineId" : {
                 "type" : "string",
@@ -2069,8 +2023,7 @@
                 "description" : "The identifier of the arrangement"
               },
               "subArrangementId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "termsAccepted" : {
                 "type" : "boolean",
@@ -2135,12 +2088,10 @@
           "description" : "The identifier of the underlying Entity/Company/Branch."
         },
         "authenticationServerUpdate" : {
-          "type" : "boolean",
-          "description" : ""
+          "type" : "boolean"
         },
         "externalUserSignMethod" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "languageId" : {
           "type" : "string",
@@ -2148,8 +2099,7 @@
         },
         "dateFormat" : {
           "type" : "string",
-          "format" : "date",
-          "description" : ""
+          "format" : "date"
         },
         "override" : {
           "type" : "string",
@@ -2186,8 +2136,7 @@
                 "description" : "External User Access status. Can be Active,  Inactive, Barred, Initiated"
               },
               "statusChangeReason" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "productLineId" : {
                 "type" : "string",
@@ -2198,8 +2147,7 @@
                 "description" : "The identifier of the arrangement"
               },
               "subArrangementId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "termsAccepted" : {
                 "type" : "boolean",
@@ -2263,12 +2211,10 @@
           "description" : "The identifier of the underlying Entity/Company/Branch."
         },
         "authenticationServerUpdate" : {
-          "type" : "boolean",
-          "description" : ""
+          "type" : "boolean"
         },
         "externalUserSignMethod" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "languageId" : {
           "type" : "string",
@@ -2276,8 +2222,7 @@
         },
         "dateFormat" : {
           "type" : "string",
-          "format" : "date",
-          "description" : ""
+          "format" : "date"
         },
         "override" : {
           "type" : "string",
@@ -2350,12 +2295,10 @@
           },
           "userName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "userSignOnName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "dateLastUsed" : {
@@ -2370,7 +2313,6 @@
           },
           "dateFormat" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 1
           },
           "languageId" : {
@@ -2504,7 +2446,6 @@
                 },
                 "statusChangeReason" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 100
                 },
                 "productLineId" : {
@@ -2519,7 +2460,6 @@
                 },
                 "subArrangementId" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "termsAccepted" : {
@@ -2582,7 +2522,6 @@
               "properties" : {
                 "versionNumber" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 4
                 },
                 "recordStatus" : {
@@ -2592,16 +2531,13 @@
                 },
                 "inputterId" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 100
                 },
                 "inputterName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "externalInputterName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 }
               }
             }
@@ -2627,12 +2563,10 @@
             "maxLength" : 11
           },
           "authenticationServerUpdate" : {
-            "type" : "boolean",
-            "description" : ""
+            "type" : "boolean"
           },
           "externalUserSignMethod" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "languageId" : {
@@ -2642,7 +2576,6 @@
           },
           "dateFormat" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 1
           },
           "override" : {
@@ -2682,12 +2615,10 @@
                 },
                 "subArrangementId" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "subArrangementName" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "productId" : {
@@ -2724,21 +2655,17 @@
                 },
                 "currentNumber" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 4
                 },
                 "inputterId" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 100
                 },
                 "inputterName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "externalInputterName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 }
               }
             }
@@ -2799,12 +2726,10 @@
                 },
                 "subArrangementId" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "subArrangementName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "productId" : {
                   "type" : "string",
@@ -2884,21 +2809,17 @@
                 },
                 "currentNumber" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 4
                 },
                 "inputterId" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 100
                 },
                 "inputterName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "externalInputterName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 }
               }
             }
@@ -2924,7 +2845,6 @@
           },
           "txnSign" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "languageId" : {
@@ -2956,16 +2876,14 @@
         "type" : "object",
         "properties" : {
           "relatedCustomerId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "title" : {
             "type" : "string",
             "description" : "Main menu title or header which the user wants to display on the screen when requesting the display of this main menu. This field can be expanded to allow the user to enter the description of the main menu in various languages."
           },
           "relatedCustomerName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "street" : {
             "type" : "string",
@@ -2984,29 +2902,23 @@
             "description" : "The postal code of the customer or prospect"
           },
           "relationCodeId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "relationCodeName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "reverseRelationCodeId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "reverseRelationCodeName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "relationType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "excludeCustomerType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -3077,8 +2989,7 @@
                     "type" : "object",
                     "properties" : {
                       "contactType" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       }
                     }
                   }
@@ -3113,8 +3024,7 @@
                     "type" : "object",
                     "properties" : {
                       "mobilePhoneNumber" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       }
                     }
                   }
@@ -3173,8 +3083,7 @@
             "description" : "Name of the customer"
           },
           "firstName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "lastName" : {
             "type" : "string",
@@ -3226,8 +3135,7 @@
             "description" : "An institution-defined identifier of the type of customer"
           },
           "sectorName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "languageId" : {
             "type" : "string",
@@ -3243,16 +3151,13 @@
             "description" : "Specifies how the Customer is considered by the bank and how he fits in with the Account Officer's overall marketing strategy"
           },
           "targetName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customerType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "versionNumber" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -3322,8 +3227,7 @@
                     "type" : "object",
                     "properties" : {
                       "contactType" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       }
                     }
                   }
@@ -3358,8 +3262,7 @@
                     "type" : "object",
                     "properties" : {
                       "mobilePhoneNumber" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       }
                     }
                   }
@@ -3380,8 +3283,7 @@
             "description" : "Name of the customer"
           },
           "firstName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "lastName" : {
             "type" : "string",
@@ -3393,8 +3295,7 @@
             "description" : "The date of birth of an individual customer"
           },
           "customerType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customerStatus" : {
             "type" : "string",
@@ -3424,6 +3325,75 @@
             "type" : "string",
             "description" : "The identifier of the�department head or specific account officer responsible for the customer"
           }
+        }
+      }
+    },
+    "createExternalUserCustomer" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ExternalUserCustomerBody"
+        }
+      },
+      "description" : "ExternalUserCustomer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "Have you received Business License or Incorportn Cert/CUS*200 from 190258}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "country" : [ {
+            "country" : "string"
+          } ],
+          "lastName" : "ME",
+          "sectorId" : "2001",
+          "gender" : "string",
+          "givenName" : "TEST",
+          "nationalityId" : "US",
+          "languageId" : "1",
+          "dateOfBirth" : "1994-11-05",
+          "title" : "Mr",
+          "residenceId" : "US",
+          "relation" : [ {
+            "relationCode" : "1",
+            "relatedCustomerId" : "100100"
+          } ],
+          "companyId" : "string",
+          "street" : [ {
+            "street" : "NY STREET"
+          } ],
+          "sms" : [ {
+            "smsNumber" : "string"
+          } ],
+          "postCode" : [ {
+            "postCode" : "string"
+          } ],
+          "override" : [ {
+            "override" : "string"
+          } ],
+          "townCountry" : [ {
+            "townCountry" : "string"
+          } ],
+          "email" : [ {
+            "email" : "string"
+          } ],
+          "legalDoc" : [ {
+            "expiryDate" : "2020-02-26",
+            "holderName" : "string",
+            "documentId" : "TEST NAME",
+            "documentName" : "CUIL",
+            "issueDate" : "1994-11-05"
+          } ]
         }
       }
     }

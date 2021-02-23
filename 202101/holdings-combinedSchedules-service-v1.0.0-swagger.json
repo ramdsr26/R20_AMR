@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-     "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/facilities/{facilityId}/combinedSchedules" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the payment schedule of facility and its drawings",
         "description" : "Retrieves the payment schedule of facility and its drawings-deprecated. The new URL is: api/v1.0.0/holdings/creditAgreements/facilities/{facilityId}/combinedSchedules",
         "operationId" : "getCombinedSchedules",
@@ -27,7 +23,8 @@
           "in" : "path",
           "description" : "Unique identifier (contract number) of the facility",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19108G1JTP"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -46,12 +43,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -78,18 +69,12 @@
           "description" : "Indicates the pagination header attributes availability. If set to 'true', it fetches all the data",
           "required" : false,
           "type" : "boolean"
-        }],
+        } ],
         "responses" : {
           "200" : {
             "description" : "CombinedSchedulesResponse",
             "schema" : {
               "$ref" : "#/definitions/CombinedSchedulesResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -103,6 +88,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -110,7 +101,6 @@
     },
     "/holdings/facilities/{facilityId}/installments/{txnAmount}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the interest rates, installment dates, installment amounts, total payment amounts and cash back applicable for the installment products under the facility arrangement account",
         "description" : "Retrieves the interest rates, installment dates, installment amounts, total payment amounts and cash back applicable for the installment products under the facility arrangement account",
         "operationId" : "getFacilityInstallments",
@@ -147,12 +137,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -184,12 +168,6 @@
               "$ref" : "#/definitions/FacilityInstallmentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -200,6 +178,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -229,12 +213,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -269,12 +247,6 @@
               "$ref" : "#/definitions/PosTxnDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -286,15 +258,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -444,13 +419,13 @@
             }
           }
         },
-      "status" : {
+        "status" : {
           "type" : "string",
           "description" : "Status of the API(success/failed)"
         }
       }
     },
-        "QueryErrorResponse" : {
+    "QueryErrorResponse" : {
       "properties" : {
         "header" : {
           "$ref" : "#/definitions/ErrorHeader"
@@ -557,12 +532,10 @@
               "properties" : {
                 "installmentStartDate" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 10
                 },
                 "installmentProducts" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 20
                 },
                 "interestRates" : {
@@ -571,17 +544,14 @@
                 },
                 "installmentAmount" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 20
                 },
                 "totalPaymentAmount" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 20
                 },
                 "cashBack" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 20
                 }
               }
@@ -594,17 +564,14 @@
           },
           "txnAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 20
           },
           "preAuth" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 5
           },
           "creditLineId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 15
           }
         }
@@ -628,30 +595,24 @@
         "properties" : {
           "txnId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 60
           },
           "merchantName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "merchantBeneficiaryId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "merchantAccount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 20
           },
           "purchaseDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "purchaseAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           },
           "facilityId" : {

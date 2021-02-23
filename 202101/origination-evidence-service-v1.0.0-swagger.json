@@ -5,11 +5,11 @@
     "version" : "v1.0.0",
     "title" : "evidence api"
   },
-  "host" : "http://localhost:9089",
+  "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/origination/evidence/bankStatements" : {
@@ -17,11 +17,6 @@
         "operationId" : "acceptBankStatement",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -72,8 +67,7 @@
                       "type" : "object",
                       "properties" : {
                         "applicationType" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         },
                         "applicationId" : {
                           "type" : "string",
@@ -88,8 +82,7 @@
                       "type" : "object",
                       "properties" : {
                         "softLinkId" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -100,8 +93,7 @@
                   },
                   "signatureDate" : {
                     "type" : "string",
-                    "format" : "date",
-                    "description" : ""
+                    "format" : "date"
                   },
                   "bankStatement" : {
                     "type" : "object",
@@ -113,18 +105,15 @@
                       },
                       "bankAddress" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 50
                       },
                       "periodFrom" : {
                         "type" : "string",
-                        "format" : "date",
-                        "description" : ""
+                        "format" : "date"
                       },
                       "periodTo" : {
                         "type" : "string",
-                        "format" : "date",
-                        "description" : ""
+                        "format" : "date"
                       },
                       "accountNumber" : {
                         "type" : "string",
@@ -138,7 +127,6 @@
                       },
                       "customerAddress" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 50
                       },
                       "openingBalance" : {
@@ -301,11 +289,6 @@
         "operationId" : "acceptDriverLicence",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -356,8 +339,7 @@
                       "type" : "object",
                       "properties" : {
                         "applicationType" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         },
                         "applicationId" : {
                           "type" : "string",
@@ -372,8 +354,7 @@
                       "type" : "object",
                       "properties" : {
                         "softLinkId" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -384,20 +365,17 @@
                   },
                   "signatureDate" : {
                     "type" : "string",
-                    "format" : "date",
-                    "description" : ""
+                    "format" : "date"
                   },
                   "driverLicence" : {
                     "type" : "object",
                     "properties" : {
                       "givenName" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "surname" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "dateOfBirth" : {
@@ -407,41 +385,33 @@
                       },
                       "nationality" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "dateOfIssue" : {
                         "type" : "string",
-                        "format" : "date",
-                        "description" : ""
+                        "format" : "date"
                       },
                       "dateOfExpiry" : {
                         "type" : "string",
-                        "format" : "date",
-                        "description" : ""
+                        "format" : "date"
                       },
                       "issuer" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       },
                       "licenceId" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "address1" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "address2" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "city" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "postcode" : {
@@ -601,11 +571,6 @@
         "operationId" : "acceptPassport",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -656,8 +621,7 @@
                       "type" : "object",
                       "properties" : {
                         "applicationType" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         },
                         "applicationId" : {
                           "type" : "string",
@@ -672,8 +636,7 @@
                       "type" : "object",
                       "properties" : {
                         "softLinkId" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -684,30 +647,25 @@
                   },
                   "signatureDate" : {
                     "type" : "string",
-                    "format" : "date",
-                    "description" : ""
+                    "format" : "date"
                   },
                   "passport" : {
                     "type" : "object",
                     "properties" : {
                       "passportNumber" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 10
                       },
                       "surname" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "givenNames" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "nationality" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "dateOfBirth" : {
@@ -722,18 +680,15 @@
                       },
                       "placeOfBirth" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "dateOfIssue" : {
                         "type" : "string",
-                        "format" : "date",
-                        "description" : ""
+                        "format" : "date"
                       },
                       "dateOfExpiry" : {
                         "type" : "string",
-                        "format" : "date",
-                        "description" : ""
+                        "format" : "date"
                       }
                     }
                   }
@@ -887,11 +842,6 @@
         "operationId" : "acceptPayslip",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -942,8 +892,7 @@
                       "type" : "object",
                       "properties" : {
                         "applicationType" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         },
                         "applicationId" : {
                           "type" : "string",
@@ -958,8 +907,7 @@
                       "type" : "object",
                       "properties" : {
                         "softLinkId" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -970,20 +918,17 @@
                   },
                   "signatureDate" : {
                     "type" : "string",
-                    "format" : "date",
-                    "description" : ""
+                    "format" : "date"
                   },
                   "payslip" : {
                     "type" : "object",
                     "properties" : {
                       "employeeNumber" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "employeeName" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "date" : {
@@ -993,7 +938,6 @@
                       },
                       "nationalInsuranceNo" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 15
                       },
                       "employerName" : {
@@ -1003,41 +947,32 @@
                       },
                       "taxCode" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 10
                       },
                       "taxPeriod" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 10
                       },
                       "grossPay" : {
-                        "type" : "number",
-                        "description" : ""
+                        "type" : "number"
                       },
                       "incomeTax" : {
-                        "type" : "number",
-                        "description" : ""
+                        "type" : "number"
                       },
                       "employeePension" : {
-                        "type" : "number",
-                        "description" : ""
+                        "type" : "number"
                       },
                       "employeeNic" : {
-                        "type" : "number",
-                        "description" : ""
+                        "type" : "number"
                       },
                       "employerPension" : {
-                        "type" : "number",
-                        "description" : ""
+                        "type" : "number"
                       },
                       "employerNic" : {
-                        "type" : "number",
-                        "description" : ""
+                        "type" : "number"
                       },
                       "netPay" : {
-                        "type" : "number",
-                        "description" : ""
+                        "type" : "number"
                       }
                     }
                   }
@@ -1191,11 +1126,6 @@
         "operationId" : "acceptUtilityBill",
         "produces" : [ "application/json" ],
         "parameters" : [ {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -1246,8 +1176,7 @@
                       "type" : "object",
                       "properties" : {
                         "applicationType" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         },
                         "applicationId" : {
                           "type" : "string",
@@ -1262,8 +1191,7 @@
                       "type" : "object",
                       "properties" : {
                         "softLinkId" : {
-                          "type" : "string",
-                          "description" : ""
+                          "type" : "string"
                         }
                       }
                     }
@@ -1274,8 +1202,7 @@
                   },
                   "signatureDate" : {
                     "type" : "string",
-                    "format" : "date",
-                    "description" : ""
+                    "format" : "date"
                   },
                   "utilityBill" : {
                     "type" : "object",
@@ -1286,8 +1213,7 @@
                         "maxLength" : 30
                       },
                       "name" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       },
                       "address" : {
                         "type" : "string",
@@ -1442,9 +1368,10 @@
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
-  },
-  "definitions" : { }
+  }
 }

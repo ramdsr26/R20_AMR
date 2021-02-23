@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/deposits/redeemCharge/{arrangementId}" : {
@@ -41,11 +41,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -82,8 +77,10 @@
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -109,7 +106,6 @@
             "properties" : {
               "closureNote" : {
                 "type" : "string",
-                "description" : "",
                 "maxLength" : 35
               }
             }
@@ -122,12 +118,10 @@
         },
         "automaticRun" : {
           "type" : "string",
-          "description" : "",
           "maxLength" : 35
         },
         "simulationRunReference" : {
           "type" : "string",
-          "description" : "",
           "maxLength" : 30
         },
         "effectiveDate" : {
@@ -154,134 +148,107 @@
           "properties" : {
             "payinSettlement1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Settlement" ]
             },
             "ddMandateRef11" : {
               "type" : "string",
-              "format" : "date",
-              "description" : ""
+              "format" : "date"
             },
             "payinAccount11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Account" ]
             },
             "payinBeneficiary11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Beneficiary" ]
             },
             "payinPercentage11" : {
-              "type" : "number",
-              "description" : ""
+              "type" : "number"
             },
             "payinAmount11" : {
-              "type" : "number",
-              "description" : ""
+              "type" : "number"
             },
             "payoutSettlement1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Settlement" ]
             },
             "payoutAccount11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Account" ]
             },
             "payoutBeneficiary11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Beneficiary" ]
             },
             "payoutPercentage11" : {
-              "type" : "number",
-              "description" : ""
+              "type" : "number"
             },
             "payoutAmount11" : {
-              "type" : "number",
-              "description" : ""
+              "type" : "number"
             },
             "paymentType11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payment Type" ]
             },
             "payinPoProduct11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Product" ]
             },
             "payinActivity11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Activity" ]
             },
             "payinAcDbRule1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Account Debit Rule" ]
             },
             "payinSettleActivity1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin Settle Activity" ]
             },
             "payinRcType1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin RC Type" ]
             },
             "payinRcCondition1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payin RC Condition" ]
             },
             "defaultSettlementAccount" : {
               "type" : "string",
-              "description" : "",
               "maxLength" : 26,
               "enum" : [ "Default Settlement Account" ]
             },
             "payoutPptyClass11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Property Class" ]
             },
             "payoutProperty11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Property" ]
             },
             "payoutPoProduct11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Product" ]
             },
             "payoutActivity11" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Activity" ]
             },
             "payoutAcCrRule1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Account Credit Rule" ]
             },
             "payoutSettleActivity1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout Settle Activity" ]
             },
             "payoutRcType1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout RC Type" ]
             },
             "payoutRcCondition1" : {
               "type" : "string",
-              "description" : "",
               "enum" : [ "Payout RC Condition" ]
             }
           }
@@ -348,12 +315,10 @@
           },
           "chargeProperty" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "simulationReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 40
           },
           "chargeAmount" : {

@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/customers/{customerId}/arrangements" : {
@@ -33,19 +33,16 @@
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -69,11 +66,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -87,12 +79,6 @@
               "$ref" : "#/definitions/ArrangementListResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -103,6 +89,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -141,11 +133,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -159,12 +146,6 @@
               "$ref" : "#/definitions/ArrangementAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -175,6 +156,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -237,11 +224,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -255,12 +237,6 @@
               "$ref" : "#/definitions/ProductBundlesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -271,6 +247,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -315,11 +297,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -333,12 +310,6 @@
               "$ref" : "#/definitions/PreferentialPricingResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -350,14 +321,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -432,16 +411,13 @@
           },
           "account" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customer" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customerName" : {
             "type" : "string",
@@ -501,8 +477,7 @@
       "type" : "object",
       "properties" : {
         "message" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "type" : {
           "type" : "string",
@@ -576,18 +551,15 @@
         "properties" : {
           "customers" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
                 "customerShortName" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "roleDisplayName" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 30
                 }
               }
@@ -633,7 +605,6 @@
           },
           "leadCurrency" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           }
         }
@@ -657,7 +628,6 @@
         "properties" : {
           "products" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -670,7 +640,6 @@
           },
           "customers" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -715,7 +684,6 @@
         "properties" : {
           "products" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -731,17 +699,14 @@
                 },
                 "interest" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 25
                 },
                 "bonus" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 25
                 },
                 "charge" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 25
                 }
               }
@@ -749,7 +714,6 @@
           },
           "priceProductName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 25
           },
           "arrangementId" : {
@@ -758,7 +722,6 @@
           },
           "variation" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 12
           }
         }

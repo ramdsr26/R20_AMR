@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/limits/{arrangementId}/limitCashflow" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Limit cashflow details of contract",
         "description" : "Retrieves the facility cashflow against the Limit, commitment and drawing schedules utilized",
         "operationId" : "getLimitCashflow",
@@ -46,12 +42,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -86,12 +76,6 @@
               "$ref" : "#/definitions/LimitCashflowResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -103,13 +87,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/customerGroupLimits" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Limit details of Customer group",
         "description" : "Retrieves all of the customer group limit exposures such as limit allocations, Outstanding, Product, Expiry along with details of related Customers in the Group, related Sub groups",
         "operationId" : "getCustomerGroupLimits",
@@ -125,7 +114,8 @@
           "in" : "query",
           "description" : "Identifier of the CUSTOMER.GROUP that constitutes one or more related customers which would be used while arrivnig collective risk exposure of credit line liable to them either individually or shared among them.",
           "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "888"
         }, {
           "name" : "liabilityNumber",
           "in" : "query",
@@ -435,12 +425,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -472,12 +456,6 @@
               "$ref" : "#/definitions/CustomerGroupLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -489,13 +467,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/relationships/{customerGroupId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves relations among customers",
         "description" : "Retrieves all of the customer relation details such as party or customer id, type, name and aggregate customer details under a customer group.",
         "operationId" : "getCustomerGroupRelations",
@@ -505,7 +488,8 @@
           "in" : "path",
           "description" : "Identifier of the CUSTOMER.GROUP that constitues one or more related customers which would be used while arrivnig collective risk exposure of credit line liable to them either individually or shared among them",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "222"
         }, {
           "name" : "subGroup",
           "in" : "query",
@@ -536,12 +520,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -576,12 +554,6 @@
               "$ref" : "#/definitions/CustomerGroupRelationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -593,13 +565,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/{customerId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Customer Credit Limits",
         "description" : "Retrieves a list of credit lines that the institution has sanctioned to any specific customer.",
         "operationId" : "getCustomerLimits",
@@ -609,7 +586,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190137"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -628,12 +606,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -668,12 +640,6 @@
               "$ref" : "#/definitions/CustomerLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -685,13 +651,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/expiringLimits" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of Credit Lines that are due for Expiry",
         "description" : "Retrieves the list of Credit Lines with details such as the Available and the Outstanding Limit Balances that are due for Expiry for a specific date",
         "operationId" : "getExpiringLimits",
@@ -701,7 +672,8 @@
           "in" : "query",
           "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
           "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "20200320"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -720,12 +692,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -760,12 +726,6 @@
               "$ref" : "#/definitions/ExpiringLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -777,13 +737,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/treasury/forex/limits/{liabilityNumber}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves summary of customer's Forex Liability",
         "description" : "Retrieves the summary of Limit details such as Currency, Advised, Available and Utilised Limit Balance by Forex Contracts",
         "operationId" : "getLimitsForexTradeSummary",
@@ -793,7 +758,8 @@
           "in" : "path",
           "description" : "Identifier of the Liability Customer to the credit limit",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190137"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -812,12 +778,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -852,12 +812,6 @@
               "$ref" : "#/definitions/LimitsForexTradeSummaryResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -869,13 +823,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/customers/groups" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Limit Sharing group of the customer",
         "description" : "Retrieves the list of Customer under a Limit Sharing group or list of groups the specified customer is part of.",
         "operationId" : "getCustomerLimitGroups",
@@ -885,7 +844,8 @@
           "in" : "query",
           "description" : "Unique ID of the group",
           "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "M000000001"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -910,12 +870,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -950,12 +904,6 @@
               "$ref" : "#/definitions/CustomerLimitGroupsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -967,13 +915,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/groups/{groupId}/allocations" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Limit group alloction details",
         "description" : "Retrieves the list of Limit group alloction details such as Group Limit Reference, Contract Reference, total commitment, Utilised & remaining commitment balance of the Limits under the Limit Sharing Group",
         "operationId" : "getLimitGroupAllocations",
@@ -983,7 +936,8 @@
           "in" : "path",
           "description" : "Unique ID of the group",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "M000000013"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1002,12 +956,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1042,12 +990,6 @@
               "$ref" : "#/definitions/LimitGroupAllocationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1059,13 +1001,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/customers/masterGroups" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Limit Sharing Master Group details",
         "description" : "Retrieves the Limit Sharing Master Group details such as list of customer in the group &  the sharing priority defined for the Customers",
         "operationId" : "getCustomerLimitMasterGroups",
@@ -1094,12 +1041,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1134,12 +1075,6 @@
               "$ref" : "#/definitions/CustomerLimitMasterGroupsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1151,13 +1086,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/{limitId}/forexDeals" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves List of FOREX contract details available to the Limit",
         "description" : "Retrieves the details of Forex Contract Reference, buy & sell Currency, Amount associated with the Limit",
         "operationId" : "getLimitForexDeals",
@@ -1167,7 +1107,8 @@
           "in" : "path",
           "description" : "The identifier of credit limit",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190089.0001090.01"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1186,12 +1127,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1226,12 +1161,6 @@
               "$ref" : "#/definitions/LimitForexDealsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1243,13 +1172,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/{limitId}/liabilities" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves risk Excess details of the Limits untilised by Forex contracts",
         "description" : "Retrieves the risk excess details of Forex contracts associated to a limit along with the Contract amount and limit balance",
         "operationId" : "getLimitForexLiabilities",
@@ -1259,7 +1193,8 @@
           "in" : "path",
           "description" : "The identifier of credit limit",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190089.0001090.01"
         }, {
           "name" : "limitReferenceId",
           "in" : "query",
@@ -1299,12 +1234,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1336,12 +1265,6 @@
               "$ref" : "#/definitions/LimitForexLiabilitiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1353,13 +1276,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/sharedLimits" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Limit Sharing group details",
         "description" : "Retrieves the Master and Sub Group available in Limit Sharing Group details along with Limit Product and list of customer linked to the group",
         "operationId" : "getSharedLimits",
@@ -1388,12 +1316,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1428,12 +1350,6 @@
               "$ref" : "#/definitions/SharedLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1445,13 +1361,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/customers/{customerId}/sharingPriorities" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Limit sharing Priority",
         "description" : "Retrieves the Limit sharing Priority of the Master group for the specified group or Customer",
         "operationId" : "getCustomerLimitSharingPriorities",
@@ -1480,12 +1401,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1520,12 +1435,6 @@
               "$ref" : "#/definitions/CustomerLimitSharingPrioritiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1537,13 +1446,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/masterGroups/{masterGroupId}/subGroups" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves details of limit sub groups",
         "description" : "Retrieves the list of Sub Groups available under a Master Group in Limit Sharing Group along with Limit Product & Customer linked to the Group",
         "operationId" : "getLimitSubGroups",
@@ -1553,7 +1467,8 @@
           "in" : "path",
           "description" : "Identifier of the Limit Sharing Master Group",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "M000000001"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1572,12 +1487,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1612,12 +1521,6 @@
               "$ref" : "#/definitions/LimitSubGroupsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1629,13 +1532,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/treasury/limits/{limitId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves summary of Customer outstanding details",
         "description" : "Retrieves the Limit details such as Advised, Available & Utilised, Outstanding balances for a specific Customer",
         "operationId" : "getLimitSummary",
@@ -1645,7 +1553,8 @@
           "in" : "path",
           "description" : "The identifier of credit limit",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100310"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1664,12 +1573,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1704,12 +1607,6 @@
               "$ref" : "#/definitions/LimitSummaryResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1721,13 +1618,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/{liabilityNumber}/overdrawnLimits" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of overdrawn Credit Limits",
         "description" : "Retrieves the list of credit Lines that are overdrawn or in excess of utilisation",
         "operationId" : "getCustomerOverdrawnLimits",
@@ -1737,7 +1639,8 @@
           "in" : "path",
           "description" : "Identifier of the Liability Customer to the credit limit",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190137"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1756,12 +1659,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1796,12 +1693,6 @@
               "$ref" : "#/definitions/CustomerOverdrawnLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1813,13 +1704,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/reviewLimits" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the Credit Lines that are due for review",
         "description" : "Retrieves the list of Credit Limit details such as Advised, Available and the Outstanding Limit Balances that are due for Review for a specific date",
         "operationId" : "getLimitsToReviewToday",
@@ -1848,12 +1744,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1888,12 +1778,6 @@
               "$ref" : "#/definitions/LimitsToReviewTodayResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1905,13 +1789,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/{customerId}/subCategoryLimits/{customerGroupId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Customer Sub Category Limits",
         "description" : "Retrieves Category, SubCategory Limit Products and Timebands from the Credit Limit for the specified CustomerGroup and CustomerId Combination",
         "operationId" : "getSubCategoryLimits",
@@ -1921,13 +1810,15 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190137"
         }, {
           "name" : "customerGroupId",
           "in" : "path",
           "description" : "Identifier of the CUSTOMER.GROUP that constitues one or more related customers which would be used while arrivnig collective risk exposure of credit line liable to them either individually or shared among them",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "888"
         }, {
           "name" : "subGroup",
           "in" : "query",
@@ -1952,12 +1843,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1992,12 +1877,6 @@
               "$ref" : "#/definitions/SubCategoryLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2009,13 +1888,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/{customerGroupId}/subGroups" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of Sub groups",
         "description" : "Retrieves list of Sub Group details such as sub group name, list of related customers Ids, Party Type under specific customer group",
         "operationId" : "getSubGroupList",
@@ -2025,7 +1909,8 @@
           "in" : "path",
           "description" : "Identifier of the CUSTOMER.GROUP that constitues one or more related customers which would be used while arrivnig collective risk exposure of credit line liable to them either individually or shared among them",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "888"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -2044,12 +1929,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -2084,12 +1963,6 @@
               "$ref" : "#/definitions/SubGroupListResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2101,13 +1974,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/{limitId}/subLimits" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of sublimits applicable for a credit line.",
         "description" : "Provides list of sub limits applicable for a credit line created based on risk elements of the contract.",
         "operationId" : "getSubLimits",
@@ -2136,12 +2014,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -2176,12 +2048,6 @@
               "$ref" : "#/definitions/SubLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2193,13 +2059,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/collaterals" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of secured credit limits",
         "description" : "Retrieves all secured credit lines or one that has been sanctioned to a specific customer",
         "operationId" : "getLimitCollaterals",
@@ -2228,12 +2099,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -2268,12 +2133,6 @@
               "$ref" : "#/definitions/LimitCollateralsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2285,13 +2144,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/creditLimits" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates a credit limit",
         "description" : "Allows creation of credit limit for customer with information such as limit product, sanctioned amount, currency, expiry date and review frequency of limit",
         "operationId" : "createCreditLimits",
@@ -2310,12 +2174,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -2342,12 +2200,6 @@
               "$ref" : "#/definitions/CreditLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2359,13 +2211,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/limits/{limitId}/creditLimits" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves details of the limits",
         "description" : "Retrieves the details such as currency,expiry date, limit amount, available marker & limit type for the requested limit id.",
         "operationId" : "getLimitDetails",
@@ -2373,14 +2230,8 @@
         "parameters" : [ {
           "name" : "limitId",
           "in" : "path",
-		  "description": "The identifier of credit limit",
+          "description" : "The identifier of credit limit",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -2408,12 +2259,6 @@
               "$ref" : "#/definitions/LimitDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2425,11 +2270,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Updates a credit limit",
         "description" : "Allows update of credit limit for customer with information such as sanctioned amount, expiry date, review frequency of limit",
         "operationId" : "updateCreditLimits",
@@ -2455,12 +2305,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2486,12 +2330,6 @@
               "$ref" : "#/definitions/CreditLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2503,11 +2341,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "delete" : {
-        "tags" : [ ],
         "summary" : "Deletes a credit limit",
         "description" : "Allows deletion of credit limit that are either no more available for utilisation or not being utilized",
         "operationId" : "deleteCreditLimits",
@@ -2533,12 +2376,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2564,12 +2401,6 @@
               "$ref" : "#/definitions/CreditLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2581,15 +2412,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -4169,8 +4003,7 @@
           "type" : "object",
           "properties" : {
             "ZERORECORDS" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         }
@@ -4352,8 +4185,7 @@
           "type" : "object",
           "properties" : {
             "ZERORECORDS" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         }
@@ -4556,7 +4388,6 @@
         },
         "limitDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -4803,7 +4634,6 @@
         },
         "limitDetails" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {

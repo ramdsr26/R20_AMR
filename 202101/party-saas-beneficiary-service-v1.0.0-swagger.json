@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/payments/beneficiaries" : {
@@ -32,12 +32,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -64,12 +58,6 @@
               "$ref" : "#/definitions/BeneficiaryResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -80,6 +68,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -124,12 +118,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -155,12 +143,6 @@
               "$ref" : "#/definitions/BeneficiaryResponse1"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -171,6 +153,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -184,7 +172,8 @@
           "name" : "beneficiaryId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "EN9415700007"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -200,12 +189,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -231,12 +214,6 @@
               "$ref" : "#/definitions/BeneficiaryResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -247,6 +224,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -260,7 +243,8 @@
           "name" : "beneficiaryId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "EN9415700007"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -276,12 +260,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -307,12 +285,6 @@
               "$ref" : "#/definitions/BeneficiaryResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -324,14 +296,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -386,7 +366,111 @@
           "$ref" : "#/definitions/BeneficiaryBody"
         }
       },
-      "description" : "Beneficiary"
+      "description" : "Beneficiary",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Beneficiary BIC is missing. Only name provided",
+              "id" : "FT-BIC.BEN.CODE.MISSING.NAME.GIVEN",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "streets" : [ {
+            "street" : "string"
+          } ],
+          "accountWithBankCities" : [ {
+            "accountWithBankCity" : "string"
+          } ],
+          "ultimateCreditor" : "string",
+          "accountWithBankCountryIds" : [ {
+            "accountWithBankCountryId" : "string"
+          } ],
+          "paymentCountry" : "string",
+          "paymentOrderPurposeCodeId" : "string",
+          "customerReference" : "string",
+          "beneficiaryOtherIdType" : "string",
+          "accountWithBankStreets" : [ {
+            "accountWithBankStreet" : "string"
+          } ],
+          "ultimateCreditorSchemeProprietary" : "string",
+          "accountWithBankSortCode" : "string",
+          "beneficiaryBankClearingCode" : "string",
+          "accountWithBank" : "string",
+          "beneficiaryCountries" : [ {
+            "beneficiaryCountry" : "string"
+          } ],
+          "beneficiarySchemeProprietary" : "string",
+          "beneficiaryBirthCountry" : "string",
+          "addressCities" : [ {
+            "addressCity" : "string"
+          } ],
+          "ultimateCreditorOtherId" : "string",
+          "accountId" : "string",
+          "beneficiarySchemeName" : "string",
+          "beneficiaryCustomerId" : "Ozil",
+          "postCodes" : [ {
+            "postCode" : "string"
+          } ],
+          "ultimateCreditorOtherIdType" : "string",
+          "accountWithBankPostCodes" : [ {
+            "accountWithBankPostCode" : "string"
+          } ],
+          "paymentCurrency" : "string",
+          "ultimateCreditorDOB" : "string",
+          "benRiskRate" : "string",
+          "beneficiaryId" : "string",
+          "accountWithBankDisplayNames" : [ {
+            "accountWithBankDisplayName" : "string"
+          } ],
+          "beneficiaryBirthCity" : "string",
+          "preferredPaymentProduct" : "string",
+          "beneficiaryOurCharges" : "string",
+          "beneficiaryBIC" : "string",
+          "ultimateCreditorAddressLines" : [ {
+            "ultimateCreditorAddressLine" : "string"
+          } ],
+          "beneficiarySchemeIssuer" : "string",
+          "accountWithBankIBAN" : "string",
+          "customerId" : "100336",
+          "lastNames" : [ {
+            "lastName" : "string"
+          } ],
+          "beneficiaryNames" : [ {
+            "beneficiaryName" : "string"
+          } ],
+          "paymentDetails" : [ {
+            "paymentDetail" : "string"
+          } ],
+          "beneficiaryBirthProvince" : "string",
+          "paymentCategory" : "string",
+          "beneficiaryIBAN" : "DE89370400440532013000",
+          "beneficiarySchemeCode" : "string",
+          "ultimateCreditorBirthCountry" : "string",
+          "ultimateCreditorSchemeIssuer" : "string",
+          "dateOfBirth" : "string",
+          "ultimateCreditorBirthCity" : "string",
+          "linkBeneficiaryId" : "string",
+          "hintText" : "string",
+          "ultimateCreditorCountry" : "string",
+          "preferredPaymentAmount" : 0,
+          "ultimateCreditorBIC" : "string",
+          "defaultNarrative" : "string",
+          "beneficiaryOtherId" : "string",
+          "ultimateCreditorBirthProvince" : "string",
+          "nickNames" : [ {
+            "nickName" : "string"
+          } ],
+          "categoryId" : "string",
+          "ultimateCreditorAddressType" : "string"
+        }
+      }
     },
     "BeneficiaryBody" : {
       "type" : "object",
@@ -2092,6 +2176,236 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "deleteBeneficiary" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BeneficiaryBody"
+        }
+      },
+      "description" : "Beneficiary",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Beneficiary BIC is missing. Only name provided",
+              "id" : "FT-BIC.BEN.CODE.MISSING.NAME.GIVEN",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "streets" : [ {
+            "street" : "string"
+          } ],
+          "accountWithBankCities" : [ {
+            "accountWithBankCity" : "string"
+          } ],
+          "ultimateCreditor" : "string",
+          "accountWithBankCountryIds" : [ {
+            "accountWithBankCountryId" : "string"
+          } ],
+          "paymentCountry" : "string",
+          "paymentOrderPurposeCodeId" : "string",
+          "customerReference" : "string",
+          "beneficiaryOtherIdType" : "string",
+          "accountWithBankStreets" : [ {
+            "accountWithBankStreet" : "string"
+          } ],
+          "ultimateCreditorSchemeProprietary" : "string",
+          "accountWithBankSortCode" : "string",
+          "beneficiaryBankClearingCode" : "string",
+          "accountWithBank" : "string",
+          "beneficiaryCountries" : [ {
+            "beneficiaryCountry" : "string"
+          } ],
+          "beneficiarySchemeProprietary" : "string",
+          "beneficiaryBirthCountry" : "string",
+          "addressCities" : [ {
+            "addressCity" : "string"
+          } ],
+          "ultimateCreditorOtherId" : "string",
+          "accountId" : "string",
+          "beneficiarySchemeName" : "string",
+          "beneficiaryCustomerId" : "Ozil",
+          "postCodes" : [ {
+            "postCode" : "string"
+          } ],
+          "ultimateCreditorOtherIdType" : "string",
+          "accountWithBankPostCodes" : [ {
+            "accountWithBankPostCode" : "string"
+          } ],
+          "paymentCurrency" : "string",
+          "ultimateCreditorDOB" : "string",
+          "benRiskRate" : "string",
+          "beneficiaryId" : "string",
+          "accountWithBankDisplayNames" : [ {
+            "accountWithBankDisplayName" : "string"
+          } ],
+          "beneficiaryBirthCity" : "string",
+          "preferredPaymentProduct" : "string",
+          "beneficiaryOurCharges" : "string",
+          "beneficiaryBIC" : "string",
+          "ultimateCreditorAddressLines" : [ {
+            "ultimateCreditorAddressLine" : "string"
+          } ],
+          "beneficiarySchemeIssuer" : "string",
+          "accountWithBankIBAN" : "string",
+          "customerId" : "100336",
+          "lastNames" : [ {
+            "lastName" : "string"
+          } ],
+          "beneficiaryNames" : [ {
+            "beneficiaryName" : "string"
+          } ],
+          "paymentDetails" : [ {
+            "paymentDetail" : "string"
+          } ],
+          "beneficiaryBirthProvince" : "string",
+          "paymentCategory" : "string",
+          "beneficiaryIBAN" : "DE89370400440532013000",
+          "beneficiarySchemeCode" : "string",
+          "ultimateCreditorBirthCountry" : "string",
+          "ultimateCreditorSchemeIssuer" : "string",
+          "dateOfBirth" : "string",
+          "ultimateCreditorBirthCity" : "string",
+          "linkBeneficiaryId" : "string",
+          "hintText" : "string",
+          "ultimateCreditorCountry" : "string",
+          "preferredPaymentAmount" : 0,
+          "ultimateCreditorBIC" : "string",
+          "defaultNarrative" : "string",
+          "beneficiaryOtherId" : "string",
+          "ultimateCreditorBirthProvince" : "string",
+          "nickNames" : [ {
+            "nickName" : "string"
+          } ],
+          "categoryId" : "string",
+          "ultimateCreditorAddressType" : "string"
+        }
+      }
+    },
+    "updateBeneficiary" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BeneficiaryBody"
+        }
+      },
+      "description" : "Beneficiary",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Beneficiary BIC is missing. Only name provided",
+              "id" : "FT-BIC.BEN.CODE.MISSING.NAME.GIVEN",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "streets" : [ {
+            "street" : "string"
+          } ],
+          "accountWithBankCities" : [ {
+            "accountWithBankCity" : "string"
+          } ],
+          "ultimateCreditor" : "string",
+          "accountWithBankCountryIds" : [ {
+            "accountWithBankCountryId" : "string"
+          } ],
+          "paymentCountry" : "string",
+          "paymentOrderPurposeCodeId" : "string",
+          "customerReference" : "string",
+          "beneficiaryOtherIdType" : "string",
+          "accountWithBankStreets" : [ {
+            "accountWithBankStreet" : "string"
+          } ],
+          "ultimateCreditorSchemeProprietary" : "string",
+          "accountWithBankSortCode" : "string",
+          "beneficiaryBankClearingCode" : "string",
+          "accountWithBank" : "string",
+          "beneficiaryCountries" : [ {
+            "beneficiaryCountry" : "string"
+          } ],
+          "beneficiarySchemeProprietary" : "string",
+          "beneficiaryBirthCountry" : "string",
+          "addressCities" : [ {
+            "addressCity" : "string"
+          } ],
+          "ultimateCreditorOtherId" : "string",
+          "accountId" : "string",
+          "beneficiarySchemeName" : "string",
+          "beneficiaryCustomerId" : "Ozil",
+          "postCodes" : [ {
+            "postCode" : "string"
+          } ],
+          "ultimateCreditorOtherIdType" : "string",
+          "accountWithBankPostCodes" : [ {
+            "accountWithBankPostCode" : "string"
+          } ],
+          "paymentCurrency" : "string",
+          "ultimateCreditorDOB" : "string",
+          "benRiskRate" : "string",
+          "beneficiaryId" : "string",
+          "accountWithBankDisplayNames" : [ {
+            "accountWithBankDisplayName" : "string"
+          } ],
+          "beneficiaryBirthCity" : "string",
+          "preferredPaymentProduct" : "string",
+          "beneficiaryOurCharges" : "string",
+          "beneficiaryBIC" : "string",
+          "ultimateCreditorAddressLines" : [ {
+            "ultimateCreditorAddressLine" : "string"
+          } ],
+          "beneficiarySchemeIssuer" : "string",
+          "accountWithBankIBAN" : "string",
+          "customerId" : "100336",
+          "lastNames" : [ {
+            "lastName" : "string"
+          } ],
+          "beneficiaryNames" : [ {
+            "beneficiaryName" : "string"
+          } ],
+          "paymentDetails" : [ {
+            "paymentDetail" : "string"
+          } ],
+          "beneficiaryBirthProvince" : "string",
+          "paymentCategory" : "string",
+          "beneficiaryIBAN" : "DE89370400440532013000",
+          "beneficiarySchemeCode" : "string",
+          "ultimateCreditorBirthCountry" : "string",
+          "ultimateCreditorSchemeIssuer" : "string",
+          "dateOfBirth" : "string",
+          "ultimateCreditorBirthCity" : "string",
+          "linkBeneficiaryId" : "string",
+          "hintText" : "string",
+          "ultimateCreditorCountry" : "string",
+          "preferredPaymentAmount" : 0,
+          "ultimateCreditorBIC" : "string",
+          "defaultNarrative" : "string",
+          "beneficiaryOtherId" : "string",
+          "ultimateCreditorBirthProvince" : "string",
+          "nickNames" : [ {
+            "nickName" : "string"
+          } ],
+          "categoryId" : "string",
+          "ultimateCreditorAddressType" : "string"
         }
       }
     }

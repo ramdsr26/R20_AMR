@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/bulkPayments/uploads/files" : {
@@ -54,11 +54,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -71,12 +66,6 @@
               "$ref" : "#/definitions/UploadFilesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -87,6 +76,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -110,11 +105,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -127,12 +117,6 @@
               "$ref" : "#/definitions/FileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -143,6 +127,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -173,11 +163,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -190,12 +175,6 @@
               "$ref" : "#/definitions/BulkItemResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -206,6 +185,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -222,11 +207,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -239,12 +219,6 @@
               "$ref" : "#/definitions/BulkItemResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -255,6 +229,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -283,11 +263,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -300,12 +275,6 @@
               "$ref" : "#/definitions/BulkItemResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -316,6 +285,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -330,12 +305,8 @@
           "name" : "bulkMasterId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "BKM001570000119107SKBKC"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -349,12 +320,6 @@
               "$ref" : "#/definitions/BulkPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -366,6 +331,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
@@ -376,7 +347,8 @@
           "name" : "bulkMasterId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "BKM001570000119107SKBKC"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -392,11 +364,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -409,12 +376,6 @@
               "$ref" : "#/definitions/BulkPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -425,6 +386,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -437,7 +404,8 @@
           "name" : "bulkMasterId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "BKM001570000119107SKBKC"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -453,11 +421,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -470,12 +433,6 @@
               "$ref" : "#/definitions/BulkPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -486,6 +443,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -523,11 +486,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -540,12 +498,6 @@
               "$ref" : "#/definitions/BulkPaymentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -556,6 +508,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -579,11 +537,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -596,12 +549,6 @@
               "$ref" : "#/definitions/BulkPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -612,6 +559,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -629,11 +582,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -646,12 +594,6 @@
               "$ref" : "#/definitions/FileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -662,6 +604,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -691,11 +639,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -708,12 +651,6 @@
               "$ref" : "#/definitions/FileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -724,6 +661,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -753,11 +696,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -770,12 +708,6 @@
               "$ref" : "#/definitions/FileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -786,6 +718,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -822,11 +760,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -839,12 +772,6 @@
               "$ref" : "#/definitions/UploadFileTypesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -855,6 +782,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -891,11 +824,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -908,12 +836,6 @@
               "$ref" : "#/definitions/BulkItemsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -924,6 +846,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -940,11 +868,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -955,12 +878,6 @@
             "description" : "BulkPaymentResponse",
             "schema" : {
               "$ref" : "#/definitions/BulkPaymentResponse"
-            }
-          },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           },
           "400" : {
@@ -974,14 +891,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -1055,24 +980,20 @@
           "description" : "Name used for display or enrichment purposes"
         },
         "systemFileName" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "fileName" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "uploadTypeId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "status" : {
           "type" : "string",
           "description" : "The status identifier"
         },
         "uploadSize" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "companyId" : {
           "type" : "string",
@@ -1147,24 +1068,20 @@
           "description" : "Name used for display or enrichment purposes"
         },
         "systemFileName" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "fileName" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "uploadTypeId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "status" : {
           "type" : "string",
           "description" : "The status identifier"
         },
         "uploadSize" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "companyId" : {
           "type" : "string",
@@ -1365,7 +1282,54 @@
           "$ref" : "#/definitions/BulkItemBody"
         }
       },
-      "description" : "BulkItem"
+      "description" : "BulkItem",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "amount" : 200,
+          "transactionTypeId" : "BCIB",
+          "departmentId" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "valueDate" : "2015-07-20",
+          "sortCode" : "12345",
+          "dateTimeDetails" : [ {
+            "dateTime" : "2015-07-20"
+          } ],
+          "versionNumber" : "string",
+          "authoriser" : "string",
+          "inputters" : [ {
+            "inputter" : "string"
+          } ],
+          "reference" : "DFDDG",
+          "uploadManual" : "string",
+          "errorMessages" : [ {
+            "errorMessage" : "string"
+          } ],
+          "accountId" : "77356",
+          "companyId" : "string",
+          "recordStatus" : "string",
+          "auditDateTime" : "2015-07-20",
+          "paymentId" : "string",
+          "customerId" : "MUDFGdsdsHKJ",
+          "auditorCode" : "string",
+          "currencyId" : "USD",
+          "beneficiaryId" : "string",
+          "status" : "string"
+        }
+      }
     },
     "BulkItemBody" : {
       "type" : "object",
@@ -1460,8 +1424,7 @@
           "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. "
         },
         "uploadManual" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "status" : {
           "type" : "string",
@@ -1476,8 +1439,7 @@
           "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
         },
         "versionNumber" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "authoriser" : {
           "type" : "string",
@@ -1497,8 +1459,7 @@
         },
         "auditDateTime" : {
           "type" : "string",
-          "format" : "date",
-          "description" : ""
+          "format" : "date"
         }
       }
     },
@@ -1606,8 +1567,7 @@
           "description" : "The Account number, arrangement id or Portfolio No, subscribing to the alerts. "
         },
         "uploadManual" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "status" : {
           "type" : "string",
@@ -1622,8 +1582,7 @@
           "description" : "General status of the record. Possible values: - null - authorised - IHLD - input, on hold - INAU - input, not authorised - INA2 - input, authorised, pending second authorisation - INAO - input, not authorised with blocking overrides - RNAU - reversed, not authorised - RNAO - reversed, not authorised with blocking overrides"
         },
         "versionNumber" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "authoriser" : {
           "type" : "string",
@@ -1643,8 +1602,7 @@
         },
         "auditDateTime" : {
           "type" : "string",
-          "format" : "date",
-          "description" : ""
+          "format" : "date"
         }
       }
     },
@@ -1681,8 +1639,7 @@
             "type" : "object",
             "properties" : {
               "rejectionReason" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -1705,20 +1662,16 @@
           "description" : "Name used for display or enrichment purposes"
         },
         "bulkTypeId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "creditOrDebitPayment" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "singleOrmultiplePayments" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "transferMode" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "processingDate" : {
           "type" : "string",
@@ -1727,21 +1680,17 @@
         },
         "paymentValueDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : ""
+          "format" : "date"
         },
         "clearingDate" : {
           "type" : "string",
-          "format" : "date",
-          "description" : ""
+          "format" : "date"
         },
         "uploadReference" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "totalUploadedAmount" : {
-          "type" : "number",
-          "description" : ""
+          "type" : "number"
         },
         "debitReference" : {
           "type" : "string",
@@ -1760,12 +1709,10 @@
           "description" : "Total amount"
         },
         "numberOfItems" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "statusErrorCount" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "accountId" : {
           "type" : "string",
@@ -1776,8 +1723,7 @@
           "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency."
         },
         "intermediateAccountId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "recordStatus" : {
           "type" : "string",
@@ -1873,22 +1819,18 @@
         "properties" : {
           "uploadTypeId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "uploadDirectory" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 50
           },
           "fileExtension" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "fileMaximumSize" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -1995,8 +1937,7 @@
         "type" : "object",
         "properties" : {
           "bulkItemId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "reference" : {
             "type" : "string",
@@ -2072,7 +2013,6 @@
         "properties" : {
           "bulkPaymentId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 50
           },
           "displayName" : {
@@ -2089,13 +2029,11 @@
             "maxLength" : 3
           },
           "totalUploadedValue" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "paymentValueDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "totalAmount" : {
             "type" : "number",
@@ -2113,7 +2051,6 @@
           },
           "numberOfItems" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 25
           },
           "valueDate" : {
@@ -2122,12 +2059,10 @@
             "description" : "Shows the date on which the underlying accounting entry is to be given value (for interest purposes)."
           },
           "intermediateAccountId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "creditOrDebitPayment" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "reference" : {
             "type" : "string",
@@ -2159,7 +2094,6 @@
         "properties" : {
           "fileUploadId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "displayName" : {
@@ -2169,7 +2103,6 @@
           },
           "fileName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 90
           },
           "status" : {
@@ -2188,17 +2121,14 @@
           },
           "systemFileName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "uploadTypeId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 36
           },
           "uploadSize" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "companyId" : {
@@ -2206,6 +2136,64 @@
             "description" : "The identifier of the underlying Entity/Company/Branch.",
             "maxLength" : 11
           }
+        }
+      }
+    },
+    "createBulkItem" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BulkItemBody"
+        }
+      },
+      "description" : "BulkItem",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "amount" : 200,
+          "transactionTypeId" : "BCIB",
+          "departmentId" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "valueDate" : "2015-07-20",
+          "sortCode" : "12345",
+          "dateTimeDetails" : [ {
+            "dateTime" : "2015-07-20"
+          } ],
+          "versionNumber" : "string",
+          "authoriser" : "string",
+          "inputters" : [ {
+            "inputter" : "string"
+          } ],
+          "reference" : "DFDDG",
+          "uploadManual" : "string",
+          "errorMessages" : [ {
+            "errorMessage" : "string"
+          } ],
+          "accountId" : "77356",
+          "companyId" : "string",
+          "recordStatus" : "string",
+          "auditDateTime" : "2015-07-20",
+          "paymentId" : "string",
+          "customerId" : "MUDFGdsdsHKJ",
+          "auditorCode" : "string",
+          "currencyId" : "USD",
+          "beneficiaryId" : "string",
+          "status" : "string"
         }
       }
     }

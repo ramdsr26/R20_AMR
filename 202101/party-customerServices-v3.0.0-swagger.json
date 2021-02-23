@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v3.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/customers/{customerId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of Customer details",
         "description" : "Retrieves the Customer details such as Customer Contact Infromation, Residence details, Legal document details, Occupation details and Relationship details for the Specific Customer",
         "operationId" : "getCustomer",
@@ -27,12 +23,6 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -60,12 +50,6 @@
               "$ref" : "#/definitions/CustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -77,11 +61,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update Customer details",
         "description" : "Update Customer details with the Information such as Customer Contact Infromation, Residence details, Legal document details, Occupation details and Relationship details, etc provided by the User",
         "operationId" : "updateCustomer",
@@ -107,12 +96,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -138,12 +121,6 @@
               "$ref" : "#/definitions/CustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -155,13 +132,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of Customer Basic details",
         "description" : "Retrieves the Customer details such as Delivery or Postal details, Contact Infromation, Residence details, Customer Profile, Legal document details, Occupation details and Status of Customer",
         "operationId" : "getCustomerInformation",
@@ -835,12 +817,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -872,12 +848,6 @@
               "$ref" : "#/definitions/CustomerInformationResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -889,11 +859,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       },
       "post" : {
-        "tags" : [ ],
         "summary" : "Create a Customer",
         "description" : "Create a Customer with the Information such as Customer Contact Infromation, Residence details, Legal document details, Occupation details and Relationship details, etc provided by the User",
         "operationId" : "createCustomer",
@@ -912,12 +887,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -944,12 +913,6 @@
               "$ref" : "#/definitions/CustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -961,13 +924,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/relationships" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of Customer Relationships",
         "description" : "Retrieves customer relationship details such as Type of Relationship, Party Information, RelatedAs details, Owning details, Role & Purpose of Relationship for specific party or Customer",
         "operationId" : "getCustomerRelationship",
@@ -1017,12 +985,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -1054,12 +1016,6 @@
               "$ref" : "#/definitions/CustomerRelationshipResponse1"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1071,11 +1027,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       },
       "post" : {
-        "tags" : [ ],
         "summary" : "Create Customer Relationship with other customers",
         "description" : "Create a Customer Relationship for a Customer with details such as Type of Relationship, Party Information, RelatedAs details, Owning details, Role & Purpose of Relationship",
         "operationId" : "createCustomerRelationship",
@@ -1094,12 +1055,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1126,12 +1081,6 @@
               "$ref" : "#/definitions/CustomerRelationshipResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1143,13 +1092,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/relationships/{relationId}" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Update Customer Relationship",
         "description" : "Update Customer Relationship for a Customer with details such as Type of Relationship, Party Information, Related details, Owning details, Role & Purpose of Relationship",
         "operationId" : "updateCustomerRelationship",
@@ -1175,12 +1129,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -1206,12 +1154,6 @@
               "$ref" : "#/definitions/CustomerRelationshipResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1223,13 +1165,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/reportingStatus" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves reporting status of the customer",
         "description" : "Retrieves the FATCA/CRS Reporting status and Reporting Jurisdiction of the Customer",
         "operationId" : "getCustomerReportingStatus",
@@ -1258,12 +1205,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1298,12 +1239,6 @@
               "$ref" : "#/definitions/CustomerReportingStatusResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1315,13 +1250,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/sweeps" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Account Sweep details of the specific customer",
         "description" : "Retrieves Account Sweep details such as Sweep reference, Type, Balance requirements for Sweep & Frequency of Sweep for the list of accounts available to a Customer",
         "operationId" : "getCustomerSweeps",
@@ -1350,12 +1290,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1390,12 +1324,6 @@
               "$ref" : "#/definitions/CustomerSweepsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1407,13 +1335,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/deliveryOptions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Delivery Preferences of the Customer",
         "description" : "Retrieves the Delivery Preferences of the Customer such as the Message group, carrier and address.",
         "operationId" : "getCustomerDeliveryOptions",
@@ -1442,12 +1375,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1482,12 +1409,6 @@
               "$ref" : "#/definitions/CustomerDeliveryOptionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1499,13 +1420,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/channels" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of message channels",
         "description" : "Retrieves the list of message channels such as Internet Banking, Mobile Banking, ATM, etc available for the specific customer",
         "operationId" : "getCustomerDigitalChannels",
@@ -1543,12 +1469,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -1580,12 +1500,6 @@
               "$ref" : "#/definitions/CustomerDigitalChannelsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1597,13 +1511,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/messages" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create a new secure message for a Customer",
         "description" : "Create a new secure message for a Customer to be sent by bank",
         "operationId" : "createMessages",
@@ -1622,12 +1541,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1654,12 +1567,6 @@
               "$ref" : "#/definitions/MessagesResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1671,13 +1578,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/jointCustomers" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Joint Customer details for a specific Customer",
         "description" : "Retrieves details such as Joint Relation code, Name, Joint Customer details and reverse relationships for a specific Customer",
         "operationId" : "getJointCustomerDetails",
@@ -1706,12 +1618,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1746,12 +1652,6 @@
               "$ref" : "#/definitions/JointCustomerDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1763,13 +1663,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/KYC" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves KYC details for a specific Customer",
         "description" : "Retrieves the KYC details such as Contact Date, Introducer, Last and Next Review date, KYC and AML Status of a Customer",
         "operationId" : "getCustomerKYCDetails",
@@ -1798,12 +1703,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1838,12 +1737,6 @@
               "$ref" : "#/definitions/CustomerKYCDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1855,13 +1748,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/personalProfiles" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Personal details of Customer",
         "description" : "Retrieves Personal details such as Residence, Communication details, Occupation details, Asset & Liability information",
         "operationId" : "getCustomerPersonalDetails",
@@ -1890,12 +1788,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1930,12 +1822,6 @@
               "$ref" : "#/definitions/CustomerPersonalDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1947,13 +1833,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/postingRestrictions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Posting Restriction details",
         "description" : "Retrieves the Credit and Debit Posting Restriction details such as Restriction Reference and name of restriction set for a Customer",
         "operationId" : "getCustomerPostingRestrictions",
@@ -1982,12 +1873,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -2022,12 +1907,6 @@
               "$ref" : "#/definitions/CustomerPostingRestrictionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2039,13 +1918,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/relationships/{relationId}" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create Party Relationship details",
         "description" : "Create a Party Relationship between a Person, Entity or Customer with details such as Party Name, Type, RelatedAs, Relation Code and Owning details",
         "operationId" : "createPartyRelationship",
@@ -2071,12 +1955,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -2102,12 +1980,6 @@
               "$ref" : "#/definitions/PartyRelationshipResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2119,11 +1991,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update Party Relationship details",
         "description" : "Update Party Relationship between a Person, Entity or Customer with details such as Party Name, Type, RelatedAs, Relation Code and Owning details",
         "operationId" : "updatePartyRelationship",
@@ -2149,12 +2026,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -2180,12 +2051,6 @@
               "$ref" : "#/definitions/PartyRelationshipResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2197,13 +2062,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/cards" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Card details of a customer",
         "description" : "Retrieves the Card details such as Card Number, Card Type and Status, linked account and its balances of a customer",
         "operationId" : "getCustomerCreditCards",
@@ -2232,12 +2102,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -2272,12 +2136,6 @@
               "$ref" : "#/definitions/CustomerCreditCardsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2289,13 +2147,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/standingOrders" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Standing Instruction details of a customer",
         "description" : "Retrieves the list of  Standing Instructions for a Customer with details such as Instruction Reference, Order Type, frequency of Payments, Mode of Payment and Credit & Debit Parties involved",
         "operationId" : "getStandingOrders",
@@ -2345,12 +2208,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -2382,12 +2239,6 @@
               "$ref" : "#/definitions/StandingOrdersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2399,13 +2250,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/directDebits" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Direct Debits details of a Customer",
         "description" : "Retrieves the list of direct debits for a Customer with details such as Direct Debit Reference, debit & credit Accounts, transaction amount, payment frequency, next payment date and direction of payment",
         "operationId" : "getDirectDebits",
@@ -2443,12 +2299,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -2480,12 +2330,6 @@
               "$ref" : "#/definitions/DirectDebitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2497,13 +2341,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{deliveryPreferenceId}/customerDeliveryPreferences" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create Customer Delivery Preferences",
         "description" : "Creates delivery preferences for a customer or account with Message Group, Carrier, Role, Address, Email details and Format of messages",
         "operationId" : "createDeliveryPreference",
@@ -2529,12 +2378,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -2560,12 +2403,6 @@
               "$ref" : "#/definitions/DeliveryPreferenceResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2577,11 +2414,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update Customer Deliver Preferences",
         "description" : "Update delivery preferences for a  customer or account with Message Group, Carrier, Role, Address & Email details, Format of messages",
         "operationId" : "updateDeliveryPreference",
@@ -2607,12 +2449,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -2638,12 +2474,6 @@
               "$ref" : "#/definitions/DeliveryPreferenceResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2655,13 +2485,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/limits/{limitId}" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Update Credit Limit details for customer",
         "description" : "Updates the limit details such as currency, limit grade, commodity, country and limit product details",
         "operationId" : "updateLimit",
@@ -2686,12 +2521,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -2718,12 +2547,6 @@
               "$ref" : "#/definitions/LimitResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2735,13 +2558,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/customerExitStatus/{customerId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves customer exit status details of Customer",
         "description" : "Retrieves customer exit status details such as customer type, exit date, status and reason",
         "operationId" : "getCustomerExitStatus",
@@ -2770,12 +2598,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -2810,12 +2632,6 @@
               "$ref" : "#/definitions/CustomerExitStatusResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2827,13 +2643,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/customerExitStatus" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Update customer exit status details of Customers",
         "description" : "Update a customer record with exit status and exit reason marking the customer as blocked or rejected or closed",
         "operationId" : "updateCustomerExitStatus",
@@ -2858,12 +2679,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -2890,12 +2705,6 @@
               "$ref" : "#/definitions/CustomerExitStatusResponse1"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2907,13 +2716,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/settings/customerExitStatus" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves conditions to update customer exit status of Customer",
         "description" : "Retrieves available conditions such as customer exit setup reference, allowed reasons and allowed re-open details to update customer exit status of Customers",
         "operationId" : "getCustomerExitStatusParam",
@@ -2942,12 +2756,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -2982,12 +2790,6 @@
               "$ref" : "#/definitions/CustomerExitStatusParamResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2999,13 +2801,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/settings/{customerExitStatusId}/customerExitStatus" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create conditions to update customer exit status of Customer",
         "description" : "Create conditions such as applicable customer type and allowed reasons to update the customer exit status details of Customers",
         "operationId" : "createCustomerExitStatusParam",
@@ -3031,12 +2838,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -3062,12 +2863,6 @@
               "$ref" : "#/definitions/CustomerExitStatusParamResponse1"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3079,11 +2874,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Create conditions to update customer exit status of Customer",
         "description" : "Create conditions such as applicable customer type and allowed reasons to update the customer exit status details of Customers",
         "operationId" : "updateCustomerExitStatusParam",
@@ -3109,12 +2909,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -3140,12 +2934,6 @@
               "$ref" : "#/definitions/CustomerExitStatusParamResponse1"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3157,13 +2945,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/addressOutput" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves structured/ unstructured address format of Customer",
         "description" : "Returns structured/unstructured address details of specified customer based on address option in request. When structured format is requested, the values are returned in format of structured data name combined with corresponding customer address value. When unstructured format is requested, the address details are returned based on configured unstructured address format.",
         "operationId" : "getCustomerAddressOutput",
@@ -3207,12 +3000,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -3244,12 +3031,6 @@
               "$ref" : "#/definitions/CustomerAddressOutputResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -3261,13 +3042,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/shortNames" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves customer short name",
         "description" : "API to get the customer short name that can be used as customer enrichment by any application",
         "operationId" : "getCustomerShortNames",
@@ -3276,12 +3062,6 @@
           "name" : "customerId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -3309,12 +3089,6 @@
               "$ref" : "#/definitions/CustomerShortNamesResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3326,13 +3100,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/mandates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves mandate instruction applicable for the requested customer",
         "description" : "Retrieves the mandate instruction details such as application eligible for mandate process and the corresponding mandate rule that is being applied to check mandates for transactions involving the specified customer.",
         "operationId" : "getCustomerMandates",
@@ -3341,12 +3120,6 @@
           "name" : "customerId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -3374,12 +3147,6 @@
               "$ref" : "#/definitions/CustomerMandatesResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3391,28 +3158,27 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/documents" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the customer legal document details",
         "description" : "Retrieves the details of legal document provided by the customer such as document name, document id, issue date, expiry date and authority who issued the document.",
         "operationId" : "getCustomerLegalDocuments",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "customerId",
-          "description" : "Identifier of the customer",
           "in" : "path",
+          "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -3440,12 +3206,6 @@
               "$ref" : "#/definitions/CustomerLegalDocumentsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3457,28 +3217,27 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/profiles" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves profile details of the requested customer",
         "description" : "Retrieves the customer basic details such as personal information, address location, basic contact details and other general information.",
         "operationId" : "getCustomerProfile",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "customerId",
-          "description" : "Identifier of the customer",
           "in" : "path",
+          "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -3506,12 +3265,6 @@
               "$ref" : "#/definitions/CustomerProfileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3523,13 +3276,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/alternateReferences/{alternateReference}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves customer id for the given alternate reference",
         "description" : "Retrieves the customer identifier for the provided alternate reference of the customer",
         "operationId" : "getCustomerId",
@@ -3558,12 +3316,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -3598,12 +3350,6 @@
               "$ref" : "#/definitions/CustomerIdResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -3615,28 +3361,27 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/restrictions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the restriction details",
         "description" : "Retrieves the transaction restrictions imposed on the customer specified. Restrictions can be Post No Entries, Black listed customer, Pending KYC due reasons for restricting transactions on this customer",
         "operationId" : "getCustomerRestrictions",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "customerId",
-          "description" : "Identifier of the customer",
           "in" : "path",
+          "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -3664,12 +3409,6 @@
               "$ref" : "#/definitions/CustomerRestrictionsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3681,13 +3420,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/contacts" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the customer contact details",
         "description" : "Retrieves the contact details such as phone number, mobile numbers, fax and email address specific to the requested customer",
         "operationId" : "getCustomerContacts",
@@ -3716,12 +3460,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -3756,12 +3494,6 @@
               "$ref" : "#/definitions/CustomerContactsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -3773,13 +3505,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/relationships" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the relation customers",
         "description" : "Retrieves the relationship details such as related customer and the relationship that exists with the requested customer",
         "operationId" : "getCustomerRelationships",
@@ -3789,12 +3526,6 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -3822,12 +3553,6 @@
               "$ref" : "#/definitions/CustomerRelationshipsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3839,13 +3564,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/payments" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves customer details required for payment processing",
         "description" : "Retrieves the customer information that are required for processing or validating the customer involved in a payment transaction. Provides the information such as customer name details, birth details, address details,  market sector, target, nationality, residence country and preferred language for communication.",
         "operationId" : "getPartyBasicDetails",
@@ -3874,12 +3604,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -3914,12 +3638,6 @@
               "$ref" : "#/definitions/PartyBasicDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -3931,13 +3649,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/addresses/swiftAddresses/{addressId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the SWIFT address details for the customer.",
         "description" : "Retrieves the SWIFT address details such as delivery address, short name & tag25 Indicator for the customer.",
         "operationId" : "getCustomerSwiftAddress",
@@ -3975,12 +3698,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "Identifier of the lead company of the underlying Entity/Company/Branch for the respective contract for customer data protection purposes. Example US0010001.",
@@ -4012,12 +3729,6 @@
               "$ref" : "#/definitions/CustomerSwiftAddressResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -4029,13 +3740,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/relationships/{partyId}/relations" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of Party relationship details",
         "description" : "Retrieves the relationship details such as Party Name, Type, Relation Code of a customers involved in a Relationship",
         "operationId" : "getPartyRelationship",
@@ -4045,7 +3761,8 @@
           "in" : "path",
           "description" : "Allows capturing of customers or person entities to be part of the relationship. If partyType is selected as Customer, then the system will allow only customer Ids to be captured into this field. If partyType is selected as Person or Entity, then system will allow only personEntity Ids to be captured into this field.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190199"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -4064,12 +3781,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -4104,12 +3815,6 @@
               "$ref" : "#/definitions/PartyRelationshipResponse1"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -4121,15 +3826,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -9210,7 +8918,6 @@
         },
         "customerRatings" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {

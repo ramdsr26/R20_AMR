@@ -7,17 +7,13 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v2.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/transactions/{transactionId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves transaction details",
         "description" : "Retrieves the details of a transaction",
         "operationId" : "getTransactionDetails",
@@ -27,7 +23,8 @@
           "in" : "path",
           "description" : "Unique transaction identifier for retrieving the details of the transaction. For example: FT0102030333 etc.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "2147483647"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -46,12 +43,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -80,12 +71,6 @@
               "$ref" : "#/definitions/TransactionDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -97,13 +82,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/transactions/{transactionReference}/transactions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves accounting entries",
         "description" : "Retrieves the details of accounting entries",
         "operationId" : "getStatementForTransaction",
@@ -113,7 +103,8 @@
           "in" : "path",
           "description" : "Transaction reference identifier.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "79707"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -132,12 +123,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -166,12 +151,6 @@
               "$ref" : "#/definitions/StatementForTransactionResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -183,13 +162,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/transactions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves account transaction",
         "description" : "Retrieves the details of account transaction",
         "operationId" : "getAccountTransactions",
@@ -199,7 +183,8 @@
           "in" : "query",
           "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
           "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "79707"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -287,12 +272,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -318,12 +297,6 @@
               "$ref" : "#/definitions/AccountTransactionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -335,15 +308,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -709,7 +685,6 @@
         "properties" : {
           "images" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {

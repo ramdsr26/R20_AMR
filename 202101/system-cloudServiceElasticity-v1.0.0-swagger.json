@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/system/services/elasticity/servers/{serverId}/serviceCleanups" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create cleanup instruction to initiate cleanup of downscaled servers",
         "description" : "Create cleanup instruction for the particular server (pod) where services have been killed during downscaling phase",
         "operationId" : "createServiceElasticCleanup",
@@ -26,7 +22,8 @@
           "name" : "serverId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "BROWSERTESTNEW"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -41,12 +38,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -73,12 +64,6 @@
               "$ref" : "#/definitions/ServiceElasticCleanupResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -90,13 +75,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/system/services/settings/{settingId}/elasticity" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Update dynamic provisioning for system deployed in cloud",
         "description" : "Update dynamic provisioning for system deployed in cloud",
         "operationId" : "amendServiceElasticParameter",
@@ -106,7 +96,8 @@
           "in" : "path",
           "description" : "Contains the particular parameter record setting identifier.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "SYSTEM"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -121,12 +112,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -153,12 +138,6 @@
               "$ref" : "#/definitions/ServiceElasticParameterResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -170,13 +149,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/system/services/workProfiles/{workProfileId}/elasticity" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create number of agents for elastic scaling",
         "description" : "Create number of agents for elastic scaling by inputting the queue details and minimum and maximum number of agents for elasticity",
         "operationId" : "createServiceElasticProfile",
@@ -186,7 +170,8 @@
           "in" : "path",
           "description" : "Contains the reference to the record in service workload profiles for services.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "PAYLOAD"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -201,12 +186,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -233,12 +212,6 @@
               "$ref" : "#/definitions/ServiceElasticProfileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -250,11 +223,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update number of agents for elastic scaling",
         "description" : "Update number of agents for elastic scaling",
         "operationId" : "amendServiceElasticProfile",
@@ -264,7 +242,8 @@
           "in" : "path",
           "description" : "Contains the reference to the record in service workload profiles for services.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "PAYLOAD"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -279,12 +258,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -311,12 +284,6 @@
               "$ref" : "#/definitions/ServiceElasticProfileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -328,13 +295,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/system/settings/{settingId}/deploymentModes" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Update the system deployment mode",
         "description" : "Update the system deployment mode by enabling whether in cloud or Not",
         "operationId" : "amendSystemParameterElastic",
@@ -344,7 +316,8 @@
           "in" : "path",
           "description" : "Contains the particular parameter record setting identifier.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "SYSTEM"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -359,12 +332,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -391,12 +358,6 @@
               "$ref" : "#/definitions/SystemParameterElasticResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -408,13 +369,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/system/metrics/elasticity/agents/itemCount" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the total number of agents required for cloud deployment",
         "description" : "Retrieves the total number of agents required for cloud deploymentment",
         "operationId" : "getAgentElasticCheck",
@@ -437,12 +403,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -471,12 +431,6 @@
               "$ref" : "#/definitions/AgentElasticCheckResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -488,13 +442,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/system/services/elasticity/agents" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the agent details for active services in cloud deployment",
         "description" : "Retrieves the agent details for active services in cloud deployment including minimum agents , maximum agents, total agents, service details , date and time of running agents etc",
         "operationId" : "getAgentElasticCheckDetails",
@@ -517,12 +476,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -551,12 +504,6 @@
               "$ref" : "#/definitions/AgentElasticCheckDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -568,15 +515,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -635,7 +585,25 @@
           "$ref" : "#/definitions/ServiceElasticCleanupBody"
         }
       },
-      "description" : "ServiceElasticCleanup"
+      "description" : "ServiceElasticCleanup",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "cleanupTime" : "10:30"
+        }
+      }
     },
     "ServiceElasticCleanupBody" : {
       "type" : "object",
@@ -927,7 +895,26 @@
           "$ref" : "#/definitions/ServiceElasticParameterBody"
         }
       },
-      "description" : "ServiceElasticParameter"
+      "description" : "ServiceElasticParameter",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "queueJobs" : "bnk/ofs.message.service",
+          "dynamicProvisioning" : "YES"
+        }
+      }
     },
     "ServiceElasticParameterBody" : {
       "type" : "object",
@@ -983,14 +970,41 @@
           "$ref" : "#/definitions/ServiceElasticProfileBody"
         }
       },
-      "description" : "ServiceElasticProfile"
+      "description" : "ServiceElasticProfile",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "agentsRequired" : "string",
+          "elasticity" : [ {
+            "elasticDateTime" : "ALL",
+            "elasticTotal" : " 25",
+            "elasticMinimum" : "string",
+            "elasticJob" : "AA.ACCOUNT.DETAILS",
+            "elasticMaximum" : "string",
+            "elasticQueueDepth" : "5"
+          } ],
+          "displayName" : "printing delivery advice",
+          "startTime" : "string"
+        }
+      }
     },
     "ServiceElasticProfileBody" : {
       "type" : "object",
       "properties" : {
         "elasticity" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1069,7 +1083,6 @@
       "properties" : {
         "elasticity" : {
           "type" : "array",
-          "description" : "",
           "items" : {
             "type" : "object",
             "properties" : {
@@ -1141,7 +1154,25 @@
           "$ref" : "#/definitions/SystemParameterElasticBody"
         }
       },
-      "description" : "SystemParameterElastic"
+      "description" : "SystemParameterElastic",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "deploymentMode" : "CLOUD"
+        }
+      }
     },
     "SystemParameterElasticBody" : {
       "type" : "object",
@@ -1384,6 +1415,172 @@
             "description" : "The number of agents currently running",
             "maximum" : 70
           }
+        }
+      }
+    },
+    "amendServiceElasticProfile" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ServiceElasticProfileBody"
+        }
+      },
+      "description" : "ServiceElasticProfile",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "agentsRequired" : "string",
+          "elasticity" : [ {
+            "elasticDateTime" : "ALL",
+            "elasticTotal" : " 25",
+            "elasticMinimum" : "string",
+            "elasticJob" : "AA.ACCOUNT.DETAILS",
+            "elasticMaximum" : "string",
+            "elasticQueueDepth" : "5"
+          } ],
+          "displayName" : "printing delivery advice",
+          "startTime" : "string"
+        }
+      }
+    },
+    "createServiceElasticProfile" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ServiceElasticProfileBody"
+        }
+      },
+      "description" : "ServiceElasticProfile",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "agentsRequired" : "string",
+          "elasticity" : [ {
+            "elasticDateTime" : "ALL",
+            "elasticTotal" : " 25",
+            "elasticMinimum" : "string",
+            "elasticJob" : "AA.ACCOUNT.DETAILS",
+            "elasticMaximum" : "string",
+            "elasticQueueDepth" : "5"
+          } ],
+          "displayName" : "printing delivery advice",
+          "startTime" : "string"
+        }
+      }
+    },
+    "amendServiceElasticParameter" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ServiceElasticParameterBody"
+        }
+      },
+      "description" : "ServiceElasticParameter",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "queueJobs" : "bnk/ofs.message.service",
+          "dynamicProvisioning" : "YES"
+        }
+      }
+    },
+    "createServiceElasticCleanup" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ServiceElasticCleanupBody"
+        }
+      },
+      "description" : "ServiceElasticCleanup",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "cleanupTime" : "10:30"
+        }
+      }
+    },
+    "amendSystemParameterElastic" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/SystemParameterElasticBody"
+        }
+      },
+      "description" : "SystemParameterElastic",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "deploymentMode" : "CLOUD"
         }
       }
     }

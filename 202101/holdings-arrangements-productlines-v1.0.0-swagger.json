@@ -5,11 +5,11 @@
     "version" : "v1.0.0",
     "title" : "List of Arrangements for a Product Line"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v1.0.0/v1.0.0/",
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/productLine/{productLine}/unApprovedDeposits" : {
@@ -22,7 +22,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "DEPOSITS"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -50,7 +51,6 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -71,11 +71,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -92,12 +87,6 @@
               "$ref" : "#/definitions/UnapprovedArrangementsDepositsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -108,6 +97,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -123,7 +118,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "LENDING"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -151,7 +147,6 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -172,11 +167,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -193,12 +183,6 @@
               "$ref" : "#/definitions/UnapprovedArrangementsLoansResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -209,6 +193,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -223,9 +213,9 @@
         "parameters" : [ {
           "name" : "productLine",
           "in" : "path",
-          "description" : "",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "ACCOUNTS"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -247,7 +237,6 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -268,11 +257,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -289,12 +273,6 @@
               "$ref" : "#/definitions/UnapprovedArrangementsAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -305,6 +283,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -320,7 +304,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "ACCOUNTS"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -342,7 +327,6 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -369,11 +353,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -390,12 +369,6 @@
               "$ref" : "#/definitions/AAPendingArrangementAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -406,6 +379,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -421,7 +400,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "DEPOSITS"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -443,7 +423,6 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -470,11 +449,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -491,12 +465,6 @@
               "$ref" : "#/definitions/AAPendingArrangementDepositsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -507,6 +475,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -522,7 +496,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "LENDING"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -544,7 +519,6 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -574,11 +548,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -592,12 +561,6 @@
               "$ref" : "#/definitions/AAPendingArrangementLoansResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -608,6 +571,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -622,9 +591,9 @@
         "parameters" : [ {
           "name" : "productLine",
           "in" : "path",
-          "description" : "",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "ACCOUNTS"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -640,19 +609,16 @@
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -673,11 +639,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -694,12 +655,6 @@
               "$ref" : "#/definitions/ApprovedAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -710,6 +665,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -725,7 +686,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "DEPOSITS"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -741,19 +703,16 @@
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -774,11 +733,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -795,12 +749,6 @@
               "$ref" : "#/definitions/ApprovedDepositsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -811,6 +759,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -825,9 +779,9 @@
         "parameters" : [ {
           "name" : "productLine",
           "in" : "path",
-          "description" : "",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "LENDING"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -843,19 +797,16 @@
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -876,11 +827,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -897,12 +843,6 @@
               "$ref" : "#/definitions/ApprovedLoansResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -913,6 +853,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -928,7 +874,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "ACCOUNTS"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -944,19 +891,16 @@
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -977,11 +921,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -998,12 +937,6 @@
               "$ref" : "#/definitions/ClosedMaturedAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1014,6 +947,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1029,7 +968,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "DEPOSITS"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -1045,19 +985,16 @@
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1078,11 +1015,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -1099,12 +1031,6 @@
               "$ref" : "#/definitions/ClosedMaturedDepositsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1115,6 +1041,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1130,7 +1062,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "LENDING"
         }, {
           "name" : "customerId",
           "in" : "query",
@@ -1146,19 +1079,16 @@
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1179,11 +1109,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -1200,12 +1125,6 @@
               "$ref" : "#/definitions/ClosedMaturedLendingResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1216,6 +1135,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1231,7 +1156,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "ACCOUNTS"
         }, {
           "name" : "owner",
           "in" : "query",
@@ -1246,7 +1172,6 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1272,11 +1197,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -1293,12 +1213,6 @@
               "$ref" : "#/definitions/SimulatedAccountsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1309,6 +1223,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1324,7 +1244,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "DEPOSITS"
         }, {
           "name" : "arrangementId",
           "in" : "query",
@@ -1339,7 +1260,6 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1365,11 +1285,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -1386,12 +1301,6 @@
               "$ref" : "#/definitions/SimulatedDepositsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1402,6 +1311,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1417,7 +1332,8 @@
           "name" : "productLine",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "LENDING"
         }, {
           "name" : "arrangementId",
           "in" : "query",
@@ -1432,7 +1348,6 @@
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1461,11 +1376,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -1479,12 +1389,6 @@
               "$ref" : "#/definitions/SimulatedLendingResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1496,14 +1400,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -1574,7 +1486,6 @@
         "properties" : {
           "customers" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -1657,8 +1568,7 @@
       "type" : "object",
       "properties" : {
         "message" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "type" : {
           "type" : "string",
@@ -1826,7 +1736,6 @@
         "properties" : {
           "customers" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -1987,8 +1896,7 @@
             "maxLength" : 35
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "CustomerId" : {
             "type" : "string",
@@ -2025,8 +1933,7 @@
         "type" : "object",
         "properties" : {
           "arrrangementId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "accountNumber" : {
             "type" : "string",
@@ -2034,8 +1941,7 @@
             "maxLength" : 35
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customerId" : {
             "type" : "string",
@@ -2080,8 +1986,7 @@
             "maxLength" : 35
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "CustomerId" : {
             "type" : "string",
@@ -2127,8 +2032,7 @@
             "maxLength" : 35
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customerId" : {
             "type" : "number",
@@ -2173,8 +2077,7 @@
             "maxLength" : 35
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customerId" : {
             "type" : "string",
@@ -2220,8 +2123,7 @@
             "maxLength" : 35
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customerId" : {
             "type" : "string",
@@ -2267,16 +2169,13 @@
             "maxLength" : 30
           },
           "product" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "offerReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -2305,20 +2204,16 @@
           },
           "customer" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "product" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "offerReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -2351,16 +2246,13 @@
             "maxLength" : 30
           },
           "product" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "offerReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }

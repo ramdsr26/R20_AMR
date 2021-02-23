@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.1.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/accounts/{accountId}" : {
@@ -44,11 +44,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -61,12 +56,6 @@
               "$ref" : "#/definitions/AccountDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -77,6 +66,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -114,11 +109,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -131,12 +121,6 @@
               "$ref" : "#/definitions/DepositDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -147,6 +131,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -184,11 +174,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -199,12 +184,6 @@
             "description" : "LoanDetailsResponse",
             "schema" : {
               "$ref" : "#/definitions/LoanDetailsResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -218,14 +197,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -294,17 +281,14 @@
         "properties" : {
           "sharedLimitAccounts" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
                 "sharedLimitAccount" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "sharedLimitAccountType" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 }
               }
             }
@@ -329,29 +313,23 @@
               "type" : "object",
               "properties" : {
                 "interestPropertyName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "interestCompoundType" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "interestCompoundTypeValue" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "dividentPaidYtd" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "lastPaidDivident" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "periodEnding" : {
                   "type" : "string",
-                  "format" : "date",
-                  "description" : ""
+                  "format" : "date"
                 },
                 "consolidateInterests" : {
                   "type" : "array",
@@ -359,8 +337,7 @@
                     "type" : "object",
                     "properties" : {
                       "consolidateInterest" : {
-                        "type" : "string",
-                        "description" : ""
+                        "type" : "string"
                       }
                     }
                   }
@@ -370,17 +347,14 @@
           },
           "sharedInterestAccounts" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
                 "sharedInterestAccount" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "sharedInterestAccountType" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 }
               }
             }
@@ -415,12 +389,10 @@
             }
           },
           "openActualBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "availableOverdraftLimit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "openingDate" : {
             "type" : "string",
@@ -428,8 +400,7 @@
             "description" : "The date the account is opened."
           },
           "approvedOverdraftLimit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "limitExpiryDate" : {
             "type" : "string",
@@ -437,57 +408,48 @@
             "description" : "This field specifies the validity of the Limit, i.e. how long is it to remain in force"
           },
           "availableFunds" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "outstandingOverdraftLimit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "onlineClearedBalance" : {
             "type" : "number",
             "description" : "Indicates the available balance allowed to use"
           },
           "openClearedBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "accountWithBankBIC" : {
             "type" : "string",
             "description" : "This is the BIC code of the institution where beneficiary holds an account"
           },
           "pendingDeposit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "customerName" : {
             "type" : "string",
             "description" : "Name of the customer"
           },
           "totalCredits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "totalDebits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "jointCustomerName" : {
             "type" : "string",
             "description" : "Name of Joint Customer"
           },
           "commitmentBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidAmount" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           }
         }
       }
@@ -673,17 +635,14 @@
                   "description" : "Indicates the payment frequency associated with the charge"
                 },
                 "dividentPaidYtd" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "lastPaidDivident" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "periodEnding" : {
                   "type" : "string",
-                  "format" : "date",
-                  "description" : ""
+                  "format" : "date"
                 }
               }
             }
@@ -821,37 +780,31 @@
             "description" : "This is the BIC code of the institution where beneficiary holds an account"
           },
           "pendingDeposit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "customerName" : {
             "type" : "string",
             "description" : "Name of the customer"
           },
           "totalCredits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "totalDebits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "jointCustomerName" : {
             "type" : "string",
             "description" : "Name of Joint Customer"
           },
           "commitmentBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidAmount" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           }
         }
       }
@@ -887,12 +840,10 @@
                   "description" : "Indicates the interest property name"
                 },
                 "interestPropertyName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "compoundType" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "rateType" : {
                   "type" : "string",
@@ -915,17 +866,14 @@
                   "description" : "Amount of the balance"
                 },
                 "dividentPaidYtd" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "lastPaidDivident" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "periodEnding" : {
                   "type" : "string",
-                  "format" : "date",
-                  "description" : ""
+                  "format" : "date"
                 }
               }
             }
@@ -937,32 +885,26 @@
               "type" : "object",
               "properties" : {
                 "paidScheduleCount" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "dueScheduleCount" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "futureScheduleCount" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "schedulePaymentType" : {
                   "type" : "string",
                   "description" : "Indicates payment schedule type"
                 },
                 "schedulePaymentMethod" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "scheduleProperty" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 },
                 "schedulePaymentAmount" : {
-                  "type" : "number",
-                  "description" : ""
+                  "type" : "number"
                 },
                 "schedulePaymentFrequency" : {
                   "type" : "string",
@@ -1008,8 +950,7 @@
             "description" : "Indicates next payment date for the contract"
           },
           "virtualBalance" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "lastPayment" : {
             "type" : "string",
@@ -1021,50 +962,42 @@
             "description" : "Indicates the term for which the contract is booked"
           },
           "payoffRequest" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "accountWithBankBIC" : {
             "type" : "string",
             "description" : "This is the BIC code of the institution where beneficiary holds an account"
           },
           "pendingDeposit" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "customerName" : {
             "type" : "string",
             "description" : "Name of the customer"
           },
           "totalCredits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "totalDebits" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "jointCustomerName" : {
             "type" : "string",
             "description" : "Name of Joint Customer"
           },
           "commitmentBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidAmount" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "lastPaidDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
-            },
+            "format" : "date"
+          },
           "pendingWithdrawals" : {
             "type" : "string",
-            "format" : "amount",
-            "description" : ""
+            "format" : "amount"
           }
         }
       }

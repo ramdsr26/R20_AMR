@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/logs/{arrangementId}/activities" : {
@@ -23,7 +23,8 @@
           "in" : "path",
           "description" : "Indicates an unique identifier of an account",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190770396S"
         }, {
           "name" : "simulation",
           "in" : "query",
@@ -63,12 +64,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -82,12 +77,6 @@
               "$ref" : "#/definitions/ArrangementActivityLogResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -98,6 +87,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -114,7 +109,8 @@
           "in" : "path",
           "description" : "Indicates an unique identifier of an account",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190770396S"
         }, {
           "name" : "simulationReference",
           "in" : "query",
@@ -151,12 +147,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -173,12 +163,6 @@
               "$ref" : "#/definitions/FinancialActivitiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -189,6 +173,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -205,7 +195,8 @@
           "in" : "path",
           "description" : "Indicates an unique identifier of an account",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190770396S"
         }, {
           "name" : "simulationReference",
           "in" : "query",
@@ -242,12 +233,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -264,12 +249,6 @@
               "$ref" : "#/definitions/UserActivitiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -280,6 +259,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -296,7 +281,8 @@
           "in" : "path",
           "description" : "Indicates an unique identifier of an account",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190770396S"
         }, {
           "name" : "simulationReference",
           "in" : "query",
@@ -336,12 +322,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -355,12 +335,6 @@
               "$ref" : "#/definitions/SystemActivitiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -371,6 +345,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -387,7 +367,8 @@
           "in" : "path",
           "description" : "Indicates an unique identifier of an account",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19079NGP0M"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -409,12 +390,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -428,12 +403,6 @@
               "$ref" : "#/definitions/HoldActivitiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -444,6 +413,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -500,12 +475,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -519,12 +488,6 @@
               "$ref" : "#/definitions/ArchievedActivitiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -535,6 +498,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -551,7 +520,8 @@
           "in" : "path",
           "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "11509"
         }, {
           "name" : "startDate",
           "in" : "query",
@@ -585,11 +555,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -603,12 +568,6 @@
               "$ref" : "#/definitions/AccountSummaryResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -619,6 +578,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -663,11 +628,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -681,12 +641,6 @@
               "$ref" : "#/definitions/ArrangementActivitiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -697,6 +651,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -717,7 +677,6 @@
         }, {
           "name" : "activity",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -729,13 +688,11 @@
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -788,11 +745,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -806,12 +758,6 @@
               "$ref" : "#/definitions/UnauthorisedAAAResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -823,14 +769,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -973,8 +927,7 @@
       "type" : "object",
       "properties" : {
         "message" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "type" : {
           "type" : "string",
@@ -1246,10 +1199,10 @@
             "type" : "string",
             "description" : "Business Activity Status  POSSIBLE VALUES: 0: Ready  1: Running  2: Completed successfully  3: On hold or in error"
           },
-      	  "activityReference" : {
+          "activityReference" : {
             "type" : "string",
             "description" : "Activity reference of the account"
-      	  }
+          }
         }
       }
     },
@@ -1309,7 +1262,6 @@
             },
             "accountTitle" : {
               "type" : "string",
-              "description" : "",
               "maxLength" : 25
             },
             "accountCurrency" : {
@@ -1317,8 +1269,7 @@
               "description" : "The currency of the account"
             },
             "closingBalance" : {
-              "type" : "string",
-              "description" : ""
+              "type" : "string"
             }
           }
         }
@@ -1352,7 +1303,6 @@
           },
           "transactionDescription" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 34
           },
           "valueDate" : {
@@ -1362,17 +1312,14 @@
           },
           "debit" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           },
           "credit" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           },
           "closingBalance" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           }
         }
@@ -1423,7 +1370,6 @@
         "properties" : {
           "customer" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "customerName" : {
@@ -1438,12 +1384,10 @@
           },
           "productDescription" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 40
           },
           "currency" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 3
           },
           "transactionAmount" : {
@@ -1453,7 +1397,6 @@
           },
           "arrangementActivity" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 40
           },
           "activityName" : {
@@ -1463,7 +1406,6 @@
           },
           "transactionType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 6
           },
           "transactionId" : {
@@ -1477,7 +1419,6 @@
           },
           "date" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "status" : {

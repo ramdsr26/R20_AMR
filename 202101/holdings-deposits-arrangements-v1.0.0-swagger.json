@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/deposits/shortTermDeposits" : {
@@ -31,12 +31,6 @@
           "schema" : {
             "$ref" : "#/definitions/ShortTermDeposit"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -63,12 +57,6 @@
               "$ref" : "#/definitions/ShortTermDepositResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -79,6 +67,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -103,12 +97,6 @@
           "schema" : {
             "$ref" : "#/definitions/ShortTermDeposit"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -135,12 +123,6 @@
               "$ref" : "#/definitions/ShortTermDepositResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -151,6 +133,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -175,12 +163,6 @@
           "schema" : {
             "$ref" : "#/definitions/ShortTermDeposit"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -207,12 +189,6 @@
               "$ref" : "#/definitions/ShortTermDepositResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -223,6 +199,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -247,12 +229,6 @@
           "schema" : {
             "$ref" : "#/definitions/ShortTermDeposit"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -279,12 +255,6 @@
               "$ref" : "#/definitions/ShortTermDepositResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -295,6 +265,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -319,12 +295,6 @@
           "schema" : {
             "$ref" : "#/definitions/ShortTermDeposit"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -351,12 +321,6 @@
               "$ref" : "#/definitions/ShortTermDepositResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -367,6 +331,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -391,12 +361,6 @@
           "schema" : {
             "$ref" : "#/definitions/Deposits"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -423,12 +387,6 @@
               "$ref" : "#/definitions/DepositsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -439,6 +397,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -463,12 +427,6 @@
           "schema" : {
             "$ref" : "#/definitions/MudarabaDeposit"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -495,12 +453,6 @@
               "$ref" : "#/definitions/MudarabaDepositResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -511,6 +463,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -535,12 +493,6 @@
           "schema" : {
             "$ref" : "#/definitions/Deposits1"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -567,12 +519,6 @@
               "$ref" : "#/definitions/DepositsResponse1"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -583,6 +529,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -595,6 +547,11 @@
         "operationId" : "simulateRedeemDeposits",
         "produces" : [ "application/json" ],
         "parameters" : [ {
+          "name" : "arrangementId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
           "name" : "validate_only",
           "in" : "query",
           "description" : "The identifier to indicate if it is set to only validate or not.",
@@ -607,12 +564,6 @@
           "schema" : {
             "$ref" : "#/definitions/Deposits1"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -639,12 +590,6 @@
               "$ref" : "#/definitions/DepositsResponse1"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -656,15 +601,15 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
-      },
-      "parameters" : [ {
-        "name" : "arrangementId",
-        "in" : "path",
-        "required" : true,
-        "type" : "string"
-      } ]
+      }
     },
     "/holdings/deposits/{arrangementId}/chargeAmount" : {
       "get" : {
@@ -711,12 +656,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -742,12 +681,6 @@
               "$ref" : "#/definitions/ChargeAmountResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -758,6 +691,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -782,12 +721,6 @@
           "schema" : {
             "$ref" : "#/definitions/MudarabaDeposit"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -814,12 +747,6 @@
               "$ref" : "#/definitions/MudarabaDepositResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -831,14 +758,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -893,7 +828,112 @@
           "$ref" : "#/definitions/ShortTermDepositBody"
         }
       },
-      "description" : "ShortTermDeposit"
+      "description" : "ShortTermDeposit",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Maximum negotiation value of 90D has been exceeded by 276D in field TERM.1.1",
+              "id" : "AA.ECT.MAX.EXCEED",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "reason" : "string",
+          "arrangmentId" : "NEW",
+          "productId" : "DEPOSIT.SHORT",
+          "pricingSelection" : "string",
+          "rewardsArrangementId" : "string",
+          "commitment" : {
+            "amount" : "150000",
+            "updateLimit" : "YES",
+            "term" : "1Y",
+            "changeAmount" : "string",
+            "revolving" : "NO"
+          },
+          "tradeDate" : "string",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "agentArrangementIds" : [ {
+            "agentArrangementId" : "string"
+          } ],
+          "arrangementEffectiveDate" : "20190417",
+          "settlement" : {
+            "payout" : [ {
+              "payoutSettlementActivity" : "string",
+              "property" : [ {
+                "payoutAmount" : "string",
+                "payoutPropertyClass" : "string",
+                "payoutProperty" : "string",
+                "payoutActivity" : "string",
+                "payoutPOProduct" : "string",
+                "payoutAccount" : "string",
+                "payoutPercentage" : "string",
+                "payoutBeneficiary" : "string"
+              } ],
+              "payoutSettlement" : "string"
+            } ],
+            "defaultSettlementAccount" : "string",
+            "assocSettlement" : [ {
+              "payinRCType" : "string",
+              "reference" : [ {
+                "payinPercentage" : "string",
+                "payinActivity" : "string",
+                "payinAccount" : "string",
+                "payinPOProduct" : "string",
+                "payinAmount" : "string",
+                "payinBeneficiary" : "string",
+                "ddMandateReference" : "string"
+              } ],
+              "payinSettlement" : "string",
+              "payinSettlementActivity" : "string",
+              "payinRCCondition" : "string",
+              "payinRule" : "string"
+            } ],
+            "settlement" : [ {
+              "reference" : [ {
+                "payinPercentage" : "string",
+                "payoutAmount" : "string",
+                "payinAccount" : "string",
+                "payinAmount" : "string",
+                "payoutAccount" : "string",
+                "payoutPercentage" : "string",
+                "payinBeneficiary" : "string",
+                "payoutBeneficiary" : "string",
+                "ddMandateReference" : "string",
+                "payinPoProduct" : "string",
+                "payoutPoProduct" : "string"
+              } ],
+              "payinSettlement" : "string",
+              "payoutSettlement" : "string"
+            } ],
+            "fxSettlement" : [ {
+              "fxSettlementAccount" : "string",
+              "fxSettlementCurrency" : "string"
+            } ],
+            "paymentType" : "string"
+          },
+          "partyIds" : [ {
+            "partyId" : "100500"
+          } ],
+          "activityId" : "DEPOSITS-NEW-ARRANGEMENT",
+          "agentRoles" : [ {
+            "agentRole" : "string"
+          } ],
+          "pricingPlan" : "string",
+          "agentCustomerIds" : [ {
+            "agentCustomerId" : "string"
+          } ],
+          "currency" : "USD",
+          "productVariation" : "string"
+        }
+      }
     },
     "ShortTermDepositBody" : {
       "type" : "object",
@@ -6489,109 +6529,91 @@
           "properties" : {
             "payinSettlement1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin Settlement" ]
             },
             "ddMandateRef11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "DD Mandate Ref" ]
             },
             "payinAccount11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin Account" ]
             },
             "payinBeneficiary11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin Beneficiary" ]
             },
             "payinPercentage11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin Percentage" ]
             },
             "payinAmount11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin Amount" ]
             },
             "payoutSettlement1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Settlement" ]
             },
             "payoutAccount11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Account" ]
             },
             "payoutBeneficiary11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Beneficiary" ]
             },
             "payoutPercentage11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Percentage" ]
             },
             "payoutAmount11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Amount" ]
             },
             "paymentType11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payment Type" ]
             },
             "payinPoProduct11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin Product" ]
             },
             "payinActivity11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin Activity" ]
             },
             "payinAcDbRule1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin Account Debit Rule" ]
             },
             "payinSettleActivity1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin Settle Activity" ]
             },
             "payinRcType1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin RC Type" ]
             },
             "payinRcCondition1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payin RC Condition" ]
             },
@@ -6604,55 +6626,46 @@
             },
             "updatePendingRetry" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 20
             },
             "payoutPptyClass11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Property Class" ]
             },
             "payoutProperty11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Property" ]
             },
             "payoutPoProduct11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Product" ]
             },
             "payoutActivity11" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Activity" ]
             },
             "payoutAcCrRule1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Account Credit Rule" ]
             },
             "payoutSettleActivity1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout Settle Activity" ]
             },
             "payoutRcType1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout RC Type" ]
             },
             "payoutRcCondition1" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "enum" : [ "Payout RC Condition" ]
             }
@@ -6891,109 +6904,91 @@
                   "properties" : {
                     "payinSettlement1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin Settlement" ]
                     },
                     "ddMandateRef11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "DD Mandate Ref" ]
                     },
                     "payinAccount11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin Account" ]
                     },
                     "payinBeneficiary11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin Beneficiary" ]
                     },
                     "payinPercentage11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin Percentage" ]
                     },
                     "payinAmount11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin Amount" ]
                     },
                     "payoutSettlement1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Settlement" ]
                     },
                     "payoutAccount11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Account" ]
                     },
                     "payoutBeneficiary11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Beneficiary" ]
                     },
                     "payoutPercentage11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Percentage" ]
                     },
                     "payoutAmount11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Amount" ]
                     },
                     "paymentType11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payment Type" ]
                     },
                     "payinPoProduct11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin Product" ]
                     },
                     "payinActivity11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin Activity" ]
                     },
                     "payinAcDbRule1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin Account Debit Rule" ]
                     },
                     "payinSettleActivity1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin Settle Activity" ]
                     },
                     "payinRcType1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin RC Type" ]
                     },
                     "payinRcCondition1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payin RC Condition" ]
                     },
@@ -7006,55 +7001,46 @@
                     },
                     "updatePendingRetry" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 20
                     },
                     "payoutPptyClass11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Property Class" ]
                     },
                     "payoutProperty11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Property" ]
                     },
                     "payoutPoProduct11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Product" ]
                     },
                     "payoutActivity11" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Activity" ]
                     },
                     "payoutAcCrRule1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Account Credit Rule" ]
                     },
                     "payoutSettleActivity1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout Settle Activity" ]
                     },
                     "payoutRcType1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout RC Type" ]
                     },
                     "payoutRcCondition1" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "enum" : [ "Payout RC Condition" ]
                     }
@@ -7264,6 +7250,122 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "createShortTermDeposit" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ShortTermDepositBody"
+        }
+      },
+      "description" : "ShortTermDeposit",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Maximum negotiation value of 90D has been exceeded by 276D in field TERM.1.1",
+              "id" : "AA.ECT.MAX.EXCEED",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "reason" : "string",
+          "arrangmentId" : "NEW",
+          "productId" : "DEPOSIT.SHORT",
+          "pricingSelection" : "string",
+          "rewardsArrangementId" : "string",
+          "commitment" : {
+            "amount" : "150000",
+            "updateLimit" : "YES",
+            "term" : "1Y",
+            "changeAmount" : "string",
+            "revolving" : "NO"
+          },
+          "tradeDate" : "string",
+          "partyRoles" : [ {
+            "partyRole" : "OWNER"
+          } ],
+          "agentArrangementIds" : [ {
+            "agentArrangementId" : "string"
+          } ],
+          "arrangementEffectiveDate" : "20190417",
+          "settlement" : {
+            "payout" : [ {
+              "payoutSettlementActivity" : "string",
+              "property" : [ {
+                "payoutAmount" : "string",
+                "payoutPropertyClass" : "string",
+                "payoutProperty" : "string",
+                "payoutActivity" : "string",
+                "payoutPOProduct" : "string",
+                "payoutAccount" : "string",
+                "payoutPercentage" : "string",
+                "payoutBeneficiary" : "string"
+              } ],
+              "payoutSettlement" : "string"
+            } ],
+            "defaultSettlementAccount" : "string",
+            "assocSettlement" : [ {
+              "payinRCType" : "string",
+              "reference" : [ {
+                "payinPercentage" : "string",
+                "payinActivity" : "string",
+                "payinAccount" : "string",
+                "payinPOProduct" : "string",
+                "payinAmount" : "string",
+                "payinBeneficiary" : "string",
+                "ddMandateReference" : "string"
+              } ],
+              "payinSettlement" : "string",
+              "payinSettlementActivity" : "string",
+              "payinRCCondition" : "string",
+              "payinRule" : "string"
+            } ],
+            "settlement" : [ {
+              "reference" : [ {
+                "payinPercentage" : "string",
+                "payoutAmount" : "string",
+                "payinAccount" : "string",
+                "payinAmount" : "string",
+                "payoutAccount" : "string",
+                "payoutPercentage" : "string",
+                "payinBeneficiary" : "string",
+                "payoutBeneficiary" : "string",
+                "ddMandateReference" : "string",
+                "payinPoProduct" : "string",
+                "payoutPoProduct" : "string"
+              } ],
+              "payinSettlement" : "string",
+              "payoutSettlement" : "string"
+            } ],
+            "fxSettlement" : [ {
+              "fxSettlementAccount" : "string",
+              "fxSettlementCurrency" : "string"
+            } ],
+            "paymentType" : "string"
+          },
+          "partyIds" : [ {
+            "partyId" : "100500"
+          } ],
+          "activityId" : "DEPOSITS-NEW-ARRANGEMENT",
+          "agentRoles" : [ {
+            "agentRole" : "string"
+          } ],
+          "pricingPlan" : "string",
+          "agentCustomerIds" : [ {
+            "agentCustomerId" : "string"
+          } ],
+          "currency" : "USD",
+          "productVariation" : "string"
         }
       }
     }

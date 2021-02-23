@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/facilities/drawdowns" : {
@@ -32,11 +32,6 @@
             "$ref" : "#/definitions/Drawdowns"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -47,12 +42,6 @@
             "description" : "createDrawdownsResponse",
             "schema" : {
               "$ref" : "#/definitions/DrawdownsResponse"
-            }
-          },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           },
           "400" : {
@@ -66,14 +55,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -124,7 +121,44 @@
           "$ref" : "#/definitions/DrawdownsBody"
         }
       },
-      "description" : "Drawdowns"
+      "description" : "Drawdowns",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "arrangmentId" : "string",
+          "facilityId" : "AA19108G1JTP",
+          "activity" : "string",
+          "commitment" : {
+            "amount" : 30000,
+            "term" : "1Y"
+          },
+          "currency" : "USD",
+          "customers" : [ {
+            "customerRole" : "string",
+            "customer" : "190273"
+          } ],
+          "effectiveDate" : "string",
+          "settlement" : {
+            "payInAccounts" : [ {
+              "payInAccount" : 76527
+            } ],
+            "payOutAccounts" : [ {
+              "payoutAccount" : 85707
+            } ]
+          }
+        }
+      }
     },
     "DrawdownsBody" : {
       "type" : "object",
@@ -150,7 +184,6 @@
         },
         "arrangmentId" : {
           "type" : "string",
-          "description" : "",
           "maxLength" : 12
         },
         "currency" : {
@@ -197,7 +230,6 @@
                 "properties" : {
                   "payInAccount" : {
                     "type" : "string",
-                    "description" : "",
                     "maxLength" : 12
                   }
                 }
@@ -302,7 +334,6 @@
             },
             "arrangmentId" : {
               "type" : "string",
-              "description" : "",
               "maxLength" : 12
             },
             "currency" : {
@@ -1137,7 +1168,6 @@
                         "properties" : {
                           "payInAccount" : {
                             "type" : "string",
-                            "description" : "",
                             "maxLength" : 12
                           }
                         }
@@ -1371,6 +1401,54 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "createDrawdowns" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DrawdownsBody"
+        }
+      },
+      "description" : "Drawdowns",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "arrangmentId" : "string",
+          "facilityId" : "AA19108G1JTP",
+          "activity" : "string",
+          "commitment" : {
+            "amount" : 30000,
+            "term" : "1Y"
+          },
+          "currency" : "USD",
+          "customers" : [ {
+            "customerRole" : "string",
+            "customer" : "190273"
+          } ],
+          "effectiveDate" : "string",
+          "settlement" : {
+            "payInAccounts" : [ {
+              "payInAccount" : 76527
+            } ],
+            "payOutAccounts" : [ {
+              "payoutAccount" : 85707
+            } ]
+          }
         }
       }
     }

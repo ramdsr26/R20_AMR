@@ -1,2530 +1,2077 @@
 {
-    "swagger": "2.0",
-    "info":
-    {
-        "description": "Create and manage customer consent - Deprecated, use party-dataProtectionConsent-v1.1.0 instead",
-        "version": "v1.0.0",
-        "title": "Customer Data Protection Consent Management"
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Create and manage customer consent - Deprecated, use party-dataProtectionConsent-v1.1.0 instead",
+    "version" : "v1.0.0",
+    "title" : "Customer Data Protection Consent Management"
+  },
+  "host" : "api.server.com",
+  "basePath" : "/api/v1.0.0/",
+  "schemes" : [ "http", "https" ],
+  "security" : [ {
+    "apiKey" : [ ]
+  } ],
+  "paths" : {
+    "/party/dataProtection/customers/consentApprovals/{consentId}" : {
+      "put" : {
+        "summary" : "Approval of customer consent.",
+        "description" : "Approve consent",
+        "operationId" : "approveConsent",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "consentId",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "approveConsentResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ConsentResponse"
+            }
+          },
+          "400" : {
+            "description" : "BusinessArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessArrangementErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
+          }
+        },
+        "deprecated" : true
+      }
     },
-    "host": "api.server.com",
-    "basePath": "/api/v1.0.0/",
-    "schemes": [ "http", "https" ],
-    "security": [
-    {
-        "basicAuth": [ ]
-    } ],
-    "paths":
-    {
-        "/party/dataProtection/customers/consentApprovals/{consentId}":
-        {
-            "put":
-            {
-                "summary": "Approval of customer consent.",
-                "description": "Approve consent",
-                "operationId": "approveConsent",
-                "produces": [ "application/json" ],
-                "parameters": [
-                {
-                    "name": "credentials",
-                    "in": "header",
-                    "description": "Username and password to authenticate the API against core-banking.",
-                    "required": false,
-                    "type": "string"
-                },
-                {
-                    "name": "companyId",
-                    "in": "header",
-                    "description": "The identifier of the underlying Entity/Company/Branch.",
-                    "required": false,
-                    "type": "string"
-                } ],
-                "responses":
-                {
-                    "200":
-                    {
-                        "description": "approveConsentResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/ConsentResponse"
-                        }
-                    },
-                    "default":
-                    {
-                        "description": "ArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/ArrangementErrorResponse"
-                        }
-                    },
-                    "400":
-                    {
-                        "description": "BusinessArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/BusinessArrangementErrorResponse"
-                        }
-                    },
-                    "500":
-                    {
-                        "description": "SystemArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/SystemArrangementErrorResponse"
-                        }
-                    }
-                },
-                "deprecated": true
-            },
-            "parameters": [
-            {
-                "name": "consentId",
-                "in": "path",
-                "required": true,
-                "type": "string"
-            } ]
-        },
-        "/party/dataProtection/customers/consents":
-        {
-            "get":
-            {
-                "summary": "Retrieval of customer consent details.",
-                "description": "Retrieves consent details",
-                "operationId": "getConsent",
-                "produces": [ "application/json" ],
-                "parameters": [
-                {
-                    "name": "customerId",
-                    "in": "query",
-                    "description": "Identifier of the customer",
-                    "required": true,
-                    "type": "string"
-                },
-                {
-                    "name": "consentId",
-                    "in": "query",
-                    "description": "Identifier of the corresponding consent object as retrieved by an account Information consent Request.",
-                    "required": true,
-                    "type": "string"
-                },
-                {
-                    "name": "page_size",
-                    "in": "query",
-                    "description": "The total number of records per page",
-                    "required": false,
-                    "type": "integer",
-                    "format": "int32"
-                },
-                {
-                    "name": "page_start",
-                    "in": "query",
-                    "description": "The record from which the response should be displayed",
-                    "required": false,
-                    "type": "integer",
-                    "format": "int32"
-                },
-                {
-                    "name": "page_token",
-                    "in": "query",
-                    "description": "Unique id expected to get as part of response from t24 on every enquiry request.",
-                    "required": false,
-                    "type": "string"
-                },
-                {
-                    "name": "credentials",
-                    "in": "header",
-                    "description": "Username and password to authenticate the API against core-banking.",
-                    "required": false,
-                    "type": "string"
-                },
-                {
-                    "name": "companyId",
-                    "in": "header",
-                    "description": "The identifier of the underlying Entity/Company/Branch.",
-                    "required": false,
-                    "type": "string"
-                } ],
-                "responses":
-                {
-                    "200":
-                    {
-                        "description": "ConsentResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/ConsentResponse2"
-                        }
-                    },
-                    "default":
-                    {
-                        "description": "QueryErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/QueryErrorResponse"
-                        }
-                    },
-                    "400":
-                    {
-                        "description": "BusinessQueryErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/BusinessQueryErrorResponse"
-                        }
-                    },
-                    "500":
-                    {
-                        "description": "SystemQueryErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/SystemQueryErrorResponse"
-                        }
-                    }
-                },
-                "deprecated": true
-            },
-            "put":
-            {
-                "summary": "Update of customer consent details.",
-                "description": "Update consent",
-                "operationId": "updateConsent",
-                "produces": [ "application/json" ],
-                "parameters": [
-                {
-                    "name": "validate_only",
-                    "in": "query",
-                    "description": "The identifier to indicate if it is set to only validate or not.",
-                    "required": false,
-                    "type": "boolean"
-                },
-                {
-                    "in": "body",
-                    "name": "payload",
-                    "required": true,
-                    "schema":
-                    {
-                        "$ref": "#/definitions/Consent"
-                    }
-                },
-                {
-                    "name": "credentials",
-                    "in": "header",
-                    "description": "Username and password to authenticate the API against core-banking.",
-                    "required": false,
-                    "type": "string"
-                },
-                {
-                    "name": "companyId",
-                    "in": "header",
-                    "description": "The identifier of the underlying Entity/Company/Branch.",
-                    "required": false,
-                    "type": "string"
-                } ],
-                "responses":
-                {
-                    "200":
-                    {
-                        "description": "updateConsentResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/ConsentResponse1"
-                        }
-                    },
-                    "default":
-                    {
-                        "description": "ArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/ArrangementErrorResponse"
-                        }
-                    },
-                    "400":
-                    {
-                        "description": "BusinessArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/BusinessArrangementErrorResponse"
-                        }
-                    },
-                    "500":
-                    {
-                        "description": "SystemArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/SystemArrangementErrorResponse"
-                        }
-                    }
-                },
-                "deprecated": true
+    "/party/dataProtection/customers/consents" : {
+      "get" : {
+        "summary" : "Retrieval of customer consent details.",
+        "description" : "Retrieves consent details",
+        "operationId" : "getConsent",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "query",
+          "description" : "Identifier of the customer",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "consentId",
+          "in" : "query",
+          "description" : "Identifier of the corresponding consent object as retrieved by an account Information consent Request.",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "page_size",
+          "in" : "query",
+          "description" : "The total number of records per page",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_start",
+          "in" : "query",
+          "description" : "The record from which the response should be displayed",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "page_token",
+          "in" : "query",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "ConsentResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ConsentResponse2"
             }
-        },
-        "/party/dataProtection/customers/consents/revocations":
-        {
-            "put":
-            {
-                "summary": "Revokes customer consent details from system.",
-                "description": "Revokes consent.",
-                "operationId": "withdrawConsent",
-                "produces": [ "application/json" ],
-                "parameters": [
-                {
-                    "name": "validate_only",
-                    "in": "query",
-                    "description": "The identifier to indicate if it is set to only validate or not.",
-                    "required": false,
-                    "type": "boolean"
-                },
-                {
-                    "in": "body",
-                    "name": "payload",
-                    "required": true,
-                    "schema":
-                    {
-                        "$ref": "#/definitions/Consent1"
-                    }
-                },
-                {
-                    "name": "credentials",
-                    "in": "header",
-                    "description": "Username and password to authenticate the API against core-banking.",
-                    "required": false,
-                    "type": "string"
-                },
-                {
-                    "name": "companyId",
-                    "in": "header",
-                    "description": "The identifier of the underlying Entity/Company/Branch.",
-                    "required": false,
-                    "type": "string"
-                } ],
-                "responses":
-                {
-                    "200":
-                    {
-                        "description": "withdrawConsentResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/ConsentResponse3"
-                        }
-                    },
-                    "default":
-                    {
-                        "description": "ArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/ArrangementErrorResponse"
-                        }
-                    },
-                    "400":
-                    {
-                        "description": "BusinessArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/BusinessArrangementErrorResponse"
-                        }
-                    },
-                    "500":
-                    {
-                        "description": "SystemArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/SystemArrangementErrorResponse"
-                        }
-                    }
-                },
-                "deprecated": true
+          },
+          "400" : {
+            "description" : "BusinessQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessQueryErrorResponse"
             }
-        },
-        "/party/dataProtection/customers/consentInitiation":
-        {
-            "post":
-            {
-                "summary": "Initiation of customer consent",
-                "description": "Initiate consent",
-                "operationId": "createConsent",
-                "produces": [ "application/json" ],
-                "parameters": [
-                {
-                    "name": "validate_only",
-                    "in": "query",
-                    "description": "The identifier to indicate if it is set to only validate or not.",
-                    "required": false,
-                    "type": "boolean"
-                },
-                {
-                    "in": "body",
-                    "name": "payload",
-                    "required": true,
-                    "schema":
-                    {
-                        "$ref": "#/definitions/Consent2"
-                    }
-                },
-                {
-                    "name": "credentials",
-                    "in": "header",
-                    "description": "Username and password to authenticate the API against core-banking.",
-                    "required": false,
-                    "type": "string"
-                },
-                {
-                    "name": "companyId",
-                    "in": "header",
-                    "description": "The identifier of the underlying Entity/Company/Branch.",
-                    "required": false,
-                    "type": "string"
-                } ],
-                "responses":
-                {
-                    "200":
-                    {
-                        "description": "createConsentResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/ConsentResponse"
-                        }
-                    },
-                    "default":
-                    {
-                        "description": "ArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/ArrangementErrorResponse"
-                        }
-                    },
-                    "400":
-                    {
-                        "description": "BusinessArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/BusinessArrangementErrorResponse"
-                        }
-                    },
-                    "500":
-                    {
-                        "description": "SystemArrangementErrorResponse",
-                        "schema":
-                        {
-                            "$ref": "#/definitions/SystemArrangementErrorResponse"
-                        }
-                    }
-                },
-                "deprecated": true
+          },
+          "500" : {
+            "description" : "SystemQueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
-        }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
+          }
+        },
+        "deprecated" : true
+      },
+      "put" : {
+        "summary" : "Update of customer consent details.",
+        "description" : "Update consent",
+        "operationId" : "updateConsent",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Consent"
+          }
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "updateConsentResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ConsentResponse1"
+            }
+          },
+          "400" : {
+            "description" : "BusinessArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessArrangementErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
+          }
+        },
+        "deprecated" : true
+      }
     },
-    "securityDefinitions":
-    {
-        "basicAuth":
-        {
-            "type": "basic"
-        }
+    "/party/dataProtection/customers/consents/revocations" : {
+      "put" : {
+        "summary" : "Revokes customer consent details from system.",
+        "description" : "Revokes consent.",
+        "operationId" : "withdrawConsent",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Consent1"
+          }
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "withdrawConsentResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ConsentResponse3"
+            }
+          },
+          "400" : {
+            "description" : "BusinessArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessArrangementErrorResponse"
+            }
+          },
+          "500" : {
+            "description" : "SystemArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
+          }
+        },
+        "deprecated" : true
+      }
     },
-    "definitions":
-    {
-        "ArrangementHeader":
-        {
-            "properties":
-            {
-                "transactionStatus":
-                {
-                    "type": "string",
-                    "description": "The status of the transaction"
-                },
-                "aaaId":
-                {
-                    "type": "string",
-                    "description": "The Identifier of the aa record created"
-                },
-                "id":
-                {
-                    "type": "string",
-                    "description": "The Identifier of the record created"
-                },
-                "status":
-                {
-                    "type": "string",
-                    "description": "The status of the record"
-                },
-                "uniqueIdentifier":
-                {
-                    "type": "string",
-                    "description": "The unique identifier/Message Reference of the record created."
-                },
-                "audit":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "T24_time":
-                        {
-                            "type": "integer",
-                            "format": "int32",
-                            "description": "Time taken to response by T24"
-                        },
-                        "versionNumber":
-                        {
-                            "type": "string",
-                            "description": "The CURR.NO. of the record"
-                        },
-                        "requestParse_time":
-                        {
-                            "type": "number",
-                            "description": "Time taken to parse the request by IRIS"
-                        },
-                        "responseParse_time":
-                        {
-                            "type": "number",
-                            "description": "Time taken to parse the response by IRIS"
-                        }
-                    }
-                }
+    "/party/dataProtection/customers/consentInitiation" : {
+      "post" : {
+        "summary" : "Initiation of customer consent",
+        "description" : "Initiate consent",
+        "operationId" : "createConsent",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "validate_only",
+          "in" : "query",
+          "description" : "The identifier to indicate if it is set to only validate or not.",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "in" : "body",
+          "name" : "payload",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Consent2"
+          }
+        }, {
+          "name" : "companyId",
+          "in" : "header",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "createConsentResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ConsentResponse"
             }
-        },
-        "ConsentResponse":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/ArrangementHeader"
-                },
-                "body":
-                {
-                    "$ref": "#/definitions/ConsentResponseBody"
-                }
-            },
-            "description": "ConsentResponse"
-        },
-        "ConsentResponseBody":
-        {
-            "type": "object",
-            "properties":
-            {
-                "arrangementActivity":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "customers":
-                        {
-                            "type": "array",
-                            "description": "Indicates role of a customer for an arrangement.",
-                            "items":
-                            {
-                                "type": "object",
-                                "properties":
-                                {
-                                    "customer":
-                                    {
-                                        "type": "string",
-                                        "description": "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "customerRoles":
-                                    {
-                                        "type": "array",
-                                        "items":
-                                        {
-                                            "type": "object",
-                                            "properties":
-                                            {
-                                                "customerRole":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Indicates role of a customer for an arrangement.",
-                                                    "minLength": 0,
-                                                    "maxLength": 35
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "arrangement":
-                        {
-                            "type": "string",
-                            "description": "Unique identifier for the arrangement contract",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "product":
-                        {
-                            "type": "string",
-                            "description": "Indicates an id or name of a product",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "arrangementEffectiveDate":
-                        {
-                            "type": "string",
-                            "description": "It is a date on/upon which an account is considered to take effect",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "activity":
-                        {
-                            "type": "string",
-                            "description": "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "reason":
-                        {
-                            "type": "string",
-                            "description": "Contains the reason for performing the current activity",
-                            "minLength": 0,
-                            "maxLength": 35
-                        }
-                    }
-                },
-                "activities":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "{activityName}":
-                        {
-                            "type": "object",
-                            "properties":
-                            {
-                                "activity":
-                                {
-                                    "type": "string"
-                                },
-                                "transactionStatus":
-                                {
-                                    "type": "string",
-                                    "description": "The status of the transaction"
-                                },
-                                "id":
-                                {
-                                    "type": "string",
-                                    "description": "The Identifier of the record created"
-                                }
-                            }
-                        }
-                    }
-                },
-                "properties":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "customer":
-                        {
-                            "type": "object",
-                            "properties":
-                            {
-                                "header":
-                                {
-                                    "type": "object",
-                                    "properties":
-                                    {
-                                        "transactionStatus":
-                                        {
-                                            "type": "string"
-                                        },
-                                        "id":
-                                        {
-                                            "type": "string"
-                                        },
-                                        "status":
-                                        {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "officers":
-                        {
-                            "type": "object",
-                            "properties":
-                            {
-                                "header":
-                                {
-                                    "type": "object",
-                                    "properties":
-                                    {
-                                        "transactionStatus":
-                                        {
-                                            "type": "string"
-                                        },
-                                        "id":
-                                        {
-                                            "type": "string"
-                                        },
-                                        "status":
-                                        {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "cdpConsent":
-                        {
-                            "type": "object",
-                            "properties":
-                            {
-                                "header":
-                                {
-                                    "type": "object",
-                                    "properties":
-                                    {
-                                        "transactionStatus":
-                                        {
-                                            "type": "string",
-                                            "description": "The status of the transaction"
-                                        },
-                                        "audit":
-                                        {
-                                            "type": "object",
-                                            "properties":
-                                            {
-                                                "T24_time":
-                                                {
-                                                    "type": "integer",
-                                                    "format": "int32",
-                                                    "description": "Time taken to response by T24"
-                                                },
-                                                "versionNumber":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Current number of the record"
-                                                },
-                                                "requestParse_time":
-                                                {
-                                                    "type": "number",
-                                                    "description": "Time taken to parse the request by IRIS"
-                                                },
-                                                "responseParse_time":
-                                                {
-                                                    "type": "number",
-                                                    "description": "Time taken to parse the response by IRIS"
-                                                }
-                                            }
-                                        },
-                                        "id":
-                                        {
-                                            "type": "string",
-                                            "description": "The Identifier of the record created"
-                                        },
-                                        "status":
-                                        {
-                                            "type": "string",
-                                            "description": "The status of the record"
-                                        }
-                                    }
-                                },
-                                "body":
-                                {
-                                    "type": "object",
-                                    "properties":
-                                    {
-                                        "consentTypes":
-                                        {
-                                            "type": "array",
-                                            "description": "Indicates the consent sub type linked to corresponding consent type.",
-                                            "items":
-                                            {
-                                                "type": "object",
-                                                "properties":
-                                                {
-                                                    "consentType":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Consent Type for which the consent is given",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "isConsentGiven":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "consentGivenDate":
-                                                    {
-                                                        "type": "string",
-                                                        "format": "date",
-                                                        "description": "Indicates the date on which the consent was given by a customer for a specific consent type."
-                                                    },
-                                                    "isConsentWithdrawn":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates if the consent given for the particular consent type is withdrawn.",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "consentWithdrawDate":
-                                                    {
-                                                        "type": "string",
-                                                        "format": "date",
-                                                        "description": "Indicates the date on which the consent was withdrawn."
-                                                    },
-                                                    "consentTypeExpiryDate":
-                                                    {
-                                                        "type": "string",
-                                                        "format": "date",
-                                                        "description": "Indicates the expiry date of a consent type."
-                                                    },
-                                                    "consentBlock":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked.",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "blockNotes":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates the reason for which the consent is blocked.",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "consentWithdrawNotes":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates the reason for which the consent is withdrawn.",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "consentSubTypes":
-                                                    {
-                                                        "type": "array",
-                                                        "items":
-                                                        {
-                                                            "type": "object",
-                                                            "properties":
-                                                            {
-                                                                "consentSubType":
-                                                                {
-                                                                    "type": "string",
-                                                                    "description": "Indicates the consent sub type linked to corresponding consent type.",
-                                                                    "minLength": 0,
-                                                                    "maxLength": 35
-                                                                },
-                                                                "isSubTypeConsentGiven":
-                                                                {
-                                                                    "type": "string",
-                                                                    "description": "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO",
-                                                                    "minLength": 0,
-                                                                    "maxLength": 35
-                                                                },
-                                                                "isSubTypeConsentWithdrawn":
-                                                                {
-                                                                    "type": "string",
-                                                                    "description": "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not.",
-                                                                    "minLength": 0,
-                                                                    "maxLength": 35
-                                                                },
-                                                                "consentStWithdrawDate":
-                                                                {
-                                                                    "type": "string",
-                                                                    "format": "date",
-                                                                    "description": "Indicates the date on which a specific sub type of a consent type is withdrawn."
-                                                                },
-                                                                "consentStGivenDate":
-                                                                {
-                                                                    "type": "string",
-                                                                    "format": "date",
-                                                                    "description": "Indicates the date on which the consent was given by a customer for a specific consent sub type."
-                                                                },
-                                                                "consentStExpiryDate":
-                                                                {
-                                                                    "type": "string",
-                                                                    "format": "date",
-                                                                    "description": "Indicates the expiry date of a consent subtype."
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "expiryDate":
-                                        {
-                                            "type": "string",
-                                            "description": "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
-                                            "minLength": 0,
-                                            "maxLength": 11
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+          },
+          "400" : {
+            "description" : "BusinessArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/BusinessArrangementErrorResponse"
             }
-        },
-        "overrideBody":
-        {
-            "properties":
-            {
-                "overrideDetails":
-                {
-                    "type": "array",
-                    "items":
-                    {
-                        "type": "object",
-                        "properties":
-                        {
-                            "id":
-                            {
-                                "type": "string",
-                                "description": "The identifier of the override"
-                            },
-                            "description":
-                            {
-                                "type": "string",
-                                "description": "The actual override message"
-                            },
-                            "options":
-                            {
-                                "type": "array",
-                                "description": "The usable options for the override",
-                                "items":
-                                {
-                                    "type": "string"
-                                }
-                            },
-                            "type":
-                            {
-                                "type": "string",
-                                "description": "The type of the override"
-                            }
-                        }
-                    }
-                }
+          },
+          "500" : {
+            "description" : "SystemArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
-        },
-        "ArrangementErrorResponse":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/ArrangementHeader"
-                },
-                "error":
-                {
-                    "$ref": "#/definitions/ArrangementErrorResponseBody"
-                },
-                "override":
-                {
-                    "$ref": "#/definitions/overrideBody"
-                }
-            },
-            "description": "ArrangementErrorResponse"
-        },
-        "ArrangementErrorResponseBody":
-        {
-            "type": "object",
-            "properties":
-            {
-                "errorDetails":
-                {
-                    "type": "array",
-                    "items":
-                    {
-                        "type": "object",
-                        "properties":
-                        {
-                            "fieldName":
-                            {
-                                "type": "string",
-                                "description": "The name of the field"
-                            },
-                            "code":
-                            {
-                                "type": "string",
-                                "description": "The identifier of the error message"
-                            },
-                            "message":
-                            {
-                                "type": "string",
-                                "description": "The actual t24 error message "
-                            },
-                            "property":
-                            {
-                                "type": "string",
-                                "description": "The corresponding property"
-                            }
-                        }
-                    }
-                },
-                "type":
-                {
-                    "type": "string",
-                    "description": "The identifier of error type: "
-                }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
+          }
         },
-        "BusinessArrangementErrorResponse":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/ArrangementHeader"
-                },
-                "error":
-                {
-                    "$ref": "#/definitions/BusinessArrangementErrorResponseBody"
-                },
-                "override":
-                {
-                    "$ref": "#/definitions/overrideBody"
-                }
-            },
-            "description": "BusinessArrangementErrorResponse"
-        },
-        "BusinessArrangementErrorResponseBody":
-        {
-            "type": "object",
-            "properties":
-            {
-                "errorDetails":
-                {
-                    "type": "array",
-                    "items":
-                    {
-                        "type": "object",
-                        "properties":
-                        {
-                            "fieldName":
-                            {
-                                "type": "string",
-                                "description": "The name of the field"
-                            },
-                            "code":
-                            {
-                                "type": "string",
-                                "description": "The identifier of the error message"
-                            },
-                            "message":
-                            {
-                                "type": "string",
-                                "description": "The actual t24 error message for bad requests"
-                            },
-                            "property":
-                            {
-                                "type": "string",
-                                "description": "The corresponding property"
-                            }
-                        }
-                    }
-                },
-                "type":
-                {
-                    "type": "string",
-                    "description": "The identifier of error type: Business"
-                }
-            }
-        },
-        "SystemArrangementErrorResponse":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/ArrangementHeader"
-                },
-                "error":
-                {
-                    "$ref": "#/definitions/SystemArrangementErrorResponseBody"
-                },
-                "override":
-                {
-                    "$ref": "#/definitions/overrideBody"
-                }
-            },
-            "description": "SystemArrangementErrorResponse"
-        },
-        "SystemArrangementErrorResponseBody":
-        {
-            "type": "object",
-            "properties":
-            {
-                "errorDetails":
-                {
-                    "type": "array",
-                    "items":
-                    {
-                        "type": "object",
-                        "properties":
-                        {
-                            "fieldName":
-                            {
-                                "type": "string",
-                                "description": "The name of the field"
-                            },
-                            "code":
-                            {
-                                "type": "string",
-                                "description": "The identifier of the error message"
-                            },
-                            "message":
-                            {
-                                "type": "string",
-                                "description": "The actual t24 error message caused by server"
-                            },
-                            "property":
-                            {
-                                "type": "string",
-                                "description": "The corresponding property"
-                            }
-                        }
-                    }
-                },
-                "type":
-                {
-                    "type": "string",
-                    "description": "The identifier of error type: System"
-                }
-            }
-        },
-        "PayloadHeader":
-        {
-            "properties":
-            {
-                "override":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "overrideDetails":
-                        {
-                            "type": "array",
-                            "items":
-                            {
-                                "type": "object",
-                                "properties":
-                                {
-                                    "id":
-                                    {
-                                        "type": "string",
-                                        "description": "The identifier of the override"
-                                    },
-                                    "description":
-                                    {
-                                        "type": "string",
-                                        "description": "The actual override message"
-                                    },
-                                    "responseCode":
-                                    {
-                                        "type": "string",
-                                        "description": "The user input to accept/reject the override."
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "audit":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "versionNumber":
-                        {
-                            "type": "string",
-                            "description": "The CURR.NO. of the record"
-                        }
-                    }
-                }
-            }
-        },
-        "Consent":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/PayloadHeader"
-                },
-                "body":
-                {
-                    "$ref": "#/definitions/ConsentBody"
-                }
-            },
-            "description": "Consent"
-        },
-        "ConsentBody":
-        {
-            "type": "object",
-            "properties":
-            {
-                "customers":
-                {
-                    "type": "array",
-                    "description": "Indicates role of a customer for an arrangement.",
-                    "items":
-                    {
-                        "type": "object",
-                        "properties":
-                        {
-                            "customer":
-                            {
-                                "type": "string",
-                                "description": "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
-                                "minLength": 0,
-                                "maxLength": 35
-                            },
-                            "customerRoles":
-                            {
-                                "type": "array",
-                                "items":
-                                {
-                                    "type": "object",
-                                    "properties":
-                                    {
-                                        "customerRole":
-                                        {
-                                            "type": "string",
-                                            "description": "Indicates role of a customer for an arrangement.",
-                                            "minLength": 0,
-                                            "maxLength": 35
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "arrangement":
-                {
-                    "type": "string",
-                    "description": "Unique identifier for the arrangement contract",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "product":
-                {
-                    "type": "string",
-                    "description": "Indicates an id or name of a product",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "arrangementEffectiveDate":
-                {
-                    "type": "string",
-                    "description": "It is a date on/upon which an account is considered to take effect",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "activity":
-                {
-                    "type": "string",
-                    "description": "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "reason":
-                {
-                    "type": "string",
-                    "description": "Contains the reason for performing the current activity",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "cdpConsent":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "consentTypes":
-                        {
-                            "type": "array",
-                            "description": "Indicates the consent sub type linked to corresponding consent type.",
-                            "items":
-                            {
-                                "type": "object",
-                                "properties":
-                                {
-                                    "consentType":
-                                    {
-                                        "type": "string",
-                                        "description": "Consent Type for which the consent is given",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "isConsentGiven":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "consentGivenDate":
-                                    {
-                                        "type": "string",
-                                        "format": "date",
-                                        "description": "Indicates the date on which the consent was given by a customer for a specific consent type."
-                                    },
-                                    "isConsentWithdrawn":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates if the consent given for the particular consent type is withdrawn.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "consentWithdrawDate":
-                                    {
-                                        "type": "string",
-                                        "format": "date",
-                                        "description": "Indicates the date on which the consent was withdrawn."
-                                    },
-                                    "consentTypeExpiryDate":
-                                    {
-                                        "type": "string",
-                                        "format": "date",
-                                        "description": "Indicates the expiry date of a consent type."
-                                    },
-                                    "consentBlock":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "blockNotes":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates the reason for which the consent is blocked.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "consentWithdrawNotes":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates the reason for which the consent is withdrawn.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "consentSubTypes":
-                                    {
-                                        "type": "array",
-                                        "items":
-                                        {
-                                            "type": "object",
-                                            "properties":
-                                            {
-                                                "consentSubType":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Indicates the consent sub type linked to corresponding consent type.",
-                                                    "minLength": 0,
-                                                    "maxLength": 35
-                                                },
-                                                "isSubTypeConsentGiven":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO",
-                                                    "minLength": 0,
-                                                    "maxLength": 35
-                                                },
-                                                "isSubTypeConsentWithdrawn":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not.",
-                                                    "minLength": 0,
-                                                    "maxLength": 35
-                                                },
-                                                "consentStWithdrawDate":
-                                                {
-                                                    "type": "string",
-                                                    "format": "date",
-                                                    "description": "Indicates the date on which a specific sub type of a consent type is withdrawn."
-                                                },
-                                                "consentStGivenDate":
-                                                {
-                                                    "type": "string",
-                                                    "format": "date",
-                                                    "description": "Indicates the date on which the consent was given by a customer for a specific consent sub type."
-                                                },
-                                                "consentStExpiryDate":
-                                                {
-                                                    "type": "string",
-                                                    "format": "date",
-                                                    "description": "Indicates the expiry date of a consent subtype."
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "expiryDate":
-                        {
-                            "type": "string",
-                            "description": "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
-                            "minLength": 0,
-                            "maxLength": 11
-                        }
-                    }
-                }
-            }
-        },
-        "ConsentResponse1":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/ArrangementHeader"
-                },
-                "body":
-                {
-                    "$ref": "#/definitions/ConsentResponse1Body"
-                }
-            },
-            "description": "ConsentResponse1"
-        },
-        "ConsentResponse1Body":
-        {
-            "type": "object",
-            "properties":
-            {
-                "arrangementActivity":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "customers":
-                        {
-                            "type": "array",
-                            "description": "Indicates role of a customer for an arrangement.",
-                            "items":
-                            {
-                                "type": "object",
-                                "properties":
-                                {
-                                    "customer":
-                                    {
-                                        "type": "string",
-                                        "description": "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "customerRoles":
-                                    {
-                                        "type": "array",
-                                        "items":
-                                        {
-                                            "type": "object",
-                                            "properties":
-                                            {
-                                                "customerRole":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Indicates role of a customer for an arrangement.",
-                                                    "minLength": 0,
-                                                    "maxLength": 35
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "arrangement":
-                        {
-                            "type": "string",
-                            "description": "Unique identifier for the arrangement contract",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "product":
-                        {
-                            "type": "string",
-                            "description": "Indicates an id or name of a product",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "arrangementEffectiveDate":
-                        {
-                            "type": "string",
-                            "description": "It is a date on/upon which an account is considered to take effect",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "activity":
-                        {
-                            "type": "string",
-                            "description": "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "reason":
-                        {
-                            "type": "string",
-                            "description": "Contains the reason for performing the current activity",
-                            "minLength": 0,
-                            "maxLength": 35
-                        }
-                    }
-                },
-                "activities":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "{activityName}":
-                        {
-                            "type": "object",
-                            "properties":
-                            {
-                                "activity":
-                                {
-                                    "type": "string"
-                                },
-                                "transactionStatus":
-                                {
-                                    "type": "string",
-                                    "description": "The status of the transaction"
-                                },
-                                "id":
-                                {
-                                    "type": "string",
-                                    "description": "The Identifier of the record created"
-                                }
-                            }
-                        }
-                    }
-                },
-                "properties":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "cdpConsent":
-                        {
-                            "type": "object",
-                            "properties":
-                            {
-                                "header":
-                                {
-                                    "type": "object",
-                                    "properties":
-                                    {
-                                        "transactionStatus":
-                                        {
-                                            "type": "string",
-                                            "description": "The status of the transaction"
-                                        },
-                                        "audit":
-                                        {
-                                            "type": "object",
-                                            "properties":
-                                            {
-                                                "T24_time":
-                                                {
-                                                    "type": "integer",
-                                                    "format": "int32",
-                                                    "description": "Time taken to response by T24"
-                                                },
-                                                "versionNumber":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Current number of the record"
-                                                },
-                                                "requestParse_time":
-                                                {
-                                                    "type": "number",
-                                                    "description": "Time taken to parse the request by IRIS"
-                                                },
-                                                "responseParse_time":
-                                                {
-                                                    "type": "number",
-                                                    "description": "Time taken to parse the response by IRIS"
-                                                }
-                                            }
-                                        },
-                                        "id":
-                                        {
-                                            "type": "string",
-                                            "description": "The Identifier of the record created"
-                                        },
-                                        "status":
-                                        {
-                                            "type": "string",
-                                            "description": "The status of the record"
-                                        }
-                                    }
-                                },
-                                "body":
-                                {
-                                    "type": "object",
-                                    "properties":
-                                    {
-                                        "consentTypes":
-                                        {
-                                            "type": "array",
-                                            "description": "Indicates the consent sub type linked to corresponding consent type.",
-                                            "items":
-                                            {
-                                                "type": "object",
-                                                "properties":
-                                                {
-                                                    "consentType":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Consent Type for which the consent is given",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "isConsentGiven":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "consentGivenDate":
-                                                    {
-                                                        "type": "string",
-                                                        "format": "date",
-                                                        "description": "Indicates the date on which the consent was given by a customer for a specific consent type."
-                                                    },
-                                                    "isConsentWithdrawn":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates if the consent given for the particular consent type is withdrawn.",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "consentWithdrawDate":
-                                                    {
-                                                        "type": "string",
-                                                        "format": "date",
-                                                        "description": "Indicates the date on which the consent was withdrawn."
-                                                    },
-                                                    "consentTypeExpiryDate":
-                                                    {
-                                                        "type": "string",
-                                                        "format": "date",
-                                                        "description": "Indicates the expiry date of a consent type."
-                                                    },
-                                                    "consentBlock":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked.",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "blockNotes":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates the reason for which the consent is blocked.",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "consentWithdrawNotes":
-                                                    {
-                                                        "type": "string",
-                                                        "description": "Indicates the reason for which the consent is withdrawn.",
-                                                        "minLength": 0,
-                                                        "maxLength": 35
-                                                    },
-                                                    "consentSubTypes":
-                                                    {
-                                                        "type": "array",
-                                                        "items":
-                                                        {
-                                                            "type": "object",
-                                                            "properties":
-                                                            {
-                                                                "consentSubType":
-                                                                {
-                                                                    "type": "string",
-                                                                    "description": "Indicates the consent sub type linked to corresponding consent type.",
-                                                                    "minLength": 0,
-                                                                    "maxLength": 35
-                                                                },
-                                                                "isSubTypeConsentGiven":
-                                                                {
-                                                                    "type": "string",
-                                                                    "description": "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO",
-                                                                    "minLength": 0,
-                                                                    "maxLength": 35
-                                                                },
-                                                                "isSubTypeConsentWithdrawn":
-                                                                {
-                                                                    "type": "string",
-                                                                    "description": "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not.",
-                                                                    "minLength": 0,
-                                                                    "maxLength": 35
-                                                                },
-                                                                "consentStWithdrawDate":
-                                                                {
-                                                                    "type": "string",
-                                                                    "format": "date",
-                                                                    "description": "Indicates the date on which a specific sub type of a consent type is withdrawn."
-                                                                },
-                                                                "consentStGivenDate":
-                                                                {
-                                                                    "type": "string",
-                                                                    "format": "date",
-                                                                    "description": "Indicates the date on which the consent was given by a customer for a specific consent sub type."
-                                                                },
-                                                                "consentStExpiryDate":
-                                                                {
-                                                                    "type": "string",
-                                                                    "format": "date",
-                                                                    "description": "Indicates the expiry date of a consent subtype."
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        },
-                                        "expiryDate":
-                                        {
-                                            "type": "string",
-                                            "description": "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
-                                            "minLength": 0,
-                                            "maxLength": 11
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "QueryHeader":
-        {
-            "properties":
-            {
-                "audit":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "T24_time":
-                        {
-                            "type": "integer",
-                            "format": "int32",
-                            "description": "Time taken to response by T24"
-                        },
-                        "versionNumber":
-                        {
-                            "type": "string",
-                            "description": "The CURR.NO. of the record"
-                        },
-                        "requestParse_time":
-                        {
-                            "type": "number",
-                            "description": "Time taken to parse the request by IRIS"
-                        },
-                        "responseParse_time":
-                        {
-                            "type": "number",
-                            "description": "Time taken to parse the response by IRIS"
-                        }
-                    }
-                },
-                "page_size":
-                {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "The total number of records per page"
-                },
-                "page_start":
-                {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "The record from which the response should be displayed"
-                },
-                "total_size":
-                {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "The total number of records present"
-                },
-                "page_token":
-                {
-                    "type": "string",
-                    "description": "Unique id expected to get as part of response from t24 on every enquiry request"
-                }
-            }
-        },
-        "ConsentResponse2":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/QueryHeader"
-                },
-                "body":
-                {
-                    "$ref": "#/definitions/ConsentResponse2Body"
-                }
-            },
-            "description": "ConsentResponse2"
-        },
-        "ConsentResponse2Body":
-        {
-            "type": "array",
-            "items":
-            {
-                "type": "object",
-                "properties":
-                {
-                    "consentTypes":
-                    {
-                        "type": "array",
-                        "description": "Indicates the consent sub type linked to corresponding consent type.",
-                        "items":
-                        {
-                            "type": "object",
-                            "properties":
-                            {
-                                "consentType":
-                                {
-                                    "type": "string",
-                                    "description": "Consent Type for which the consent is given"
-                                },
-                                "isConsentGiven":
-                                {
-                                    "type": "string",
-                                    "description": "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO"
-                                },
-                                "consentGivenDate":
-                                {
-                                    "type": "string",
-                                    "format": "date",
-                                    "description": "Indicates the date on which the consent was given by a customer for a specific consent type."
-                                },
-                                "consentTypeExpiryDate":
-                                {
-                                    "type": "string",
-                                    "format": "date",
-                                    "description": "Indicates the expiry date of a consent type."
-                                },
-                                "consentBlock":
-                                {
-                                    "type": "string",
-                                    "description": "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked."
-                                },
-                                "blockNotes":
-                                {
-                                    "type": "string",
-                                    "description": "Indicates the reason for which the consent is blocked."
-                                },
-                                "isConsentWithdrawn":
-                                {
-                                    "type": "string",
-                                    "description": "Indicates if the consent given for the particular consent type is withdrawn."
-                                },
-                                "consentWithdrawNotes":
-                                {
-                                    "type": "string",
-                                    "description": "Indicates the reason for which the consent is withdrawn."
-                                },
-                                "consentSubTypes":
-                                {
-                                    "type": "array",
-                                    "items":
-                                    {
-                                        "type": "object",
-                                        "properties":
-                                        {
-                                            "consentSubType":
-                                            {
-                                                "type": "string",
-                                                "description": "Indicates the consent sub type linked to corresponding consent type."
-                                            },
-                                            "isSubTypeConsentGiven":
-                                            {
-                                                "type": "string",
-                                                "description": "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO"
-                                            },
-                                            "consentStGivenDate":
-                                            {
-                                                "type": "string",
-                                                "format": "date",
-                                                "description": "Indicates the date on which the consent was given by a customer for a specific consent sub type."
-                                            },
-                                            "consentStExpiryDate":
-                                            {
-                                                "type": "string",
-                                                "format": "date",
-                                                "description": "Indicates the expiry date of a consent subtype."
-                                            },
-                                            "isSubTypeConsentWithdrawn":
-                                            {
-                                                "type": "string",
-                                                "description": "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not."
-                                            },
-                                            "consentStWithdrawDate":
-                                            {
-                                                "type": "string",
-                                                "format": "date",
-                                                "description": "Indicates the date on which a specific sub type of a consent type is withdrawn."
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "consentId":
-                    {
-                        "type": "string",
-                        "description": "Identifier of the corresponding consent object as retrieved by an account Information consent Request.",
-                        "maxLength": 35
-                    },
-                    "customerId":
-                    {
-                        "type": "string",
-                        "description": "Identifier of the customer",
-                        "maxLength": 35
-                    },
-                    "arrangementEffectiveDate":
-                    {
-                        "type": "string",
-                        "format": "date",
-                        "description": "It is a date on/upon which an account is considered to take effect"
-                    },
-                    "productId":
-                    {
-                        "type": "string",
-                        "description": "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
-                    },
-                    "activity":
-                    {
-                        "type": "string",
-                        "description": "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
-                    },
-                    "customerRole":
-                    {
-                        "type": "string",
-                        "description": "Indicates role of a customer for an arrangement."
-                    },
-                    "arrangementStatus":
-                    {
-                        "type": "string",
-                        "description": "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc."
-                    },
-                    "expiryDate":
-                    {
-                        "type": "string",
-                        "format": "date",
-                        "description": "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
-                    }
-                }
-            }
-        },
-        "ErrorHeader":
-        {
-            "properties":
-            {
-                "audit":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "T24_time":
-                        {
-                            "type": "integer",
-                            "format": "int32",
-                            "description": "Time taken to response by T24"
-                        },
-                        "versionNumber":
-                        {
-                            "type": "string",
-                            "description": "The CURR.NO. of the record"
-                        },
-                        "requestParse_time":
-                        {
-                            "type": "number",
-                            "description": "Time taken to parse the request by IRIS"
-                        },
-                        "responseParse_time":
-                        {
-                            "type": "number",
-                            "description": "Time taken to parse the response by IRIS"
-                        }
-                    }
-                }
-            }
-        },
-        "QueryErrorResponse":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/ErrorHeader"
-                },
-                "error":
-                {
-                    "$ref": "#/definitions/QueryErrorResponseBody"
-                }
-            },
-            "description": "QueryErrorResponse"
-        },
-        "QueryErrorResponseBody":
-        {
-            "type": "object",
-            "properties":
-            {
-                "code":
-                {
-                    "type": "string",
-                    "description": "The identifier of the error message"
-                },
-                "message":
-                {
-                    "type": "string",
-                    "description": "The actual t24 error message "
-                },
-                "type":
-                {
-                    "type": "string",
-                    "description": "The identifier of error type: "
-                }
-            }
-        },
-        "BusinessQueryErrorResponse":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/ErrorHeader"
-                },
-                "error":
-                {
-                    "$ref": "#/definitions/BusinessQueryErrorResponseBody"
-                }
-            },
-            "description": "BusinessQueryErrorResponse"
-        },
-        "BusinessQueryErrorResponseBody":
-        {
-            "type": "object",
-            "properties":
-            {
-                "code":
-                {
-                    "type": "string",
-                    "description": "The identifier of the error message"
-                },
-                "message":
-                {
-                    "type": "string",
-                    "description": "The actual t24 error message for bad requests"
-                },
-                "type":
-                {
-                    "type": "string",
-                    "description": "The identifier of error type: Business"
-                }
-            }
-        },
-        "SystemQueryErrorResponse":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/ErrorHeader"
-                },
-                "error":
-                {
-                    "$ref": "#/definitions/SystemQueryErrorResponseBody"
-                }
-            },
-            "description": "SystemQueryErrorResponse"
-        },
-        "SystemQueryErrorResponseBody":
-        {
-            "type": "object",
-            "properties":
-            {
-                "code":
-                {
-                    "type": "string",
-                    "description": "The identifier of the error message"
-                },
-                "message":
-                {
-                    "type": "string",
-                    "description": "The actual t24 error message caused by server"
-                },
-                "type":
-                {
-                    "type": "string",
-                    "description": "The identifier of error type: System"
-                }
-            }
-        },
-        "Consent1":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/PayloadHeader"
-                },
-                "body":
-                {
-                    "$ref": "#/definitions/Consent1Body"
-                }
-            },
-            "description": "Consent1"
-        },
-        "Consent1Body":
-        {
-            "type": "object",
-            "properties":
-            {
-                "customers":
-                {
-                    "type": "array",
-                    "description": "Indicates role of a customer for an arrangement.",
-                    "items":
-                    {
-                        "type": "object",
-                        "properties":
-                        {
-                            "customer":
-                            {
-                                "type": "string",
-                                "description": "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
-                                "minLength": 0,
-                                "maxLength": 35
-                            },
-                            "customerRoles":
-                            {
-                                "type": "array",
-                                "items":
-                                {
-                                    "type": "object",
-                                    "properties":
-                                    {
-                                        "customerRole":
-                                        {
-                                            "type": "string",
-                                            "description": "Indicates role of a customer for an arrangement.",
-                                            "minLength": 0,
-                                            "maxLength": 35
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "arrangement":
-                {
-                    "type": "string",
-                    "description": "Unique identifier for the arrangement contract",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "product":
-                {
-                    "type": "string",
-                    "description": "Indicates an id or name of a product",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "arrangementEffectiveDate":
-                {
-                    "type": "string",
-                    "description": "It is a date on/upon which an account is considered to take effect",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "activity":
-                {
-                    "type": "string",
-                    "description": "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "reason":
-                {
-                    "type": "string",
-                    "description": "Contains the reason for performing the current activity",
-                    "minLength": 0,
-                    "maxLength": 35
-                }
-            }
-        },
-        "ConsentResponse3":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/ArrangementHeader"
-                },
-                "body":
-                {
-                    "$ref": "#/definitions/ConsentResponse3Body"
-                }
-            },
-            "description": "ConsentResponse3"
-        },
-        "ConsentResponse3Body":
-        {
-            "type": "object",
-            "properties":
-            {
-                "arrangementActivity":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "customers":
-                        {
-                            "type": "array",
-                            "description": "Indicates role of a customer for an arrangement.",
-                            "items":
-                            {
-                                "type": "object",
-                                "properties":
-                                {
-                                    "customer":
-                                    {
-                                        "type": "string",
-                                        "description": "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "customerRoles":
-                                    {
-                                        "type": "array",
-                                        "items":
-                                        {
-                                            "type": "object",
-                                            "properties":
-                                            {
-                                                "customerRole":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Indicates role of a customer for an arrangement.",
-                                                    "minLength": 0,
-                                                    "maxLength": 35
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "arrangement":
-                        {
-                            "type": "string",
-                            "description": "Unique identifier for the arrangement contract",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "product":
-                        {
-                            "type": "string",
-                            "description": "Indicates an id or name of a product",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "arrangementEffectiveDate":
-                        {
-                            "type": "string",
-                            "description": "It is a date on/upon which an account is considered to take effect",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "activity":
-                        {
-                            "type": "string",
-                            "description": "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
-                            "minLength": 0,
-                            "maxLength": 35
-                        },
-                        "reason":
-                        {
-                            "type": "string",
-                            "description": "Contains the reason for performing the current activity",
-                            "minLength": 0,
-                            "maxLength": 35
-                        }
-                    }
-                },
-                "activities":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "{activityName}":
-                        {
-                            "type": "object",
-                            "properties":
-                            {
-                                "activity":
-                                {
-                                    "type": "string"
-                                },
-                                "transactionStatus":
-                                {
-                                    "type": "string",
-                                    "description": "The status of the transaction"
-                                },
-                                "id":
-                                {
-                                    "type": "string",
-                                    "description": "The Identifier of the record created"
-                                }
-                            }
-                        }
-                    }
-                },
-                "properties":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                    }
-                }
-            }
-        },
-        "Consent2":
-        {
-            "properties":
-            {
-                "header":
-                {
-                    "$ref": "#/definitions/PayloadHeader"
-                },
-                "body":
-                {
-                    "$ref": "#/definitions/Consent2Body"
-                }
-            },
-            "description": "Consent2"
-        },
-        "Consent2Body":
-        {
-            "type": "object",
-            "properties":
-            {
-                "customers":
-                {
-                    "type": "array",
-                    "description": "Indicates role of a customer for an arrangement.",
-                    "items":
-                    {
-                        "type": "object",
-                        "properties":
-                        {
-                            "customer":
-                            {
-                                "type": "string",
-                                "description": "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
-                                "minLength": 0,
-                                "maxLength": 35
-                            },
-                            "customerRoles":
-                            {
-                                "type": "array",
-                                "items":
-                                {
-                                    "type": "object",
-                                    "properties":
-                                    {
-                                        "customerRole":
-                                        {
-                                            "type": "string",
-                                            "description": "Indicates role of a customer for an arrangement.",
-                                            "minLength": 0,
-                                            "maxLength": 35
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "arrangement":
-                {
-                    "type": "string",
-                    "description": "Unique identifier for the arrangement contract",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "product":
-                {
-                    "type": "string",
-                    "description": "Indicates an id or name of a product",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "arrangementEffectiveDate":
-                {
-                    "type": "string",
-                    "description": "It is a date on/upon which an account is considered to take effect",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "activity":
-                {
-                    "type": "string",
-                    "description": "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "reason":
-                {
-                    "type": "string",
-                    "description": "Contains the reason for performing the current activity",
-                    "minLength": 0,
-                    "maxLength": 35
-                },
-                "cdpConsent":
-                {
-                    "type": "object",
-                    "properties":
-                    {
-                        "consentTypes":
-                        {
-                            "type": "array",
-                            "description": "Indicates the consent sub type linked to corresponding consent type.",
-                            "items":
-                            {
-                                "type": "object",
-                                "properties":
-                                {
-                                    "consentType":
-                                    {
-                                        "type": "string",
-                                        "description": "Consent Type for which the consent is given",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "isConsentGiven":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "consentGivenDate":
-                                    {
-                                        "type": "string",
-                                        "format": "date",
-                                        "description": "Indicates the date on which the consent was given by a customer for a specific consent type."
-                                    },
-                                    "isConsentWithdrawn":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates if the consent given for the particular consent type is withdrawn.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "consentWithdrawDate":
-                                    {
-                                        "type": "string",
-                                        "format": "date",
-                                        "description": "Indicates the date on which the consent was withdrawn."
-                                    },
-                                    "consentTypeExpiryDate":
-                                    {
-                                        "type": "string",
-                                        "format": "date",
-                                        "description": "Indicates the expiry date of a consent type."
-                                    },
-                                    "consentBlock":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "blockNotes":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates the reason for which the consent is blocked.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "consentWithdrawNotes":
-                                    {
-                                        "type": "string",
-                                        "description": "Indicates the reason for which the consent is withdrawn.",
-                                        "minLength": 0,
-                                        "maxLength": 35
-                                    },
-                                    "consentSubTypes":
-                                    {
-                                        "type": "array",
-                                        "items":
-                                        {
-                                            "type": "object",
-                                            "properties":
-                                            {
-                                                "consentSubType":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Indicates the consent sub type linked to corresponding consent type.",
-                                                    "minLength": 0,
-                                                    "maxLength": 35
-                                                },
-                                                "isSubTypeConsentGiven":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO",
-                                                    "minLength": 0,
-                                                    "maxLength": 35
-                                                },
-                                                "isSubTypeConsentWithdrawn":
-                                                {
-                                                    "type": "string",
-                                                    "description": "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not.",
-                                                    "minLength": 0,
-                                                    "maxLength": 35
-                                                },
-                                                "consentStWithdrawDate":
-                                                {
-                                                    "type": "string",
-                                                    "format": "date",
-                                                    "description": "Indicates the date on which a specific sub type of a consent type is withdrawn."
-                                                },
-                                                "consentStGivenDate":
-                                                {
-                                                    "type": "string",
-                                                    "format": "date",
-                                                    "description": "Indicates the date on which the consent was given by a customer for a specific consent sub type."
-                                                },
-                                                "consentStExpiryDate":
-                                                {
-                                                    "type": "string",
-                                                    "format": "date",
-                                                    "description": "Indicates the expiry date of a consent subtype."
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "expiryDate":
-                        {
-                            "type": "string",
-                            "description": "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
-                            "minLength": 0,
-                            "maxLength": 11
-                        }
-                    }
-                }
-            }
-        }
+        "deprecated" : true
+      }
     }
+  },
+  "securityDefinitions" : {
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
+    }
+  },
+  "definitions" : {
+    "ArrangementHeader" : {
+      "properties" : {
+        "transactionStatus" : {
+          "type" : "string",
+          "description" : "The status of the transaction"
+        },
+        "aaaId" : {
+          "type" : "string",
+          "description" : "The Identifier of the aa record created"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "The Identifier of the record created"
+        },
+        "status" : {
+          "type" : "string",
+          "description" : "The status of the record"
+        },
+        "uniqueIdentifier" : {
+          "type" : "string",
+          "description" : "The unique identifier/Message Reference of the record created."
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "ConsentResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ArrangementHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ConsentResponseBody"
+        }
+      },
+      "description" : "ConsentResponse"
+    },
+    "ConsentResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "arrangementActivity" : {
+          "type" : "object",
+          "properties" : {
+            "customers" : {
+              "type" : "array",
+              "description" : "Indicates role of a customer for an arrangement.",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "customer" : {
+                    "type" : "string",
+                    "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "customerRoles" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "customerRole" : {
+                          "type" : "string",
+                          "description" : "Indicates role of a customer for an arrangement.",
+                          "minLength" : 0,
+                          "maxLength" : 35
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "arrangement" : {
+              "type" : "string",
+              "description" : "Unique identifier for the arrangement contract",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "product" : {
+              "type" : "string",
+              "description" : "Indicates an id or name of a product",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "arrangementEffectiveDate" : {
+              "type" : "string",
+              "description" : "It is a date on/upon which an account is considered to take effect",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "activity" : {
+              "type" : "string",
+              "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "reason" : {
+              "type" : "string",
+              "description" : "Contains the reason for performing the current activity",
+              "minLength" : 0,
+              "maxLength" : 35
+            }
+          }
+        },
+        "activities" : {
+          "type" : "object",
+          "properties" : {
+            "{activityName}" : {
+              "type" : "object",
+              "properties" : {
+                "activity" : {
+                  "type" : "string"
+                },
+                "transactionStatus" : {
+                  "type" : "string",
+                  "description" : "The status of the transaction"
+                },
+                "id" : {
+                  "type" : "string",
+                  "description" : "The Identifier of the record created"
+                }
+              }
+            }
+          }
+        },
+        "properties" : {
+          "type" : "object",
+          "properties" : {
+            "customer" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string"
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string"
+                    }
+                  }
+                }
+              }
+            },
+            "officers" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string"
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "status" : {
+                      "type" : "string"
+                    }
+                  }
+                }
+              }
+            },
+            "cdpConsent" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "The status of the transaction"
+                    },
+                    "audit" : {
+                      "type" : "object",
+                      "properties" : {
+                        "T24_time" : {
+                          "type" : "integer",
+                          "format" : "int32",
+                          "description" : "Time taken to response by T24"
+                        },
+                        "versionNumber" : {
+                          "type" : "string",
+                          "description" : "Current number of the record"
+                        },
+                        "requestParse_time" : {
+                          "type" : "number",
+                          "description" : "Time taken to parse the request by IRIS"
+                        },
+                        "responseParse_time" : {
+                          "type" : "number",
+                          "description" : "Time taken to parse the response by IRIS"
+                        }
+                      }
+                    },
+                    "id" : {
+                      "type" : "string",
+                      "description" : "The Identifier of the record created"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "The status of the record"
+                    }
+                  }
+                },
+                "body" : {
+                  "type" : "object",
+                  "properties" : {
+                    "consentTypes" : {
+                      "type" : "array",
+                      "description" : "Indicates the consent sub type linked to corresponding consent type.",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "consentType" : {
+                            "type" : "string",
+                            "description" : "Consent Type for which the consent is given",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "isConsentGiven" : {
+                            "type" : "string",
+                            "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "consentGivenDate" : {
+                            "type" : "string",
+                            "format" : "date",
+                            "description" : "Indicates the date on which the consent was given by a customer for a specific consent type."
+                          },
+                          "isConsentWithdrawn" : {
+                            "type" : "string",
+                            "description" : "Indicates if the consent given for the particular consent type is withdrawn.",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "consentWithdrawDate" : {
+                            "type" : "string",
+                            "format" : "date",
+                            "description" : "Indicates the date on which the consent was withdrawn."
+                          },
+                          "consentTypeExpiryDate" : {
+                            "type" : "string",
+                            "format" : "date",
+                            "description" : "Indicates the expiry date of a consent type."
+                          },
+                          "consentBlock" : {
+                            "type" : "string",
+                            "description" : "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked.",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "blockNotes" : {
+                            "type" : "string",
+                            "description" : "Indicates the reason for which the consent is blocked.",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "consentWithdrawNotes" : {
+                            "type" : "string",
+                            "description" : "Indicates the reason for which the consent is withdrawn.",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "consentSubTypes" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "object",
+                              "properties" : {
+                                "consentSubType" : {
+                                  "type" : "string",
+                                  "description" : "Indicates the consent sub type linked to corresponding consent type.",
+                                  "minLength" : 0,
+                                  "maxLength" : 35
+                                },
+                                "isSubTypeConsentGiven" : {
+                                  "type" : "string",
+                                  "description" : "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO",
+                                  "minLength" : 0,
+                                  "maxLength" : 35
+                                },
+                                "isSubTypeConsentWithdrawn" : {
+                                  "type" : "string",
+                                  "description" : "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not.",
+                                  "minLength" : 0,
+                                  "maxLength" : 35
+                                },
+                                "consentStWithdrawDate" : {
+                                  "type" : "string",
+                                  "format" : "date",
+                                  "description" : "Indicates the date on which a specific sub type of a consent type is withdrawn."
+                                },
+                                "consentStGivenDate" : {
+                                  "type" : "string",
+                                  "format" : "date",
+                                  "description" : "Indicates the date on which the consent was given by a customer for a specific consent sub type."
+                                },
+                                "consentStExpiryDate" : {
+                                  "type" : "string",
+                                  "format" : "date",
+                                  "description" : "Indicates the expiry date of a consent subtype."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "expiryDate" : {
+                      "type" : "string",
+                      "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
+                      "minLength" : 0,
+                      "maxLength" : 11
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "overrideBody" : {
+      "properties" : {
+        "overrideDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "id" : {
+                "type" : "string",
+                "description" : "The identifier of the override"
+              },
+              "description" : {
+                "type" : "string",
+                "description" : "The actual override message"
+              },
+              "options" : {
+                "type" : "array",
+                "description" : "The usable options for the override",
+                "items" : {
+                  "type" : "string"
+                }
+              },
+              "type" : {
+                "type" : "string",
+                "description" : "The type of the override"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ArrangementErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ArrangementHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/ArrangementErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "ArrangementErrorResponse"
+    },
+    "ArrangementErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message "
+              },
+              "property" : {
+                "type" : "string",
+                "description" : "The corresponding property"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessArrangementErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ArrangementHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessArrangementErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "BusinessArrangementErrorResponse"
+    },
+    "BusinessArrangementErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message for bad requests"
+              },
+              "property" : {
+                "type" : "string",
+                "description" : "The corresponding property"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemArrangementErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ArrangementHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemArrangementErrorResponseBody"
+        },
+        "override" : {
+          "$ref" : "#/definitions/overrideBody"
+        }
+      },
+      "description" : "SystemArrangementErrorResponse"
+    },
+    "SystemArrangementErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "errorDetails" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "fieldName" : {
+                "type" : "string",
+                "description" : "The name of the field"
+              },
+              "code" : {
+                "type" : "string",
+                "description" : "The identifier of the error message"
+              },
+              "message" : {
+                "type" : "string",
+                "description" : "The actual t24 error message caused by server"
+              },
+              "property" : {
+                "type" : "string",
+                "description" : "The corresponding property"
+              }
+            }
+          }
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "PayloadHeader" : {
+      "properties" : {
+        "override" : {
+          "type" : "object",
+          "properties" : {
+            "overrideDetails" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "id" : {
+                    "type" : "string",
+                    "description" : "The identifier of the override"
+                  },
+                  "description" : {
+                    "type" : "string",
+                    "description" : "The actual override message"
+                  },
+                  "responseCode" : {
+                    "type" : "string",
+                    "description" : "The user input to accept/reject the override."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            }
+          }
+        }
+      }
+    },
+    "Consent" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ConsentBody"
+        }
+      },
+      "description" : "Consent",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "arrangement" : "NEW",
+          "reason" : "string",
+          "product" : "PSD2.CONSENT",
+          "activity" : "string",
+          "customers" : [ {
+            "customerRoles" : [ {
+              "customerRole" : "string"
+            } ],
+            "customer" : "string"
+          } ],
+          "arrangementEffectiveDate" : "string",
+          "cdpConsent" : {
+            "expiryDate" : "string",
+            "consentTypes" : [ {
+              "consentSubTypes" : [ {
+                "isSubTypeConsentGiven" : "string",
+                "consentStWithdrawDate" : "2015-07-20",
+                "consentStGivenDate" : "2015-07-20",
+                "consentSubType" : "string",
+                "isSubTypeConsentWithdrawn" : "string",
+                "consentStExpiryDate" : "2015-07-20"
+              } ],
+              "isConsentGiven" : "string",
+              "consentGivenDate" : "2015-07-20",
+              "consentWithdrawDate" : "2015-07-20",
+              "consentBlock" : "string",
+              "consentType" : "string",
+              "isConsentWithdrawn" : "string",
+              "blockNotes" : "string",
+              "consentWithdrawNotes" : "string",
+              "consentTypeExpiryDate" : "2015-07-20"
+            } ]
+          }
+        }
+      }
+    },
+    "ConsentBody" : {
+      "type" : "object",
+      "properties" : {
+        "customers" : {
+          "type" : "array",
+          "description" : "Indicates role of a customer for an arrangement.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "customer" : {
+                "type" : "string",
+                "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
+                "minLength" : 0,
+                "maxLength" : 35
+              },
+              "customerRoles" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "customerRole" : {
+                      "type" : "string",
+                      "description" : "Indicates role of a customer for an arrangement.",
+                      "minLength" : 0,
+                      "maxLength" : 35
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "arrangement" : {
+          "type" : "string",
+          "description" : "Unique identifier for the arrangement contract",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "product" : {
+          "type" : "string",
+          "description" : "Indicates an id or name of a product",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "arrangementEffectiveDate" : {
+          "type" : "string",
+          "description" : "It is a date on/upon which an account is considered to take effect",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "activity" : {
+          "type" : "string",
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "reason" : {
+          "type" : "string",
+          "description" : "Contains the reason for performing the current activity",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "cdpConsent" : {
+          "type" : "object",
+          "properties" : {
+            "consentTypes" : {
+              "type" : "array",
+              "description" : "Indicates the consent sub type linked to corresponding consent type.",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "consentType" : {
+                    "type" : "string",
+                    "description" : "Consent Type for which the consent is given",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "isConsentGiven" : {
+                    "type" : "string",
+                    "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "consentGivenDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Indicates the date on which the consent was given by a customer for a specific consent type."
+                  },
+                  "isConsentWithdrawn" : {
+                    "type" : "string",
+                    "description" : "Indicates if the consent given for the particular consent type is withdrawn.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "consentWithdrawDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Indicates the date on which the consent was withdrawn."
+                  },
+                  "consentTypeExpiryDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Indicates the expiry date of a consent type."
+                  },
+                  "consentBlock" : {
+                    "type" : "string",
+                    "description" : "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "blockNotes" : {
+                    "type" : "string",
+                    "description" : "Indicates the reason for which the consent is blocked.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "consentWithdrawNotes" : {
+                    "type" : "string",
+                    "description" : "Indicates the reason for which the consent is withdrawn.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "consentSubTypes" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "consentSubType" : {
+                          "type" : "string",
+                          "description" : "Indicates the consent sub type linked to corresponding consent type.",
+                          "minLength" : 0,
+                          "maxLength" : 35
+                        },
+                        "isSubTypeConsentGiven" : {
+                          "type" : "string",
+                          "description" : "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO",
+                          "minLength" : 0,
+                          "maxLength" : 35
+                        },
+                        "isSubTypeConsentWithdrawn" : {
+                          "type" : "string",
+                          "description" : "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not.",
+                          "minLength" : 0,
+                          "maxLength" : 35
+                        },
+                        "consentStWithdrawDate" : {
+                          "type" : "string",
+                          "format" : "date",
+                          "description" : "Indicates the date on which a specific sub type of a consent type is withdrawn."
+                        },
+                        "consentStGivenDate" : {
+                          "type" : "string",
+                          "format" : "date",
+                          "description" : "Indicates the date on which the consent was given by a customer for a specific consent sub type."
+                        },
+                        "consentStExpiryDate" : {
+                          "type" : "string",
+                          "format" : "date",
+                          "description" : "Indicates the expiry date of a consent subtype."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "expiryDate" : {
+              "type" : "string",
+              "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
+              "minLength" : 0,
+              "maxLength" : 11
+            }
+          }
+        }
+      }
+    },
+    "ConsentResponse1" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ArrangementHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ConsentResponse1Body"
+        }
+      },
+      "description" : "ConsentResponse1"
+    },
+    "ConsentResponse1Body" : {
+      "type" : "object",
+      "properties" : {
+        "arrangementActivity" : {
+          "type" : "object",
+          "properties" : {
+            "customers" : {
+              "type" : "array",
+              "description" : "Indicates role of a customer for an arrangement.",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "customer" : {
+                    "type" : "string",
+                    "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "customerRoles" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "customerRole" : {
+                          "type" : "string",
+                          "description" : "Indicates role of a customer for an arrangement.",
+                          "minLength" : 0,
+                          "maxLength" : 35
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "arrangement" : {
+              "type" : "string",
+              "description" : "Unique identifier for the arrangement contract",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "product" : {
+              "type" : "string",
+              "description" : "Indicates an id or name of a product",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "arrangementEffectiveDate" : {
+              "type" : "string",
+              "description" : "It is a date on/upon which an account is considered to take effect",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "activity" : {
+              "type" : "string",
+              "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "reason" : {
+              "type" : "string",
+              "description" : "Contains the reason for performing the current activity",
+              "minLength" : 0,
+              "maxLength" : 35
+            }
+          }
+        },
+        "activities" : {
+          "type" : "object",
+          "properties" : {
+            "{activityName}" : {
+              "type" : "object",
+              "properties" : {
+                "activity" : {
+                  "type" : "string"
+                },
+                "transactionStatus" : {
+                  "type" : "string",
+                  "description" : "The status of the transaction"
+                },
+                "id" : {
+                  "type" : "string",
+                  "description" : "The Identifier of the record created"
+                }
+              }
+            }
+          }
+        },
+        "properties" : {
+          "type" : "object",
+          "properties" : {
+            "cdpConsent" : {
+              "type" : "object",
+              "properties" : {
+                "header" : {
+                  "type" : "object",
+                  "properties" : {
+                    "transactionStatus" : {
+                      "type" : "string",
+                      "description" : "The status of the transaction"
+                    },
+                    "audit" : {
+                      "type" : "object",
+                      "properties" : {
+                        "T24_time" : {
+                          "type" : "integer",
+                          "format" : "int32",
+                          "description" : "Time taken to response by T24"
+                        },
+                        "versionNumber" : {
+                          "type" : "string",
+                          "description" : "Current number of the record"
+                        },
+                        "requestParse_time" : {
+                          "type" : "number",
+                          "description" : "Time taken to parse the request by IRIS"
+                        },
+                        "responseParse_time" : {
+                          "type" : "number",
+                          "description" : "Time taken to parse the response by IRIS"
+                        }
+                      }
+                    },
+                    "id" : {
+                      "type" : "string",
+                      "description" : "The Identifier of the record created"
+                    },
+                    "status" : {
+                      "type" : "string",
+                      "description" : "The status of the record"
+                    }
+                  }
+                },
+                "body" : {
+                  "type" : "object",
+                  "properties" : {
+                    "consentTypes" : {
+                      "type" : "array",
+                      "description" : "Indicates the consent sub type linked to corresponding consent type.",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "consentType" : {
+                            "type" : "string",
+                            "description" : "Consent Type for which the consent is given",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "isConsentGiven" : {
+                            "type" : "string",
+                            "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "consentGivenDate" : {
+                            "type" : "string",
+                            "format" : "date",
+                            "description" : "Indicates the date on which the consent was given by a customer for a specific consent type."
+                          },
+                          "isConsentWithdrawn" : {
+                            "type" : "string",
+                            "description" : "Indicates if the consent given for the particular consent type is withdrawn.",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "consentWithdrawDate" : {
+                            "type" : "string",
+                            "format" : "date",
+                            "description" : "Indicates the date on which the consent was withdrawn."
+                          },
+                          "consentTypeExpiryDate" : {
+                            "type" : "string",
+                            "format" : "date",
+                            "description" : "Indicates the expiry date of a consent type."
+                          },
+                          "consentBlock" : {
+                            "type" : "string",
+                            "description" : "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked.",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "blockNotes" : {
+                            "type" : "string",
+                            "description" : "Indicates the reason for which the consent is blocked.",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "consentWithdrawNotes" : {
+                            "type" : "string",
+                            "description" : "Indicates the reason for which the consent is withdrawn.",
+                            "minLength" : 0,
+                            "maxLength" : 35
+                          },
+                          "consentSubTypes" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "object",
+                              "properties" : {
+                                "consentSubType" : {
+                                  "type" : "string",
+                                  "description" : "Indicates the consent sub type linked to corresponding consent type.",
+                                  "minLength" : 0,
+                                  "maxLength" : 35
+                                },
+                                "isSubTypeConsentGiven" : {
+                                  "type" : "string",
+                                  "description" : "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO",
+                                  "minLength" : 0,
+                                  "maxLength" : 35
+                                },
+                                "isSubTypeConsentWithdrawn" : {
+                                  "type" : "string",
+                                  "description" : "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not.",
+                                  "minLength" : 0,
+                                  "maxLength" : 35
+                                },
+                                "consentStWithdrawDate" : {
+                                  "type" : "string",
+                                  "format" : "date",
+                                  "description" : "Indicates the date on which a specific sub type of a consent type is withdrawn."
+                                },
+                                "consentStGivenDate" : {
+                                  "type" : "string",
+                                  "format" : "date",
+                                  "description" : "Indicates the date on which the consent was given by a customer for a specific consent sub type."
+                                },
+                                "consentStExpiryDate" : {
+                                  "type" : "string",
+                                  "format" : "date",
+                                  "description" : "Indicates the expiry date of a consent subtype."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "expiryDate" : {
+                      "type" : "string",
+                      "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
+                      "minLength" : 0,
+                      "maxLength" : 11
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "QueryHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        },
+        "page_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records per page"
+        },
+        "page_start" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The record from which the response should be displayed"
+        },
+        "total_size" : {
+          "type" : "integer",
+          "format" : "int32",
+          "description" : "The total number of records present"
+        },
+        "page_token" : {
+          "type" : "string",
+          "description" : "Unique id expected to get as part of response from t24 on every enquiry request"
+        }
+      }
+    },
+    "ConsentResponse2" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ConsentResponse2Body"
+        }
+      },
+      "description" : "ConsentResponse2"
+    },
+    "ConsentResponse2Body" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "consentTypes" : {
+            "type" : "array",
+            "description" : "Indicates the consent sub type linked to corresponding consent type.",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "consentType" : {
+                  "type" : "string",
+                  "description" : "Consent Type for which the consent is given"
+                },
+                "isConsentGiven" : {
+                  "type" : "string",
+                  "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO"
+                },
+                "consentGivenDate" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "Indicates the date on which the consent was given by a customer for a specific consent type."
+                },
+                "consentTypeExpiryDate" : {
+                  "type" : "string",
+                  "format" : "date",
+                  "description" : "Indicates the expiry date of a consent type."
+                },
+                "consentBlock" : {
+                  "type" : "string",
+                  "description" : "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked."
+                },
+                "blockNotes" : {
+                  "type" : "string",
+                  "description" : "Indicates the reason for which the consent is blocked."
+                },
+                "isConsentWithdrawn" : {
+                  "type" : "string",
+                  "description" : "Indicates if the consent given for the particular consent type is withdrawn."
+                },
+                "consentWithdrawNotes" : {
+                  "type" : "string",
+                  "description" : "Indicates the reason for which the consent is withdrawn."
+                },
+                "consentSubTypes" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "consentSubType" : {
+                        "type" : "string",
+                        "description" : "Indicates the consent sub type linked to corresponding consent type."
+                      },
+                      "isSubTypeConsentGiven" : {
+                        "type" : "string",
+                        "description" : "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO"
+                      },
+                      "consentStGivenDate" : {
+                        "type" : "string",
+                        "format" : "date",
+                        "description" : "Indicates the date on which the consent was given by a customer for a specific consent sub type."
+                      },
+                      "consentStExpiryDate" : {
+                        "type" : "string",
+                        "format" : "date",
+                        "description" : "Indicates the expiry date of a consent subtype."
+                      },
+                      "isSubTypeConsentWithdrawn" : {
+                        "type" : "string",
+                        "description" : "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not."
+                      },
+                      "consentStWithdrawDate" : {
+                        "type" : "string",
+                        "format" : "date",
+                        "description" : "Indicates the date on which a specific sub type of a consent type is withdrawn."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "consentId" : {
+            "type" : "string",
+            "description" : "Identifier of the corresponding consent object as retrieved by an account Information consent Request.",
+            "maxLength" : 35
+          },
+          "customerId" : {
+            "type" : "string",
+            "description" : "Identifier of the customer",
+            "maxLength" : 35
+          },
+          "arrangementEffectiveDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "It is a date on/upon which an account is considered to take effect"
+          },
+          "productId" : {
+            "type" : "string",
+            "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account."
+          },
+          "activity" : {
+            "type" : "string",
+            "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity."
+          },
+          "customerRole" : {
+            "type" : "string",
+            "description" : "Indicates role of a customer for an arrangement."
+          },
+          "arrangementStatus" : {
+            "type" : "string",
+            "description" : "Status of the arrangement. E.g. AUTH, CLOSE, UNAUTH etc."
+          },
+          "expiryDate" : {
+            "type" : "string",
+            "format" : "date",
+            "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire"
+          }
+        }
+      }
+    },
+    "ErrorHeader" : {
+      "properties" : {
+        "audit" : {
+          "type" : "object",
+          "properties" : {
+            "T24_time" : {
+              "type" : "integer",
+              "format" : "int32",
+              "description" : "Time taken to response by T24"
+            },
+            "versionNumber" : {
+              "type" : "string",
+              "description" : "The CURR.NO. of the record"
+            },
+            "requestParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the request by IRIS"
+            },
+            "responseParse_time" : {
+              "type" : "number",
+              "description" : "Time taken to parse the response by IRIS"
+            }
+          }
+        }
+      }
+    },
+    "QueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/QueryErrorResponseBody"
+        }
+      },
+      "description" : "QueryErrorResponse"
+    },
+    "QueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message "
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: "
+        }
+      }
+    },
+    "BusinessQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/BusinessQueryErrorResponseBody"
+        }
+      },
+      "description" : "BusinessQueryErrorResponse"
+    },
+    "BusinessQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message for bad requests"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: Business"
+        }
+      }
+    },
+    "SystemQueryErrorResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ErrorHeader"
+        },
+        "error" : {
+          "$ref" : "#/definitions/SystemQueryErrorResponseBody"
+        }
+      },
+      "description" : "SystemQueryErrorResponse"
+    },
+    "SystemQueryErrorResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "description" : "The identifier of the error message"
+        },
+        "message" : {
+          "type" : "string",
+          "description" : "The actual t24 error message caused by server"
+        },
+        "type" : {
+          "type" : "string",
+          "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "Consent1" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/Consent1Body"
+        }
+      },
+      "description" : "Consent1"
+    },
+    "Consent1Body" : {
+      "type" : "object",
+      "properties" : {
+        "customers" : {
+          "type" : "array",
+          "description" : "Indicates role of a customer for an arrangement.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "customer" : {
+                "type" : "string",
+                "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
+                "minLength" : 0,
+                "maxLength" : 35
+              },
+              "customerRoles" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "customerRole" : {
+                      "type" : "string",
+                      "description" : "Indicates role of a customer for an arrangement.",
+                      "minLength" : 0,
+                      "maxLength" : 35
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "arrangement" : {
+          "type" : "string",
+          "description" : "Unique identifier for the arrangement contract",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "product" : {
+          "type" : "string",
+          "description" : "Indicates an id or name of a product",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "arrangementEffectiveDate" : {
+          "type" : "string",
+          "description" : "It is a date on/upon which an account is considered to take effect",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "activity" : {
+          "type" : "string",
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "reason" : {
+          "type" : "string",
+          "description" : "Contains the reason for performing the current activity",
+          "minLength" : 0,
+          "maxLength" : 35
+        }
+      }
+    },
+    "ConsentResponse3" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ArrangementHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ConsentResponse3Body"
+        }
+      },
+      "description" : "ConsentResponse3"
+    },
+    "ConsentResponse3Body" : {
+      "type" : "object",
+      "properties" : {
+        "arrangementActivity" : {
+          "type" : "object",
+          "properties" : {
+            "customers" : {
+              "type" : "array",
+              "description" : "Indicates role of a customer for an arrangement.",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "customer" : {
+                    "type" : "string",
+                    "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "customerRoles" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "customerRole" : {
+                          "type" : "string",
+                          "description" : "Indicates role of a customer for an arrangement.",
+                          "minLength" : 0,
+                          "maxLength" : 35
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "arrangement" : {
+              "type" : "string",
+              "description" : "Unique identifier for the arrangement contract",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "product" : {
+              "type" : "string",
+              "description" : "Indicates an id or name of a product",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "arrangementEffectiveDate" : {
+              "type" : "string",
+              "description" : "It is a date on/upon which an account is considered to take effect",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "activity" : {
+              "type" : "string",
+              "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+              "minLength" : 0,
+              "maxLength" : 35
+            },
+            "reason" : {
+              "type" : "string",
+              "description" : "Contains the reason for performing the current activity",
+              "minLength" : 0,
+              "maxLength" : 35
+            }
+          }
+        },
+        "activities" : {
+          "type" : "object",
+          "properties" : {
+            "{activityName}" : {
+              "type" : "object",
+              "properties" : {
+                "activity" : {
+                  "type" : "string"
+                },
+                "transactionStatus" : {
+                  "type" : "string",
+                  "description" : "The status of the transaction"
+                },
+                "id" : {
+                  "type" : "string",
+                  "description" : "The Identifier of the record created"
+                }
+              }
+            }
+          }
+        },
+        "properties" : {
+          "type" : "object"
+        }
+      }
+    },
+    "Consent2" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/Consent2Body"
+        }
+      },
+      "description" : "Consent2"
+    },
+    "Consent2Body" : {
+      "type" : "object",
+      "properties" : {
+        "customers" : {
+          "type" : "array",
+          "description" : "Indicates role of a customer for an arrangement.",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "customer" : {
+                "type" : "string",
+                "description" : "Contains the customer identifier to fetch list of consent arrangements for the customer or customer identifier of the debtor account. This will be populated once the SCA(Strong Customer Authentication) is completed.",
+                "minLength" : 0,
+                "maxLength" : 35
+              },
+              "customerRoles" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "customerRole" : {
+                      "type" : "string",
+                      "description" : "Indicates role of a customer for an arrangement.",
+                      "minLength" : 0,
+                      "maxLength" : 35
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "arrangement" : {
+          "type" : "string",
+          "description" : "Unique identifier for the arrangement contract",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "product" : {
+          "type" : "string",
+          "description" : "Indicates an id or name of a product",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "arrangementEffectiveDate" : {
+          "type" : "string",
+          "description" : "It is a date on/upon which an account is considered to take effect",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "activity" : {
+          "type" : "string",
+          "description" : "Defines the activity to be processed against the Arrangement. The activity may be a user activity or a system generated activity.",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "reason" : {
+          "type" : "string",
+          "description" : "Contains the reason for performing the current activity",
+          "minLength" : 0,
+          "maxLength" : 35
+        },
+        "cdpConsent" : {
+          "type" : "object",
+          "properties" : {
+            "consentTypes" : {
+              "type" : "array",
+              "description" : "Indicates the consent sub type linked to corresponding consent type.",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "consentType" : {
+                    "type" : "string",
+                    "description" : "Consent Type for which the consent is given",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "isConsentGiven" : {
+                    "type" : "string",
+                    "description" : "Indicates whether the consent is given for a specific type. Allowed values:  - YES,NO",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "consentGivenDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Indicates the date on which the consent was given by a customer for a specific consent type."
+                  },
+                  "isConsentWithdrawn" : {
+                    "type" : "string",
+                    "description" : "Indicates if the consent given for the particular consent type is withdrawn.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "consentWithdrawDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Indicates the date on which the consent was withdrawn."
+                  },
+                  "consentTypeExpiryDate" : {
+                    "type" : "string",
+                    "format" : "date",
+                    "description" : "Indicates the expiry date of a consent type."
+                  },
+                  "consentBlock" : {
+                    "type" : "string",
+                    "description" : "Indicates whether consent is blocked or not. No personal data of the Client will be shared by the Bank for any purpose when the consent is blocked.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "blockNotes" : {
+                    "type" : "string",
+                    "description" : "Indicates the reason for which the consent is blocked.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "consentWithdrawNotes" : {
+                    "type" : "string",
+                    "description" : "Indicates the reason for which the consent is withdrawn.",
+                    "minLength" : 0,
+                    "maxLength" : 35
+                  },
+                  "consentSubTypes" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "consentSubType" : {
+                          "type" : "string",
+                          "description" : "Indicates the consent sub type linked to corresponding consent type.",
+                          "minLength" : 0,
+                          "maxLength" : 35
+                        },
+                        "isSubTypeConsentGiven" : {
+                          "type" : "string",
+                          "description" : "Indicates whether consent is given for specific consent subtype. Allowed values:  - YES,NO",
+                          "minLength" : 0,
+                          "maxLength" : 35
+                        },
+                        "isSubTypeConsentWithdrawn" : {
+                          "type" : "string",
+                          "description" : "Indicates whether the consent for a specific sub type of a consent type is withdrawn or not.",
+                          "minLength" : 0,
+                          "maxLength" : 35
+                        },
+                        "consentStWithdrawDate" : {
+                          "type" : "string",
+                          "format" : "date",
+                          "description" : "Indicates the date on which a specific sub type of a consent type is withdrawn."
+                        },
+                        "consentStGivenDate" : {
+                          "type" : "string",
+                          "format" : "date",
+                          "description" : "Indicates the date on which the consent was given by a customer for a specific consent sub type."
+                        },
+                        "consentStExpiryDate" : {
+                          "type" : "string",
+                          "format" : "date",
+                          "description" : "Indicates the expiry date of a consent subtype."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "expiryDate" : {
+              "type" : "string",
+              "description" : "The date an agreement such as an arrangement, product, credit facility or limit is due to expire",
+              "minLength" : 0,
+              "maxLength" : 11
+            }
+          }
+        }
+      }
+    },
+    "createConsent" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ConsentBody"
+        }
+      },
+      "description" : "Consent",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "arrangement" : "NEW",
+          "reason" : "string",
+          "product" : "PSD2.CONSENT",
+          "activity" : "string",
+          "customers" : [ {
+            "customerRoles" : [ {
+              "customerRole" : "string"
+            } ],
+            "customer" : "string"
+          } ],
+          "arrangementEffectiveDate" : "string",
+          "cdpConsent" : {
+            "expiryDate" : "string",
+            "consentTypes" : [ {
+              "consentSubTypes" : [ {
+                "isSubTypeConsentGiven" : "string",
+                "consentStWithdrawDate" : "2015-07-20",
+                "consentStGivenDate" : "2015-07-20",
+                "consentSubType" : "string",
+                "isSubTypeConsentWithdrawn" : "string",
+                "consentStExpiryDate" : "2015-07-20"
+              } ],
+              "isConsentGiven" : "string",
+              "consentGivenDate" : "2015-07-20",
+              "consentWithdrawDate" : "2015-07-20",
+              "consentBlock" : "string",
+              "consentType" : "string",
+              "isConsentWithdrawn" : "string",
+              "blockNotes" : "string",
+              "consentWithdrawNotes" : "string",
+              "consentTypeExpiryDate" : "2015-07-20"
+            } ]
+          }
+        }
+      }
+    }
+  }
 }

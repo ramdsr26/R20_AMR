@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/cashManagement/bundles/transactionStops" : {
@@ -33,12 +33,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -64,12 +58,6 @@
               "$ref" : "#/definitions/BlockOnCashPoolStructureResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -80,6 +68,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -94,7 +88,7 @@
         "parameters" : [ {
           "name" : "customerMassBlockId",
           "in" : "path",
-		  "description" : "The unique identifier of Customer Mass Block",
+          "description" : "The unique identifier of Customer Mass Block",
           "required" : true,
           "type" : "string"
         }, {
@@ -112,12 +106,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -143,12 +131,6 @@
               "$ref" : "#/definitions/BlockOnCashPoolStructureResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -160,14 +142,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -222,7 +212,29 @@
           "$ref" : "#/definitions/BlockOnCashPoolStructureBody"
         }
       },
-      "description" : "BlockOnCashPoolStructure"
+      "description" : "BlockOnCashPoolStructure",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "unrestrictionText" : "string",
+          "endDate" : "2020-02-20",
+          "aaBundleId" : "AA190791Z7N2",
+          "startDate" : "2019-04-17",
+          "unrestrictionReason" : "string"
+        }
+      }
     },
     "BlockOnCashPoolStructureBody" : {
       "type" : "object",
@@ -558,6 +570,72 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "createBlockOnCashPoolStructure" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BlockOnCashPoolStructureBody"
+        }
+      },
+      "description" : "BlockOnCashPoolStructure",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "unrestrictionText" : "string",
+          "endDate" : "2020-02-20",
+          "aaBundleId" : "AA190791Z7N2",
+          "startDate" : "2019-04-17",
+          "unrestrictionReason" : "string"
+        }
+      }
+    },
+    "updateBlockOnCashPoolStructure" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BlockOnCashPoolStructureBody"
+        }
+      },
+      "description" : "BlockOnCashPoolStructure",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "unrestrictionText" : "string",
+          "endDate" : "2020-02-20",
+          "aaBundleId" : "AA190791Z7N2",
+          "startDate" : "2019-04-17",
+          "unrestrictionReason" : "string"
         }
       }
     }

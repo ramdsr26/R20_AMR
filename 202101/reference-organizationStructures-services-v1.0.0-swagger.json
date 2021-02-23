@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/reference/organizationStructures/{organizationId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve the name, immediate parent organization and hierarchy defined for the specified organization",
         "description" : "Retrieve the Organization code details",
         "operationId" : "getOrganizationHierarchy",
@@ -27,12 +23,6 @@
           "in" : "path",
           "description" : "Identifier of Organization Code ",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -60,12 +50,6 @@
               "$ref" : "#/definitions/OrganizationHierarchyResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -77,13 +61,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/organizationStructures/{organizationId}/childOrganizations" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of all child organization reference associated with the specified organization",
         "description" : "Retrieves the child organizations",
         "operationId" : "getChildOrganizations",
@@ -112,12 +101,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -152,12 +135,6 @@
               "$ref" : "#/definitions/ChildOrganizationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -169,13 +146,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/organizationStructures/branches/{branchId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve the branch name",
         "description" : "Retrieve the name of branch that can be used as branch enrichment by any application",
         "operationId" : "getOrganizationBranchName",
@@ -185,12 +167,6 @@
           "in" : "path",
           "description" : "Unique and unambiguous identification of a branch of a financial institution.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -218,12 +194,6 @@
               "$ref" : "#/definitions/OrganizationBranchNameResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -235,13 +205,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/organizationStructures/lineOfBusiness/{lineOfBusinessId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the line of business",
         "description" : "Retrieves the line of business name defined for the specified organization.",
         "operationId" : "getLineOfBusinessName",
@@ -251,12 +226,6 @@
           "in" : "path",
           "description" : "Identifier of the line of business provided by the branch",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -284,12 +253,6 @@
               "$ref" : "#/definitions/LineOfBusinessNameResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -301,15 +264,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

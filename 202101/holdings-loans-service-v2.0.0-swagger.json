@@ -7,17 +7,13 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v2.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/loans/{loanId}/bills" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the simulation details of the contract based on the selection criteria. It returns the bill details of the loan",
         "description" : "Retrieves loan bills details",
         "operationId" : "getLoanBills",
@@ -62,12 +58,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -93,12 +83,6 @@
               "$ref" : "#/definitions/LoanBillsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -110,13 +94,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/loans/{loanId}/collaterals" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the collateral details linked to the loan arrangement. The collateral right and status have to be passed within the api",
         "description" : "Retrieves loan collateral details",
         "operationId" : "getLoanCollaterals",
@@ -126,7 +115,8 @@
           "in" : "path",
           "description" : "Denotes the arrangement id of the loan",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190799ST0V"
         }, {
           "name" : "status",
           "in" : "query",
@@ -160,12 +150,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -191,12 +175,6 @@
               "$ref" : "#/definitions/LoanCollateralsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -208,13 +186,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/loans/{loanId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the loan account details",
         "description" : "Retrieves loan details",
         "operationId" : "getLoanDetails",
@@ -224,7 +207,8 @@
           "in" : "path",
           "description" : "Denotes the arrangement id of the loan",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190799ST0V"
         }, {
           "name" : "dateFrom",
           "in" : "query",
@@ -264,12 +248,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -295,12 +273,6 @@
               "$ref" : "#/definitions/LoanDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -312,13 +284,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/loans/{loanId}/schedulePaymentFrequencies" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the schedule payment information for paid and upcoming installments details",
         "description" : "Retrieves payment schedules details",
         "operationId" : "getPaymentSchedules",
@@ -328,7 +305,8 @@
           "in" : "path",
           "description" : "Denotes the arrangement id of the loan",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190799ST0V"
         }, {
           "name" : "dateFrom",
           "in" : "query",
@@ -362,12 +340,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -393,12 +365,6 @@
               "$ref" : "#/definitions/PaymentSchedulesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -410,15 +376,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

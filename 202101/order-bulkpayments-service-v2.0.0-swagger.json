@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v2.0.0/",
-  "tags" : [ ],
   "schemes" : [ "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/bulkPayments/uploads/files" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves uploaded files",
         "description" : "Retrieves uploaded file details",
         "operationId" : "getUploadFiles",
@@ -61,12 +57,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -98,12 +88,6 @@
               "$ref" : "#/definitions/UploadFilesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -115,11 +99,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       },
       "post" : {
-        "tags" : [ ],
         "description" : "Upload File",
         "operationId" : "uploadFile",
         "produces" : [ "application/json" ],
@@ -137,12 +126,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -169,12 +152,6 @@
               "$ref" : "#/definitions/FileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -186,13 +163,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/bulkPayments/uploads/{uploadId}" : {
       "get" : {
-        "tags" : [ ],
         "description" : "Get Upload File",
         "operationId" : "getUploadFile",
         "produces" : [ "application/json" ],
@@ -201,13 +183,8 @@
           "in" : "path",
           "description" : "The unique identifier of the uploaded file",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "UPLD1910794474"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -234,12 +211,6 @@
               "$ref" : "#/definitions/FileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -251,11 +222,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "description" : "Update Upload File",
         "operationId" : "updateUploadFile",
         "produces" : [ "application/json" ],
@@ -264,7 +240,8 @@
           "in" : "path",
           "description" : "The unique identifier of the uploaded file",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "UPLD1910794474"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -280,12 +257,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -311,12 +282,6 @@
               "$ref" : "#/definitions/FileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -328,11 +293,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "delete" : {
-        "tags" : [ ],
         "description" : "Delete Upload File",
         "operationId" : "deleteUploadFile",
         "produces" : [ "application/json" ],
@@ -341,7 +311,8 @@
           "in" : "path",
           "description" : "The unique identifier of the uploaded file",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "UPLD1910794474"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -357,12 +328,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -388,12 +353,6 @@
               "$ref" : "#/definitions/FileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -405,13 +364,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/bulkPayments/items/{bulkTransferId}" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create bulk item",
         "description" : "Create a new bulk item",
         "operationId" : "createBulkItem",
@@ -437,12 +401,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -468,12 +426,6 @@
               "$ref" : "#/definitions/BulkItemResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -485,13 +437,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/bulkPayments/items/{bulkItemId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of Bulk Item",
         "description" : "Retrieves bulk item",
         "operationId" : "getBulkItem",
@@ -501,13 +458,8 @@
           "in" : "path",
           "description" : "contains individual payment id of the Bulk upload",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "BKM00157000011910720Y54.18979765485101502"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -534,12 +486,6 @@
               "$ref" : "#/definitions/BulkItemResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -551,11 +497,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update bulk item",
         "description" : "Update existing bulk item details",
         "operationId" : "updateBulkItem",
@@ -565,7 +516,8 @@
           "in" : "path",
           "description" : "contains individual payment id of the Bulk upload",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "BKM00157000011910720Y54.18979765485101502"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -581,12 +533,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -612,12 +558,6 @@
               "$ref" : "#/definitions/BulkItemResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -629,13 +569,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/bulkPayments" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves bulk payments",
         "description" : "Retrieves bulk payments",
         "operationId" : "getBulkPayments",
@@ -664,12 +609,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -704,12 +643,6 @@
               "$ref" : "#/definitions/BulkPaymentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -721,11 +654,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       },
       "post" : {
-        "tags" : [ ],
         "summary" : "Create bulk payment",
         "description" : "Create a new bulk payment",
         "operationId" : "createBulkPayment",
@@ -745,12 +683,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -776,12 +708,6 @@
               "$ref" : "#/definitions/BulkPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -793,13 +719,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/bulkPayments/{bulkTransferId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Get Bulk Payment",
         "description" : "Get an initiated bulk payments",
         "operationId" : "getBulkPayment",
@@ -810,12 +741,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -841,12 +766,6 @@
               "$ref" : "#/definitions/BulkPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -858,11 +777,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update bulk payment",
         "description" : "Update existing bulk payment details",
         "operationId" : "updateBulkPayment",
@@ -888,12 +812,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -919,12 +837,6 @@
               "$ref" : "#/definitions/BulkPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -936,11 +848,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "delete" : {
-        "tags" : [ ],
         "summary" : "Cancel bulk payment",
         "description" : "Cancel an existing bulk payment",
         "operationId" : "deleteBulkPayment",
@@ -966,12 +883,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -997,12 +908,6 @@
               "$ref" : "#/definitions/BulkPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1014,13 +919,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/bulkMasterApprovals/{bulkTransferId}" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Approve bulk payment",
         "description" : "Approve an initiated bulk payment",
         "operationId" : "approveBulkPayment",
@@ -1032,12 +942,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1063,12 +967,6 @@
               "$ref" : "#/definitions/BulkPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1080,13 +978,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/bulkPayments/uploads/fileTypes" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves file upload types",
         "description" : "Retrieves file upload types",
         "operationId" : "getUploadFileTypes",
@@ -1096,7 +999,8 @@
           "in" : "query",
           "description" : "Specifies the identifier of the upload type record which contains the directory, and optionally a maximum upload size limit and file extension.",
           "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "TCIBUPLOAD"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1115,12 +1019,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1155,12 +1053,6 @@
               "$ref" : "#/definitions/UploadFileTypesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1172,13 +1064,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/bulkPayments/items" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves bulk items",
         "description" : "Retrieves bulk items",
         "operationId" : "getBulkItems",
@@ -1207,12 +1104,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1247,12 +1138,6 @@
               "$ref" : "#/definitions/BulkItemsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1264,13 +1149,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/bulkPayments/status" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the status of bulk payments",
         "description" : "Retrieves the status of bulk payments",
         "operationId" : "getAllBulkPayments",
@@ -1392,12 +1282,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1429,12 +1313,6 @@
               "$ref" : "#/definitions/AllBulkPaymentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1446,15 +1324,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -1513,7 +1394,15 @@
           "$ref" : "#/definitions/FileBody"
         }
       },
-      "description" : "File"
+      "description" : "File",
+      "example" : {
+        "body" : {
+          "companyId" : "GB0010001",
+          "fileName" : "CLERK1TC17122019043607.csv||246||integrated.csv",
+          "displayName" : "TEST",
+          "uploadTypeId" : "TCIBUPLOAD"
+        }
+      }
     },
     "FileBody" : {
       "type" : "object",
@@ -1885,7 +1774,55 @@
           "$ref" : "#/definitions/BulkItemBody"
         }
       },
-      "description" : "BulkItem"
+      "description" : "BulkItem",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "amount" : 200,
+          "transactionTypeId" : "BCIB",
+          "departmentId" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "valueDate" : "2015-07-20",
+          "sortCode" : "12345",
+          "dateTimeDetails" : [ {
+            "dateTime" : "string"
+          } ],
+          "versionNumber" : "string",
+          "authoriser" : "string",
+          "inputters" : [ {
+            "inputter" : "string"
+          } ],
+          "reference" : "DFDDG",
+          "errorMessages" : [ {
+            "errorMessage" : "string"
+          } ],
+          "accountId" : "77356",
+          "companyId" : "string",
+          "recordStatus" : "string",
+          "auditDateTime" : "string",
+          "paymentId" : "string",
+          "customerId" : "MUDFGdsdsHKJ",
+          "auditorCode" : "string",
+          "manualUpload" : "string",
+          "currencyId" : "USD",
+          "beneficiaryId" : "string",
+          "status" : "string"
+        }
+      }
     },
     "BulkItemBody" : {
       "type" : "object",
@@ -3378,6 +3315,84 @@
             "type" : "string",
             "description" : "Indicates the payment order product for which payment is initiated"
           }
+        }
+      }
+    },
+    "createBulkItem" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BulkItemBody"
+        }
+      },
+      "description" : "BulkItem",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "amount" : 200,
+          "transactionTypeId" : "BCIB",
+          "departmentId" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "valueDate" : "2015-07-20",
+          "sortCode" : "12345",
+          "dateTimeDetails" : [ {
+            "dateTime" : "string"
+          } ],
+          "versionNumber" : "string",
+          "authoriser" : "string",
+          "inputters" : [ {
+            "inputter" : "string"
+          } ],
+          "reference" : "DFDDG",
+          "errorMessages" : [ {
+            "errorMessage" : "string"
+          } ],
+          "accountId" : "77356",
+          "companyId" : "string",
+          "recordStatus" : "string",
+          "auditDateTime" : "string",
+          "paymentId" : "string",
+          "customerId" : "MUDFGdsdsHKJ",
+          "auditorCode" : "string",
+          "manualUpload" : "string",
+          "currencyId" : "USD",
+          "beneficiaryId" : "string",
+          "status" : "string"
+        }
+      }
+    },
+    "uploadFile" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/FileBody"
+        }
+      },
+      "description" : "File",
+      "example" : {
+        "body" : {
+          "companyId" : "GB0010001",
+          "fileName" : "CLERK1TC17122019043607.csv||246||integrated.csv",
+          "displayName" : "TEST",
+          "uploadTypeId" : "TCIBUPLOAD"
         }
       }
     }

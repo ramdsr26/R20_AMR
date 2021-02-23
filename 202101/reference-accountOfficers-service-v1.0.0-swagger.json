@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/reference/accountOfficers" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Account Officers",
         "description" : "Retrieves the list of Account Officers available in the system",
         "operationId" : "getAccountOfficers",
@@ -40,12 +36,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -74,12 +64,6 @@
               "$ref" : "#/definitions/AccountOfficersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -91,13 +75,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/accountOfficers/{accountOfficerId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve details of account officer",
         "description" : "Retrieve the name, area, delivery point, department, department level, allowed or prohibited companies, telephone number and fax number details of Account officer",
         "operationId" : "getAccountOfficerDetails",
@@ -107,12 +96,6 @@
           "in" : "path",
           "description" : "The identifier of the department head or specific account officer responsible for the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -140,12 +123,6 @@
               "$ref" : "#/definitions/AccountOfficerDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -157,13 +134,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/accountOfficers/{accountOfficerId}/alertSubscriptions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve account officer's alert subscriptions",
         "description" : "Retrieves the details such as name, area, event subscribed and its associated alert request for the requested account officer",
         "operationId" : "getAccountOfficerAlertSubscription",
@@ -173,12 +155,6 @@
           "in" : "path",
           "description" : "The identifier of the department head or specific account officer responsible for the customer",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -206,12 +182,6 @@
               "$ref" : "#/definitions/AccountOfficerAlertSubscriptionResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -223,15 +193,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v2.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/paymentStops/{accountId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of Payment Stop requests for an Account",
         "description" : "Retrieves the list of Payment Stop requests  details such Cheque nos, Amount range, Beneficiary, Period and Charge details available for a specific account",
         "operationId" : "getPaymentStop",
@@ -27,13 +23,8 @@
           "in" : "path",
           "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "23779"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -60,12 +51,6 @@
               "$ref" : "#/definitions/PaymentStopResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -77,11 +62,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "post" : {
-        "tags" : [ ],
         "summary" : "Create Payment Stop request",
         "description" : "Create a Payment Stop Request for an Account with details such as Cheque number range, amount range, period & Charges for blocking the transaction",
         "operationId" : "createPaymentStop",
@@ -107,12 +97,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -138,12 +122,6 @@
               "$ref" : "#/definitions/PaymentStopResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -155,11 +133,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update Payment Stop request",
         "description" : "Update a Payment Stop Request for an Account with details such as Cheque nos range, amount range, period & Charges",
         "operationId" : "updatePaymentStop",
@@ -185,12 +168,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -216,12 +193,6 @@
               "$ref" : "#/definitions/PaymentStopResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -233,13 +204,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentStops" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves all the Payment Stop requests",
         "description" : "Retrieves the list of Payment Stop requests available in the system with details such as Account Reference, Cheque nos, Amount range, Beneficiary, Period and Charge details",
         "operationId" : "getPaymentStops",
@@ -283,12 +259,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -320,12 +290,6 @@
               "$ref" : "#/definitions/PaymentStopsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -337,15 +301,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -404,7 +371,50 @@
           "$ref" : "#/definitions/PaymentStopBody"
         }
       },
-      "description" : "PaymentStop"
+      "description" : "PaymentStop",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "stops" : [ {
+            "firstChequeId" : "string",
+            "stopTypeId" : "1",
+            "amountFrom" : 0,
+            "lastChequeId" : "string",
+            "chequeTypeId" : "string",
+            "isRevoke" : "string",
+            "revokeDate" : "string",
+            "waiveCharge" : "string",
+            "charges" : [ {
+              "accountId" : "string",
+              "chargeId" : "string",
+              "chargeAmount" : "string",
+              "chargeCurrency" : "string"
+            } ],
+            "amountTo" : 0,
+            "revokeChequeTypeId" : "string",
+            "chequeId" : "string",
+            "stopDate" : "20190417",
+            "remarks" : [ {
+              "displayName" : "string"
+            } ],
+            "beneficiaryId" : "string"
+          } ],
+          "currencyId" : "string",
+          "issueDate" : "string"
+        }
+      }
     },
     "PaymentStopBody" : {
       "type" : "object",
@@ -469,9 +479,9 @@
                 "minLength" : 0,
                 "maxLength" : 25
               },
-              isRevoke" : {
+              "isRevoke" : {
                 "type" : "string",
-                "description" : "Specifies the flag ,which indicates that the stop payment is to be revoked",
+                "description" : "Specifies the flag,which indicates that the stop payment is to be revoked",
                 "minLength" : 0,
                 "maxLength" : 10
               },
@@ -672,15 +682,15 @@
                 "minLength" : 0,
                 "maxLength" : 25
               },
-              isRevoke" : {
+              "isRevoke" : {
                 "type" : "string",
-                "description" : "Specifies the flag ,which indicates that the stop payment is to be revoked",
+                "description" : "Specifies the flag,which indicates that the stop payment is to be revoked",
                 "minLength" : 0,
                 "maxLength" : 10
               },
               "chequeId" : {
                 "type" : "string",
-                "description" : "Internal cheque id, formed as chequeType.accountId.chequeOrDraftNumber",
+                "description" : "Internal cheque id,formed as chequeType.accountId.chequeOrDraftNumber",
                 "minLength" : 0,
                 "maxLength" : 8
               },
@@ -703,13 +713,13 @@
                   "properties" : {
                     "chargeId" : {
                       "type" : "string",
-                      "description" : "This indicates the charge code which will be triggered for payment stop instruction. Applicable when financial institutions would like to charge for stop payment of cheque etc. ",
+                      "description" : "This indicates the charge code which will be triggered for payment stop instruction. Applicable when financial institutions would like to charge for stop payment of cheque etc.",
                       "minLength" : 0,
                       "maxLength" : 25
                     },
                     "accountId" : {
                       "type" : "string",
-                      "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+                      "description" : "Identifier of the account. Often referred to as the account number,yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
                       "minLength" : 0,
                       "maxLength" : 25
                     },
@@ -868,14 +878,14 @@
               },
               "message" : {
                 "type" : "string",
-                "description" : "The actual t24 error message "
+                "description" : "The actual t24 error message"
               }
             }
           }
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type: "
+          "description" : "The identifier of error type:"
         }
       }
     },
@@ -918,7 +928,7 @@
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type: Business"
+          "description" : "The identifier of error type:Business"
         }
       }
     },
@@ -961,7 +971,7 @@
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type: System"
+          "description" : "The identifier of error type:System"
         }
       }
     },
@@ -1038,7 +1048,7 @@
               "properties" : {
                 "stopTypeId" : {
                   "type" : "string",
-                  "description" : "Indicates the reason why a Payment Stop is requested for e.g. Cheque lost, funds not available etc. ",
+                  "description" : "Indicates the reason why a Payment Stop is requested for e.g. Cheque lost,funds not available etc.",
                   "maxLength" : 30
                 },
                 "firstChequeId" : {
@@ -1078,7 +1088,7 @@
                     "properties" : {
                       "chargeCode" : {
                         "type" : "string",
-                        "description" : "Indicates the charge code to which the charges are identified and calculated and to be debited to the customer account. For example: C(Credit less Charges The Credit less Charges), D(Debit plus Charge The Debit plus Charge) , W(Waive).",
+                        "description" : "Indicates the charge code to which the charges are identified and calculated and to be debited to the customer account. For example:C(Credit less Charges The Credit less Charges),D(Debit plus Charge The Debit plus Charge),W(Waive).",
                         "maxLength" : 15
                       },
                       "chargeCurrency" : {
@@ -1113,7 +1123,7 @@
           },
           "accountId" : {
             "type" : "string",
-            "description" : "Identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
+            "description" : "Identifier of the account. Often referred to as the account number,yet for consistency this is always referred to as accountId. Accepts both IBAN & BBAN",
             "maxLength" : 16
           },
           "customerId" : {
@@ -1163,11 +1173,11 @@
         },
         "message" : {
           "type" : "string",
-          "description" : "The actual t24 error message "
+          "description" : "The actual t24 error message"
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type: "
+          "description" : "The identifier of error type:"
         }
       }
     },
@@ -1195,7 +1205,7 @@
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type: Business"
+          "description" : "The identifier of error type:Business"
         }
       }
     },
@@ -1223,7 +1233,115 @@
         },
         "type" : {
           "type" : "string",
-          "description" : "The identifier of error type: System"
+          "description" : "The identifier of error type:System"
+        }
+      }
+    },
+    "updatePaymentStop" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/PaymentStopBody"
+        }
+      },
+      "description" : "PaymentStop",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "stops" : [ {
+            "firstChequeId" : "string",
+            "stopTypeId" : "1",
+            "amountFrom" : 0,
+            "lastChequeId" : "string",
+            "chequeTypeId" : "string",
+            "isRevoke" : "string",
+            "revokeDate" : "string",
+            "waiveCharge" : "string",
+            "charges" : [ {
+              "accountId" : "string",
+              "chargeId" : "string",
+              "chargeAmount" : "string",
+              "chargeCurrency" : "string"
+            } ],
+            "amountTo" : 0,
+            "revokeChequeTypeId" : "string",
+            "chequeId" : "string",
+            "stopDate" : "20190417",
+            "remarks" : [ {
+              "displayName" : "string"
+            } ],
+            "beneficiaryId" : "string"
+          } ],
+          "currencyId" : "string",
+          "issueDate" : "string"
+        }
+      }
+    },
+    "createPaymentStop" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/PaymentStopBody"
+        }
+      },
+      "description" : "PaymentStop",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "stops" : [ {
+            "firstChequeId" : "string",
+            "stopTypeId" : "1",
+            "amountFrom" : 0,
+            "lastChequeId" : "string",
+            "chequeTypeId" : "string",
+            "isRevoke" : "string",
+            "revokeDate" : "string",
+            "waiveCharge" : "string",
+            "charges" : [ {
+              "accountId" : "string",
+              "chargeId" : "string",
+              "chargeAmount" : "string",
+              "chargeCurrency" : "string"
+            } ],
+            "amountTo" : 0,
+            "revokeChequeTypeId" : "string",
+            "chequeId" : "string",
+            "stopDate" : "20190417",
+            "remarks" : [ {
+              "displayName" : "string"
+            } ],
+            "beneficiaryId" : "string"
+          } ],
+          "currencyId" : "string",
+          "issueDate" : "string"
         }
       }
     }

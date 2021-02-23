@@ -5,11 +5,11 @@
     "version" : "v1.0.0",
     "title" : "UserAdministration"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v1.0.0/v1.0.0/",
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/product/{productId}/protectionLimitConditions" : {
@@ -49,14 +49,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -65,12 +60,6 @@
             "description" : "ProtectionLimitConditionsResponse",
             "schema" : {
               "$ref" : "#/definitions/ProtectionLimitConditionsResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -83,6 +72,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -125,14 +120,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -141,12 +131,6 @@
             "description" : "AvailabilityConditionsResponse",
             "schema" : {
               "$ref" : "#/definitions/AvailabilityConditionsResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -159,6 +143,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -174,39 +164,34 @@
           "required" : true,
           "type" : "string"
         }, {
-            "name": "productGroupId",
-            "in": "query",
-            "description": "The group, as defined by the institution, that the product belongs to.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "eligibilityFilter",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "multiBookEligible",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "productId",
-            "in": "query",
-            "description": "Id of the product.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "customerId",
-            "in": "query",
-            "description": "The identifier of the customer",
-            "required": false,
-            "type": "string"
-          },
-          {
+          "name" : "productGroupId",
+          "in" : "query",
+          "description" : "The group, as defined by the institution, that the product belongs to.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "eligibilityFilter",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "multiBookEligible",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "productId",
+          "in" : "query",
+          "description" : "Id of the product.",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "customerId",
+          "in" : "query",
+          "description" : "The identifier of the customer",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "page_size",
           "in" : "query",
           "description" : "The total number of records per page",
@@ -227,14 +212,9 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
-		  "description" : "The identifier of the underlying Entity/Company/Branch.",
+          "description" : "The identifier of the underlying Entity/Company/Branch.",
           "required" : false,
           "type" : "string"
         } ],
@@ -243,12 +223,6 @@
             "description" : "ProductsByProductLineResponse",
             "schema" : {
               "$ref" : "#/definitions/ProductsByProductLineResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -261,6 +235,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -276,13 +256,12 @@
           "required" : true,
           "type" : "string"
         }, {
-            "name": "propertyId",
-            "in": "query",
-            "description": "The identifier of the product condition",
-            "required": false,
-            "type": "string"
-          },
-          {
+          "name" : "propertyId",
+          "in" : "query",
+          "description" : "The identifier of the product condition",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "page_size",
           "in" : "query",
           "description" : "The total number of records per page",
@@ -300,11 +279,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -320,12 +294,6 @@
               "$ref" : "#/definitions/PermissionConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -336,6 +304,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -351,13 +325,12 @@
           "required" : true,
           "type" : "string"
         }, {
-            "name": "propertyId",
-            "in": "query",
-            "description": "The identifier of the product condition",
-            "required": false,
-            "type": "string"
-          },
-          {
+          "name" : "propertyId",
+          "in" : "query",
+          "description" : "The identifier of the product condition",
+          "required" : false,
+          "type" : "string"
+        }, {
           "name" : "page_size",
           "in" : "query",
           "description" : "The total number of records per page",
@@ -378,11 +351,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -395,12 +363,6 @@
               "$ref" : "#/definitions/LicensingConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -411,6 +373,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -447,11 +415,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -462,12 +425,6 @@
             "description" : "PrivilegeConditionsResponse",
             "schema" : {
               "$ref" : "#/definitions/PrivilegeConditionsResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -481,14 +438,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {

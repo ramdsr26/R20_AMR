@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v2.1.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/paymentOrders/purposes" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves payment order purposes details",
         "description" : "Retrieves the list of payment order purpose code details",
         "operationId" : "getPaymentOrderPurposes",
@@ -46,12 +42,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -86,12 +76,6 @@
               "$ref" : "#/definitions/PaymentOrderPurposesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -103,13 +87,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/products" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves payment order products details",
         "description" : "Retrieves the list of payment order product details",
         "operationId" : "getPaymentOrderProducts",
@@ -147,12 +136,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -184,12 +167,6 @@
               "$ref" : "#/definitions/PaymentOrderProductsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -201,13 +178,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/countryRules" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves payment order country rules details",
         "description" : "Retrieves the list of payment order country rule details",
         "operationId" : "getPaymentOrderCountryRules",
@@ -236,12 +218,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -276,12 +252,6 @@
               "$ref" : "#/definitions/PaymentOrderCountryRulesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -293,13 +263,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/sepaInstantPayments" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create sepa instant payment",
         "description" : "Creates a new Sepa Instant payment record",
         "operationId" : "createSepaInstantPayment",
@@ -318,12 +293,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -350,12 +319,6 @@
               "$ref" : "#/definitions/SepaInstantPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -367,13 +330,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/sepaInstantTransfers" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create sepa instant transfer",
         "description" : "Creates a new Sepa instant transfer record",
         "operationId" : "createSepaInstantTransfer",
@@ -392,12 +360,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -424,12 +386,6 @@
               "$ref" : "#/definitions/SepaInstantTransferResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -441,13 +397,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/sepaPayments" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create sepa payment",
         "description" : "Creates a new Sepa payment record for an external account",
         "operationId" : "createSepaPayment",
@@ -466,12 +427,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -498,12 +453,6 @@
               "$ref" : "#/definitions/SepaPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -515,13 +464,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/swiftPayments" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create swift payment",
         "description" : "Creates a new Swift payment record for an external account",
         "operationId" : "createSwiftPayment",
@@ -540,12 +494,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -572,12 +520,6 @@
               "$ref" : "#/definitions/SwiftPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -589,13 +531,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/fasterPayments" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create faster payment",
         "description" : "Creates a new fast payment record for an external account",
         "operationId" : "createFasterPayment",
@@ -614,12 +561,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -646,12 +587,6 @@
               "$ref" : "#/definitions/FasterPaymentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -663,13 +598,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/{paymentOrderId}/cancellations" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Cancel external payment order",
         "description" : "Cancel the existing payment order for external account",
         "operationId" : "cancelExternalPaymentOrder",
@@ -694,12 +634,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -726,12 +660,6 @@
               "$ref" : "#/definitions/ExternalPaymentOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -743,11 +671,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "delete" : {
-        "tags" : [ ],
         "summary" : "Reject payment order",
         "description" : "Reject an initiated payment order",
         "operationId" : "rejectPaymentOrder",
@@ -772,12 +705,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -804,12 +731,6 @@
               "$ref" : "#/definitions/PaymentOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -821,13 +742,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/isoClearingCodes" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves ISO clearing codes details",
         "description" : "Retrieves the list of ISO clearing codes",
         "operationId" : "getISOClearingCodes",
@@ -850,12 +776,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -890,12 +810,6 @@
               "$ref" : "#/definitions/ISOClearingCodesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -907,13 +821,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/gpi/payments/{paymentId}/status" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create GPI payment status",
         "description" : "Create a GPI payment status with unique transaction reference",
         "operationId" : "createGPIPaymentStatus",
@@ -939,12 +858,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -970,12 +883,6 @@
               "$ref" : "#/definitions/GPIPaymentStatusResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -987,11 +894,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update GPI payment status",
         "description" : "Update GPI payment status with unique transaction reference",
         "operationId" : "updateGPIPaymentStatus",
@@ -1017,12 +929,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1048,12 +954,6 @@
               "$ref" : "#/definitions/GPIPaymentStatusResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1065,13 +965,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/gpi/trackedPayments" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the GPI tracking details",
         "description" : "Retrieves the GPI Tracking information",
         "operationId" : "getGpiPaymentTracking",
@@ -1109,12 +1014,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1146,12 +1045,6 @@
               "$ref" : "#/definitions/GpiPaymentTrackingResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1163,13 +1056,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/recalls/eligibleOrders" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the completed payment orders which are available for recall initiation",
         "description" : "Retrieves the payment orders for recall",
         "operationId" : "getPaymentOrdersForRecall",
@@ -1225,12 +1123,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1262,12 +1154,6 @@
               "$ref" : "#/definitions/PaymentOrdersForRecallResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1279,13 +1165,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/trackedPayments" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the payment order in order to track the payment order based on the given order reference or system reference",
         "description" : "Retrieves the payment order for the given order reference",
         "operationId" : "getTrackedPaymentOrders",
@@ -1323,12 +1214,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1360,12 +1245,6 @@
               "$ref" : "#/definitions/TrackedPaymentOrdersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1377,13 +1256,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/transactions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the payment order details",
         "description" : "Retrieves the list of payment order details",
         "operationId" : "getPaymentOrderTransactions",
@@ -1457,12 +1341,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1494,12 +1372,6 @@
               "$ref" : "#/definitions/PaymentOrderTransactionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1511,13 +1383,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the payment orders",
         "description" : "Retrieves the list of payment orders",
         "operationId" : "getPaymentOrders",
@@ -1597,12 +1474,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1634,12 +1505,6 @@
               "$ref" : "#/definitions/PaymentOrdersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1651,11 +1516,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       },
       "post" : {
-        "tags" : [ ],
         "summary" : "Create payment order",
         "description" : "Creates a new payment order",
         "operationId" : "createPaymentOrder",
@@ -1674,12 +1544,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1706,12 +1570,6 @@
               "$ref" : "#/definitions/PaymentOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1723,13 +1581,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/{paymentOrderId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves payment order details",
         "description" : "Retrieves the details of a payment order",
         "operationId" : "getPaymentOrder",
@@ -1809,12 +1672,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1846,12 +1703,6 @@
               "$ref" : "#/definitions/PaymentOrdersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1863,11 +1714,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update payment order details",
         "description" : "Updates an existing payment order",
         "operationId" : "updatePaymentOrder",
@@ -1893,12 +1749,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1924,12 +1774,6 @@
               "$ref" : "#/definitions/PaymentOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1941,11 +1785,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "delete" : {
-        "tags" : [ ],
         "summary" : "Cancel payment order",
         "description" : "Cancel an existing payment order",
         "operationId" : "deletePaymentOrder",
@@ -1971,12 +1820,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2002,12 +1845,6 @@
               "$ref" : "#/definitions/PaymentOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2019,13 +1856,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/paymentOrderApprovals/{paymentOrderId}" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Approve payment order",
         "description" : "Approve an initiated payment order",
         "operationId" : "approvePaymentOrder",
@@ -2037,12 +1879,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2068,12 +1904,6 @@
               "$ref" : "#/definitions/PaymentOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2085,13 +1915,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/instantPayments" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create Instant Payment Order",
         "description" : "Create Instant Payment Order",
         "operationId" : "createInstantPaymentOrder",
@@ -2110,12 +1945,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -2142,12 +1971,6 @@
               "$ref" : "#/definitions/InstantPaymentOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2159,13 +1982,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/paymentOrders/recalls/status" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve the recall status of the payment order for which the recall has been initiated",
         "description" : "Retrieve the recall status of the payment order",
         "operationId" : "getPaymentOrderRecallStatus",
@@ -2221,12 +2049,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2258,12 +2080,6 @@
               "$ref" : "#/definitions/PaymentOrderRecallStatusResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2275,15 +2091,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -7006,7 +6825,115 @@
           "$ref" : "#/definitions/InstantPaymentOrderBody"
         }
       },
-      "description" : "InstantPaymentOrder"
+      "description" : "InstantPaymentOrder",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Account 14095 unauthorised overdraft of 110, available 0, Requested 110 GBP",
+              "id" : "PI-UNAUTH.OVERDRAFT",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "chargeBearer" : "Charge Bearer",
+          "debitValueDate" : "Debit Value Date",
+          "chargeInfo" : [ {
+            "chargeName" : "Charge Description"
+          } ],
+          "debitCurrency" : "Debit Currency",
+          "ultimateCreditor" : "string",
+          "executionDate" : "Execution Date",
+          "orderingCustomerName" : "Ordering Customer Name",
+          "totalDebitAmount" : "Total Debit Amount",
+          "benPostSwiftAddr" : [ {
+            "beneficiarySWIFTAddress" : "Beneficiary Swift Address"
+          } ],
+          "debitAccountIBAN" : "Debit Account IBAN",
+          "beneficiaryName" : "Beneficiary Name",
+          "beneficiaryOtherIdType" : "Beneficiary Other ID Type",
+          "acceptanceDateTime" : "Acceptance Date Time",
+          "instructedAmount" : "Instructed Amount",
+          "structuredCommunicationCode" : "Structured Communication Code",
+          "contextField" : [ {
+            "contextName" : "Context Name"
+          } ],
+          "accountType" : "Account Type",
+          "endToEndReference" : "End to End Identification",
+          "narrative" : "Narrative",
+          "structuredCreditorReference" : "structured Creditor Reference",
+          "beneficiaryAccountId" : "Beneficiary Account Id",
+          "debitAmount" : "Debit Amount",
+          "originalRequestedExecutionDate" : "Original Req Execution Date",
+          "accountWithBankBIC" : "Creditor Agent BIC",
+          "ultimateDebtor" : "ultimateDebtor",
+          "waiveCharge" : "Waive Charge",
+          "creditorAddress" : "Creditor Address",
+          "structuredIssuer" : "Structured Issuer",
+          "preAuthorizationReference" : "Pre-Authorization Number",
+          "requestedAmount" : "Requested Amount",
+          "instructionIdReference" : "Instruction Identification",
+          "paymentCurrency" : "GBP",
+          "chargeAcc" : [ {
+            "chargeAccountId" : "Charge Account"
+          } ],
+          "paymentOrderProductId" : "Payment Order Product Id",
+          "chargeAccountAmt" : [ {
+            "chargeAccountCurrencyAmount" : "Charge AC Currency Amount"
+          } ],
+          "beneficiaryId" : "Beneficiary Id",
+          "beneficiaryDetail" : "Beneficiary Country Other Detail",
+          "purpose" : "purpose",
+          "beneficiaryCountryCode" : "Beneficiary Country Code",
+          "creditValueDate" : "Credit Value Date",
+          "chargeDetails" : [ {
+            "chargeType" : "Charge Type"
+          } ],
+          "orderingPaymentFxCustomerRate" : "Ordering Payment Fx Cust Rate",
+          "benPostAddressLine" : [ {
+            "beneficiaryAddressLine1" : "Beneficiary ISO Address Line"
+          } ],
+          "orderingCustomerId" : "Ordering Customer Id",
+          "beneficiaryBIC" : "Beneficiary BIC",
+          "accountWithBankIBAN" : "Creditor Agent Identifier",
+          "transactionAmount" : "110",
+          "submitOrder" : "Submit Order",
+          "contextFieldValue" : [ {
+            "contextValue" : "Context Value"
+          } ],
+          "orderingPartyCountry" : "Ordering Party Country",
+          "accountWithBankClearingCode" : "Creditor Agent National Code",
+          "chargeAmt" : [ {
+            "chargeAmount" : "Charge Amount"
+          } ],
+          "beneficiaryIBAN" : "GB91DEMO60161300014044",
+          "transactionPurpose" : "Transaction Purpose",
+          "accountWithBankCountryId" : "Creditor Agent Country",
+          "debitAccountId" : "14095",
+          "balanceReservationReference" : "Locked Event ID",
+          "beneficiaryFaxNumber" : "Beneficiary Country Fax Detail",
+          "chargeAccCurr" : [ {
+            "chargeAccountCurrencyId" : "Charge Account Currency"
+          } ],
+          "orderingCustomerAddress" : "Ordering Customer Address",
+          "chargeCurr" : [ {
+            "chargeCurrency" : "Charge Currency"
+          } ],
+          "addressLocation" : "Beneficiary Address Type",
+          "PSDCompliant" : "PSD Compliant",
+          "remittanceInfo" : [ {
+            "remittanceInformation" : "Payment Details"
+          } ],
+          "requestedCurrency" : "Requested Currency",
+          "beneficiaryOtherId" : "Beneficiary Other ID",
+          "indicativeRate" : "Indicative Rate"
+        }
+      }
     },
     "InstantPaymentOrderBody" : {
       "type" : "object",
@@ -8229,6 +8156,125 @@
             "type" : "string",
             "description" : "Indicates the reject reason code of the payment for which the recall has been rejected"
           }
+        }
+      }
+    },
+    "createInstantPaymentOrder" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/InstantPaymentOrderBody"
+        }
+      },
+      "description" : "InstantPaymentOrder",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Account 14095 unauthorised overdraft of 110, available 0, Requested 110 GBP",
+              "id" : "PI-UNAUTH.OVERDRAFT",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "chargeBearer" : "Charge Bearer",
+          "debitValueDate" : "Debit Value Date",
+          "chargeInfo" : [ {
+            "chargeName" : "Charge Description"
+          } ],
+          "debitCurrency" : "Debit Currency",
+          "ultimateCreditor" : "string",
+          "executionDate" : "Execution Date",
+          "orderingCustomerName" : "Ordering Customer Name",
+          "totalDebitAmount" : "Total Debit Amount",
+          "benPostSwiftAddr" : [ {
+            "beneficiarySWIFTAddress" : "Beneficiary Swift Address"
+          } ],
+          "debitAccountIBAN" : "Debit Account IBAN",
+          "beneficiaryName" : "Beneficiary Name",
+          "beneficiaryOtherIdType" : "Beneficiary Other ID Type",
+          "acceptanceDateTime" : "Acceptance Date Time",
+          "instructedAmount" : "Instructed Amount",
+          "structuredCommunicationCode" : "Structured Communication Code",
+          "contextField" : [ {
+            "contextName" : "Context Name"
+          } ],
+          "accountType" : "Account Type",
+          "endToEndReference" : "End to End Identification",
+          "narrative" : "Narrative",
+          "structuredCreditorReference" : "structured Creditor Reference",
+          "beneficiaryAccountId" : "Beneficiary Account Id",
+          "debitAmount" : "Debit Amount",
+          "originalRequestedExecutionDate" : "Original Req Execution Date",
+          "accountWithBankBIC" : "Creditor Agent BIC",
+          "ultimateDebtor" : "ultimateDebtor",
+          "waiveCharge" : "Waive Charge",
+          "creditorAddress" : "Creditor Address",
+          "structuredIssuer" : "Structured Issuer",
+          "preAuthorizationReference" : "Pre-Authorization Number",
+          "requestedAmount" : "Requested Amount",
+          "instructionIdReference" : "Instruction Identification",
+          "paymentCurrency" : "GBP",
+          "chargeAcc" : [ {
+            "chargeAccountId" : "Charge Account"
+          } ],
+          "paymentOrderProductId" : "Payment Order Product Id",
+          "chargeAccountAmt" : [ {
+            "chargeAccountCurrencyAmount" : "Charge AC Currency Amount"
+          } ],
+          "beneficiaryId" : "Beneficiary Id",
+          "beneficiaryDetail" : "Beneficiary Country Other Detail",
+          "purpose" : "purpose",
+          "beneficiaryCountryCode" : "Beneficiary Country Code",
+          "creditValueDate" : "Credit Value Date",
+          "chargeDetails" : [ {
+            "chargeType" : "Charge Type"
+          } ],
+          "orderingPaymentFxCustomerRate" : "Ordering Payment Fx Cust Rate",
+          "benPostAddressLine" : [ {
+            "beneficiaryAddressLine1" : "Beneficiary ISO Address Line"
+          } ],
+          "orderingCustomerId" : "Ordering Customer Id",
+          "beneficiaryBIC" : "Beneficiary BIC",
+          "accountWithBankIBAN" : "Creditor Agent Identifier",
+          "transactionAmount" : "110",
+          "submitOrder" : "Submit Order",
+          "contextFieldValue" : [ {
+            "contextValue" : "Context Value"
+          } ],
+          "orderingPartyCountry" : "Ordering Party Country",
+          "accountWithBankClearingCode" : "Creditor Agent National Code",
+          "chargeAmt" : [ {
+            "chargeAmount" : "Charge Amount"
+          } ],
+          "beneficiaryIBAN" : "GB91DEMO60161300014044",
+          "transactionPurpose" : "Transaction Purpose",
+          "accountWithBankCountryId" : "Creditor Agent Country",
+          "debitAccountId" : "14095",
+          "balanceReservationReference" : "Locked Event ID",
+          "beneficiaryFaxNumber" : "Beneficiary Country Fax Detail",
+          "chargeAccCurr" : [ {
+            "chargeAccountCurrencyId" : "Charge Account Currency"
+          } ],
+          "orderingCustomerAddress" : "Ordering Customer Address",
+          "chargeCurr" : [ {
+            "chargeCurrency" : "Charge Currency"
+          } ],
+          "addressLocation" : "Beneficiary Address Type",
+          "PSDCompliant" : "PSD Compliant",
+          "remittanceInfo" : [ {
+            "remittanceInformation" : "Payment Details"
+          } ],
+          "requestedCurrency" : "Requested Currency",
+          "beneficiaryOtherId" : "Beneficiary Other ID",
+          "indicativeRate" : "Indicative Rate"
         }
       }
     }

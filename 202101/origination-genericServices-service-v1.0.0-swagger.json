@@ -5,11 +5,11 @@
     "version" : "v1.0.0",
     "title" : "Origination Generic apis"
   },
-  "host" : "localhost:9089",
+  "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/origination/dossiers/applicationForms/{applicationFormId}/" : {
@@ -38,11 +38,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -55,12 +50,6 @@
               "$ref" : "#/definitions/DossiersFormResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -71,6 +60,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -108,11 +103,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -125,12 +115,6 @@
               "$ref" : "#/definitions/ClassTypesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -141,6 +125,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -167,11 +157,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -184,12 +169,6 @@
               "$ref" : "#/definitions/DossierResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -200,6 +179,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -214,13 +199,7 @@
         "parameters" : [ {
           "name" : "dossierId",
           "in" : "path",
-          "description" : "",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -235,12 +214,6 @@
               "$ref" : "#/definitions/DossierResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -251,6 +224,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -263,7 +242,6 @@
         "parameters" : [ {
           "name" : "dossierId",
           "in" : "path",
-          "description" : "",
           "required" : true,
           "type" : "string"
         }, {
@@ -281,11 +259,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -298,12 +271,6 @@
               "$ref" : "#/definitions/DossierResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -314,6 +281,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -351,11 +324,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -368,12 +336,6 @@
               "$ref" : "#/definitions/ProductRecommendationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -384,6 +346,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -400,7 +368,8 @@
           "in" : "path",
           "description" : "The identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100336"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -419,11 +388,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -439,12 +403,6 @@
               "$ref" : "#/definitions/DossiersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -455,6 +413,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -470,7 +434,8 @@
           "name" : "statusId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "OAAP191078RLPC12-CUSTOMER.ONBOARDING"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -492,11 +457,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -509,12 +469,6 @@
               "$ref" : "#/definitions/DossierStatusResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -525,6 +479,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -563,11 +523,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -578,12 +533,6 @@
             "description" : "PurposeTypesResponse",
             "schema" : {
               "$ref" : "#/definitions/PurposeTypesResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -597,14 +546,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -671,8 +628,7 @@
                 "description" : "The identifier of the customer"
               },
               "roleId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -683,16 +639,13 @@
             "type" : "object",
             "properties" : {
               "classInstanceId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "toField" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "toValue" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -721,8 +674,7 @@
                 "description" : "The identifier of the customer"
               },
               "roleId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -734,8 +686,7 @@
             "type" : "object",
             "properties" : {
               "roleId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "customerId" : {
                 "type" : "string",
@@ -750,8 +701,7 @@
             "type" : "object",
             "properties" : {
               "roleId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "customerId" : {
                 "type" : "string",
@@ -774,12 +724,10 @@
           }
         },
         "definitionId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "version" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "activityId" : {
           "type" : "string",
@@ -791,12 +739,10 @@
           "description" : "The date on which the principal movement is effected"
         },
         "linkedApplication" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "linkedApplicationId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         }
       }
     },
@@ -860,8 +806,7 @@
                 "description" : "The identifier of the customer"
               },
               "roleId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -872,16 +817,13 @@
             "type" : "object",
             "properties" : {
               "classInstanceId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "toField" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "toValue" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -910,8 +852,7 @@
                 "description" : "The identifier of the customer"
               },
               "roleId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -923,8 +864,7 @@
             "type" : "object",
             "properties" : {
               "roleId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "customerId" : {
                 "type" : "string",
@@ -939,8 +879,7 @@
             "type" : "object",
             "properties" : {
               "roleId" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "customerId" : {
                 "type" : "string",
@@ -963,12 +902,10 @@
           }
         },
         "definitionId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "version" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "activityId" : {
           "type" : "string",
@@ -980,12 +917,10 @@
           "description" : "The date on which the principal movement is effected"
         },
         "linkedApplication" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "linkedApplicationId" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         }
       }
     },
@@ -1238,12 +1173,10 @@
               "properties" : {
                 "labelName" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "labelValue" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 100
                 }
               }
@@ -1350,7 +1283,43 @@
           "$ref" : "#/definitions/DossierBody"
         }
       },
-      "description" : "Dossier"
+      "description" : "Dossier",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activity" : "UPDATE-APPLICATION",
+          "purposes" : [ {
+            "productId" : "string",
+            "purposeId" : "CUSTOMER.ONBOARDING"
+          } ],
+          "domains" : [ {
+            "reference" : "string",
+            "role" : "string",
+            "domainClass" : "string",
+            "forms" : [ {
+              "formId" : "string",
+              "formReference" : "string",
+              "formPurpose" : "string"
+            } ]
+          } ],
+          "links" : [ {
+            "linkReference" : "string",
+            "linkType" : "string"
+          } ],
+          "activityPurpose" : "string"
+        }
+      }
     },
     "DossierBody" : {
       "type" : "object",
@@ -1378,12 +1347,10 @@
             "type" : "object",
             "properties" : {
               "linkType" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "linkReference" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -1394,12 +1361,10 @@
             "type" : "object",
             "properties" : {
               "domainClass" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "role" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "reference" : {
                 "type" : "string",
@@ -1411,16 +1376,13 @@
                   "type" : "object",
                   "properties" : {
                     "formPurpose" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "formId" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "formReference" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -1433,8 +1395,7 @@
           "description" : "The name of the action that will be performed on a condition of an account."
         },
         "activityPurpose" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         }
       }
     },
@@ -1475,12 +1436,10 @@
             "type" : "object",
             "properties" : {
               "linkType" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "linkReference" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               }
             }
           }
@@ -1491,12 +1450,10 @@
             "type" : "object",
             "properties" : {
               "domainClass" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "role" : {
-                "type" : "string",
-                "description" : ""
+                "type" : "string"
               },
               "reference" : {
                 "type" : "string",
@@ -1508,16 +1465,13 @@
                   "type" : "object",
                   "properties" : {
                     "formPurpose" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "formId" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     },
                     "formReference" : {
-                      "type" : "string",
-                      "description" : ""
+                      "type" : "string"
                     }
                   }
                 }
@@ -1530,8 +1484,7 @@
           "description" : "The name of the action that will be performed on a condition of an account."
         },
         "activityPurpose" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         }
       }
     },
@@ -1564,22 +1517,18 @@
                 },
                 "question" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "answer" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "fitType" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 2
                 },
                 "mcField" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "value" : {
@@ -1589,62 +1538,50 @@
                 },
                 "valueType" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 10
                 },
                 "weight" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 2
                 },
                 "weightedScore" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "rawScore" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 3
                 },
                 "standardizeMetric" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 3
                 },
                 "standardScore" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 3
                 },
                 "knockoutMetric" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 3
                 },
                 "knockout" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 3
                 },
                 "totalKnockouts" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 3
                 },
                 "totalWeights" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 5
                 },
                 "totalScore" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 5
                 },
                 "precentageFit" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 5
                 }
               }
@@ -1652,23 +1589,19 @@
           },
           "mcOutProductIds" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
                 "mcOutProduct" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "mcOutField" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "mcOutValue" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 }
               }
@@ -1676,17 +1609,14 @@
           },
           "productRecommendationId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "fitMethod" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "fitMethodVersion" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -1720,8 +1650,7 @@
                   "maxLength" : 35
                 },
                 "purposeName" : {
-                  "type" : "string",
-                  "description" : ""
+                  "type" : "string"
                 }
               }
             }
@@ -1733,12 +1662,10 @@
               "properties" : {
                 "linkType" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "linkReference" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 }
               }
@@ -1746,7 +1673,6 @@
           },
           "dossierId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -1781,7 +1707,6 @@
                 },
                 "statusValue" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 }
               }
@@ -1789,48 +1714,39 @@
           },
           "forms" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
                 "formReference" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 100
                 },
                 "domainType" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "role" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 30
                 },
                 "sequence" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "formId" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "formDataStatus" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "formEvidenceStatus" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "formVerificiationStatus" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 55
                 },
                 "formOwners" : {
@@ -1840,22 +1756,18 @@
                     "properties" : {
                       "formOwner" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "formOwnerDataStatus" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 35
                       },
                       "formOwnerEvidenceStatus" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 35
                       },
                       "formOwnerVerification" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 100
                       }
                     }
@@ -1868,42 +1780,34 @@
                     "properties" : {
                       "formlet" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 35
                       },
                       "formletClass" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 35
                       },
                       "formletRecordId" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 100
                       },
                       "formletOwner" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       },
                       "formletEvidenceStatus" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 35
                       },
                       "formletVerification" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 100
                       },
                       "formletStatus" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 35
                       },
                       "formletAttribute" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 35
                       }
                     }
@@ -1916,12 +1820,10 @@
                     "properties" : {
                       "evidenceRequirement" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 100
                       },
                       "EvidenceReqStatus" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 35
                       }
                     }
@@ -1932,18 +1834,15 @@
           },
           "dataGroups" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
                 "dataModelCategory" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "dataModel" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "data" : {
@@ -1953,7 +1852,6 @@
                 },
                 "dataReference" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 }
               }
@@ -1961,7 +1859,6 @@
           },
           "statusId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "applicationId" : {
@@ -1971,17 +1868,14 @@
           },
           "stage" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "pwProcessId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "stageVersion" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -2015,9 +1909,55 @@
           },
           "displayFullName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 50
           }
+        }
+      }
+    },
+    "updateDossier" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DossierBody"
+        }
+      },
+      "description" : "Dossier",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activity" : "UPDATE-APPLICATION",
+          "purposes" : [ {
+            "productId" : "string",
+            "purposeId" : "CUSTOMER.ONBOARDING"
+          } ],
+          "domains" : [ {
+            "reference" : "string",
+            "role" : "string",
+            "domainClass" : "string",
+            "forms" : [ {
+              "formId" : "string",
+              "formReference" : "string",
+              "formPurpose" : "string"
+            } ]
+          } ],
+          "links" : [ {
+            "linkReference" : "string",
+            "linkType" : "string"
+          } ],
+          "activityPurpose" : "string"
         }
       }
     }

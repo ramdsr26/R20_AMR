@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/reference/instruments/initialPublicOfferings" : {
@@ -57,11 +57,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -74,12 +69,6 @@
               "$ref" : "#/definitions/ActiveIPOsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -90,6 +79,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -170,11 +165,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -187,12 +177,6 @@
               "$ref" : "#/definitions/InstrumentsBondsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -203,6 +187,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -227,11 +217,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -244,12 +229,6 @@
               "$ref" : "#/definitions/SecurityBondResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -260,6 +239,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -340,11 +325,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -357,12 +337,6 @@
               "$ref" : "#/definitions/InstrumentSharesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -373,6 +347,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -397,11 +377,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -414,12 +389,6 @@
               "$ref" : "#/definitions/SecurityShareResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -430,6 +399,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -462,11 +437,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -479,12 +449,6 @@
               "$ref" : "#/definitions/FutureContractsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -495,6 +459,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -527,11 +497,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -544,12 +509,6 @@
               "$ref" : "#/definitions/OptionContractsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -560,6 +519,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -576,12 +541,8 @@
           "in" : "path",
           "description" : "The identifier of the instrument",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "GB00B0LSFV82"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -595,12 +556,6 @@
               "$ref" : "#/definitions/SecurityBondResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -611,6 +566,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -627,12 +588,8 @@
           "in" : "path",
           "description" : "The identifier of the instrument",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "US8552441094"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -646,12 +603,6 @@
               "$ref" : "#/definitions/SecurityShareResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -662,6 +613,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -688,11 +645,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -705,12 +657,6 @@
               "$ref" : "#/definitions/StructuredNotesResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -721,6 +667,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -737,12 +689,8 @@
           "in" : "path",
           "description" : "The identifier of the instrument",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "GB00BVJF7H80"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -756,12 +704,6 @@
               "$ref" : "#/definitions/StructuredNotesResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -772,6 +714,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -789,11 +737,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -806,12 +749,6 @@
               "$ref" : "#/definitions/FundInstrumentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -822,6 +759,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -851,11 +794,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -866,12 +804,6 @@
             "description" : "FundInstrumentResponse",
             "schema" : {
               "$ref" : "#/definitions/FundInstrumentResponse"
-            }
-          },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           },
           "400" : {
@@ -885,14 +817,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -1882,7 +1822,54 @@
           "$ref" : "#/definitions/SecurityShareBody"
         }
       },
-      "description" : "SecurityShare"
+      "description" : "SecurityShare",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "stockExchange" : "NYSE",
+          "subAssetType" : "200",
+          "parValue" : "10",
+          "couponTaxCodeId" : "US",
+          "displayName" : "New Bond",
+          "priceType" : "0",
+          "priceUpdateCode" : "MANU",
+          "alternateInstrumentDetails" : [ {
+            "alternateInstrument" : "string",
+            "alternateInstrumentId" : "string"
+          } ],
+          "companyDomicile" : "US",
+          "ISIN" : "string",
+          "brokerTradingUnits" : 1.5,
+          "minimumInvestmentDetails" : [ {
+            "redemptionAmount" : 1.5,
+            "SIPAmount" : 1.5,
+            "subsequentInvestment" : 1.5,
+            "initialInvestment" : 1.5,
+            "currencyId" : "string"
+          } ],
+          "industryId" : "10",
+          "minimumHolding" : 1.5,
+          "depositoryId" : 1.5,
+          "minimumHoldingPeriod" : "string",
+          "minimumHoldingOverride" : true,
+          "mnemonic" : "M991002009",
+          "instrumentDomicile" : "string",
+          "currencyId" : "USD",
+          "tradingUnits" : 1.5,
+          "lastPrice" : "100"
+        }
+      }
     },
     "SecurityShareBody" : {
       "type" : "object",
@@ -2196,7 +2183,47 @@
           "$ref" : "#/definitions/StructuredNotesBody"
         }
       },
-      "description" : "StructuredNotes"
+      "description" : "StructuredNotes",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "NEW ISSUE",
+              "id" : "NEW ISSUE",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "stockExchange" : "NYSE",
+          "accrualDate" : "2015-07-20",
+          "interestRates" : [ {
+            "interestRate" : 5.0
+          } ],
+          "initialPaymentDate" : "2015-07-20",
+          "displayName" : "string",
+          "priceType" : "string",
+          "priceUpdateCode" : "string",
+          "alternateInstrumentDetails" : [ {
+            "alternateInstrument" : "string",
+            "alternateInstrumentId" : "string"
+          } ],
+          "companyDomicile" : "string",
+          "ISIN" : "string",
+          "instrumentName" : "JP Morgan",
+          "industryId" : 1.5,
+          "subAssetTypeId" : 1.5,
+          "maturityDate" : "20180417",
+          "instrumentDomicile" : "string",
+          "currencyId" : "USD",
+          "issueDate" : "2015-07-20",
+          "structureNote" : true,
+          "lastPrice" : 100
+        }
+      }
     },
     "StructuredNotesBody" : {
       "type" : "object",
@@ -2802,6 +2829,115 @@
           "type" : "string",
           "description" : "This is the identifier of the domicile region based on which the next cut off date will be calculated",
           "maxLength" : 40
+        }
+      }
+    },
+    "createStructuredNotes" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/StructuredNotesBody"
+        }
+      },
+      "description" : "StructuredNotes",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "NEW ISSUE",
+              "id" : "NEW ISSUE",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "stockExchange" : "NYSE",
+          "accrualDate" : "2015-07-20",
+          "interestRates" : [ {
+            "interestRate" : 5.0
+          } ],
+          "initialPaymentDate" : "2015-07-20",
+          "displayName" : "string",
+          "priceType" : "string",
+          "priceUpdateCode" : "string",
+          "alternateInstrumentDetails" : [ {
+            "alternateInstrument" : "string",
+            "alternateInstrumentId" : "string"
+          } ],
+          "companyDomicile" : "string",
+          "ISIN" : "string",
+          "instrumentName" : "JP Morgan",
+          "industryId" : 1.5,
+          "subAssetTypeId" : 1.5,
+          "maturityDate" : "20180417",
+          "instrumentDomicile" : "string",
+          "currencyId" : "USD",
+          "issueDate" : "2015-07-20",
+          "structureNote" : true,
+          "lastPrice" : 100
+        }
+      }
+    },
+    "createSecurityShare" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/SecurityShareBody"
+        }
+      },
+      "description" : "SecurityShare",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "stockExchange" : "NYSE",
+          "subAssetType" : "200",
+          "parValue" : "10",
+          "couponTaxCodeId" : "US",
+          "displayName" : "New Bond",
+          "priceType" : "0",
+          "priceUpdateCode" : "MANU",
+          "alternateInstrumentDetails" : [ {
+            "alternateInstrument" : "string",
+            "alternateInstrumentId" : "string"
+          } ],
+          "companyDomicile" : "US",
+          "ISIN" : "string",
+          "brokerTradingUnits" : 1.5,
+          "minimumInvestmentDetails" : [ {
+            "redemptionAmount" : 1.5,
+            "SIPAmount" : 1.5,
+            "subsequentInvestment" : 1.5,
+            "initialInvestment" : 1.5,
+            "currencyId" : "string"
+          } ],
+          "industryId" : "10",
+          "minimumHolding" : 1.5,
+          "depositoryId" : 1.5,
+          "minimumHoldingPeriod" : "string",
+          "minimumHoldingOverride" : true,
+          "mnemonic" : "M991002009",
+          "instrumentDomicile" : "string",
+          "currencyId" : "USD",
+          "tradingUnits" : 1.5,
+          "lastPrice" : "100"
         }
       }
     }

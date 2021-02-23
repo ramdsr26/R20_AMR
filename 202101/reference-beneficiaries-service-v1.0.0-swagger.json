@@ -1,4 +1,4 @@
-{ 
+{
   "swagger" : "2.0",
   "info" : {
     "description" : "Get and process information about Utility Beneficiaries",
@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/reference/beneficiaries/utilityBeneficiaries" : {
@@ -26,8 +26,8 @@
           "type" : "string"
         }, {
           "name" : "companyNameCT",
-           "description" : "The company in which payment is processed",
           "in" : "query",
+          "description" : "The company in which payment is processed",
           "required" : false,
           "type" : "string"
         }, {
@@ -93,11 +93,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -108,12 +103,6 @@
             "description" : "UtilityBeneficiariesResponse",
             "schema" : {
               "$ref" : "#/definitions/UtilityBeneficiariesResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -127,14 +116,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {

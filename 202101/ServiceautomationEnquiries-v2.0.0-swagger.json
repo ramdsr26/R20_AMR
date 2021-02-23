@@ -5,19 +5,15 @@
     "version" : "v2.0.0",
     "title" : "Serviceautomation"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v2.0.0",
-  "tags" : [ ],
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v2.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/system/services" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves a list of all available services in system.(Deprecated- A newer version V2.0.2 available)",
         "description" : "Retrieves a list of all available services in system.",
         "operationId" : "getAvailableServices",
@@ -73,12 +69,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -110,12 +100,6 @@
               "$ref" : "#/definitions/AvailableServicesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -127,6 +111,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -134,7 +124,6 @@
     },
     "/system/services/{serviceId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the details of a specific service(Deprecated- A newer version V2.0.2 available)",
         "description" : "Retrieves the details of a specific service ",
         "operationId" : "getAvailableService",
@@ -190,12 +179,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -227,12 +210,6 @@
               "$ref" : "#/definitions/AvailableServicesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -244,6 +221,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -251,7 +234,6 @@
     },
     "/system/services/{serviceId}/status" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves a detailed status of the specified service(Deprecated- A newer version V2.0.2 available)",
         "description" : "Retrieves a detailed status of the specified service",
         "operationId" : "getServiceStatus",
@@ -280,12 +262,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -320,12 +296,6 @@
               "$ref" : "#/definitions/ServiceStatusResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -337,6 +307,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -344,7 +320,6 @@
     },
     "/system/services/status" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves  status of all the services(Deprecated- A newer version V2.0.2 available)",
         "description" : "Retrieves  status of all the services",
         "operationId" : "getServicesStatus",
@@ -373,12 +348,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -413,12 +382,6 @@
               "$ref" : "#/definitions/ServiceStatusResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -430,6 +393,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -437,7 +406,6 @@
     },
     "/system/services/workProfiles" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves list of all service workload profiles available in system(Deprecated- A newer version V2.0.2 available)",
         "description" : "Retrieves list of all service workload profiles available in system",
         "operationId" : "getWorkLoadProfiles",
@@ -481,12 +449,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -518,12 +480,6 @@
               "$ref" : "#/definitions/WorkLoadProfilesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -535,6 +491,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -542,7 +504,6 @@
     },
     "/system/services/workProfiles/{workProfileId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves a specific workload profile (Deprecated- A newer version V2.0.2 available)",
         "description" : "Retrieves a specific workload profile ",
         "operationId" : "getWorkLoadProfile",
@@ -586,12 +547,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -623,12 +578,6 @@
               "$ref" : "#/definitions/WorkLoadProfilesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -640,6 +589,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -647,7 +602,6 @@
     },
     "/system/services/{servicesId}/companies/{companyId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves any logged error messages for a company during the Close of Business processing(Deprecated- A newer version V2.0.2 available)",
         "description" : "Retrieves any logged error messages for a company during the Close of Business processing",
         "operationId" : "getCompanyCloseBusinessStatus",
@@ -690,12 +644,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -727,12 +675,6 @@
               "$ref" : "#/definitions/CompanyCloseBusinessStatusResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -744,6 +686,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -751,7 +699,6 @@
     },
     "/system/services/jobtimes" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves a list of all available executed process times in system(Deprecated- A newer version V2.0.2 available)",
         "description" : "Retrieves a list of all available executed process times in system",
         "operationId" : "getJobTimes",
@@ -774,12 +721,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -814,12 +755,6 @@
               "$ref" : "#/definitions/JobTimesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -831,6 +766,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -838,7 +779,6 @@
     },
     "/system/services/reportTimes" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves a list of elapsed times for reports generated during close of business processing(Deprecated- A newer version V2.0.2 available)",
         "description" : "Retrieves a list of elapsed times for reports generated during close of business processing",
         "operationId" : "getReportTimes",
@@ -876,12 +816,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -913,12 +847,6 @@
               "$ref" : "#/definitions/ReportTimesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -930,6 +858,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -937,9 +871,6 @@
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -1273,7 +1204,6 @@
         "properties" : {
           "group" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -1375,7 +1305,6 @@
         "properties" : {
           "group" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -1443,7 +1372,6 @@
         "properties" : {
           "group" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {

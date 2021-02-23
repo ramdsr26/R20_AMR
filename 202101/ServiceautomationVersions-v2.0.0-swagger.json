@@ -5,19 +5,15 @@
     "version" : "v2.0.0",
     "title" : "Serviceautomation"
   },
-  "host" : "api.server.com",
-  "basePath" : "/api/v2.0.0",
-  "tags" : [ ],
+  "host" : "api.temenos.com",
+  "basePath" : "/api/v2.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/system/services/processes/{processId}" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create new process in system(Deprecated- A newer version V2.0.2 available)",
         "description" : "Create new process in system",
         "operationId" : "createCloseOfBusinessProcess",
@@ -41,12 +37,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -73,12 +63,6 @@
               "$ref" : "#/definitions/CloseOfBusinessProcessResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -90,12 +74,17 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         },
         "deprecated" : true
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update process record in system(Deprecated- A newer version V2.0.2 available)",
         "description" : "Update process record in system",
         "operationId" : "updateCloseOfBusinessProcess",
@@ -121,12 +110,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -152,12 +135,6 @@
               "$ref" : "#/definitions/CloseOfBusinessProcessResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -169,6 +146,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -176,7 +159,6 @@
     },
     "/system/services/{serviceId}" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create new service in system(Deprecated- A newer version V2.0.2 available)",
         "description" : "Create new service in system",
         "operationId" : "createService",
@@ -201,12 +183,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -232,12 +208,6 @@
               "$ref" : "#/definitions/ServiceResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -249,12 +219,17 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         },
         "deprecated" : true
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update a service in the system (Deprecated- A newer version V2.0.2 available)",
         "description" : "Update a service in the system ",
         "operationId" : "updateService",
@@ -279,12 +254,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -310,12 +279,6 @@
               "$ref" : "#/definitions/ServiceResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -327,6 +290,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -334,7 +303,6 @@
     },
     "/system/services/workProfiles/{workProfileId}" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create service work load profile(Deprecated- A newer version V2.0.2 available)",
         "description" : "Create service work load profile",
         "operationId" : "createWorkloadProfile",
@@ -360,12 +328,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -391,12 +353,6 @@
               "$ref" : "#/definitions/WorkloadProfileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -408,12 +364,17 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         },
         "deprecated" : true
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update a service work load profile(Deprecated- A newer version V2.0.2 available)",
         "description" : "Update a service work load profile",
         "operationId" : "updateWorkloadProfile",
@@ -439,12 +400,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -470,12 +425,6 @@
               "$ref" : "#/definitions/WorkloadProfileResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -487,6 +436,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -494,9 +449,6 @@
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",

@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/us/safeDeposits/{accountId}/safeDepositBoxOverview" : {
@@ -45,12 +45,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -64,12 +58,6 @@
               "$ref" : "#/definitions/UsSafeDepositBoxOverviewResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -81,14 +69,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -162,20 +158,17 @@
             "description" : "Indicates an unique identifier of an account"
           },
           "alternateAccountId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "alternateAccountType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "accountStatus" : {
             "type" : "string",
             "description" : "Specifies the current status of the account, which is either active, inactive or closed."
           },
           "branchId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "accountCompany" : {
             "type" : "string",

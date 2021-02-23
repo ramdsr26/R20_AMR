@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/creditAgreements/deals/offers" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates an offer for a deal contract",
         "description" : "Creates new offer Deal for the required customer when the Mandatory input details are provided. Offer Deal creates a draft contract and allow the users to negotiate multiple times. Offer Deal is a draft contract and will not affect the Balance sheet of the bank.",
         "operationId" : "createDealOffer",
@@ -35,12 +31,6 @@
           "schema" : {
             "$ref" : "#/definitions/DealOffer"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -67,12 +57,6 @@
               "$ref" : "#/definitions/DealOfferResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -84,13 +68,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/facilities/offers" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates an offer for a facility contract",
         "description" : "Creates a new offer Facility for the required customer when at least the Mandatory input is provided. Offer Facility creates a draft contract and allow the users to negotiate multiple times. Offer facility is a draft contract and will not affect the Balance sheet of the bank.",
         "operationId" : "createFacilityOffer",
@@ -108,12 +97,6 @@
           "schema" : {
             "$ref" : "#/definitions/FacilityOffer"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -140,12 +123,6 @@
               "$ref" : "#/definitions/FacilityOfferResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -157,13 +134,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/deals/offers/cancellations" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Deletes an offer for a deal contract",
         "description" : "Deletes a new offer for the required deal contract when at least the Mandatory input is provided. Deal offer is a draft contract, which allow the user to delete the contract online and deal offer contract will not affect the balance sheet of the bank.",
         "operationId" : "deleteDealOffer",
@@ -181,12 +163,6 @@
           "schema" : {
             "$ref" : "#/definitions/DealOffer1"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -213,12 +189,6 @@
               "$ref" : "#/definitions/DealOfferResponse1"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -230,13 +200,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/facilities/offers/cancellations" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Deletes an offer for a facility contract",
         "description" : "Deletes a new offer for the required facility contract when at least the Mandatory input is provided. Facility offer is a draft contract, which allow the user to delete the contract online and facility offer contract will not affect the balance sheet of the bank.",
         "operationId" : "deleteFacilityOffer",
@@ -254,12 +229,6 @@
           "schema" : {
             "$ref" : "#/definitions/FacilityOffer1"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -286,12 +255,6 @@
               "$ref" : "#/definitions/FacilityOfferResponse1"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -303,13 +266,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/deals/offers/acceptances" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Accept the deal offer and the execute the contract to live",
         "description" : "On executing acceptance, the contract is changed from Offer to live Deal for the required customer when at least the Mandatory input is provided. Process will check all the required mandatory inputs and prompt an error message when mandatory details are not provided. Once the accept deal offer is processed further offer negotiation is not allowed.",
         "operationId" : "acceptDealOffer",
@@ -327,12 +295,6 @@
           "schema" : {
             "$ref" : "#/definitions/DealOffer2"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -359,12 +321,6 @@
               "$ref" : "#/definitions/DealOfferResponse2"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -376,13 +332,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/facilities/offers/acceptances" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Accept the facility offer and the execute the contract to live",
         "description" : "On executing acceptance, the contract is changed from Offer to live Facility for the required customer when at least the Mandatory input is provided. Process will check all the required mandatory inputs and prompt an error message when mandatory details are not provided. Once the accept deal offer is processed further offer negotiation is not allowed.",
         "operationId" : "acceptFacilityOffer",
@@ -400,12 +361,6 @@
           "schema" : {
             "$ref" : "#/definitions/FacilityOffer2"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -432,12 +387,6 @@
               "$ref" : "#/definitions/FacilityOfferResponse2"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -449,13 +398,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/drawdowns/offers" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates a new drawdown offer for the required customer. ",
         "description" : "Creates a new drawdown offer for the required customer. ",
         "operationId" : "createDrawdownOffer",
@@ -473,12 +427,6 @@
           "schema" : {
             "$ref" : "#/definitions/DrawdownOffer"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -505,12 +453,6 @@
               "$ref" : "#/definitions/DrawdownOfferResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -522,13 +464,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/drawdowns/offers/negotiations" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Renegotiate the offer drawdown for the required customer.",
         "description" : "Renegotiate the offer drawdown for the required customer.",
         "operationId" : "createOfferDrawdownRenegotiation",
@@ -546,12 +493,6 @@
           "schema" : {
             "$ref" : "#/definitions/OfferDrawdownRenegotiation"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -578,12 +519,6 @@
               "$ref" : "#/definitions/OfferDrawdownRenegotiationResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -595,13 +530,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/drawdowns/offers/cancellations" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Cancellation of offer drawdown for the required customer.",
         "description" : "Cancellation of offer drawdown for the required customer.",
         "operationId" : "deleteDrawdownOffer",
@@ -619,12 +559,6 @@
           "schema" : {
             "$ref" : "#/definitions/DrawdownOffer1"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -651,12 +585,6 @@
               "$ref" : "#/definitions/DrawdownOfferResponse1"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -668,13 +596,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/drawdowns/offers/acceptances" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Convert an offer drawdown to a live drawdown for the required customer.",
         "description" : "Convert an offer drawdown to a live drawdown for the required customer.",
         "operationId" : "acceptOfferDrawdown",
@@ -692,12 +625,6 @@
           "schema" : {
             "$ref" : "#/definitions/OfferDrawdown"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -724,12 +651,6 @@
               "$ref" : "#/definitions/OfferDrawdownResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -741,13 +662,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/facilities/{facilityId}/drawingProducts" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the available drawing products under the facility ",
         "description" : "Retrieves the available drawing products under the facility ",
         "operationId" : "getFacilityDrawingProducts",
@@ -776,12 +702,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -816,12 +736,6 @@
               "$ref" : "#/definitions/FacilityDrawingProductsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -833,13 +747,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/facilities/{facilityId}/combinedSchedules" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the payment schedule of facility and its drawings",
         "description" : "Retrieves the payment schedule of facility and its drawings",
         "operationId" : "getCombinedSchedules",
@@ -849,7 +768,8 @@
           "in" : "path",
           "description" : "Unique identifier (contract number) of the facility",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19108G1JTP"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -868,12 +788,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -908,12 +822,6 @@
               "$ref" : "#/definitions/CombinedSchedulesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -925,13 +833,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/facilities" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates corporate facilities",
         "description" : "Creates corporate facilities",
         "operationId" : "createFacilities",
@@ -949,12 +862,6 @@
           "schema" : {
             "$ref" : "#/definitions/Facilities"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -981,12 +888,6 @@
               "$ref" : "#/definitions/FacilitiesResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -998,13 +899,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/holdings/creditAgreements/drawdowns" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates drawdowns under facility",
         "description" : "Creates drawdowns under facility",
         "operationId" : "createDrawdowns",
@@ -1022,12 +928,6 @@
           "schema" : {
             "$ref" : "#/definitions/Drawdowns"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1054,12 +954,6 @@
               "$ref" : "#/definitions/DrawdownsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -1071,15 +965,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -3465,8 +3362,7 @@
           }
         },
         "properties" : {
-          "type" : "object",
-          "properties" : { }
+          "type" : "object"
         }
       }
     },
@@ -3561,8 +3457,7 @@
           }
         },
         "properties" : {
-          "type" : "object",
-          "properties" : { }
+          "type" : "object"
         }
       }
     },
@@ -6914,8 +6809,7 @@
           }
         },
         "properties" : {
-          "type" : "object",
-          "properties" : { }
+          "type" : "object"
         }
       }
     },
@@ -7866,7 +7760,6 @@
         },
         "arrangmentId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 12
         },
@@ -7988,13 +7881,11 @@
               },
               "requiredCustomer" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 17
               },
               "subArrangementProduct" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 21
               }
@@ -8034,7 +7925,6 @@
               },
               "limitSerial" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 11
               }
@@ -8083,7 +7973,6 @@
             },
             "arrangmentId" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
@@ -8502,13 +8391,11 @@
                     },
                     "requiredCustomer" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 17
                     },
                     "subArrangementProduct" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 21
                     }
@@ -8668,7 +8555,6 @@
                     },
                     "limitSerial" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 11
                     }
@@ -8822,7 +8708,29 @@
           "$ref" : "#/definitions/DrawdownsBody"
         }
       },
-      "description" : "Drawdowns"
+      "description" : "Drawdowns",
+      "example" : {
+        "body" : {
+          "facilityId" : "AA19108G1JTP",
+          "productId" : "MORTGAGE",
+          "commitment" : {
+            "amount" : 30000,
+            "term" : "1Y"
+          },
+          "currency" : "USD",
+          "customers" : [ {
+            "customer" : "190273"
+          } ],
+          "settlement" : {
+            "payInAccounts" : [ {
+              "payInAccount" : 76527
+            } ],
+            "payOutAccounts" : [ {
+              "payoutAccount" : 85707
+            } ]
+          }
+        }
+      }
     },
     "DrawdownsBody" : {
       "type" : "object",
@@ -8850,7 +8758,6 @@
         },
         "arrangmentId" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 12
         },
@@ -8983,7 +8890,6 @@
             },
             "arrangmentId" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 12
             },
@@ -9524,6 +9430,39 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "createDrawdowns" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DrawdownsBody"
+        }
+      },
+      "description" : "Drawdowns",
+      "example" : {
+        "body" : {
+          "facilityId" : "AA19108G1JTP",
+          "productId" : "MORTGAGE",
+          "commitment" : {
+            "amount" : 30000,
+            "term" : "1Y"
+          },
+          "currency" : "USD",
+          "customers" : [ {
+            "customer" : "190273"
+          } ],
+          "settlement" : {
+            "payInAccounts" : [ {
+              "payInAccount" : 76527
+            } ],
+            "payOutAccounts" : [ {
+              "payoutAccount" : 85707
+            } ]
           }
         }
       }

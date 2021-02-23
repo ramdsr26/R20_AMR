@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/directDebits" : {
@@ -57,12 +57,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -76,12 +70,6 @@
               "$ref" : "#/definitions/AccountDirectDebitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -93,13 +81,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/directDebits/{directDebitId}" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create direct debit for account",
         "description" : "Creates a new direct debit record for a specific account",
         "operationId" : "createDirectDebits",
@@ -125,12 +118,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -144,12 +131,6 @@
               "$ref" : "#/definitions/DirectDebitsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -161,11 +142,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update the direct debit record",
         "description" : "Update the existing direct debit record for specific account",
         "operationId" : "updateDirectDebits",
@@ -191,12 +177,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -210,12 +190,6 @@
               "$ref" : "#/definitions/DirectDebitsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -226,6 +200,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -270,12 +250,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -289,12 +263,6 @@
               "$ref" : "#/definitions/RejectedCollectionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -306,13 +274,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/directDebits/debtorMandates" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the debtor mandate details for the customer/account",
         "description" : "Retrieves the details from debtor mandate such as scheme, payment type, creditor information and latest collection details of the mandates of a customer or an account provided",
         "operationId" : "getDebtorDirectDebitMandates",
@@ -350,12 +323,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -381,12 +348,6 @@
               "$ref" : "#/definitions/DebtorDirectDebitMandatesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -398,15 +359,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -739,7 +703,42 @@
           "$ref" : "#/definitions/DirectDebitsBody"
         }
       },
-      "description" : "DirectDebits"
+      "description" : "DirectDebits",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "creditAccountName" : "Chris SRolland",
+          "parameterId" : "string",
+          "requestType" : "string",
+          "displayName" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "sortCode" : "DDCLG",
+          "directDebitStatus" : "CANCELLED",
+          "standaloneAmount" : 60,
+          "frequency" : "20180501 e0Y e1M e0W o1D e0F",
+          "terminationDate" : "2018-05-01",
+          "inwardAccountId" : "string",
+          "customerId" : "100336",
+          "creditAccountId" : "string",
+          "currencyId" : "string",
+          "currencyMarket" : "string",
+          "direction" : "OUTWARD"
+        }
+      }
     },
     "DirectDebitsBody" : {
       "type" : "object",
@@ -1356,6 +1355,52 @@
             "description" : "This is the termination date of recurring direct debit",
             "maxLength" : 11
           }
+        }
+      }
+    },
+    "updateDirectDebits" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DirectDebitsBody"
+        }
+      },
+      "description" : "DirectDebits",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "creditAccountName" : "Chris SRolland",
+          "parameterId" : "string",
+          "requestType" : "string",
+          "displayName" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "sortCode" : "DDCLG",
+          "directDebitStatus" : "CANCELLED",
+          "standaloneAmount" : 60,
+          "frequency" : "20180501 e0Y e1M e0W o1D e0F",
+          "terminationDate" : "2018-05-01",
+          "inwardAccountId" : "string",
+          "customerId" : "100336",
+          "creditAccountId" : "string",
+          "currencyId" : "string",
+          "currencyMarket" : "string",
+          "direction" : "OUTWARD"
         }
       }
     }

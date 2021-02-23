@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/deriviativeOrders/OTCOrders" : {
@@ -57,11 +57,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -74,12 +69,6 @@
               "$ref" : "#/definitions/OTCDerivativeOrdersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -90,6 +79,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -140,11 +135,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -157,12 +147,6 @@
               "$ref" : "#/definitions/ETDDerivativeOrdersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -173,6 +157,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -199,11 +189,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -216,12 +201,6 @@
               "$ref" : "#/definitions/DerivativesOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -232,6 +211,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -246,13 +231,7 @@
         "parameters" : [ {
           "name" : "deriviativeOrderId",
           "in" : "path",
-          "description" : "",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -267,12 +246,6 @@
               "$ref" : "#/definitions/DerivativesOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -283,6 +256,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -295,7 +274,6 @@
         "parameters" : [ {
           "name" : "deriviativeOrderId",
           "in" : "path",
-          "description" : "",
           "required" : true,
           "type" : "string"
         }, {
@@ -313,11 +291,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -328,12 +301,6 @@
             "description" : "DerivativesOrderResponse",
             "schema" : {
               "$ref" : "#/definitions/DerivativesOrderResponse"
-            }
-          },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           },
           "400" : {
@@ -347,14 +314,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -423,7 +398,6 @@
         "properties" : {
           "inOrOutFlag" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "transactionId" : {
@@ -448,12 +422,10 @@
           },
           "exoticType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "underlying" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "strikePrice" : {
@@ -461,12 +433,10 @@
             "description" : "The price at which the option holder has the right to buy (Call Options) or sell (Put Options) the underlying instrument, or to cash-settle the option if appropriate"
           },
           "underlyingPrice" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "payoff" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "callOrPut" : {
             "type" : "string",
@@ -479,12 +449,10 @@
           },
           "buyer" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "buyerName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 25
           },
           "portfolioId" : {
@@ -494,7 +462,6 @@
           },
           "seller" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           }
         }
@@ -630,7 +597,6 @@
         "properties" : {
           "inOrOutFlag" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "transactionId" : {
@@ -655,12 +621,10 @@
           },
           "exoticType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "underlying" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "strikePrice" : {
@@ -668,12 +632,10 @@
             "description" : "The price at which the option holder has the right to buy (Call Options) or sell (Put Options) the underlying instrument, or to cash-settle the option if appropriate"
           },
           "underlyingPrice" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "payoff" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "callOrPut" : {
             "type" : "string",
@@ -686,12 +648,10 @@
           },
           "buyer" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "buyerName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 25
           },
           "portfolioId" : {
@@ -701,7 +661,6 @@
           },
           "seller" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           }
         }

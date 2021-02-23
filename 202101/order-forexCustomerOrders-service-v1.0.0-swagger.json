@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/forexOrders/limitOrders/{limitOrderId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves forex orders created for customers to buy/sell currencies at desired rates",
         "description" : "Retrieves forex orders created for the given customer to buy/sell currencies at desired rates and specified dates along with the order status(active,cancelled etc.)",
         "operationId" : "getCustomerForexLimitOrders",
@@ -54,12 +50,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -85,12 +75,6 @@
               "$ref" : "#/definitions/CustomerForexLimitOrdersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -102,11 +86,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Cancels an existing forex limit order",
         "description" : "Cancels an existing forex limit order of a customer",
         "operationId" : "updateForexLimitOrder",
@@ -130,12 +119,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -162,12 +145,6 @@
               "$ref" : "#/definitions/ForexLimitOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -179,13 +156,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/forexOrders/limitOrders" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates forex limit order for a customer",
         "description" : "Creates forex limit order for a customer and also displays the list of existing limit orders ",
         "operationId" : "createForexLimitOrder",
@@ -204,12 +186,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -236,12 +212,6 @@
               "$ref" : "#/definitions/ForexLimitOrderResponse1"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -253,13 +223,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/forexOrders/customers/{customerId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the forex deals created out of the forex limit order of the given customer",
         "description" : "Retrieves the forex deals created out of the forex limit order to buy/sell currencies at customer specified rates",
         "operationId" : "getCustomerForexDeals",
@@ -291,12 +266,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -322,12 +291,6 @@
               "$ref" : "#/definitions/CustomerForexDealsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -339,13 +302,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/order/forexOrders" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the open position",
         "description" : "Retrieves the open position for different currencies",
         "operationId" : "getForexOrders",
@@ -383,12 +351,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -414,12 +376,6 @@
               "$ref" : "#/definitions/ForexOrdersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -431,11 +387,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       },
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates foreign exchange deal",
         "description" : "Creates foreign exchange deal",
         "operationId" : "createForexOrder",
@@ -454,12 +415,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -486,12 +441,6 @@
               "$ref" : "#/definitions/ForexOrderResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -503,13 +452,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/order/forexOrders/outstandingOrders" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves all the foreign exchange active deals as on today",
         "description" : "Retrieves the foreign exchange outstanding(active) deals as on today ",
         "operationId" : "getOutstandingForexOrders",
@@ -625,12 +579,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -656,12 +604,6 @@
               "$ref" : "#/definitions/OutstandingForexOrdersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -673,15 +615,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -982,7 +927,32 @@
           "$ref" : "#/definitions/ForexLimitOrderBody"
         }
       },
-      "description" : "ForexLimitOrder"
+      "description" : "ForexLimitOrder",
+      "example" : {
+        "body" : {
+          "ourAccountPay" : "15377",
+          "contraCurrency" : "CHF",
+          "orderType" : "SINGLE",
+          "limitReference" : "11050.01",
+          "orderCurrency" : "GBP",
+          "buySellDetails" : [ {
+            "buySell" : "BUY",
+            "orderAmount" : "1000000.00",
+            "orderItemStatus" : "OPEN",
+            "orderItemType" : "SL",
+            "requiredHighRate" : "2.1"
+          } ],
+          "orderStatus" : "ACTIVE",
+          "valueDate" : "20190419",
+          "dealType" : "SP",
+          "baseCurrency" : "GBP",
+          "dealerDesk" : "00",
+          "ourAccountReceive" : "23701",
+          "counterparty" : "100492",
+          "dealDate" : "20190417",
+          "goodTillCancellation" : "YES"
+        }
+      }
     },
     "ForexLimitOrderBody" : {
       "type" : "object",
@@ -1614,7 +1584,39 @@
           "$ref" : "#/definitions/ForexOrderBody"
         }
       },
-      "description" : "ForexOrder"
+      "description" : "ForexOrder",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Record in OC.CUSTOMER missing . Continue ?",
+              "id" : "FX-OC.CUSTOMER.RECORD.MISSING",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "marginPercent" : "string",
+          "buyDate" : "string",
+          "sellCurrency" : "string",
+          "buyCurrency" : "string",
+          "dealType" : "FW",
+          "customerName" : "string",
+          "baseCurrency" : "EUR",
+          "treasuryCustomer" : "string",
+          "dealerDesk" : "string",
+          "marginPips" : "string",
+          "buyAmount" : "string",
+          "portfolioId" : "string",
+          "treasuryRate" : "string",
+          "sellAmount" : "string",
+          "dealDate" : "20190417"
+        }
+      }
     },
     "ForexOrderBody" : {
       "type" : "object",
@@ -1958,7 +1960,6 @@
           },
           "FWD" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -1986,6 +1987,85 @@
             "description" : "Position amount for unauthorised transactions.",
             "maximum" : 30
           }
+        }
+      }
+    },
+    "createForexOrder" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ForexOrderBody"
+        }
+      },
+      "description" : "ForexOrder",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Record in OC.CUSTOMER missing . Continue ?",
+              "id" : "FX-OC.CUSTOMER.RECORD.MISSING",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "marginPercent" : "string",
+          "buyDate" : "string",
+          "sellCurrency" : "string",
+          "buyCurrency" : "string",
+          "dealType" : "FW",
+          "customerName" : "string",
+          "baseCurrency" : "EUR",
+          "treasuryCustomer" : "string",
+          "dealerDesk" : "string",
+          "marginPips" : "string",
+          "buyAmount" : "string",
+          "portfolioId" : "string",
+          "treasuryRate" : "string",
+          "sellAmount" : "string",
+          "dealDate" : "20190417"
+        }
+      }
+    },
+    "createForexLimitOrder" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ForexLimitOrderBody"
+        }
+      },
+      "description" : "ForexLimitOrder",
+      "example" : {
+        "body" : {
+          "ourAccountPay" : "15377",
+          "contraCurrency" : "CHF",
+          "orderType" : "SINGLE",
+          "limitReference" : "11050.01",
+          "orderCurrency" : "GBP",
+          "buySellDetails" : [ {
+            "buySell" : "BUY",
+            "orderAmount" : "1000000.00",
+            "orderItemStatus" : "OPEN",
+            "orderItemType" : "SL",
+            "requiredHighRate" : "2.1"
+          } ],
+          "orderStatus" : "ACTIVE",
+          "valueDate" : "20190419",
+          "dealType" : "SP",
+          "baseCurrency" : "GBP",
+          "dealerDesk" : "00",
+          "ourAccountReceive" : "23701",
+          "counterparty" : "100492",
+          "dealDate" : "20190417",
+          "goodTillCancellation" : "YES"
         }
       }
     }

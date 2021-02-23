@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/chequeIssues/{chequeIssueId}" : {
@@ -23,7 +23,8 @@
           "in" : "path",
           "description" : "Contains the identifier of the issued cheque",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "CURR.14664.0000006\n"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -39,11 +40,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -56,12 +52,6 @@
               "$ref" : "#/definitions/ChequeIssueResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -72,6 +62,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -86,7 +82,8 @@
           "in" : "path",
           "description" : "Contains the identifier of the issued cheque",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "CURR.14664.0000006\n"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -102,11 +99,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -117,12 +109,6 @@
             "description" : "ChequeIssueResponse",
             "schema" : {
               "$ref" : "#/definitions/ChequeIssueResponse"
-            }
-          },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           },
           "400" : {
@@ -136,6 +122,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
@@ -147,9 +139,10 @@
         "parameters" : [ {
           "name" : "chequeIssueId",
           "in" : "path",
-           "description" : "Contains the identifier of the issued cheque",
+          "description" : "Contains the identifier of the issued cheque",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "CURR.14664.0000006\n"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -165,11 +158,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -182,12 +170,6 @@
               "$ref" : "#/definitions/ChequeIssueResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -198,6 +180,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -212,7 +200,7 @@
         "parameters" : [ {
           "name" : "chequeIssueId",
           "in" : "query",
-           "description" : "Contains the identifier of the issued cheque",
+          "description" : "Contains the identifier of the issued cheque",
           "required" : false,
           "type" : "string"
         }, {
@@ -242,11 +230,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -259,12 +242,6 @@
               "$ref" : "#/definitions/ChequeIssuesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -275,6 +252,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -301,13 +284,13 @@
         }, {
           "name" : "chequeRange",
           "in" : "query",
-		  "description" : "Identifies the range of cheques",
+          "description" : "Identifies the range of cheques",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "payeeName",
           "in" : "query",
-		  "description" : "Specifies the name of the payee",
+          "description" : "Specifies the name of the payee",
           "required" : false,
           "type" : "string"
         }, {
@@ -319,7 +302,7 @@
         }, {
           "name" : "amountRange",
           "in" : "query",
-		  "description" : "Specifies the amount range of the cheques",
+          "description" : "Specifies the amount range of the cheques",
           "required" : false,
           "type" : "string"
         }, {
@@ -331,7 +314,7 @@
         }, {
           "name" : "amountFromRange",
           "in" : "query",
-		  "description" : "Specifies the amount from range of the cheques",
+          "description" : "Specifies the amount from range of the cheques",
           "required" : false,
           "type" : "string"
         }, {
@@ -340,7 +323,7 @@
           "description" : "Specifies the Amount up To which the Payment Stop instruction is effective.",
           "required" : false,
           "type" : "string"
-        },{
+        }, {
           "name" : "page_size",
           "in" : "query",
           "description" : "The total number of records per page",
@@ -361,11 +344,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -376,12 +354,6 @@
             "description" : "ChequesResponse",
             "schema" : {
               "$ref" : "#/definitions/ChequesResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -395,14 +367,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -453,12 +433,42 @@
           "$ref" : "#/definitions/ChequeIssueBody"
         }
       },
-      "description" : "ChequeIssue"
+      "description" : "ChequeIssue",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "charges" : "string",
+          "notes" : [ {
+            "note" : "string"
+          } ],
+          "stockRegister" : "string",
+          "chequeNumberStart" : "string",
+          "chequeStatus" : "61",
+          "issueDate" : "2015-07-20",
+          "chargeDetails" : [ {
+            "chargeAmount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "seriesId" : "string",
+          "numberIssued" : "string"
+        }
+      }
     },
     "ChequeIssueBody" : {
       "type" : "object",
       "properties" : {
-          "chargeDetails" : {
+        "chargeDetails" : {
           "type" : "array",
           "items" : {
             "type" : "object",
@@ -594,7 +604,6 @@
     "ChequeIssueResponseBody" : {
       "type" : "object",
       "properties" : {
-          
         "notes" : {
           "type" : "array",
           "description" : "Notes to facilitate the use of the Function.",
@@ -658,7 +667,7 @@
           "description" : "Contains the series id associated with the cheque",
           "minLength" : 0,
           "maxLength" : 35
-        }, 
+        },
         "chequeNumberStart" : {
           "type" : "string",
           "description" : "Contains the number the cheque starts with",
@@ -973,7 +982,6 @@
               "properties" : {
                 "note" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 }
               }
@@ -1015,7 +1023,6 @@
           },
           "numberIssued" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 5
           },
           "issueDate" : {
@@ -1166,6 +1173,129 @@
             "description" : "Specifies the to amount of the cheques",
             "maxLength" : 19
           }
+        }
+      }
+    },
+    "deleteChequeIssue" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ChequeIssueBody"
+        }
+      },
+      "description" : "ChequeIssue",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "charges" : "string",
+          "notes" : [ {
+            "note" : "string"
+          } ],
+          "stockRegister" : "string",
+          "chequeNumberStart" : "string",
+          "chequeStatus" : "61",
+          "issueDate" : "2015-07-20",
+          "chargeDetails" : [ {
+            "chargeAmount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "seriesId" : "string",
+          "numberIssued" : "string"
+        }
+      }
+    },
+    "createChequeIssue" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ChequeIssueBody"
+        }
+      },
+      "description" : "ChequeIssue",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "charges" : "string",
+          "notes" : [ {
+            "note" : "string"
+          } ],
+          "stockRegister" : "string",
+          "chequeNumberStart" : "string",
+          "chequeStatus" : "61",
+          "issueDate" : "2015-07-20",
+          "chargeDetails" : [ {
+            "chargeAmount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "seriesId" : "string",
+          "numberIssued" : "string"
+        }
+      }
+    },
+    "updateChequeIssue" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ChequeIssueBody"
+        }
+      },
+      "description" : "ChequeIssue",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "charges" : "string",
+          "notes" : [ {
+            "note" : "string"
+          } ],
+          "stockRegister" : "string",
+          "chequeNumberStart" : "string",
+          "chequeStatus" : "61",
+          "issueDate" : "2015-07-20",
+          "chargeDetails" : [ {
+            "chargeAmount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "seriesId" : "string",
+          "numberIssued" : "string"
         }
       }
     }

@@ -7,17 +7,13 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v2.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/reference/currencies" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves Currencies details",
         "description" : "Retrieves list of the Currencies (ISO 4217 codes) that are defined in the system",
         "operationId" : "getCurrencies",
@@ -55,12 +51,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -86,12 +76,6 @@
               "$ref" : "#/definitions/CurrenciesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -103,13 +87,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/currencies/{currencyId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves currency details",
         "description" : "Retrieves  details such as currency code, buy rate, sell rate, spread, rank and rounding type",
         "operationId" : "getCurrencyInfo",
@@ -119,12 +108,6 @@
           "in" : "path",
           "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -152,12 +135,6 @@
               "$ref" : "#/definitions/CurrencyInfoResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -169,13 +146,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/currencies/markets/{currencyMarketId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves currency market details",
         "description" : "Retrieves description and spread details",
         "operationId" : "getCurrencyMarket",
@@ -185,12 +167,6 @@
           "in" : "path",
           "description" : "Specifies the code by which the Currency Market can be identified.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -218,12 +194,6 @@
               "$ref" : "#/definitions/CurrencyMarketResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -235,13 +205,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/currencies/numericCodes/{numericCurrencyCode}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves ISO currency code",
         "description" : "Retrieves ISO code of currency based on numeric currency code",
         "operationId" : "getCurrencyFromNumericCode",
@@ -273,12 +248,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -304,12 +273,6 @@
               "$ref" : "#/definitions/CurrencyFromNumericCodeResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -321,13 +284,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/currencies/{currencyId}/historicDates/{year}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves currency historic details",
         "description" : "Retrieves effective date and version number of specified currency",
         "operationId" : "getCurrencyModifications",
@@ -365,12 +333,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -396,12 +358,6 @@
               "$ref" : "#/definitions/CurrencyModificationsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -413,13 +369,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/currencies/ranks/{rank}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves ISO currency code",
         "description" : "Retrieves ISO code of currency based on currency rank",
         "operationId" : "getCurrencyForRank",
@@ -451,12 +412,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -482,12 +437,6 @@
               "$ref" : "#/definitions/CurrencyForRankResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -499,13 +448,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/reference/currencies/{currencyId}/profiles" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves basic currency details",
         "description" : "Retrieves basic details like name, numeric code, interest basis and allowed decimals for the specified currency",
         "operationId" : "getCurrencyBasicInfo",
@@ -515,12 +469,6 @@
           "in" : "path",
           "description" : "Identifier of the currency. This is the 3-letter ISO 4217 code of the currency.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -548,12 +496,6 @@
               "$ref" : "#/definitions/CurrencyBasicInfoResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -565,15 +507,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -1412,7 +1357,7 @@
           }
         }
       }
-	},
+    },
     "CurrencyBasicInfoResponse" : {
       "properties" : {
         "header" : {

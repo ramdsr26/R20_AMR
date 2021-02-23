@@ -1,4 +1,4 @@
-{ 
+{
   "swagger" : "2.0",
   "info" : {
     "description" : "Creation and Management of Fund Transfers",
@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/order/transfers" : {
@@ -33,11 +33,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -50,12 +45,6 @@
               "$ref" : "#/definitions/FundsTransferResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -66,6 +55,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -97,11 +92,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -114,12 +104,6 @@
               "$ref" : "#/definitions/FundsTransferResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -130,6 +114,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -159,11 +149,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -174,12 +159,6 @@
             "description" : "FundsTransferResponse",
             "schema" : {
               "$ref" : "#/definitions/FundsTransferResponse"
-            }
-          },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           },
           "400" : {
@@ -193,14 +172,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -251,7 +238,51 @@
           "$ref" : "#/definitions/FundsTransferBody"
         }
       },
-      "description" : "FundsTransfer"
+      "description" : "FundsTransfer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "beneficiaryBICNames" : [ {
+            "beneficiaryBICName" : "string"
+          } ],
+          "debitCurrencyId" : "string",
+          "processingDate" : "2015-07-20",
+          "creditCurrencyId" : "USD",
+          "beneficiaryIBAN" : "string",
+          "debitAccountId" : "86053",
+          "beneficiaryAccountId" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "debitAmount" : "2000",
+          "beneficiaryOurCharges" : "string",
+          "transactionType" : "OC",
+          "beneficiaryBICCity" : "string",
+          "beneficiaryBIC" : "string",
+          "bankSortCode" : "string",
+          "beneficiaryCustomerIds" : [ {
+            "beneficiaryCustomerId" : "string"
+          } ],
+          "customerRate" : "string",
+          "creditAccountId" : "USD1000110000001",
+          "paymentDetails" : [ {
+            "paymentDetail" : "string"
+          } ],
+          "creditAmount" : 1.5,
+          "beneficiaryId" : "string"
+        }
+      }
     },
     "FundsTransferBody" : {
       "type" : "object",
@@ -839,6 +870,116 @@
         }
       },
       "description" : "FundsTransferDelete"
+    },
+    "updateFundsTransfer" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/FundsTransferBody"
+        }
+      },
+      "description" : "FundsTransfer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "beneficiaryBICNames" : [ {
+            "beneficiaryBICName" : "string"
+          } ],
+          "debitCurrencyId" : "string",
+          "processingDate" : "2015-07-20",
+          "creditCurrencyId" : "USD",
+          "beneficiaryIBAN" : "string",
+          "debitAccountId" : "86053",
+          "beneficiaryAccountId" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "debitAmount" : "2000",
+          "beneficiaryOurCharges" : "string",
+          "transactionType" : "OC",
+          "beneficiaryBICCity" : "string",
+          "beneficiaryBIC" : "string",
+          "bankSortCode" : "string",
+          "beneficiaryCustomerIds" : [ {
+            "beneficiaryCustomerId" : "string"
+          } ],
+          "customerRate" : "string",
+          "creditAccountId" : "USD1000110000001",
+          "paymentDetails" : [ {
+            "paymentDetail" : "string"
+          } ],
+          "creditAmount" : 1.5,
+          "beneficiaryId" : "string"
+        }
+      }
+    },
+    "deleteFundsTransfer" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/FundsTransferBody"
+        }
+      },
+      "description" : "FundsTransfer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "beneficiaryBICNames" : [ {
+            "beneficiaryBICName" : "string"
+          } ],
+          "debitCurrencyId" : "string",
+          "processingDate" : "2015-07-20",
+          "creditCurrencyId" : "USD",
+          "beneficiaryIBAN" : "string",
+          "debitAccountId" : "86053",
+          "beneficiaryAccountId" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "debitAmount" : "2000",
+          "beneficiaryOurCharges" : "string",
+          "transactionType" : "OC",
+          "beneficiaryBICCity" : "string",
+          "beneficiaryBIC" : "string",
+          "bankSortCode" : "string",
+          "beneficiaryCustomerIds" : [ {
+            "beneficiaryCustomerId" : "string"
+          } ],
+          "customerRate" : "string",
+          "creditAccountId" : "USD1000110000001",
+          "paymentDetails" : [ {
+            "paymentDetail" : "string"
+          } ],
+          "creditAmount" : 1.5,
+          "beneficiaryId" : "string"
+        }
+      }
     }
   }
 }

@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/guarantees/clauses/{clauseId}" : {
@@ -25,12 +25,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -44,12 +38,6 @@
               "$ref" : "#/definitions/ClauseResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -60,6 +48,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -90,12 +84,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -109,12 +97,6 @@
               "$ref" : "#/definitions/ClauseResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -125,6 +107,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -155,12 +143,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -174,12 +156,6 @@
               "$ref" : "#/definitions/ClauseResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -190,6 +166,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -220,12 +202,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -239,12 +215,6 @@
               "$ref" : "#/definitions/ClauseResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -255,6 +225,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -305,12 +281,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -324,12 +294,6 @@
               "$ref" : "#/definitions/GuaranteeIssuanceRequestsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -340,6 +304,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -364,12 +334,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -383,12 +347,6 @@
               "$ref" : "#/definitions/IbRequestResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -399,6 +357,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -417,12 +381,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -436,12 +394,6 @@
               "$ref" : "#/definitions/IbRequestResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -452,6 +404,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -482,12 +440,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -501,12 +453,6 @@
               "$ref" : "#/definitions/IbRequestResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -517,6 +463,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -547,12 +499,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -566,12 +512,6 @@
               "$ref" : "#/definitions/IbRequestResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -582,6 +522,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -600,12 +546,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -619,12 +559,6 @@
               "$ref" : "#/definitions/IbRequestResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -635,6 +569,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -667,12 +607,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -686,12 +620,6 @@
               "$ref" : "#/definitions/IbRequestResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -702,6 +630,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -740,12 +674,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -759,12 +687,6 @@
               "$ref" : "#/definitions/ReceivedGuaranteeHistoryResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -775,6 +697,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -819,12 +747,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -838,12 +760,6 @@
               "$ref" : "#/definitions/GuaranteeClausesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -854,6 +770,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -904,12 +826,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -923,12 +839,6 @@
               "$ref" : "#/definitions/ReceivedGuaranteesAmendmentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -939,6 +849,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -977,12 +893,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -996,12 +906,6 @@
               "$ref" : "#/definitions/ClaimInvocationHistoryResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1012,6 +916,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1050,12 +960,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1069,12 +973,6 @@
               "$ref" : "#/definitions/ReceivedGuaranteeClaimsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1085,6 +983,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1123,12 +1027,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1142,12 +1040,6 @@
               "$ref" : "#/definitions/GuaranteeAmendmentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1158,6 +1050,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1196,12 +1094,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1215,12 +1107,6 @@
               "$ref" : "#/definitions/IssuedGuaranteesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1231,6 +1117,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1269,12 +1161,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1288,12 +1174,6 @@
               "$ref" : "#/definitions/GuaranteeLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1304,6 +1184,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1336,12 +1222,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1355,12 +1235,6 @@
               "$ref" : "#/definitions/IssuedGuaranteeClaimsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1371,6 +1245,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1427,12 +1307,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1446,12 +1320,6 @@
               "$ref" : "#/definitions/GuaranteesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1462,6 +1330,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1486,12 +1360,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1505,12 +1373,6 @@
               "$ref" : "#/definitions/GuaranteeGenericResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1521,6 +1383,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -1541,7 +1409,6 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1583,12 +1450,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1602,12 +1463,6 @@
               "$ref" : "#/definitions/GuaranteesOutstandingsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1618,6 +1473,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1638,7 +1499,6 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1686,12 +1546,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1705,12 +1559,6 @@
               "$ref" : "#/definitions/GuaranteeExpiringWithDateResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1721,6 +1569,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1737,11 +1591,11 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100335"
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1777,12 +1631,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1796,12 +1644,6 @@
               "$ref" : "#/definitions/ClaimOutstandingUnderGuaranteesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1812,6 +1654,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1832,7 +1680,6 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1874,12 +1721,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1893,12 +1734,6 @@
               "$ref" : "#/definitions/GuaranteesReversedResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1909,6 +1744,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1928,7 +1769,6 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -1952,12 +1792,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1971,12 +1805,6 @@
               "$ref" : "#/definitions/ClaimsPaidUnderGuaranteeResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1987,6 +1815,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2002,11 +1836,11 @@
           "name" : "guaranteeId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "MD1908500481"
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -2036,12 +1870,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2055,12 +1883,6 @@
               "$ref" : "#/definitions/OutstandingShippingGuaranteesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2071,6 +1893,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2086,11 +1914,11 @@
           "name" : "customerId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190098"
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -2132,12 +1960,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2151,12 +1973,6 @@
               "$ref" : "#/definitions/OutstandingReceivedGuaranteesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2167,6 +1983,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2193,12 +2015,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2212,12 +2028,6 @@
               "$ref" : "#/definitions/GuaranteesPerformanceBondResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2228,6 +2038,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2254,12 +2070,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2273,12 +2083,6 @@
               "$ref" : "#/definitions/GuaranteesStandbyLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2289,6 +2093,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2315,12 +2125,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2334,12 +2138,6 @@
               "$ref" : "#/definitions/ShippingGuaranteeUnderLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2350,6 +2148,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2376,12 +2180,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2395,12 +2193,6 @@
               "$ref" : "#/definitions/ShippingGuaranteeUnderCollectionResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2411,6 +2203,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2442,12 +2240,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2461,12 +2253,6 @@
               "$ref" : "#/definitions/GuaranteesAmendmentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2477,6 +2263,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2508,12 +2300,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2527,12 +2313,6 @@
               "$ref" : "#/definitions/GuaranteesRejectionResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2543,6 +2323,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2562,7 +2348,6 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -2628,12 +2413,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2647,12 +2426,6 @@
               "$ref" : "#/definitions/InvocationPaidOrCancelledResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2663,6 +2436,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2689,12 +2468,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2708,12 +2481,6 @@
               "$ref" : "#/definitions/GuarnteeBidBondResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2725,14 +2492,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -4612,8 +4387,7 @@
         "type" : "object",
         "properties" : {
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "guaranteeId" : {
             "type" : "string",
@@ -4706,7 +4480,6 @@
         "properties" : {
           "beneficiaryDetails" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -5063,7 +4836,6 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "customerMnemonic" : {
@@ -5126,7 +4898,6 @@
         "properties" : {
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 17
           },
           "customer" : {
@@ -5204,7 +4975,6 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 17
           },
           "customer" : {
@@ -5273,7 +5043,6 @@
         "properties" : {
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "customerId" : {
@@ -5419,8 +5188,7 @@
             }
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customer" : {
             "type" : "string",
@@ -5465,7 +5233,6 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 14
           },
           "customer" : {
@@ -5538,7 +5305,6 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "customer" : {
@@ -6997,7 +6763,65 @@
           "$ref" : "#/definitions/ShippingGuaranteeUnderLCBody"
         }
       },
-      "description" : "ShippingGuaranteeUnderLC"
+      "description" : "ShippingGuaranteeUnderLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "autoExpiry" : "string",
+          "lCMarginToBeUsed" : "string",
+          "marginDebitAccount" : "string",
+          "bankAddresses" : [ {
+            "bankAddress" : "string"
+          } ],
+          "takeMargin" : "Y",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "termsAndConditions" : "string",
+          "lCMarginCreditAccount" : "string",
+          "drawingReference" : "string",
+          "maturityDate" : "20201222",
+          "marginAmount" : "string",
+          "beneficiaryIds" : [ {
+            "beneficiaryId" : "string"
+          } ],
+          "customerId" : "100160",
+          "receivingBank" : "string",
+          "furtherIdentification" : "string",
+          "dealDate" : "2015-07-20",
+          "currency" : "USD",
+          "detailsOfGuarantee" : [ {
+            "detailOfGuarantee" : "string"
+          } ],
+          "amount" : "10000",
+          "marginPercent" : "string",
+          "applicableRule" : "string",
+          "narrative" : "string",
+          "internalReference" : "string",
+          "valueDate" : "2015-07-20",
+          "liquidationMode" : "string",
+          "charges" : [ {
+            "chargeCurrency" : "string",
+            "chargeDate" : "2015-07-20",
+            "debitChargeAccount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "lCReference" : "TF1908507106",
+          "eventsProcessing" : "string"
+        }
+      }
     },
     "ShippingGuaranteeUnderLCBody" : {
       "type" : "object",
@@ -7499,7 +7323,63 @@
           "$ref" : "#/definitions/ShippingGuaranteeUnderCollectionBody"
         }
       },
-      "description" : "ShippingGuaranteeUnderCollection"
+      "description" : "ShippingGuaranteeUnderCollection",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "bankAddresses" : [ {
+            "bankAddress" : "string"
+          } ],
+          "takeMargin" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "termsAndConditions" : "string",
+          "lCMarginCreditAccount" : "string",
+          "maturityDate" : "20201222",
+          "marginAmount" : "string",
+          "customerId" : "100160",
+          "receivingBank" : "string",
+          "furtherIdentification" : "string",
+          "dealDate" : "2015-07-20",
+          "currency" : "GBP",
+          "detailsOfGuarantee" : [ {
+            "detailOfGuarantee" : "string"
+          } ],
+          "amount" : "10000",
+          "collectionReference" : "string",
+          "shippingGuaranteeReference" : "string",
+          "marginPercent" : "string",
+          "applicableRule" : "string",
+          "narrative" : "string",
+          "valueDate" : "2015-07-20",
+          "liquidationMode" : "Liquidation Mode",
+          "charges" : [ {
+            "chargeCurrency" : "string",
+            "chargeDate" : "2015-07-20",
+            "debitChargeAccount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "eventsProcessing" : "string",
+          "beneficiaryId" : [ {
+            "beneficiaryId" : "string"
+          } ]
+        }
+      }
     },
     "ShippingGuaranteeUnderCollectionBody" : {
       "type" : "object",
@@ -8314,7 +8194,6 @@
         },
         "invocationSettleAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 50
         },
@@ -8705,7 +8584,6 @@
         },
         "invocationSettleAccount" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 50
         },
@@ -8768,7 +8646,50 @@
           "$ref" : "#/definitions/GuaranteesRejectionBody"
         }
       },
-      "description" : "GuaranteesRejection"
+      "description" : "GuaranteesRejection",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "invocationAmount" : "string",
+          "amount" : "10000",
+          "debitValueDate" : "string",
+          "limitReference" : "string",
+          "guaranteeReference" : "string",
+          "autoExpiry" : "string",
+          "beneficairyAddresses" : [ {
+            "beneficairyAddress" : "string"
+          } ],
+          "liquidationMode" : "string",
+          "claimDebitAccount" : "string",
+          "relatedReference" : "string",
+          "claimRegisterDate" : "string",
+          "guaranteeType" : "string",
+          "exchangeRate" : "string",
+          "lastClaimNumber" : "string",
+          "maturityDate" : "string",
+          "beneficiaryIds" : [ {
+            "beneficiaryId" : "string"
+          } ],
+          "onlineMaturity" : "string",
+          "customerId" : "100160",
+          "eventsProcessing" : "string",
+          "currency" : "USD",
+          "startDate" : "string",
+          "invocationStatus" : "string"
+        }
+      }
     },
     "GuaranteesRejectionBody" : {
       "type" : "object",
@@ -8795,7 +8716,6 @@
             "properties" : {
               "beneficairyAddress" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 25
               }
@@ -8960,7 +8880,6 @@
             "properties" : {
               "beneficairyAddress" : {
                 "type" : "string",
-                "description" : "",
                 "minLength" : 0,
                 "maxLength" : 25
               }
@@ -9217,7 +9136,6 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 16
           },
           "invocationStatus" : {
@@ -9237,7 +9155,62 @@
           "$ref" : "#/definitions/GuarnteeBidBondBody"
         }
       },
-      "description" : "GuarnteeBidBond"
+      "description" : "GuarnteeBidBond",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "bidBondReference" : "string",
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "bankAddresses" : [ {
+            "bankAddress" : "string"
+          } ],
+          "takeMargin" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "termsAndConditions" : "string",
+          "expiryDate" : "20191228",
+          "maturityDate" : "string",
+          "marginAmount" : "string",
+          "beneficiaryIds" : [ {
+            "beneficiaryId" : "string"
+          } ],
+          "customerId" : "100160",
+          "receivingBank" : "string",
+          "furtherIdentification" : "string",
+          "dealDate" : "2015-07-20",
+          "currency" : "USD",
+          "detailsOfGuarantee" : [ {
+            "detailOfGuarantee" : "string"
+          } ],
+          "amount" : "10000",
+          "marginPercent" : "string",
+          "applicableRule" : "string",
+          "narrative" : "string",
+          "valueDate" : "2015-07-20",
+          "liquidationMode" : "string",
+          "charges" : [ {
+            "chargeCurrency" : "string",
+            "chargeDate" : "2015-07-20",
+            "debitChargeAccount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "eventsProcessing" : "string"
+        }
+      }
     },
     "GuarnteeBidBondBody" : {
       "type" : "object",
@@ -9691,6 +9664,262 @@
           "description" : "This field identifies the purpose of the guarantee message (ISSUE or REQUEST). Ie to identify if the message conveys the issuance of guarantee from the guarantor or requesting the receiver bank to issue the another guarantee undertaking based on the undertaking received from guarantor.",
           "minLength" : 0,
           "maxLength" : 21
+        }
+      }
+    },
+    "createShippingGuaranteeUnderLC" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ShippingGuaranteeUnderLCBody"
+        }
+      },
+      "description" : "ShippingGuaranteeUnderLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "autoExpiry" : "string",
+          "lCMarginToBeUsed" : "string",
+          "marginDebitAccount" : "string",
+          "bankAddresses" : [ {
+            "bankAddress" : "string"
+          } ],
+          "takeMargin" : "Y",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "termsAndConditions" : "string",
+          "lCMarginCreditAccount" : "string",
+          "drawingReference" : "string",
+          "maturityDate" : "20201222",
+          "marginAmount" : "string",
+          "beneficiaryIds" : [ {
+            "beneficiaryId" : "string"
+          } ],
+          "customerId" : "100160",
+          "receivingBank" : "string",
+          "furtherIdentification" : "string",
+          "dealDate" : "2015-07-20",
+          "currency" : "USD",
+          "detailsOfGuarantee" : [ {
+            "detailOfGuarantee" : "string"
+          } ],
+          "amount" : "10000",
+          "marginPercent" : "string",
+          "applicableRule" : "string",
+          "narrative" : "string",
+          "internalReference" : "string",
+          "valueDate" : "2015-07-20",
+          "liquidationMode" : "string",
+          "charges" : [ {
+            "chargeCurrency" : "string",
+            "chargeDate" : "2015-07-20",
+            "debitChargeAccount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "lCReference" : "TF1908507106",
+          "eventsProcessing" : "string"
+        }
+      }
+    },
+    "updateGuaranteesRejection" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/GuaranteesRejectionBody"
+        }
+      },
+      "description" : "GuaranteesRejection",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "invocationAmount" : "string",
+          "amount" : "10000",
+          "debitValueDate" : "string",
+          "limitReference" : "string",
+          "guaranteeReference" : "string",
+          "autoExpiry" : "string",
+          "beneficairyAddresses" : [ {
+            "beneficairyAddress" : "string"
+          } ],
+          "liquidationMode" : "string",
+          "claimDebitAccount" : "string",
+          "relatedReference" : "string",
+          "claimRegisterDate" : "string",
+          "guaranteeType" : "string",
+          "exchangeRate" : "string",
+          "lastClaimNumber" : "string",
+          "maturityDate" : "string",
+          "beneficiaryIds" : [ {
+            "beneficiaryId" : "string"
+          } ],
+          "onlineMaturity" : "string",
+          "customerId" : "100160",
+          "eventsProcessing" : "string",
+          "currency" : "USD",
+          "startDate" : "string",
+          "invocationStatus" : "string"
+        }
+      }
+    },
+    "createShippingGuaranteeUnderCollection" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ShippingGuaranteeUnderCollectionBody"
+        }
+      },
+      "description" : "ShippingGuaranteeUnderCollection",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "bankAddresses" : [ {
+            "bankAddress" : "string"
+          } ],
+          "takeMargin" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "termsAndConditions" : "string",
+          "lCMarginCreditAccount" : "string",
+          "maturityDate" : "20201222",
+          "marginAmount" : "string",
+          "customerId" : "100160",
+          "receivingBank" : "string",
+          "furtherIdentification" : "string",
+          "dealDate" : "2015-07-20",
+          "currency" : "GBP",
+          "detailsOfGuarantee" : [ {
+            "detailOfGuarantee" : "string"
+          } ],
+          "amount" : "10000",
+          "collectionReference" : "string",
+          "shippingGuaranteeReference" : "string",
+          "marginPercent" : "string",
+          "applicableRule" : "string",
+          "narrative" : "string",
+          "valueDate" : "2015-07-20",
+          "liquidationMode" : "Liquidation Mode",
+          "charges" : [ {
+            "chargeCurrency" : "string",
+            "chargeDate" : "2015-07-20",
+            "debitChargeAccount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "eventsProcessing" : "string",
+          "beneficiaryId" : [ {
+            "beneficiaryId" : "string"
+          } ]
+        }
+      }
+    },
+    "createGuarnteeBidBond" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/GuarnteeBidBondBody"
+        }
+      },
+      "description" : "GuarnteeBidBond",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "bidBondReference" : "string",
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "bankAddresses" : [ {
+            "bankAddress" : "string"
+          } ],
+          "takeMargin" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "termsAndConditions" : "string",
+          "expiryDate" : "20191228",
+          "maturityDate" : "string",
+          "marginAmount" : "string",
+          "beneficiaryIds" : [ {
+            "beneficiaryId" : "string"
+          } ],
+          "customerId" : "100160",
+          "receivingBank" : "string",
+          "furtherIdentification" : "string",
+          "dealDate" : "2015-07-20",
+          "currency" : "USD",
+          "detailsOfGuarantee" : [ {
+            "detailOfGuarantee" : "string"
+          } ],
+          "amount" : "10000",
+          "marginPercent" : "string",
+          "applicableRule" : "string",
+          "narrative" : "string",
+          "valueDate" : "2015-07-20",
+          "liquidationMode" : "string",
+          "charges" : [ {
+            "chargeCurrency" : "string",
+            "chargeDate" : "2015-07-20",
+            "debitChargeAccount" : "string",
+            "chargeCode" : "string"
+          } ],
+          "eventsProcessing" : "string"
         }
       }
     }

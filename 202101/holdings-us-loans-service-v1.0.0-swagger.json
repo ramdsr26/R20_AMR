@@ -5,11 +5,11 @@
     "version" : "v1.0.0",
     "title" : "US Model Bank - Loan details"
   },
-  "host" : "api.server.com",
+  "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "schemes" : [ "http" ],
+  "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/us/loan/{accountId}/loanOverview" : {
@@ -45,11 +45,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -60,12 +55,6 @@
             "description" : "UsLoanOverviewResponse",
             "schema" : {
               "$ref" : "#/definitions/UsLoanOverviewResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -79,14 +68,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -165,12 +162,10 @@
           },
           "alternateAccountId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 55
           },
           "alternateAccountType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 55
           },
           "accountStatus" : {
@@ -180,7 +175,6 @@
           },
           "branchId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 20
           },
           "accountCompany" : {

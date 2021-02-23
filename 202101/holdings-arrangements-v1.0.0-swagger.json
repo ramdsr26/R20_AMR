@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/accounts/{arrangementId}/chargeDetails" : {
@@ -23,7 +23,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19079RZ823"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -42,12 +43,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -74,12 +69,6 @@
               "$ref" : "#/definitions/ChargeDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -90,6 +79,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -106,7 +101,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190790940X"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -125,12 +121,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -157,12 +147,6 @@
               "$ref" : "#/definitions/InterestDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -173,6 +157,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -211,12 +201,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -240,12 +224,6 @@
               "$ref" : "#/definitions/LimitDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -256,6 +234,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -298,12 +282,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -327,12 +305,6 @@
               "$ref" : "#/definitions/OverdueStatisticsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -343,6 +315,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -359,7 +337,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190790940X"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -378,12 +357,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -410,12 +383,6 @@
               "$ref" : "#/definitions/ScheduleDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -426,6 +393,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -479,12 +452,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -508,12 +475,6 @@
               "$ref" : "#/definitions/RepaymentDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -524,6 +485,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -540,7 +507,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190792RSF1"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -559,12 +527,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -591,12 +553,6 @@
               "$ref" : "#/definitions/AgentDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -607,6 +563,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -623,7 +585,8 @@
           "in" : "path",
           "description" : "The identifier of the account. Often referred to as the account number, yet for consistency this is always referred to as accountId.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "79596"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -642,12 +605,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -674,12 +631,6 @@
               "$ref" : "#/definitions/ActiveAlertsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -690,6 +641,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -728,12 +685,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -757,12 +708,6 @@
               "$ref" : "#/definitions/HistoryAlertsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -773,6 +718,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -789,7 +740,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190790940X"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -808,12 +760,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -840,12 +786,6 @@
               "$ref" : "#/definitions/AprDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -856,6 +796,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -872,7 +818,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19077R2VLK"
         }, {
           "name" : "dateFrom",
           "in" : "query",
@@ -904,12 +851,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -933,12 +874,6 @@
               "$ref" : "#/definitions/PaymentScheduleResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -949,6 +884,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -987,12 +928,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -1016,12 +951,6 @@
               "$ref" : "#/definitions/HolidayLimitResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1032,6 +961,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1048,7 +983,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190790940X"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1067,12 +1003,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1099,12 +1029,6 @@
               "$ref" : "#/definitions/CommitmentDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1115,6 +1039,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1131,7 +1061,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19079GQKNK"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1150,12 +1081,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1182,12 +1107,6 @@
               "$ref" : "#/definitions/ProductQualifierDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1198,6 +1117,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1236,12 +1161,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -1265,12 +1184,6 @@
               "$ref" : "#/definitions/EvaluationDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1281,6 +1194,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1297,7 +1216,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190790940X"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1316,12 +1236,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1348,12 +1262,6 @@
               "$ref" : "#/definitions/ArrangementDatesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1364,6 +1272,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1380,7 +1294,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19077R2VLK"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1399,12 +1314,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1431,12 +1340,6 @@
               "$ref" : "#/definitions/InterestDetailsCurrentResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1447,6 +1350,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1463,7 +1372,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19077R2VLK"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1482,12 +1392,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1514,12 +1418,6 @@
               "$ref" : "#/definitions/InterestDetailsPreviousResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1530,6 +1428,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1546,7 +1450,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19077R2VLK"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -1565,12 +1470,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1597,12 +1496,6 @@
               "$ref" : "#/definitions/InterestDetailsYearToDateResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1613,6 +1506,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1651,12 +1550,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -1680,12 +1573,6 @@
               "$ref" : "#/definitions/DeliveryMessagesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1696,6 +1583,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1734,12 +1627,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -1763,12 +1650,6 @@
               "$ref" : "#/definitions/DeliveryMessagesHistoryResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1779,6 +1660,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1817,12 +1704,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -1846,12 +1727,6 @@
               "$ref" : "#/definitions/PaymentOrderReceiptsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1862,6 +1737,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1900,12 +1781,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -1929,12 +1804,6 @@
               "$ref" : "#/definitions/PaymentOrderPaymentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1945,6 +1814,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1994,12 +1869,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -2023,12 +1892,6 @@
               "$ref" : "#/definitions/StmtEntriesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2039,6 +1902,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2111,12 +1980,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -2140,12 +2003,6 @@
               "$ref" : "#/definitions/ArrangementPropertyConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2156,6 +2013,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2209,12 +2072,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -2238,12 +2095,6 @@
               "$ref" : "#/definitions/SchedulesFullResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2254,6 +2105,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2291,12 +2148,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -2320,12 +2171,6 @@
               "$ref" : "#/definitions/SimulationReferenceResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2336,6 +2181,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2374,12 +2225,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -2403,12 +2248,6 @@
               "$ref" : "#/definitions/ArrangementAlertsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2419,6 +2258,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2435,7 +2280,8 @@
           "in" : "path",
           "description" : "The unique identifiier of an arrangement contract. The format of the ID is YYDDDXXXXX prefixed with AA. YYDDD is the year and date of input in julian date format, XXXXX - is a random generated string.",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19079619Y2"
         }, {
           "name" : "simulationCaptureReferenceId",
           "in" : "query",
@@ -2462,12 +2308,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -2491,12 +2331,6 @@
               "$ref" : "#/definitions/SimulationDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2508,14 +2342,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -2615,21 +2457,17 @@
           },
           "tierSource" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "calculatedRate" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "calcAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "tierAdjAmount" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "adjustmentAmount" : {
             "type" : "string",
@@ -2638,17 +2476,14 @@
           },
           "adjustmentReason" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "actualAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           },
           "finalAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           },
           "outstandingAmount" : {
@@ -2790,24 +2625,20 @@
             "description" : "Indicates the method of compounding to be applied for compound interest calculation"
           },
           "interestType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "interestRateType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "interestRate" : {
             "type" : "string",
             "description" : "Identifies the bid rate of the related currency for the defined time period"
           },
           "uptoTierAmount" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "negativeInterestRate" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -2834,8 +2665,7 @@
             "maxLength" : 3
           },
           "onlineLimit" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "limitType" : {
             "type" : "string",
@@ -2843,8 +2673,7 @@
             "maxLength" : 10
           },
           "securedAmount" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "outstandingAmount" : {
             "type" : "string",
@@ -2890,22 +2719,18 @@
           },
           "periodAvg" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           },
           "statusCount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "totalDays" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "avgAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           }
         }
@@ -2928,16 +2753,14 @@
         "type" : "object",
         "properties" : {
           "paymentScheduleProperty" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "paymentTypes" : {
             "type" : "string",
             "description" : "Indicates if the payment is Customer (C) type or Bank (B) type"
           },
           "paymentAmountOrPercentage" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "paymentMethod" : {
             "type" : "string",
@@ -2948,8 +2771,7 @@
             "description" : "The frequency at which a payment is required to be generated"
           },
           "scheduledProperty" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -2976,7 +2798,6 @@
           },
           "dueAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           },
           "paymentMethod" : {
@@ -2989,7 +2810,6 @@
           },
           "propertyAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           }
         }
@@ -3109,17 +2929,14 @@
         "type" : "object",
         "properties" : {
           "aprRate" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "aprType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 50
           },
           "source" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           }
         }
@@ -3158,7 +2975,6 @@
           },
           "totalCap" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 19
           },
           "principal" : {
@@ -3278,22 +3094,18 @@
           },
           "ruleSet" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "ruleExpression" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "actualResult" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 4
           },
           "decision" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 45
           },
           "action" : {
@@ -3332,17 +3144,14 @@
           },
           "ruleType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 20
           },
           "pricingProperty" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "pricingBenefit" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -3438,8 +3247,7 @@
             "description" : "Indicates the date till which the transaction history requested. If 20120101 is the start date and 20120201 is the end date, all transactions that are booked between January 1 to February 1 2012 are returned"
           },
           "suppressStatus" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -3566,8 +3374,7 @@
             "maxLength" : 25
           },
           "preview" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -3708,12 +3515,10 @@
           },
           "txnAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 20
           },
           "stmtId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           }
         }

@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/customers/prospects" : {
@@ -39,12 +39,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -58,12 +52,6 @@
               "$ref" : "#/definitions/ProspectCustomersResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -74,6 +62,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -98,12 +92,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -117,12 +105,6 @@
               "$ref" : "#/definitions/ProspectCustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -133,6 +115,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -165,12 +153,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -184,12 +166,6 @@
               "$ref" : "#/definitions/ProspectCustomerResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -201,14 +177,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -263,7 +247,59 @@
           "$ref" : "#/definitions/ProspectCustomerBody"
         }
       },
-      "description" : "ProspectCustomer"
+      "description" : "ProspectCustomer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "addresses" : [ {
+            "address" : "string"
+          } ],
+          "streets" : [ {
+            "street" : "temenos"
+          } ],
+          "gender" : "string",
+          "customerNames" : [ {
+            "customerName" : "Brown Interlinks"
+          } ],
+          "countries" : [ {
+            "country" : "string"
+          } ],
+          "registeredCountry" : "string",
+          "phoneNumbers" : [ {
+            "phoneNumber" : "string"
+          } ],
+          "personEntity" : "ENTITY",
+          "emails" : [ {
+            "email" : "string"
+          } ],
+          "socialNetworkIds" : [ {
+            "socialNetworkId" : "string"
+          } ],
+          "prospectLegalDetails" : [ {
+            "legalId" : "string",
+            "legalDocumentName" : "string"
+          } ],
+          "postCodes" : [ {
+            "postCode" : "string"
+          } ],
+          "birthIncorpDate" : "2015-07-20",
+          "townCountries" : [ {
+            "townCountry" : "string"
+          } ]
+        }
+      }
     },
     "ProspectCustomerBody" : {
       "type" : "object",
@@ -1039,7 +1075,6 @@
           },
           "prospectNetworks" : {
             "type" : "array",
-            "description" : "",
             "items" : {
               "type" : "object",
               "properties" : {
@@ -1193,6 +1228,69 @@
         "type" : {
           "type" : "string",
           "description" : "The identifier of error type: System"
+        }
+      }
+    },
+    "updateProspectCustomer" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/ProspectCustomerBody"
+        }
+      },
+      "description" : "ProspectCustomer",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "addresses" : [ {
+            "address" : "string"
+          } ],
+          "streets" : [ {
+            "street" : "temenos"
+          } ],
+          "gender" : "string",
+          "customerNames" : [ {
+            "customerName" : "Brown Interlinks"
+          } ],
+          "countries" : [ {
+            "country" : "string"
+          } ],
+          "registeredCountry" : "string",
+          "phoneNumbers" : [ {
+            "phoneNumber" : "string"
+          } ],
+          "personEntity" : "ENTITY",
+          "emails" : [ {
+            "email" : "string"
+          } ],
+          "socialNetworkIds" : [ {
+            "socialNetworkId" : "string"
+          } ],
+          "prospectLegalDetails" : [ {
+            "legalId" : "string",
+            "legalDocumentName" : "string"
+          } ],
+          "postCodes" : [ {
+            "postCode" : "string"
+          } ],
+          "birthIncorpDate" : "2015-07-20",
+          "townCountries" : [ {
+            "townCountry" : "string"
+          } ]
         }
       }
     }

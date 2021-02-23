@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/cards" : {
@@ -71,12 +71,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -90,12 +84,6 @@
               "$ref" : "#/definitions/CardIssuesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -106,6 +94,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -138,12 +132,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -157,12 +145,6 @@
               "$ref" : "#/definitions/CardIssueResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -173,6 +155,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -203,12 +191,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -222,12 +204,6 @@
               "$ref" : "#/definitions/CardIssueResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -238,6 +214,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -268,12 +250,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -287,12 +263,6 @@
               "$ref" : "#/definitions/CardIssueResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -304,14 +274,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -624,7 +602,40 @@
           "$ref" : "#/definitions/CardIssueBody"
         }
       },
-      "description" : "CardIssue"
+      "description" : "CardIssue",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "expiryDate" : "2020-03-29",
+          "pinIssueDate" : "2015-07-20",
+          "notes" : [ {
+            "note" : "string"
+          } ],
+          "cardNames" : [ {
+            "cardName" : "string"
+          } ],
+          "cancellationReason" : "string",
+          "accountIds" : [ {
+            "accountId" : "string"
+          } ],
+          "currencyId" : "string",
+          "issueDate" : "2015-07-20",
+          "cardStatus" : "string",
+          "cancellationDate" : "2015-07-20"
+        }
+      }
     },
     "CardIssueBody" : {
       "type" : "object",
@@ -1024,6 +1035,138 @@
         }
       },
       "description" : "CardIssueDelete"
+    },
+    "updateCardIssue" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/CardIssueBody"
+        }
+      },
+      "description" : "CardIssue",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "expiryDate" : "2020-03-29",
+          "pinIssueDate" : "2015-07-20",
+          "notes" : [ {
+            "note" : "string"
+          } ],
+          "cardNames" : [ {
+            "cardName" : "string"
+          } ],
+          "cancellationReason" : "string",
+          "accountIds" : [ {
+            "accountId" : "string"
+          } ],
+          "currencyId" : "string",
+          "issueDate" : "2015-07-20",
+          "cardStatus" : "string",
+          "cancellationDate" : "2015-07-20"
+        }
+      }
+    },
+    "deleteCardIssue" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/CardIssueBody"
+        }
+      },
+      "description" : "CardIssue",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "expiryDate" : "2020-03-29",
+          "pinIssueDate" : "2015-07-20",
+          "notes" : [ {
+            "note" : "string"
+          } ],
+          "cardNames" : [ {
+            "cardName" : "string"
+          } ],
+          "cancellationReason" : "string",
+          "accountIds" : [ {
+            "accountId" : "string"
+          } ],
+          "currencyId" : "string",
+          "issueDate" : "2015-07-20",
+          "cardStatus" : "string",
+          "cancellationDate" : "2015-07-20"
+        }
+      }
+    },
+    "createCardIssue" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/CardIssueBody"
+        }
+      },
+      "description" : "CardIssue",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "expiryDate" : "2020-03-29",
+          "pinIssueDate" : "2015-07-20",
+          "notes" : [ {
+            "note" : "string"
+          } ],
+          "cardNames" : [ {
+            "cardName" : "string"
+          } ],
+          "cancellationReason" : "string",
+          "accountIds" : [ {
+            "accountId" : "string"
+          } ],
+          "currencyId" : "string",
+          "issueDate" : "2015-07-20",
+          "cardStatus" : "string",
+          "cancellationDate" : "2015-07-20"
+        }
+      }
     }
   }
 }

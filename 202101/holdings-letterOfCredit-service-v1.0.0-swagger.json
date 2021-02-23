@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/letterOfCredits/drawingsInitiation/{drawingId}" : {
@@ -39,12 +39,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -58,12 +52,6 @@
               "$ref" : "#/definitions/DrawingResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -74,6 +62,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -92,12 +86,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -111,12 +99,6 @@
               "$ref" : "#/definitions/DrawingResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -127,6 +109,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -157,12 +145,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -176,12 +158,6 @@
               "$ref" : "#/definitions/DrawingResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -192,6 +168,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -222,12 +204,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -241,12 +217,6 @@
               "$ref" : "#/definitions/DrawingResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -257,6 +227,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -275,12 +251,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -294,12 +264,6 @@
               "$ref" : "#/definitions/DrawingResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -310,6 +274,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -328,12 +298,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -347,12 +311,6 @@
               "$ref" : "#/definitions/LcDocumentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -363,6 +321,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -393,12 +357,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -412,12 +370,6 @@
               "$ref" : "#/definitions/LcDocumentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -428,6 +380,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -458,12 +416,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -477,12 +429,6 @@
               "$ref" : "#/definitions/LcDocumentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -493,6 +439,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -523,12 +475,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -542,12 +488,6 @@
               "$ref" : "#/definitions/LcDocumentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -558,6 +498,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -590,12 +536,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -609,12 +549,6 @@
               "$ref" : "#/definitions/LcAmendmentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -625,6 +559,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -669,12 +609,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -688,12 +622,6 @@
               "$ref" : "#/definitions/LCAmendmentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -704,6 +632,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -734,12 +668,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -753,12 +681,6 @@
               "$ref" : "#/definitions/LcAmendmentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -769,6 +691,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -799,12 +727,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -818,12 +740,6 @@
               "$ref" : "#/definitions/LcAmendmentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -834,6 +750,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -852,12 +774,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -871,12 +787,6 @@
               "$ref" : "#/definitions/LcAmendmentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -887,6 +797,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -905,12 +821,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -924,12 +834,6 @@
               "$ref" : "#/definitions/LcClauseResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -940,6 +844,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -970,12 +880,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -989,12 +893,6 @@
               "$ref" : "#/definitions/LcClauseResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1005,6 +903,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -1035,12 +939,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1054,12 +952,6 @@
               "$ref" : "#/definitions/LcClauseResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1070,6 +962,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -1100,12 +998,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1119,12 +1011,6 @@
               "$ref" : "#/definitions/LcClauseResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1135,6 +1021,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -1179,12 +1071,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1198,12 +1084,6 @@
               "$ref" : "#/definitions/DrawingsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1214,6 +1094,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1258,12 +1144,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1277,12 +1157,6 @@
               "$ref" : "#/definitions/LCDocumentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1293,6 +1167,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1337,12 +1217,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1356,12 +1230,6 @@
               "$ref" : "#/definitions/LCClausesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1372,6 +1240,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1404,12 +1278,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1423,12 +1291,6 @@
               "$ref" : "#/definitions/IncoTermsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1439,6 +1301,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1489,12 +1357,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1508,12 +1370,6 @@
               "$ref" : "#/definitions/LetterOfCreditsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1524,6 +1380,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1562,12 +1424,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1581,12 +1437,6 @@
               "$ref" : "#/definitions/ExportDrawingsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1597,6 +1447,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1635,12 +1491,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1654,12 +1504,6 @@
               "$ref" : "#/definitions/ExportLCAmendmentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1670,6 +1514,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1708,12 +1558,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1727,12 +1571,6 @@
               "$ref" : "#/definitions/ExportLcResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1743,6 +1581,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1781,12 +1625,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1800,12 +1638,6 @@
               "$ref" : "#/definitions/ImportDrawingsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1816,6 +1648,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1854,12 +1692,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1873,12 +1705,6 @@
               "$ref" : "#/definitions/ImportLCAmendmentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1889,6 +1715,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1927,12 +1759,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1946,12 +1772,6 @@
               "$ref" : "#/definitions/ImportLcResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1962,6 +1782,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2000,12 +1826,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2019,12 +1839,6 @@
               "$ref" : "#/definitions/OutwardCollectionDocumentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2035,6 +1849,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2073,12 +1893,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2092,12 +1906,6 @@
               "$ref" : "#/definitions/InwardCollectionsAmendmentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2108,6 +1916,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2146,12 +1960,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2165,12 +1973,6 @@
               "$ref" : "#/definitions/InwardCollectionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2181,6 +1983,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2219,12 +2027,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2238,12 +2040,6 @@
               "$ref" : "#/definitions/LcTenorsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2254,6 +2050,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2292,12 +2094,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2311,12 +2107,6 @@
               "$ref" : "#/definitions/OutwardCollectionAmdendmentsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2327,6 +2117,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2365,12 +2161,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2384,12 +2174,6 @@
               "$ref" : "#/definitions/OutwardCollectionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2400,6 +2184,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2438,12 +2228,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2457,12 +2241,6 @@
               "$ref" : "#/definitions/LcLimitsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2473,6 +2251,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2505,12 +2289,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2524,12 +2302,6 @@
               "$ref" : "#/definitions/DrawingResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2540,6 +2312,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2572,12 +2350,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2591,12 +2363,6 @@
               "$ref" : "#/definitions/LcAmendmentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2607,6 +2373,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2657,12 +2429,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2676,12 +2442,6 @@
               "$ref" : "#/definitions/ApprovedOutwardCollectionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2692,6 +2452,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2709,12 +2475,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2728,12 +2488,6 @@
               "$ref" : "#/definitions/LcAmendmentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2744,6 +2498,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2770,12 +2530,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2789,12 +2543,6 @@
               "$ref" : "#/definitions/LetterOfCreditResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2805,6 +2553,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2837,12 +2591,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2856,12 +2604,6 @@
               "$ref" : "#/definitions/LetterOfCreditResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2872,6 +2614,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2890,12 +2638,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2909,12 +2651,6 @@
               "$ref" : "#/definitions/LetterOfCreditResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2925,6 +2661,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -2954,12 +2696,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2973,12 +2709,6 @@
               "$ref" : "#/definitions/ExternalAmendmentToAnLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2989,6 +2719,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3019,12 +2755,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3038,12 +2768,6 @@
               "$ref" : "#/definitions/LetterOfCreditResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3054,6 +2778,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3072,12 +2802,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3091,12 +2815,6 @@
               "$ref" : "#/definitions/LetterOfCreditResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3107,6 +2825,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3139,12 +2863,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3158,12 +2876,6 @@
               "$ref" : "#/definitions/LetterOfCreditResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3174,6 +2886,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3200,12 +2918,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3219,12 +2931,6 @@
               "$ref" : "#/definitions/ExportLetterOfCreditResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3235,6 +2941,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3267,12 +2979,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3286,12 +2992,6 @@
               "$ref" : "#/definitions/ExportLetterOfCreditResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3302,6 +3002,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3328,12 +3034,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3347,12 +3047,6 @@
               "$ref" : "#/definitions/IssuanceOfSightPaymentLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3363,6 +3057,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3389,12 +3089,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3408,12 +3102,6 @@
               "$ref" : "#/definitions/IssuanceOfUsanceLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3424,6 +3112,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3450,12 +3144,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3469,12 +3157,6 @@
               "$ref" : "#/definitions/IssuanceOfNegotiationLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3485,6 +3167,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3511,12 +3199,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3530,12 +3212,6 @@
               "$ref" : "#/definitions/IssuanceOfMixedPaymentLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3546,6 +3222,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3572,12 +3254,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3591,12 +3267,6 @@
               "$ref" : "#/definitions/IssuanceOfStandbyLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3607,6 +3277,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3633,12 +3309,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3652,12 +3322,6 @@
               "$ref" : "#/definitions/IssuanceOfPreAdviseImportLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3668,6 +3332,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3694,12 +3364,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3713,12 +3377,6 @@
               "$ref" : "#/definitions/IssuanceOfBackToBackLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3729,6 +3387,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3755,12 +3419,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3774,12 +3432,6 @@
               "$ref" : "#/definitions/IssuanceOfTransferableLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3790,6 +3442,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3821,12 +3479,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3840,12 +3492,6 @@
               "$ref" : "#/definitions/AmendmentSeekingBeneficiaryConsentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3856,6 +3502,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3887,12 +3539,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3906,12 +3552,6 @@
               "$ref" : "#/definitions/DecisionOnAmendmentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3922,6 +3562,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -3953,12 +3599,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -3972,12 +3612,6 @@
               "$ref" : "#/definitions/CancellationOfLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -3988,6 +3622,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -4019,12 +3659,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -4038,12 +3672,6 @@
               "$ref" : "#/definitions/DecisionOnExportLCAmendmentResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -4054,6 +3682,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -4085,12 +3719,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -4104,12 +3732,6 @@
               "$ref" : "#/definitions/CancellationOfExportLCResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -4120,6 +3742,12 @@
             "description" : "SystemScreenErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           }
         }
@@ -4135,11 +3763,11 @@
           "name" : "customerId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100282"
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -4181,12 +3809,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -4200,12 +3822,6 @@
               "$ref" : "#/definitions/ImportLcsOutstandingResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -4216,6 +3832,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -4235,7 +3857,6 @@
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -4277,12 +3898,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -4296,12 +3911,6 @@
               "$ref" : "#/definitions/ImportLcsExpiringButOutstandingResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -4312,6 +3921,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -4327,11 +3942,11 @@
           "name" : "letterOfCreditId",
           "in" : "path",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "TF1907922649"
         }, {
           "name" : "transactionReference",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -4391,12 +4006,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -4410,12 +4019,6 @@
               "$ref" : "#/definitions/ExportlcsOutstandingResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -4427,14 +4030,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -6972,7 +6583,6 @@
           },
           "standByLId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 3
           },
           "partialShipmentText" : {
@@ -7078,8 +6688,7 @@
             "description" : "Indicates the type of LC, whether this is an Import/Export, Confirmed/Unconfirmed/Revolving/Transferrable/Back to Back LC/documentary collection/Clean collection etc."
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "drawingApplicant" : {
             "type" : "string",
@@ -7143,8 +6752,7 @@
             "description" : "Identifies the Issuing bank ID under the LC, who issues the LC under when a bank is advising the Letter of Credit"
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "lcType" : {
             "type" : "string",
@@ -7212,8 +6820,7 @@
             "description" : "Identifies the Issuing bank ID under the LC, who issues the LC under when a bank is advising the Letter of Credit"
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "lcType" : {
             "type" : "string",
@@ -7277,8 +6884,7 @@
             "description" : "Indicates the type of LC, whether this is an Import/Export, Confirmed/Unconfirmed/Revolving/Transferrable/Back to Back LC/documentary collection/Clean collection etc."
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "beneficiaryId" : {
             "type" : "string",
@@ -7346,8 +6952,7 @@
             "description" : "Indicates the type of LC, whether this is an Import/Export, Confirmed/Unconfirmed/Revolving/Transferrable/Back to Back LC/documentary collection/Clean collection etc."
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "amendmentDate" : {
             "type" : "string",
@@ -7399,8 +7004,7 @@
         "type" : "object",
         "properties" : {
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "lcType" : {
             "type" : "string",
@@ -7500,8 +7104,7 @@
             "description" : "Identifier of collection id"
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "collectionType" : {
             "type" : "string",
@@ -7572,8 +7175,7 @@
             "description" : "The ID of the Letter of Credit, to be linked to this Guarantee for the purpose of apportioning the Margin"
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "collectionType" : {
             "type" : "string",
@@ -7677,16 +7279,14 @@
             "description" : "Identifier of collection id"
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "collectionType" : {
             "type" : "string",
             "description" : "Indicates the type of collection"
           },
           "draweeCustomerId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "lodgeDate" : {
             "type" : "string",
@@ -7749,16 +7349,14 @@
             "description" : "Identifier of collection id"
           },
           "transactionReference" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "collectionType" : {
             "type" : "string",
             "description" : "Indicates the type of collection"
           },
           "draweeCustomerId" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "documentStatus" : {
             "type" : "string",
@@ -8044,7 +7642,153 @@
           "$ref" : "#/definitions/LetterOfCreditBody"
         }
       },
-      "description" : "LetterOfCredit"
+      "description" : "LetterOfCredit",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "instructions" : [ {
+            "instruction" : "string"
+          } ],
+          "chargesAccountId" : "string",
+          "additionalConditions" : [ {
+            "additionalCondition" : "string"
+          } ],
+          "transferable" : "string",
+          "finalDestination" : "string",
+          "availableBy" : "string",
+          "provisionAmount" : "string",
+          "availableWithCustomerId" : "string",
+          "documentsRequired" : [ {
+            "documentRequired" : "string"
+          } ],
+          "applicantCustomerNames" : [ {
+            "applicantCustomerName" : "string"
+          } ],
+          "applicantCustomerId" : "string",
+          "advisingBankCustomerId" : "string",
+          "documentsReceived" : "string",
+          "expiryPlace" : "string",
+          "issuingBankId" : "string",
+          "currencyId" : "string",
+          "adviceExpiryDate" : "2015-07-20",
+          "provisionAccountId" : "string",
+          "latestShipmentDate" : "2015-07-20",
+          "incoTerms" : "string",
+          "descriptionOfGoods" : [ {
+            "descriptionOfGood" : "string"
+          } ],
+          "deferredPayments" : [ {
+            "deferredPayment" : "string"
+          } ],
+          "clausesDetails" : [ {
+            "clausesTexts" : [ {
+              "clausesText" : "string"
+            } ]
+          } ],
+          "beneficiaryAccountId" : "string",
+          "guaranteeIds" : [ {
+            "guaranteeId" : "string"
+          } ],
+          "closingDate" : "2015-07-20",
+          "shipmentDespatch" : "string",
+          "documentDetails" : [ {
+            "documentCode" : "string",
+            "document1stCopy" : "string",
+            "documentTexts" : [ {
+              "documentText" : "string"
+            } ]
+          } ],
+          "externalReference" : "string",
+          "beneficiaryCustomerId" : "string",
+          "availableWithDetails" : [ {
+            "availableWith" : "string"
+          } ],
+          "percentageCreditAmount" : "string",
+          "payTerms" : "string",
+          "provision" : "string",
+          "lcType" : "string",
+          "beneficiaryCustomerNames" : [ {
+            "beneficiaryCustomerName" : "string"
+          } ],
+          "issuingBanks" : [ {
+            "issuingBank" : "string"
+          } ],
+          "confirmInstructions" : "string",
+          "advisingBanks" : [ {
+            "advisingBank" : "string"
+          } ],
+          "maximumCreditAmount" : "string",
+          "applicantAccountId" : "string",
+          "narrativeCharges" : [ {
+            "narrativeCharge" : "string"
+          } ],
+          "dateAccepted" : "2015-07-20",
+          "commissionAccountId" : "string",
+          "collectionMaturityCode" : "string",
+          "otherDespatchDetails" : "string",
+          "expiryDate" : "2015-07-20",
+          "presentationPeriods" : [ {
+            "presentationPeriod" : "string"
+          } ],
+          "tenor" : "string",
+          "supportDocuments" : [ {
+            "supportDocument" : "string",
+            "documentName" : "string"
+          } ],
+          "percentageDebitAmount" : "string",
+          "clientReference" : "string",
+          "ibStatus" : "string",
+          "issueDate" : "2015-07-20",
+          "standByLC" : "string",
+          "ibReasonDetails" : [ {
+            "ibReasons" : [ {
+              "ibReason" : "string"
+            } ]
+          } ],
+          "amount" : 1.5,
+          "chargesFrom" : "string",
+          "shipmentMode" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "partialShipmentText" : "string",
+          "transhipments" : "string",
+          "contactDetails" : [ {
+            "contactInformations" : [ {
+              "contactInformation" : "string"
+            } ]
+          } ],
+          "transportation" : "string",
+          "recordStatus" : "string",
+          "additionalAmountsCovered" : [ {
+            "additionalAmountCovered" : "string"
+          } ],
+          "shipmentPeriods" : [ {
+            "shipmentPeriod" : "string"
+          } ],
+          "limitBroken" : "string",
+          "days" : "string",
+          "documentId" : "string",
+          "fromCustomerDetails" : [ {
+            "fromCustomerMessages" : [ {
+              "fromCustomerMessage" : "string"
+            } ]
+          } ],
+          "operation" : "string"
+        }
+      }
     },
     "LetterOfCreditBody" : {
       "type" : "object",
@@ -8514,7 +8258,6 @@
         },
         "standByLC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -9199,7 +8942,6 @@
         },
         "standByLC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -9892,7 +9634,6 @@
         },
         "standByLC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -10577,7 +10318,6 @@
         },
         "standByLC" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -10792,7 +10532,98 @@
           "$ref" : "#/definitions/IssuanceOfSightPaymentLCBody"
         }
       },
-      "description" : "IssuanceOfSightPaymentLC"
+      "description" : "IssuanceOfSightPaymentLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "documentCode" : "string",
+          "limitReference" : "string",
+          "lcAmount" : 100000,
+          "chargeDefaultAccount" : "75132",
+          "documentsText" : "string",
+          "marginExchangeRate" : "string",
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "expiryPlace" : "US",
+          "incoTerms" : "string",
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "marginPercent" : "string",
+          "availableWithBankId" : "string",
+          "releaseProvision" : "string",
+          "adviseThroughBank" : "string",
+          "lcCurrency" : "USD",
+          "reimbursingBank" : "string",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "limitWithProvision" : "string",
+          "additionalCondition" : "string",
+          "reimbursingBanks1" : [ {
+            "reimbursingBank1" : "string"
+          } ],
+          "documentRequired" : "string",
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "importSightPmtLcType" : "ISC",
+          "applicantAddresses" : [ {
+            "applicantAddress" : "string"
+          } ],
+          "modeOfShipment" : "string",
+          "applicableRuleCodesMT740" : "string",
+          "marginRequired" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "expiryDate" : "20200220",
+          "marginAmount" : 1.5,
+          "creditTolerance" : "string",
+          "shipmentDate" : "string",
+          "issueDate" : "string",
+          "lcNumber" : "string",
+          "marginCalculationBase" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "applicant" : "100100",
+          "liabilityReversalDate" : "string",
+          "advisingBankAddresses" : [ {
+            "advisingBankAddress" : "string"
+          } ],
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "advisingBankId" : "100460",
+          "documentId" : "string",
+          "chargeFrom" : "O"
+        }
+      }
     },
     "IssuanceOfSightPaymentLCBody" : {
       "type" : "object",
@@ -11665,7 +11496,102 @@
           "$ref" : "#/definitions/IssuanceOfUsanceLCBody"
         }
       },
-      "description" : "IssuanceOfUsanceLC"
+      "description" : "IssuanceOfUsanceLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "documentCode" : "string",
+          "chargeDefaultAccount" : "75132",
+          "documentsText" : "string",
+          "marginExchangeRate" : "string",
+          "limitReferences" : [ {
+            "limitReference" : "string"
+          } ],
+          "collMatCode" : "string",
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "expiryPlace" : "US",
+          "incoTerms" : "string",
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "marginPercent" : "string",
+          "availableWithBankId" : "string",
+          "releaseProvision" : "string",
+          "adviseThroughBank" : "string",
+          "reimbursingBank" : "string",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "limitWithProvision" : "string",
+          "additionalCondition" : "string",
+          "reimbursingBanks1" : [ {
+            "reimbursingBank1" : "string"
+          } ],
+          "documentRequired" : "string",
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "applicantAddresses" : [ {
+            "applicantAddress" : "string"
+          } ],
+          "modeOfShipment" : "string",
+          "applicableRuleCodesMT740" : "string",
+          "marginRequired" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "expiryDate" : "20200220",
+          "marginAmount" : 1.5,
+          "currency" : "USD",
+          "creditTolerance" : "string",
+          "shipmentDate" : "2015-07-20",
+          "issueDate" : "2015-07-20",
+          "amount" : 100000,
+          "importUsanceLCType" : "ISC",
+          "lcNumber" : "string",
+          "marginCalculationBase" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "applicant" : "100100",
+          "liabilityReversalDate" : "2015-07-20",
+          "advisingBankAddresses" : [ {
+            "advisingBankAddress" : "string"
+          } ],
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "advisingBankId" : "100460",
+          "days" : "string",
+          "documentId" : "string",
+          "chargeFrom" : "O"
+        }
+      }
     },
     "IssuanceOfUsanceLCBody" : {
       "type" : "object",
@@ -13463,7 +13389,118 @@
           "$ref" : "#/definitions/IssuanceOfMixedPaymentLCBody"
         }
       },
-      "description" : "IssuanceOfMixedPaymentLC"
+      "description" : "IssuanceOfMixedPaymentLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "documentCode" : "string",
+          "limitReference" : "string",
+          "lcAmount" : 100000,
+          "chargeDefaultAccount" : "75132",
+          "documentsText" : "string",
+          "marginExchangeRate" : "string",
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "curRevolLiab" : "string",
+          "revolvingFrequency" : "string",
+          "revolvingType" : "string",
+          "expiryPlace" : "US",
+          "incoTerms" : "string",
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "numberOfRevolution" : "string",
+          "marginPercent" : "string",
+          "availableWithBankId" : "string",
+          "releaseProvision" : "string",
+          "adviseThroughBank" : "string",
+          "lcCurrency" : "USD",
+          "reimbursingBank" : "string",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "limitWithProvision" : "string",
+          "additionalCondition" : "string",
+          "reimbursingBanks1" : [ {
+            "reimbursingBank1" : "string"
+          } ],
+          "documentRequired" : "string",
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "applicantAddresses" : [ {
+            "applicantAddress" : "string"
+          } ],
+          "modeOfShipment" : "string",
+          "applicableRuleCodesMT740" : "string",
+          "marginRequired" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "expiryDate" : "20200220",
+          "drawings" : [ {
+            "drawingType" : "SP",
+            "limitReference" : "string",
+            "paymentPortion" : "string",
+            "provisionOutstandingAmount" : "string",
+            "portionOverdrawn" : "string",
+            "additionalCoveredAmount" : "string",
+            "acptTimeBand" : "string",
+            "liabilityPortionAmount" : "string",
+            "portionNo" : "string",
+            "paymentPercent" : "100",
+            "provisionAwaitAmount" : "string",
+            "localCurrencyPortiomAmount" : "string",
+            "drawingAmount" : "string"
+          } ],
+          "marginAmount" : 1.5,
+          "limitForRevolving" : "string",
+          "creditTolerance" : "string",
+          "shipmentDate" : "2015-07-20",
+          "issueDate" : "2015-07-20",
+          "applicantCustomer" : "100100",
+          "lcNumber" : "string",
+          "marginCalculationBase" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "liabilityReversalDate" : "2015-07-20",
+          "advisingBankAddresses" : [ {
+            "advisingBankAddress" : "string"
+          } ],
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "advisingBankId" : "100460",
+          "documentId" : "string",
+          "importMixedPmtLCType" : "IMC",
+          "chargeFrom" : "O"
+        }
+      }
     },
     "IssuanceOfMixedPaymentLCBody" : {
       "type" : "object",
@@ -15445,7 +15482,95 @@
           "$ref" : "#/definitions/IssuanceOfPreAdviseImportLCBody"
         }
       },
-      "description" : "IssuanceOfPreAdviseImportLC"
+      "description" : "IssuanceOfPreAdviseImportLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "marginDebitAccount" : "string",
+          "chargeDefaultAccount" : "75132",
+          "applicantAddresses" : [ {
+            "applicantAddress" : "string"
+          } ],
+          "modeOfShipment" : "string",
+          "applicableRuleCodesMT740" : "string",
+          "marginRequired" : "string",
+          "marginExchangeRate" : "string",
+          "limitReferences" : [ {
+            "limitReference" : "string"
+          } ],
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "expiryDate" : "20200220",
+          "marginAmount" : 1.5,
+          "currency" : "USD",
+          "creditTolerance" : "string",
+          "expiryPlace" : "US",
+          "shipmentDate" : "2015-07-20",
+          "issueDate" : "2015-07-20",
+          "amount" : 100000,
+          "incoTerms" : "string",
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "lcNumber" : "string",
+          "marginPercent" : "string",
+          "marginCalculationBase" : "string",
+          "availableWithBankId" : "string",
+          "releaseProvision" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "applicant" : "100100",
+          "adviseThroughBank" : "string",
+          "liabilityReversalDate" : "2015-07-20",
+          "reimbursingBank" : "string",
+          "advisingBankAddresses" : [ {
+            "advisingBankAddress" : "string"
+          } ],
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "updateLimit" : "string",
+          "limitWithProvision" : "string",
+          "lcType" : "ISC",
+          "advisingBankId" : "100460",
+          "reimbursingBanks1" : [ {
+            "reimbursingBank1" : "string"
+          } ],
+          "chargeFrom" : "O"
+        }
+      }
     },
     "IssuanceOfPreAdviseImportLCBody" : {
       "type" : "object",
@@ -16268,7 +16393,106 @@
           "$ref" : "#/definitions/IssuanceOfBackToBackLCBody"
         }
       },
-      "description" : "IssuanceOfBackToBackLC"
+      "description" : "IssuanceOfBackToBackLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "relatedImportLCReference" : "string",
+          "issuingBankName" : "string",
+          "autoExpiry" : "string",
+          "advisingBankReference" : "string",
+          "lcAmount" : 100000,
+          "chargeDefaultAccount" : "75132",
+          "amountOfChargeMT730" : "string",
+          "accountWithBanks" : [ {
+            "accountWithBank" : "string"
+          } ],
+          "limitReferences" : [ {
+            "limitReference" : "string"
+          } ],
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "expiryDate" : "20200520",
+          "curRevolLiab" : "string",
+          "backToBackLCRequired" : "string",
+          "revolvingFrequency" : "string",
+          "drawings" : [ {
+            "drawingType" : "string",
+            "limitReference" : "string",
+            "paymentPortion" : "string",
+            "provisionOutstandingAmount" : 1.5,
+            "portionOverdrawn" : "string",
+            "AcptTimeBand" : "string",
+            "liabilityPortionAmount" : "string",
+            "portionNo" : "string",
+            "paymentPercent" : "string",
+            "provisionAwaitAmount" : 1.5,
+            "localCurrencyPortiomAmount" : 1.5,
+            "AdditionalCoveredAmount" : "string",
+            "drawingAmount" : 1.5
+          } ],
+          "issuingBankLCReference" : "string",
+          "revolvingType" : "string",
+          "limitForRevolving" : "string",
+          "creditTolerance" : "string",
+          "expiryPlace" : "US",
+          "issuingBankId" : "100461",
+          "issueDate" : "20190417",
+          "adviseThroughBankID" : "string",
+          "confirmationInstruction" : "string",
+          "applicableRuleCodes" : "URR LATEST VERSION",
+          "advisingBank" : "string",
+          "availableWithBankId" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "applicant" : "100100",
+          "lcCurrency" : "USD",
+          "liabilityReversalDate" : "2015-07-20",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "charge" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "waiveCharge" : "NO",
+          "nunmberOfRevolution" : "string",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "senderReceiversInfoMT730" : [ {
+            "senderReceiverInfoMT730" : "string"
+          } ],
+          "applicantNames" : [ {
+            "applicantName" : "string"
+          } ],
+          "lcAdvisingReference" : "string",
+          "exportLCType" : "string",
+          "chargeFrom" : "O",
+          "beneficiaryId" : "100160"
+        }
+      }
     },
     "IssuanceOfBackToBackLCBody" : {
       "type" : "object",
@@ -16665,7 +16889,6 @@
         },
         "applicableRuleCodes" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
@@ -16701,7 +16924,6 @@
         },
         "nunmberOfRevolution" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
@@ -17142,7 +17364,6 @@
         },
         "applicableRuleCodes" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 40
         },
@@ -17178,7 +17399,6 @@
         },
         "nunmberOfRevolution" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 25
         },
@@ -17223,7 +17443,160 @@
           "$ref" : "#/definitions/IssuanceOfTransferableLCBody"
         }
       },
-      "description" : "IssuanceOfTransferableLC"
+      "description" : "IssuanceOfTransferableLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "confirmationDate" : "2015-07-20",
+          "assignments" : [ {
+            "assignmentReference" : "string",
+            "assigntOutstandingAmount" : "string",
+            "assigneeAddresses" : [ {
+              "assigneeAddress" : "string"
+            } ],
+            "assigneeId" : "string",
+            "assignmentNotes" : [ {
+              "assignmentNote" : "string"
+            } ],
+            "assignmentAmount" : "string"
+          } ],
+          "additionalConditions" : [ {
+            "additionalCondition" : "string"
+          } ],
+          "lcAmount" : "1000",
+          "finalDestination" : "string",
+          "drawees" : [ {
+            "drawee" : "string"
+          } ],
+          "chargeDefaultAccount" : "string",
+          "limitReferences" : [ {
+            "limitReference" : "string"
+          } ],
+          "secondBeneficiaryAddress" : "string",
+          "transhipment" : "string",
+          "draftsAt" : [ {
+            "draftAt" : "string"
+          } ],
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "curRevolLiab" : "string",
+          "additionalAmountCovered" : 1.5,
+          "documentsRequired" : [ {
+            "documentRequired" : "string"
+          } ],
+          "firstBeneficiaryName" : "string",
+          "revolvingFrequency" : "string",
+          "issuingBankLCReference" : "string",
+          "unconfirmLiabilityAmount" : 1.5,
+          "revolvingType" : "string",
+          "availableWithBank" : "ANY BANK",
+          "expiryPlace" : "US",
+          "issuingBankId" : "100460",
+          "latestShipmentDate" : "2015-07-20",
+          "lcIssueDate" : "2015-07-20",
+          "dateOfExpiry" : "2015-07-20",
+          "draweeId" : "string",
+          "confirmationInstruction" : "string",
+          "confirmationAmount" : 1.5,
+          "descriptionOfGoods" : "string",
+          "numberOfRevolution" : "string",
+          "lcAdvisingDate" : "string",
+          "advisingBank" : "string",
+          "applicableRule" : "UCPURR LATEST VERSION",
+          "parentLCReference" : "TF1907990956",
+          "adviseThroughBank" : "string",
+          "lcCurrency" : "USD",
+          "charges" : [ {
+            "partyCharged" : "string",
+            "amortiseCharges" : "string",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "string",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "string"
+          } ],
+          "waiveCharge" : "string",
+          "placeOfTakingInCharge" : "string",
+          "transferingBankReference" : "string",
+          "lcType" : "ESU",
+          "negotiationDeferredPaymentDetails" : [ {
+            "negotiationDeferredPaymentDetail" : "string"
+          } ],
+          "riskParty" : "string",
+          "mixedPaymentDetails" : [ {
+            "mixedPaymentDetail" : "string"
+          } ],
+          "lcTransferAdvisingReference" : "string",
+          "advisingBanks" : [ {
+            "advisingBank" : "string"
+          } ],
+          "issuingBankName" : "string",
+          "unconfirmLimitReference" : "string",
+          "autoExpiry" : "string",
+          "confirmLiabilityAmount" : 1.5,
+          "partialShipment" : "string",
+          "narrativeCharges" : [ {
+            "narrativeCharge" : "string"
+          } ],
+          "availableWithBankID" : "string",
+          "portOfDischarge" : "string",
+          "expiryDate" : "30 APR 2019",
+          "drawings" : [ {
+            "paymentPercent" : "string",
+            "drawingType" : "string",
+            "limitReference" : "string",
+            "paymentPortion" : "string",
+            "additionalCoveredAmount" : "string",
+            "acptTimeBand" : "string"
+          } ],
+          "limitForRevolving" : "string",
+          "creditTolerance" : "string",
+          "formOfDocCredit" : "string",
+          "documentaryCreditNumber" : "string",
+          "issueDate" : "string",
+          "secondBeneficiaryID" : "string",
+          "adviseThroughBankID" : "string",
+          "secondBeneficiaries" : [ {
+            "secondBeneficiary" : "100100"
+          } ],
+          "applicableRuleDescription" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "liabilityReversalDate" : "string",
+          "requestedConfirmBankName" : "string",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "string"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "shipmentPeriods" : [ {
+            "shipmentPeriod" : "string"
+          } ],
+          "instructionsToTheBanks" : [ {
+            "instructionsToTheBank" : "string"
+          } ],
+          "portOfLoading" : "string",
+          "chargeFrom" : "string",
+          "senderToReceiverInfo" : "string"
+        }
+      }
     },
     "IssuanceOfTransferableLCBody" : {
       "type" : "object",
@@ -17898,8 +18271,7 @@
         },
         "dateOfExpiry" : {
           "type" : "string",
-          "format" : "date",
-          "description" : ""
+          "format" : "date"
         },
         "additionalAmountCovered" : {
           "type" : "number",
@@ -17956,7 +18328,6 @@
         },
         "descriptionOfGoods" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -18684,8 +19055,7 @@
         },
         "dateOfExpiry" : {
           "type" : "string",
-          "format" : "date",
-          "description" : ""
+          "format" : "date"
         },
         "additionalAmountCovered" : {
           "type" : "number",
@@ -18742,7 +19112,6 @@
         },
         "descriptionOfGoods" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 35
         },
@@ -19928,7 +20297,6 @@
         },
         "descriptionOfGoods" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 30
         },
@@ -20234,7 +20602,6 @@
         },
         "descriptionOfGoods" : {
           "type" : "string",
-          "description" : "",
           "minLength" : 0,
           "maxLength" : 30
         },
@@ -22046,7 +22413,73 @@
           "$ref" : "#/definitions/DecisionOnExportLCAmendmentBody"
         }
       },
-      "description" : "DecisionOnExportLCAmendment"
+      "description" : "DecisionOnExportLCAmendment",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "limitReference" : "string",
+          "lcAmount" : "string",
+          "finalDestination" : "string",
+          "portOfDischarge" : "string",
+          "chargeDefaultAccount" : "string",
+          "internalAmendmentDetails" : [ {
+            "internalAmendmentDetail" : "string"
+          } ],
+          "amendStatus" : "REJECTED",
+          "additionalAmountCovered" : "string",
+          "newLCExpiryDate" : "string",
+          "purposeOfMessage" : "string",
+          "creditTolerance" : "string",
+          "expiryPlace" : "string",
+          "issuingBankId" : "string",
+          "issueDate" : "string",
+          "beneficiaries" : [ {
+            "beneficiary" : "string"
+          } ],
+          "latestShipmentDate" : "string",
+          "applicantCustomer" : "string",
+          "lcNumber" : "string",
+          "debitTolerance" : "string",
+          "sendAmendmentAdvice" : "string",
+          "issuingBankReference" : "string",
+          "lcCurrency" : "string",
+          "liabilityReversalDate" : "string",
+          "charges" : [ {
+            "partyCharged" : "string",
+            "amortiseCharges" : "string",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "string",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "string"
+          } ],
+          "cancellationRequest" : "string",
+          "waiveCharge" : "string",
+          "amendmentNumber" : "01",
+          "placeOfTakingInCharge" : "string",
+          "shipmentPeriods" : [ {
+            "shipmentPeriod" : "string"
+          } ],
+          "lcType" : "string",
+          "portOfLoading" : "string",
+          "chargeFrom" : "string"
+        }
+      }
     },
     "DecisionOnExportLCAmendmentBody" : {
       "type" : "object",
@@ -23386,7 +23819,6 @@
         "properties" : {
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 14
           },
           "lcNumber" : {
@@ -23466,7 +23898,6 @@
         "properties" : {
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 14
           },
           "lcNumber" : {
@@ -23560,7 +23991,6 @@
           },
           "transactionReference" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 14
           },
           "advisingReference" : {
@@ -23615,6 +24045,943 @@
             "format" : "date",
             "description" : "Date on which the contingent entries and the limits raised on the LC will be reversed."
           }
+        }
+      }
+    },
+    "createIssuanceOfUsanceLC" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/IssuanceOfUsanceLCBody"
+        }
+      },
+      "description" : "IssuanceOfUsanceLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "documentCode" : "string",
+          "chargeDefaultAccount" : "75132",
+          "documentsText" : "string",
+          "marginExchangeRate" : "string",
+          "limitReferences" : [ {
+            "limitReference" : "string"
+          } ],
+          "collMatCode" : "string",
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "expiryPlace" : "US",
+          "incoTerms" : "string",
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "marginPercent" : "string",
+          "availableWithBankId" : "string",
+          "releaseProvision" : "string",
+          "adviseThroughBank" : "string",
+          "reimbursingBank" : "string",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "limitWithProvision" : "string",
+          "additionalCondition" : "string",
+          "reimbursingBanks1" : [ {
+            "reimbursingBank1" : "string"
+          } ],
+          "documentRequired" : "string",
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "applicantAddresses" : [ {
+            "applicantAddress" : "string"
+          } ],
+          "modeOfShipment" : "string",
+          "applicableRuleCodesMT740" : "string",
+          "marginRequired" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "expiryDate" : "20200220",
+          "marginAmount" : 1.5,
+          "currency" : "USD",
+          "creditTolerance" : "string",
+          "shipmentDate" : "2015-07-20",
+          "issueDate" : "2015-07-20",
+          "amount" : 100000,
+          "importUsanceLCType" : "ISC",
+          "lcNumber" : "string",
+          "marginCalculationBase" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "applicant" : "100100",
+          "liabilityReversalDate" : "2015-07-20",
+          "advisingBankAddresses" : [ {
+            "advisingBankAddress" : "string"
+          } ],
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "advisingBankId" : "100460",
+          "days" : "string",
+          "documentId" : "string",
+          "chargeFrom" : "O"
+        }
+      }
+    },
+    "createIssuanceOfSightPaymentLC" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/IssuanceOfSightPaymentLCBody"
+        }
+      },
+      "description" : "IssuanceOfSightPaymentLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "documentCode" : "string",
+          "limitReference" : "string",
+          "lcAmount" : 100000,
+          "chargeDefaultAccount" : "75132",
+          "documentsText" : "string",
+          "marginExchangeRate" : "string",
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "expiryPlace" : "US",
+          "incoTerms" : "string",
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "marginPercent" : "string",
+          "availableWithBankId" : "string",
+          "releaseProvision" : "string",
+          "adviseThroughBank" : "string",
+          "lcCurrency" : "USD",
+          "reimbursingBank" : "string",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "limitWithProvision" : "string",
+          "additionalCondition" : "string",
+          "reimbursingBanks1" : [ {
+            "reimbursingBank1" : "string"
+          } ],
+          "documentRequired" : "string",
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "importSightPmtLcType" : "ISC",
+          "applicantAddresses" : [ {
+            "applicantAddress" : "string"
+          } ],
+          "modeOfShipment" : "string",
+          "applicableRuleCodesMT740" : "string",
+          "marginRequired" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "expiryDate" : "20200220",
+          "marginAmount" : 1.5,
+          "creditTolerance" : "string",
+          "shipmentDate" : "string",
+          "issueDate" : "string",
+          "lcNumber" : "string",
+          "marginCalculationBase" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "applicant" : "100100",
+          "liabilityReversalDate" : "string",
+          "advisingBankAddresses" : [ {
+            "advisingBankAddress" : "string"
+          } ],
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "advisingBankId" : "100460",
+          "documentId" : "string",
+          "chargeFrom" : "O"
+        }
+      }
+    },
+    "updateDecisionOnExportLCAmendment" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/DecisionOnExportLCAmendmentBody"
+        }
+      },
+      "description" : "DecisionOnExportLCAmendment",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "limitReference" : "string",
+          "lcAmount" : "string",
+          "finalDestination" : "string",
+          "portOfDischarge" : "string",
+          "chargeDefaultAccount" : "string",
+          "internalAmendmentDetails" : [ {
+            "internalAmendmentDetail" : "string"
+          } ],
+          "amendStatus" : "REJECTED",
+          "additionalAmountCovered" : "string",
+          "newLCExpiryDate" : "string",
+          "purposeOfMessage" : "string",
+          "creditTolerance" : "string",
+          "expiryPlace" : "string",
+          "issuingBankId" : "string",
+          "issueDate" : "string",
+          "beneficiaries" : [ {
+            "beneficiary" : "string"
+          } ],
+          "latestShipmentDate" : "string",
+          "applicantCustomer" : "string",
+          "lcNumber" : "string",
+          "debitTolerance" : "string",
+          "sendAmendmentAdvice" : "string",
+          "issuingBankReference" : "string",
+          "lcCurrency" : "string",
+          "liabilityReversalDate" : "string",
+          "charges" : [ {
+            "partyCharged" : "string",
+            "amortiseCharges" : "string",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "string",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "string"
+          } ],
+          "cancellationRequest" : "string",
+          "waiveCharge" : "string",
+          "amendmentNumber" : "01",
+          "placeOfTakingInCharge" : "string",
+          "shipmentPeriods" : [ {
+            "shipmentPeriod" : "string"
+          } ],
+          "lcType" : "string",
+          "portOfLoading" : "string",
+          "chargeFrom" : "string"
+        }
+      }
+    },
+    "deleteLetterOfCredit" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/LetterOfCreditBody"
+        }
+      },
+      "description" : "LetterOfCredit",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "instructions" : [ {
+            "instruction" : "string"
+          } ],
+          "chargesAccountId" : "string",
+          "additionalConditions" : [ {
+            "additionalCondition" : "string"
+          } ],
+          "transferable" : "string",
+          "finalDestination" : "string",
+          "availableBy" : "string",
+          "provisionAmount" : "string",
+          "availableWithCustomerId" : "string",
+          "documentsRequired" : [ {
+            "documentRequired" : "string"
+          } ],
+          "applicantCustomerNames" : [ {
+            "applicantCustomerName" : "string"
+          } ],
+          "applicantCustomerId" : "string",
+          "advisingBankCustomerId" : "string",
+          "documentsReceived" : "string",
+          "expiryPlace" : "string",
+          "issuingBankId" : "string",
+          "currencyId" : "string",
+          "adviceExpiryDate" : "2015-07-20",
+          "provisionAccountId" : "string",
+          "latestShipmentDate" : "2015-07-20",
+          "incoTerms" : "string",
+          "descriptionOfGoods" : [ {
+            "descriptionOfGood" : "string"
+          } ],
+          "deferredPayments" : [ {
+            "deferredPayment" : "string"
+          } ],
+          "clausesDetails" : [ {
+            "clausesTexts" : [ {
+              "clausesText" : "string"
+            } ]
+          } ],
+          "beneficiaryAccountId" : "string",
+          "guaranteeIds" : [ {
+            "guaranteeId" : "string"
+          } ],
+          "closingDate" : "2015-07-20",
+          "shipmentDespatch" : "string",
+          "documentDetails" : [ {
+            "documentCode" : "string",
+            "document1stCopy" : "string",
+            "documentTexts" : [ {
+              "documentText" : "string"
+            } ]
+          } ],
+          "externalReference" : "string",
+          "beneficiaryCustomerId" : "string",
+          "availableWithDetails" : [ {
+            "availableWith" : "string"
+          } ],
+          "percentageCreditAmount" : "string",
+          "payTerms" : "string",
+          "provision" : "string",
+          "lcType" : "string",
+          "beneficiaryCustomerNames" : [ {
+            "beneficiaryCustomerName" : "string"
+          } ],
+          "issuingBanks" : [ {
+            "issuingBank" : "string"
+          } ],
+          "confirmInstructions" : "string",
+          "advisingBanks" : [ {
+            "advisingBank" : "string"
+          } ],
+          "maximumCreditAmount" : "string",
+          "applicantAccountId" : "string",
+          "narrativeCharges" : [ {
+            "narrativeCharge" : "string"
+          } ],
+          "dateAccepted" : "2015-07-20",
+          "commissionAccountId" : "string",
+          "collectionMaturityCode" : "string",
+          "otherDespatchDetails" : "string",
+          "expiryDate" : "2015-07-20",
+          "presentationPeriods" : [ {
+            "presentationPeriod" : "string"
+          } ],
+          "tenor" : "string",
+          "supportDocuments" : [ {
+            "supportDocument" : "string",
+            "documentName" : "string"
+          } ],
+          "percentageDebitAmount" : "string",
+          "clientReference" : "string",
+          "ibStatus" : "string",
+          "issueDate" : "2015-07-20",
+          "standByLC" : "string",
+          "ibReasonDetails" : [ {
+            "ibReasons" : [ {
+              "ibReason" : "string"
+            } ]
+          } ],
+          "amount" : 1.5,
+          "chargesFrom" : "string",
+          "shipmentMode" : "string",
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "partialShipmentText" : "string",
+          "transhipments" : "string",
+          "contactDetails" : [ {
+            "contactInformations" : [ {
+              "contactInformation" : "string"
+            } ]
+          } ],
+          "transportation" : "string",
+          "recordStatus" : "string",
+          "additionalAmountsCovered" : [ {
+            "additionalAmountCovered" : "string"
+          } ],
+          "shipmentPeriods" : [ {
+            "shipmentPeriod" : "string"
+          } ],
+          "limitBroken" : "string",
+          "days" : "string",
+          "documentId" : "string",
+          "fromCustomerDetails" : [ {
+            "fromCustomerMessages" : [ {
+              "fromCustomerMessage" : "string"
+            } ]
+          } ],
+          "operation" : "string"
+        }
+      }
+    },
+    "createIssuanceOfMixedPaymentLC" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/IssuanceOfMixedPaymentLCBody"
+        }
+      },
+      "description" : "IssuanceOfMixedPaymentLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "documentCode" : "string",
+          "limitReference" : "string",
+          "lcAmount" : 100000,
+          "chargeDefaultAccount" : "75132",
+          "documentsText" : "string",
+          "marginExchangeRate" : "string",
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "curRevolLiab" : "string",
+          "revolvingFrequency" : "string",
+          "revolvingType" : "string",
+          "expiryPlace" : "US",
+          "incoTerms" : "string",
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "numberOfRevolution" : "string",
+          "marginPercent" : "string",
+          "availableWithBankId" : "string",
+          "releaseProvision" : "string",
+          "adviseThroughBank" : "string",
+          "lcCurrency" : "USD",
+          "reimbursingBank" : "string",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "limitWithProvision" : "string",
+          "additionalCondition" : "string",
+          "reimbursingBanks1" : [ {
+            "reimbursingBank1" : "string"
+          } ],
+          "documentRequired" : "string",
+          "autoExpiry" : "string",
+          "marginDebitAccount" : "string",
+          "applicantAddresses" : [ {
+            "applicantAddress" : "string"
+          } ],
+          "modeOfShipment" : "string",
+          "applicableRuleCodesMT740" : "string",
+          "marginRequired" : "string",
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "expiryDate" : "20200220",
+          "drawings" : [ {
+            "drawingType" : "SP",
+            "limitReference" : "string",
+            "paymentPortion" : "string",
+            "provisionOutstandingAmount" : "string",
+            "portionOverdrawn" : "string",
+            "additionalCoveredAmount" : "string",
+            "acptTimeBand" : "string",
+            "liabilityPortionAmount" : "string",
+            "portionNo" : "string",
+            "paymentPercent" : "100",
+            "provisionAwaitAmount" : "string",
+            "localCurrencyPortiomAmount" : "string",
+            "drawingAmount" : "string"
+          } ],
+          "marginAmount" : 1.5,
+          "limitForRevolving" : "string",
+          "creditTolerance" : "string",
+          "shipmentDate" : "2015-07-20",
+          "issueDate" : "2015-07-20",
+          "applicantCustomer" : "100100",
+          "lcNumber" : "string",
+          "marginCalculationBase" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "liabilityReversalDate" : "2015-07-20",
+          "advisingBankAddresses" : [ {
+            "advisingBankAddress" : "string"
+          } ],
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "advisingBankId" : "100460",
+          "documentId" : "string",
+          "importMixedPmtLCType" : "IMC",
+          "chargeFrom" : "O"
+        }
+      }
+    },
+    "createIssuanceOfTransferableLC" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/IssuanceOfTransferableLCBody"
+        }
+      },
+      "description" : "IssuanceOfTransferableLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "confirmationDate" : "2015-07-20",
+          "assignments" : [ {
+            "assignmentReference" : "string",
+            "assigntOutstandingAmount" : "string",
+            "assigneeAddresses" : [ {
+              "assigneeAddress" : "string"
+            } ],
+            "assigneeId" : "string",
+            "assignmentNotes" : [ {
+              "assignmentNote" : "string"
+            } ],
+            "assignmentAmount" : "string"
+          } ],
+          "additionalConditions" : [ {
+            "additionalCondition" : "string"
+          } ],
+          "lcAmount" : "1000",
+          "finalDestination" : "string",
+          "drawees" : [ {
+            "drawee" : "string"
+          } ],
+          "chargeDefaultAccount" : "string",
+          "limitReferences" : [ {
+            "limitReference" : "string"
+          } ],
+          "secondBeneficiaryAddress" : "string",
+          "transhipment" : "string",
+          "draftsAt" : [ {
+            "draftAt" : "string"
+          } ],
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "curRevolLiab" : "string",
+          "additionalAmountCovered" : 1.5,
+          "documentsRequired" : [ {
+            "documentRequired" : "string"
+          } ],
+          "firstBeneficiaryName" : "string",
+          "revolvingFrequency" : "string",
+          "issuingBankLCReference" : "string",
+          "unconfirmLiabilityAmount" : 1.5,
+          "revolvingType" : "string",
+          "availableWithBank" : "ANY BANK",
+          "expiryPlace" : "US",
+          "issuingBankId" : "100460",
+          "latestShipmentDate" : "2015-07-20",
+          "lcIssueDate" : "2015-07-20",
+          "dateOfExpiry" : "2015-07-20",
+          "draweeId" : "string",
+          "confirmationInstruction" : "string",
+          "confirmationAmount" : 1.5,
+          "descriptionOfGoods" : "string",
+          "numberOfRevolution" : "string",
+          "lcAdvisingDate" : "string",
+          "advisingBank" : "string",
+          "applicableRule" : "UCPURR LATEST VERSION",
+          "parentLCReference" : "TF1907990956",
+          "adviseThroughBank" : "string",
+          "lcCurrency" : "USD",
+          "charges" : [ {
+            "partyCharged" : "string",
+            "amortiseCharges" : "string",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "string",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "string"
+          } ],
+          "waiveCharge" : "string",
+          "placeOfTakingInCharge" : "string",
+          "transferingBankReference" : "string",
+          "lcType" : "ESU",
+          "negotiationDeferredPaymentDetails" : [ {
+            "negotiationDeferredPaymentDetail" : "string"
+          } ],
+          "riskParty" : "string",
+          "mixedPaymentDetails" : [ {
+            "mixedPaymentDetail" : "string"
+          } ],
+          "lcTransferAdvisingReference" : "string",
+          "advisingBanks" : [ {
+            "advisingBank" : "string"
+          } ],
+          "issuingBankName" : "string",
+          "unconfirmLimitReference" : "string",
+          "autoExpiry" : "string",
+          "confirmLiabilityAmount" : 1.5,
+          "partialShipment" : "string",
+          "narrativeCharges" : [ {
+            "narrativeCharge" : "string"
+          } ],
+          "availableWithBankID" : "string",
+          "portOfDischarge" : "string",
+          "expiryDate" : "30 APR 2019",
+          "drawings" : [ {
+            "paymentPercent" : "string",
+            "drawingType" : "string",
+            "limitReference" : "string",
+            "paymentPortion" : "string",
+            "additionalCoveredAmount" : "string",
+            "acptTimeBand" : "string"
+          } ],
+          "limitForRevolving" : "string",
+          "creditTolerance" : "string",
+          "formOfDocCredit" : "string",
+          "documentaryCreditNumber" : "string",
+          "issueDate" : "string",
+          "secondBeneficiaryID" : "string",
+          "adviseThroughBankID" : "string",
+          "secondBeneficiaries" : [ {
+            "secondBeneficiary" : "100100"
+          } ],
+          "applicableRuleDescription" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "liabilityReversalDate" : "string",
+          "requestedConfirmBankName" : "string",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "string"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "shipmentPeriods" : [ {
+            "shipmentPeriod" : "string"
+          } ],
+          "instructionsToTheBanks" : [ {
+            "instructionsToTheBank" : "string"
+          } ],
+          "portOfLoading" : "string",
+          "chargeFrom" : "string",
+          "senderToReceiverInfo" : "string"
+        }
+      }
+    },
+    "createIssuanceOfBackToBackLC" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/IssuanceOfBackToBackLCBody"
+        }
+      },
+      "description" : "IssuanceOfBackToBackLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "relatedImportLCReference" : "string",
+          "issuingBankName" : "string",
+          "autoExpiry" : "string",
+          "advisingBankReference" : "string",
+          "lcAmount" : 100000,
+          "chargeDefaultAccount" : "75132",
+          "amountOfChargeMT730" : "string",
+          "accountWithBanks" : [ {
+            "accountWithBank" : "string"
+          } ],
+          "limitReferences" : [ {
+            "limitReference" : "string"
+          } ],
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "expiryDate" : "20200520",
+          "curRevolLiab" : "string",
+          "backToBackLCRequired" : "string",
+          "revolvingFrequency" : "string",
+          "drawings" : [ {
+            "drawingType" : "string",
+            "limitReference" : "string",
+            "paymentPortion" : "string",
+            "provisionOutstandingAmount" : 1.5,
+            "portionOverdrawn" : "string",
+            "AcptTimeBand" : "string",
+            "liabilityPortionAmount" : "string",
+            "portionNo" : "string",
+            "paymentPercent" : "string",
+            "provisionAwaitAmount" : 1.5,
+            "localCurrencyPortiomAmount" : 1.5,
+            "AdditionalCoveredAmount" : "string",
+            "drawingAmount" : 1.5
+          } ],
+          "issuingBankLCReference" : "string",
+          "revolvingType" : "string",
+          "limitForRevolving" : "string",
+          "creditTolerance" : "string",
+          "expiryPlace" : "US",
+          "issuingBankId" : "100461",
+          "issueDate" : "20190417",
+          "adviseThroughBankID" : "string",
+          "confirmationInstruction" : "string",
+          "applicableRuleCodes" : "URR LATEST VERSION",
+          "advisingBank" : "string",
+          "availableWithBankId" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "applicant" : "100100",
+          "lcCurrency" : "USD",
+          "liabilityReversalDate" : "2015-07-20",
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "charge" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "waiveCharge" : "NO",
+          "nunmberOfRevolution" : "string",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "senderReceiversInfoMT730" : [ {
+            "senderReceiverInfoMT730" : "string"
+          } ],
+          "applicantNames" : [ {
+            "applicantName" : "string"
+          } ],
+          "lcAdvisingReference" : "string",
+          "exportLCType" : "string",
+          "chargeFrom" : "O",
+          "beneficiaryId" : "100160"
+        }
+      }
+    },
+    "createIssuanceOfPreAdviseImportLC" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/IssuanceOfPreAdviseImportLCBody"
+        }
+      },
+      "description" : "IssuanceOfPreAdviseImportLC",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "marginDebitAccount" : "string",
+          "chargeDefaultAccount" : "75132",
+          "applicantAddresses" : [ {
+            "applicantAddress" : "string"
+          } ],
+          "modeOfShipment" : "string",
+          "applicableRuleCodesMT740" : "string",
+          "marginRequired" : "string",
+          "marginExchangeRate" : "string",
+          "limitReferences" : [ {
+            "limitReference" : "string"
+          } ],
+          "beneficiaryAddresses" : [ {
+            "beneficiaryAddress" : "string"
+          } ],
+          "requestedConfirmBankNames" : [ {
+            "requestedConfirmBankName" : "string"
+          } ],
+          "expiryDate" : "20200220",
+          "marginAmount" : 1.5,
+          "currency" : "USD",
+          "creditTolerance" : "string",
+          "expiryPlace" : "US",
+          "shipmentDate" : "2015-07-20",
+          "issueDate" : "2015-07-20",
+          "amount" : 100000,
+          "incoTerms" : "string",
+          "confirmationInstruction" : "CONFIRM",
+          "requestedConfirmBank" : "129031",
+          "lcNumber" : "string",
+          "marginPercent" : "string",
+          "marginCalculationBase" : "string",
+          "availableWithBankId" : "string",
+          "releaseProvision" : "string",
+          "debitTolerance" : "string",
+          "adviseThroughBanks" : [ {
+            "adviseThroughBank" : "string"
+          } ],
+          "applicant" : "100100",
+          "adviseThroughBank" : "string",
+          "liabilityReversalDate" : "2015-07-20",
+          "reimbursingBank" : "string",
+          "advisingBankAddresses" : [ {
+            "advisingBankAddress" : "string"
+          } ],
+          "charges" : [ {
+            "partyCharged" : "O",
+            "amortiseCharges" : "NO",
+            "taxCurrency" : "string",
+            "chargeDebitAccount" : "75132",
+            "chargeAmount" : "string",
+            "chargeCurrency" : "string",
+            "chargeStatus" : "string",
+            "taxAmount" : "string",
+            "ChargeExchangeRate" : "string",
+            "chargeCode" : "LCOPENAMRT"
+          } ],
+          "beneficiaryCustomerId" : "100160",
+          "waiveCharge" : "NO",
+          "availableWithBanks" : [ {
+            "availableWithBank" : "ANY"
+          } ],
+          "daysAndPeriodForPresentation" : "string",
+          "updateLimit" : "string",
+          "limitWithProvision" : "string",
+          "lcType" : "ISC",
+          "advisingBankId" : "100460",
+          "reimbursingBanks1" : [ {
+            "reimbursingBank1" : "string"
+          } ],
+          "chargeFrom" : "O"
         }
       }
     }

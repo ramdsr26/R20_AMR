@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/product/cashManagement/bundles/accounts/summaryAccounts/debitInterestConditions" : {
@@ -32,12 +32,6 @@
             "$ref" : "#/definitions/SummaryAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -51,12 +45,6 @@
               "$ref" : "#/definitions/SummaryAccountDebitInterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -67,6 +55,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -92,12 +86,6 @@
             "$ref" : "#/definitions/SummaryAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -111,12 +99,6 @@
               "$ref" : "#/definitions/SummaryAccountDebitInterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -127,6 +109,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -152,12 +140,6 @@
             "$ref" : "#/definitions/TransactionAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -171,12 +153,6 @@
               "$ref" : "#/definitions/TransactionAccountDebitInterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -187,6 +163,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -212,12 +194,6 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -231,12 +207,6 @@
               "$ref" : "#/definitions/AccountOperationalDateResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -247,6 +217,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -272,12 +248,6 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -291,12 +261,6 @@
               "$ref" : "#/definitions/AccountOperationalDateResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -307,6 +271,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -332,12 +302,6 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -351,12 +315,6 @@
               "$ref" : "#/definitions/AccountOperationalDateResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -367,6 +325,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -383,7 +347,8 @@
           "in" : "path",
           "description" : "The field is to specify an arrangement reference which can act as a Master for the arrangement being created",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA190791Z7N2"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -405,12 +370,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -424,12 +383,6 @@
               "$ref" : "#/definitions/MasterInterestCompensationResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -440,6 +393,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -465,12 +424,6 @@
             "$ref" : "#/definitions/BundleMasterArrangements"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -484,12 +437,6 @@
               "$ref" : "#/definitions/BundleMasterArrangementsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -500,6 +447,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -525,12 +478,6 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -544,12 +491,6 @@
               "$ref" : "#/definitions/AccountOperationalDateResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -560,6 +501,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -583,12 +530,6 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -602,12 +543,6 @@
               "$ref" : "#/definitions/AccountOperationalDateResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -618,6 +553,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -643,12 +584,6 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -662,12 +597,6 @@
               "$ref" : "#/definitions/AccountOperationalDateResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -678,6 +607,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -703,12 +638,6 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -722,12 +651,6 @@
               "$ref" : "#/definitions/AccountOperationalDateResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -738,6 +661,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -763,12 +692,6 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -782,12 +705,6 @@
               "$ref" : "#/definitions/AccountOperationalDateResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -798,6 +715,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -823,12 +746,6 @@
             "$ref" : "#/definitions/AccountOperationalDate"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -842,12 +759,6 @@
               "$ref" : "#/definitions/AccountOperationalDateResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -858,6 +769,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -883,12 +800,6 @@
             "$ref" : "#/definitions/SummaryAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -902,12 +813,6 @@
               "$ref" : "#/definitions/SummaryAccountDebitInterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -918,6 +823,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -943,12 +854,6 @@
             "$ref" : "#/definitions/SummaryAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -962,12 +867,6 @@
               "$ref" : "#/definitions/SummaryAccountDebitInterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -978,6 +877,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -1003,12 +908,6 @@
             "$ref" : "#/definitions/TransactionAccountDebitInterestConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1022,12 +921,6 @@
               "$ref" : "#/definitions/TransactionAccountDebitInterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -1038,6 +931,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -1063,12 +962,6 @@
             "$ref" : "#/definitions/SummaryAccountLimitConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1082,12 +975,6 @@
               "$ref" : "#/definitions/SummaryAccountLimitConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -1098,6 +985,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -1123,12 +1016,6 @@
             "$ref" : "#/definitions/SummaryAccountLimitConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1142,12 +1029,6 @@
               "$ref" : "#/definitions/SummaryAccountLimitConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -1158,6 +1039,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -1183,12 +1070,6 @@
             "$ref" : "#/definitions/TransactionAccountLimitConditions"
           }
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1202,12 +1083,6 @@
               "$ref" : "#/definitions/TransactionAccountLimitConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -1218,6 +1093,12 @@
             "description" : "SystemArrangementErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
             }
           }
         }
@@ -1256,12 +1137,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1275,12 +1150,6 @@
               "$ref" : "#/definitions/SourceInheritanceDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1291,6 +1160,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1329,12 +1204,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1348,12 +1217,6 @@
               "$ref" : "#/definitions/TargetInheritanceDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1364,6 +1227,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -1402,12 +1271,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1421,12 +1284,6 @@
               "$ref" : "#/definitions/ChildAccountsDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1438,14 +1295,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -1500,7 +1365,54 @@
           "$ref" : "#/definitions/SummaryAccountDebitInterestConditionsBody"
         }
       },
-      "description" : "SummaryAccountDebitInterestConditions"
+      "description" : "SummaryAccountDebitInterestConditions",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-DRINTEREST",
+          "drinterest" : {
+            "tiers" : "string",
+            "interest" : [ {
+              "upTo" : "string",
+              "orPercent" : "string",
+              "margins" : [ {
+                "margin" : "string",
+                "marginRate" : "string",
+                "marginOperation" : "string"
+              } ],
+              "effectiveRate" : "string",
+              "negativeRate" : "string",
+              "fixed" : "7.5",
+              "maxRate" : "string",
+              "minMaxRate" : "string",
+              "spread" : "string"
+            } ],
+            "linkedProperty" : "string",
+            "attributes" : [ {
+              "linkedArrangement" : "string",
+              "attributes" : "string",
+              "value" : "string"
+            } ]
+          },
+          "productId" : "SUMMARY.ACCOUNT",
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
     },
     "SummaryAccountDebitInterestConditionsBody" : {
       "type" : "object",
@@ -1548,25 +1460,21 @@
                 "properties" : {
                   "fixed" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 5
                   },
                   "spread" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 6
                   },
                   "minMaxRate" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 14
                   },
                   "maxRate" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 7
                   },
@@ -1578,19 +1486,16 @@
                   },
                   "upTo" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 5
                   },
                   "negativeRate" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 13
                   },
                   "orPercent" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 9
                   },
@@ -1601,13 +1506,11 @@
                       "properties" : {
                         "margin" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 6
                         },
                         "marginOperation" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 15
                         },
@@ -1630,7 +1533,6 @@
                 "properties" : {
                   "attributes" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 10
                   },
@@ -1651,13 +1553,11 @@
             },
             "tiers" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 5
             },
             "linkedProperty" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 15
             }
@@ -1864,25 +1764,21 @@
                         "properties" : {
                           "fixed" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 5
                           },
                           "spread" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 6
                           },
                           "minMaxRate" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 14
                           },
                           "maxRate" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 7
                           },
@@ -1894,19 +1790,16 @@
                           },
                           "upTo" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 5
                           },
                           "negativeRate" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 13
                           },
                           "orPercent" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 9
                           },
@@ -1917,13 +1810,11 @@
                               "properties" : {
                                 "margin" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 6
                                 },
                                 "marginOperation" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 15
                                 },
@@ -1946,7 +1837,6 @@
                         "properties" : {
                           "attributes" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 10
                           },
@@ -1967,13 +1857,11 @@
                     },
                     "tiers" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 5
                     },
                     "linkedProperty" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 15
                     }
@@ -2303,7 +2191,54 @@
           "$ref" : "#/definitions/TransactionAccountDebitInterestConditionsBody"
         }
       },
-      "description" : "TransactionAccountDebitInterestConditions"
+      "description" : "TransactionAccountDebitInterestConditions",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-DRINTEREST",
+          "drinterest" : {
+            "tiers" : "string",
+            "interest" : [ {
+              "upTo" : "string",
+              "orPercent" : "string",
+              "margins" : [ {
+                "margin" : "string",
+                "marginRate" : "string",
+                "marginOperation" : "string"
+              } ],
+              "effectiveRate" : "string",
+              "negativeRate" : "string",
+              "fixed" : "9.5",
+              "maxRate" : "string",
+              "minMaxRate" : "string",
+              "spread" : "string"
+            } ],
+            "linkedProperty" : "string",
+            "attributes" : [ {
+              "linkedArrangement" : "string",
+              "attributes" : "string",
+              "value" : "string"
+            } ]
+          },
+          "productId" : "TR.ACCOUNT",
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
     },
     "TransactionAccountDebitInterestConditionsBody" : {
       "type" : "object",
@@ -2351,25 +2286,21 @@
                 "properties" : {
                   "fixed" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 5
                   },
                   "spread" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 6
                   },
                   "minMaxRate" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 14
                   },
                   "maxRate" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 7
                   },
@@ -2381,19 +2312,16 @@
                   },
                   "upTo" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 5
                   },
                   "negativeRate" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 13
                   },
                   "orPercent" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 9
                   },
@@ -2404,13 +2332,11 @@
                       "properties" : {
                         "margin" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 6
                         },
                         "marginOperation" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 15
                         },
@@ -2433,7 +2359,6 @@
                 "properties" : {
                   "attributes" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 10
                   },
@@ -2454,13 +2379,11 @@
             },
             "tiers" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 5
             },
             "linkedProperty" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 15
             }
@@ -2621,25 +2544,21 @@
                         "properties" : {
                           "fixed" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 5
                           },
                           "spread" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 6
                           },
                           "minMaxRate" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 14
                           },
                           "maxRate" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 7
                           },
@@ -2651,19 +2570,16 @@
                           },
                           "upTo" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 5
                           },
                           "negativeRate" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 13
                           },
                           "orPercent" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 9
                           },
@@ -2674,13 +2590,11 @@
                               "properties" : {
                                 "margin" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 6
                                 },
                                 "marginOperation" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 15
                                 },
@@ -2703,7 +2617,6 @@
                         "properties" : {
                           "attributes" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 10
                           },
@@ -2724,13 +2637,11 @@
                     },
                     "tiers" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 5
                     },
                     "linkedProperty" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 15
                     }
@@ -2960,7 +2871,78 @@
           "$ref" : "#/definitions/AccountOperationalDateBody"
         }
       },
-      "description" : "AccountOperationalDate"
+      "description" : "AccountOperationalDate",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "accountCompanies" : [ {
+              "accountCompany" : "string"
+            } ],
+            "accountProducts" : [ {
+              "accountProduct" : "string"
+            } ],
+            "linkTypes" : [ {
+              "linkType" : "SET.LIVE.DATE"
+            } ],
+            "cancelRestructures" : [ {
+              "cancelRestructure" : "string"
+            } ],
+            "shortNames" : [ {
+              "shortName" : "string"
+            } ],
+            "accountReferences" : [ {
+              "accountReference" : "string"
+            } ],
+            "accountCurrencies" : [ {
+              "accountCurrency" : "string"
+            } ],
+            "keepBalances" : [ {
+              "keepBalance" : "string"
+            } ],
+            "accountAliases" : [ {
+              "accountAlias" : "string"
+            } ],
+            "customerIds" : [ {
+              "customerId" : "string"
+            } ],
+            "integrityCheckDay" : "integrityCheckDay",
+            "newMasters" : [ {
+              "newMaster" : "string"
+            } ],
+            "alternateReferences" : [ {
+              "alternateReference" : "string"
+            } ],
+            "parentAccounts" : [ {
+              "parentAccount" : "string"
+            } ],
+            "goLiveDates" : [ {
+              "goLiveDate" : "20190520"
+            } ],
+            "levels" : [ {
+              "level" : "string"
+            } ]
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
     },
     "AccountOperationalDateBody" : {
       "type" : "object",
@@ -3812,7 +3794,97 @@
           "$ref" : "#/definitions/BundleMasterArrangementsBody"
         }
       },
-      "description" : "BundleMasterArrangements"
+      "description" : "BundleMasterArrangements",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Account has negative balance while linking the pool.",
+              "id" : "AA-NEGATIVE.BALANCE.IN.POOL.ACCOUNT",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "accountCompanies" : [ {
+              "accountCompany" : "string"
+            } ],
+            "accountProducts" : [ {
+              "accountProduct" : "string"
+            } ],
+            "linkTypes" : [ {
+              "linkType" : "string"
+            } ],
+            "cancelRestructures" : [ {
+              "cancelRestructure" : "string"
+            } ],
+            "shortNames" : [ {
+              "shortName" : "string"
+            } ],
+            "accountReferences" : [ {
+              "accountReference" : "string"
+            } ],
+            "accountCurrencies" : [ {
+              "accountCurrency" : "string"
+            } ],
+            "keepBalances" : [ {
+              "keepBalance" : "string"
+            } ],
+            "accountAliases" : [ {
+              "accountAlias" : "string"
+            } ],
+            "customerIds" : [ {
+              "customerId" : "string"
+            } ],
+            "integrityCheckDay" : "integrityCheckDay",
+            "newMasters" : [ {
+              "newMaster" : "string"
+            } ],
+            "alternateReferences" : [ {
+              "alternateReference" : "string"
+            } ],
+            "parentAccounts" : [ {
+              "parentAccount" : "string"
+            } ],
+            "goLiveDates" : [ {
+              "goLiveDate" : "string"
+            } ],
+            "levels" : [ {
+              "level" : "string"
+            } ]
+          },
+          "productBundle" : {
+            "product" : [ {
+              "product" : "string",
+              "masterArrangement" : [ {
+                "arrangmentId" : "string",
+                "propertyType" : "string"
+              } ],
+              "arrangment" : [ {
+                "arrangmentId" : "string",
+                "currency" : "string"
+              } ],
+              "maximum" : "string",
+              "minimum" : "string",
+              "group" : "string"
+            } ],
+            "referenceCurrency" : "string",
+            "masterAccountName" : "string",
+            "limitType" : "string"
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
     },
     "BundleMasterArrangementsBody" : {
       "type" : "object",
@@ -3860,7 +3932,6 @@
                 "properties" : {
                   "group" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 5
                   },
@@ -3872,13 +3943,11 @@
                   },
                   "minimum" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 7
                   },
                   "maximum" : {
                     "type" : "string",
-                    "description" : "",
                     "minLength" : 0,
                     "maxLength" : 7
                   },
@@ -3889,7 +3958,6 @@
                       "properties" : {
                         "arrangmentId" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 12
                         },
@@ -3909,7 +3977,6 @@
                       "properties" : {
                         "arrangmentId" : {
                           "type" : "string",
-                          "description" : "",
                           "minLength" : 0,
                           "maxLength" : 12
                         },
@@ -3939,7 +4006,6 @@
             },
             "masterAccountName" : {
               "type" : "string",
-              "description" : "",
               "minLength" : 0,
               "maxLength" : 19
             }
@@ -4315,7 +4381,6 @@
                         "properties" : {
                           "group" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 5
                           },
@@ -4327,13 +4392,11 @@
                           },
                           "minimum" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 7
                           },
                           "maximum" : {
                             "type" : "string",
-                            "description" : "",
                             "minLength" : 0,
                             "maxLength" : 7
                           },
@@ -4344,7 +4407,6 @@
                               "properties" : {
                                 "arrangmentId" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 12
                                 },
@@ -4364,7 +4426,6 @@
                               "properties" : {
                                 "arrangmentId" : {
                                   "type" : "string",
-                                  "description" : "",
                                   "minLength" : 0,
                                   "maxLength" : 12
                                 },
@@ -4394,7 +4455,6 @@
                     },
                     "masterAccountName" : {
                       "type" : "string",
-                      "description" : "",
                       "minLength" : 0,
                       "maxLength" : 19
                     }
@@ -4693,7 +4753,35 @@
           "$ref" : "#/definitions/SummaryAccountLimitConditionsBody"
         }
       },
-      "description" : "SummaryAccountLimitConditions"
+      "description" : "SummaryAccountLimitConditions",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-LIMIT",
+          "productId" : "SUMMARY.ACCOUNT",
+          "limit" : {
+            "creditCheckTransactionType" : "string",
+            "isCreditCheckCondition" : "string",
+            "internalCreditFacility" : "string"
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
     },
     "SummaryAccountLimitConditionsBody" : {
       "type" : "object",
@@ -4916,7 +5004,35 @@
           "$ref" : "#/definitions/TransactionAccountLimitConditionsBody"
         }
       },
-      "description" : "TransactionAccountLimitConditions"
+      "description" : "TransactionAccountLimitConditions",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-LIMIT",
+          "productId" : "TR.ACCOUNT",
+          "limit" : {
+            "creditCheckTransactionType" : "string",
+            "isCreditCheckCondition" : "string",
+            "internalCreditFacility" : "string"
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
     },
     "TransactionAccountLimitConditionsBody" : {
       "type" : "object",
@@ -5262,6 +5378,383 @@
             "type" : "string",
             "description" : "Real-time balance including all authorised transactions posted against the account and, unless it is a nostro or internal account, unauthorised debit entries."
           }
+        }
+      }
+    },
+    "updateBundleMasterArrangements" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BundleMasterArrangementsBody"
+        }
+      },
+      "description" : "BundleMasterArrangements",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Account has negative balance while linking the pool.",
+              "id" : "AA-NEGATIVE.BALANCE.IN.POOL.ACCOUNT",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "accountCompanies" : [ {
+              "accountCompany" : "string"
+            } ],
+            "accountProducts" : [ {
+              "accountProduct" : "string"
+            } ],
+            "linkTypes" : [ {
+              "linkType" : "string"
+            } ],
+            "cancelRestructures" : [ {
+              "cancelRestructure" : "string"
+            } ],
+            "shortNames" : [ {
+              "shortName" : "string"
+            } ],
+            "accountReferences" : [ {
+              "accountReference" : "string"
+            } ],
+            "accountCurrencies" : [ {
+              "accountCurrency" : "string"
+            } ],
+            "keepBalances" : [ {
+              "keepBalance" : "string"
+            } ],
+            "accountAliases" : [ {
+              "accountAlias" : "string"
+            } ],
+            "customerIds" : [ {
+              "customerId" : "string"
+            } ],
+            "integrityCheckDay" : "integrityCheckDay",
+            "newMasters" : [ {
+              "newMaster" : "string"
+            } ],
+            "alternateReferences" : [ {
+              "alternateReference" : "string"
+            } ],
+            "parentAccounts" : [ {
+              "parentAccount" : "string"
+            } ],
+            "goLiveDates" : [ {
+              "goLiveDate" : "string"
+            } ],
+            "levels" : [ {
+              "level" : "string"
+            } ]
+          },
+          "productBundle" : {
+            "product" : [ {
+              "product" : "string",
+              "masterArrangement" : [ {
+                "arrangmentId" : "string",
+                "propertyType" : "string"
+              } ],
+              "arrangment" : [ {
+                "arrangmentId" : "string",
+                "currency" : "string"
+              } ],
+              "maximum" : "string",
+              "minimum" : "string",
+              "group" : "string"
+            } ],
+            "referenceCurrency" : "string",
+            "masterAccountName" : "string",
+            "limitType" : "string"
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
+    },
+    "updateAccountOperationalDate" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/AccountOperationalDateBody"
+        }
+      },
+      "description" : "AccountOperationalDate",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "BUNDLE-RESTRUCTURE-BUNDLEHIERARCHY",
+          "productId" : "MASTER.ACCOUNT",
+          "bundlehierarchy" : {
+            "accountCompanies" : [ {
+              "accountCompany" : "string"
+            } ],
+            "accountProducts" : [ {
+              "accountProduct" : "string"
+            } ],
+            "linkTypes" : [ {
+              "linkType" : "SET.LIVE.DATE"
+            } ],
+            "cancelRestructures" : [ {
+              "cancelRestructure" : "string"
+            } ],
+            "shortNames" : [ {
+              "shortName" : "string"
+            } ],
+            "accountReferences" : [ {
+              "accountReference" : "string"
+            } ],
+            "accountCurrencies" : [ {
+              "accountCurrency" : "string"
+            } ],
+            "keepBalances" : [ {
+              "keepBalance" : "string"
+            } ],
+            "accountAliases" : [ {
+              "accountAlias" : "string"
+            } ],
+            "customerIds" : [ {
+              "customerId" : "string"
+            } ],
+            "integrityCheckDay" : "integrityCheckDay",
+            "newMasters" : [ {
+              "newMaster" : "string"
+            } ],
+            "alternateReferences" : [ {
+              "alternateReference" : "string"
+            } ],
+            "parentAccounts" : [ {
+              "parentAccount" : "string"
+            } ],
+            "goLiveDates" : [ {
+              "goLiveDate" : "20190520"
+            } ],
+            "levels" : [ {
+              "level" : "string"
+            } ]
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
+    },
+    "createSummaryAccountLimitConditions" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/SummaryAccountLimitConditionsBody"
+        }
+      },
+      "description" : "SummaryAccountLimitConditions",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-LIMIT",
+          "productId" : "SUMMARY.ACCOUNT",
+          "limit" : {
+            "creditCheckTransactionType" : "string",
+            "isCreditCheckCondition" : "string",
+            "internalCreditFacility" : "string"
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
+    },
+    "createTransactionAccountLimitConditions" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/TransactionAccountLimitConditionsBody"
+        }
+      },
+      "description" : "TransactionAccountLimitConditions",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Have you received Overdraft Agreement/AAA*213 from 190098}RECEIVED_NOT RECEIVED",
+              "id" : "DM.CONFIRM.DOC",
+              "responseCode" : "RECEIVED"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-LIMIT",
+          "productId" : "TR.ACCOUNT",
+          "limit" : {
+            "creditCheckTransactionType" : "string",
+            "isCreditCheckCondition" : "string",
+            "internalCreditFacility" : "string"
+          },
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
+    },
+    "updateTransactionAccountDebitInterestConditions" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/TransactionAccountDebitInterestConditionsBody"
+        }
+      },
+      "description" : "TransactionAccountDebitInterestConditions",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-DRINTEREST",
+          "drinterest" : {
+            "tiers" : "string",
+            "interest" : [ {
+              "upTo" : "string",
+              "orPercent" : "string",
+              "margins" : [ {
+                "margin" : "string",
+                "marginRate" : "string",
+                "marginOperation" : "string"
+              } ],
+              "effectiveRate" : "string",
+              "negativeRate" : "string",
+              "fixed" : "9.5",
+              "maxRate" : "string",
+              "minMaxRate" : "string",
+              "spread" : "string"
+            } ],
+            "linkedProperty" : "string",
+            "attributes" : [ {
+              "linkedArrangement" : "string",
+              "attributes" : "string",
+              "value" : "string"
+            } ]
+          },
+          "productId" : "TR.ACCOUNT",
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
+        }
+      }
+    },
+    "updateSummaryAccountDebitInterestConditions" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/SummaryAccountDebitInterestConditionsBody"
+        }
+      },
+      "description" : "SummaryAccountDebitInterestConditions",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "string",
+              "id" : "string",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "activityId" : "ACCOUNTS-UPDATE-DRINTEREST",
+          "drinterest" : {
+            "tiers" : "string",
+            "interest" : [ {
+              "upTo" : "string",
+              "orPercent" : "string",
+              "margins" : [ {
+                "margin" : "string",
+                "marginRate" : "string",
+                "marginOperation" : "string"
+              } ],
+              "effectiveRate" : "string",
+              "negativeRate" : "string",
+              "fixed" : "7.5",
+              "maxRate" : "string",
+              "minMaxRate" : "string",
+              "spread" : "string"
+            } ],
+            "linkedProperty" : "string",
+            "attributes" : [ {
+              "linkedArrangement" : "string",
+              "attributes" : "string",
+              "value" : "string"
+            } ]
+          },
+          "productId" : "SUMMARY.ACCOUNT",
+          "arrangementEffectiveDate" : "string",
+          "arrangementCustomerIds" : [ {
+            "arrangementCustomerId" : "string"
+          } ]
         }
       }
     }

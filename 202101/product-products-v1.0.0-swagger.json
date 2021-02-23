@@ -12,14 +12,11 @@
   } ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/product/productDetails/productLines/{productLineId}/productGroups/{productGroupId}/products/" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the details of all the products based on a given Product line and Product group",
         "description" : "Retrieves the details of all the products based on a given Product line and Product group",
         "operationId" : "getProductsPerLineAndGroup",
@@ -57,12 +54,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -94,12 +85,6 @@
               "$ref" : "#/definitions/ProductsPerLineAndGroupResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -111,13 +96,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productDetails/productLines/{productLineId}/productGroups" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the details of all the products based on a given Product line",
         "description" : "Retrieves the details of all the products based on a given Product line",
         "operationId" : "getProductGroups",
@@ -146,12 +136,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -186,12 +170,6 @@
               "$ref" : "#/definitions/ProductGroupsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -203,13 +181,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productDetails/productLines/{productLineId}/activities" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of activities applicable for a given product line",
         "description" : "Retrieves the list of activities applicable for a given product line",
         "operationId" : "getProductLineActivities",
@@ -238,12 +221,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -278,12 +255,6 @@
               "$ref" : "#/definitions/ProductLineActivitiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -295,13 +266,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productDetails/productLines" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of available Product Line",
         "description" : "Retrieves the list of available Product Line",
         "operationId" : "getProductLines",
@@ -324,12 +300,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -364,12 +334,6 @@
               "$ref" : "#/definitions/ProductLinesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -381,13 +345,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productDetails/products/" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves all the Product available in the Catalogue",
         "description" : "Retrieves all the Product available in the Catalogue",
         "operationId" : "getAllProducts",
@@ -410,12 +379,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -450,12 +413,6 @@
               "$ref" : "#/definitions/ProductsPerLineAndGroupResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -467,13 +424,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productDetails/products/{productId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the details of a given Product",
         "description" : "Retrieves the details of a given Product",
         "operationId" : "getProducts",
@@ -501,12 +463,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -541,12 +497,6 @@
               "$ref" : "#/definitions/ProductsPerLineAndGroupResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -558,13 +508,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productDetails/propertyClasses" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the product's property class information, which is used for building products",
         "description" : "Retrieves the product's property class information, which is used for building products",
         "operationId" : "getPropertyClasses",
@@ -587,12 +542,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -627,12 +576,6 @@
               "$ref" : "#/definitions/PropertyClassesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -644,13 +587,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productDetails/productGroups" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the List of Product Group available with its Product Line",
         "description" : "Retrieves the List of Product Group available with its Product Line",
         "operationId" : "getAllProductGroups",
@@ -673,12 +621,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -713,12 +655,6 @@
               "$ref" : "#/definitions/ProductGroupsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -730,13 +666,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/{productId}/productDetails" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieve the product details for a catalogued product",
         "description" : "Retrieve the product details for a catalogued product",
         "operationId" : "getProductDetails",
@@ -774,12 +715,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -811,12 +746,6 @@
               "$ref" : "#/definitions/ProductDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -828,13 +757,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productBuilder/interestConditions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of all the available interest conditions",
         "description" : "Retrieves the list of all the available interest conditions",
         "operationId" : "getAllInterestConditions",
@@ -857,12 +791,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -897,12 +825,6 @@
               "$ref" : "#/definitions/AllInterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -914,13 +836,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productBuilder/interestConditions/{interestConditionId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the details of the given interest condition",
         "description" : "Retrieves the details of the given interest condition",
         "operationId" : "getInterestConditions",
@@ -930,12 +857,6 @@
           "in" : "path",
           "description" : "The identifier of the product condition used to define the interest rate",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -963,12 +884,6 @@
               "$ref" : "#/definitions/InterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -980,11 +895,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "post" : {
-        "tags" : [ ],
         "summary" : "Creates a new interest condition record",
         "description" : "Creates a new interest condition record",
         "operationId" : "createInterestCondition",
@@ -994,7 +914,8 @@
           "in" : "path",
           "description" : "The identifier of the product condition used to define the interest rate",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "CORP.AR.OVERDRAFT-USD--20100825"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -1009,12 +930,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1041,12 +956,6 @@
               "$ref" : "#/definitions/InterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1058,11 +967,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Updates an existing interest condition record",
         "description" : "Updates an existing interest condition record",
         "operationId" : "updateInterestCondition",
@@ -1072,7 +986,8 @@
           "in" : "path",
           "description" : "The identifier of the product condition used to define the interest rate",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "CORP.AR.OVERDRAFT-USD--20100825"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -1087,12 +1002,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1119,12 +1028,6 @@
               "$ref" : "#/definitions/InterestConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1136,13 +1039,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productBuilder/productConditions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of Product Conditions available",
         "description" : "Retrieves the list of Product Conditions available",
         "operationId" : "getProductConditions",
@@ -1165,12 +1073,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1205,12 +1107,6 @@
               "$ref" : "#/definitions/ProductConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1222,13 +1118,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productBuilder/properties/" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the details of all the available properties",
         "description" : "Retrieves the details of all the available properties",
         "operationId" : "getProperties",
@@ -1251,12 +1152,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1291,12 +1186,6 @@
               "$ref" : "#/definitions/PropertiesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1308,13 +1197,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productBuilder/projects" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of available projects created to build a product",
         "description" : "Retrieves the list of available projects created to build a product",
         "operationId" : "getProjects",
@@ -1337,12 +1231,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1377,12 +1265,6 @@
               "$ref" : "#/definitions/ProjectsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1394,13 +1276,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/{productId}/commitment/{amount}/period/{term}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the Repayment Details for the given Product, Principal amount and Term",
         "description" : "Retrieves the Repayment Details for the given Product, Principal amount and Term",
         "operationId" : "getRepaymentCalculator",
@@ -1456,12 +1343,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -1493,12 +1374,6 @@
               "$ref" : "#/definitions/RepaymentCalculatorResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1510,13 +1385,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/loans/simulations" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Simulate a Loan Arrangement for the given principal amount, term, payment frequency and interest rates",
         "description" : "API to simulate a Loan Arrangement for the given principal amount, term, payment frequency and interest rates",
         "operationId" : "createSynchronousSimulation",
@@ -1534,12 +1414,6 @@
           "schema" : {
             "$ref" : "#/definitions/SynchronousSimulation"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1566,12 +1440,6 @@
               "$ref" : "#/definitions/SynchronousSimulationResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -1583,13 +1451,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/product/loans/simulations/schedules" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Simulate a loan arrangement and retrieve the payment schedule details",
         "description" : "Simulate a loan arrangement for the given Principal amount, Term, Payment frequency and Interest rates. This API allows to retrieve the details of payment schedules for the simulated contract",
         "operationId" : "createSynchronousSimulationSchedules",
@@ -1607,12 +1480,6 @@
           "schema" : {
             "$ref" : "#/definitions/SynchronousSimulation"
           }
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1639,12 +1506,6 @@
               "$ref" : "#/definitions/SynchronousSimulationResponse"
             }
           },
-          "default" : {
-            "description" : "ArrangementErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ArrangementErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessArrangementErrorResponse",
             "schema" : {
@@ -1656,13 +1517,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemArrangementErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ArrangementErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ArrangementErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productTypes" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of product types available in Transact system",
         "description" : "Retrieves the list of product types available in Transact system",
         "operationId" : "getAllProductTypes",
@@ -1685,12 +1551,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1725,12 +1585,6 @@
               "$ref" : "#/definitions/AllProductTypesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1742,13 +1596,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productTypes/{productType}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the product type details for a given Product Type",
         "description" : "Retrieves the product type details for a given Product Type",
         "operationId" : "getProductType",
@@ -1777,12 +1636,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -1817,12 +1670,6 @@
               "$ref" : "#/definitions/ProductTypeResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -1834,13 +1681,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productTypes/products/{productId}" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the basic details of a given product",
         "description" : "Retrieves the basic details such as product details,status,proof and publish errors if any",
         "operationId" : "getImportStatus",
@@ -1850,12 +1702,6 @@
           "in" : "path",
           "description" : "Contains the unique identifier of the product, e.g. the product id of the arrangement account.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
           "type" : "string"
         }, {
           "name" : "companyId",
@@ -1878,15 +1724,9 @@
         } ],
         "responses" : {
           "200" : {
-            "description": "ImportStatusResponse",
+            "description" : "ImportStatusResponse",
             "schema" : {
               "$ref" : "#/definitions/ProductsResponse"
-            }
-          },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
             }
           },
           "400" : {
@@ -1900,11 +1740,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "post" : {
-        "tags" : [ ],
         "summary" : "Create a product using the conditions available from the product type",
         "description" : "Create a product from a product type",
         "operationId" : "createProducts",
@@ -1921,7 +1766,7 @@
           "description" : "body Payload",
           "required" : true,
           "schema" : {
-            "$ref": "#/definitions/CreateProductsResponse"
+            "$ref" : "#/definitions/CreateProductsResponse"
           }
         }, {
           "name" : "validate_only",
@@ -1929,12 +1774,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -1961,12 +1800,6 @@
               "$ref" : "#/definitions/ProductsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -1978,11 +1811,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update a product such as property conditions and its condition values",
         "description" : "Update a product such as property conditions and its condition values",
         "operationId" : "updateProducts",
@@ -1999,7 +1837,7 @@
           "description" : "body Payload",
           "required" : true,
           "schema" : {
-              "$ref": "#/definitions/UpdateProductsResponse"
+            "$ref" : "#/definitions/UpdateProductsResponse"
           }
         }, {
           "name" : "validate_only",
@@ -2007,12 +1845,6 @@
           "description" : "The identifier to indicate if it is set to only validate or not.",
           "required" : false,
           "type" : "boolean"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
         }, {
           "name" : "companyId",
           "in" : "header",
@@ -2039,12 +1871,6 @@
               "$ref" : "#/definitions/ProductsResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2056,13 +1882,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productFeatures/{productFeatureId}/attributes" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the attribute and the field structure",
         "description" : "Retrieves the attribute and the field structure for the given product feature",
         "operationId" : "getPropertyFields",
@@ -2099,12 +1930,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2136,12 +1961,6 @@
               "$ref" : "#/definitions/PropertyFieldsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2153,13 +1972,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productGroups/{productGroupId}/productFeatures/productConditions" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the product conditions for the product features",
         "description" : "Retrieves the product conditions for the product features present in the product group",
         "operationId" : "getProductLineFeatureConditions",
@@ -2188,12 +2012,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -2228,12 +2046,6 @@
               "$ref" : "#/definitions/ProductLineFeatureConditionsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2245,13 +2057,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productConditions/{productConditionId}" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create the product condition for the product feature",
         "description" : "Create the product condition for the product feature based on the attributes and their field name and values",
         "operationId" : "createConditionGenerator",
@@ -2277,12 +2094,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2308,12 +2119,6 @@
               "$ref" : "#/definitions/ConditionGeneratorResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2325,11 +2130,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "put" : {
-        "tags" : [ ],
         "summary" : "Update the product condition for the product feature",
         "description" : "Update the product condition for the product feature based on the attributes and their field name and values",
         "operationId" : "updateConditionGenerator",
@@ -2355,12 +2165,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2386,12 +2190,6 @@
               "$ref" : "#/definitions/ConditionGeneratorResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -2403,13 +2201,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/product/productLines/{productLineId}/productFeatures" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the product features for the product line",
         "description" : "Retrieves the details of product features present under the product line",
         "operationId" : "getProductLineFeatures",
@@ -2438,12 +2241,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -2478,12 +2275,6 @@
               "$ref" : "#/definitions/ProductLineFeaturesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2494,6 +2285,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -2539,12 +2336,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -2576,12 +2367,6 @@
               "$ref" : "#/definitions/ProductCatalogueResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -2593,15 +2378,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -3176,7 +2964,7 @@
                 }
               }
             }
-           },
+          },
           "facilities" : {
             "type" : "array",
             "description" : "Available Facilities",
@@ -4102,7 +3890,7 @@
           "description" : "Contains the transaction amount. This is based on the currency, either local or foreign currency",
           "minimum" : 0,
           "maximum" : 17
-         }
+        }
       }
     },
     "ArrangementHeader" : {
@@ -5279,551 +5067,535 @@
         }
       }
     },
-  "AllProductTypesResponse": {
-      "properties": {
-        "header": {
-          "$ref": "#/definitions/QueryHeader"
+    "AllProductTypesResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
         },
-        "body": {
-          "$ref": "#/definitions/AllProductTypesResponseBody"
+        "body" : {
+          "$ref" : "#/definitions/AllProductTypesResponseBody"
         }
       },
-      "description": "AllProductTypesResponse"
+      "description" : "AllProductTypesResponse"
     },
-    "AllProductTypesResponseBody": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "productTypes": {
-            "type": "string",
-            "description": "Indicates the Id(s) of a Blueprint product from which an actual product can be created",
-            "maxLength": 30
+    "AllProductTypesResponseBody" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "productTypes" : {
+            "type" : "string",
+            "description" : "Indicates the Id(s) of a Blueprint product from which an actual product can be created",
+            "maxLength" : 30
           },
-          "description": {
-            "type": "string",
-            "description": "Indicates the description of the Blue print product type",
-            "maxLength": 30
+          "description" : {
+            "type" : "string",
+            "description" : "Indicates the description of the Blue print product type",
+            "maxLength" : 30
           }
         }
       }
     },
-    "ProductTypeResponse": {
-      "properties": {
-        "header": {
-          "$ref": "#/definitions/QueryHeader"
+    "ProductTypeResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/QueryHeader"
         },
-        "body": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "body" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/ProductTypeResponseBody"
+          "items" : {
+            "$ref" : "#/definitions/ProductTypeResponseBody"
           }
         }
       }
     },
-    "ProductTypeResponseBody": {
-      "properties": {
-        "productType": {
-          "type": "string",
-          "description": "Indicates the Id(s) of a Blueprint product from which an actual product can be created",
-          "maxLength": 100
+    "ProductTypeResponseBody" : {
+      "properties" : {
+        "productType" : {
+          "type" : "string",
+          "description" : "Indicates the Id(s) of a Blueprint product from which an actual product can be created",
+          "maxLength" : 100
         },
-        "description": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "availableCurrency": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "availableCurrency" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/currencyObject"
+          "items" : {
+            "$ref" : "#/definitions/currencyObject"
           }
         },
-        "productAttributes": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "productAttributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/FieldsObject"
+          "items" : {
+            "$ref" : "#/definitions/FieldsObject"
           }
         },
-        "propertyList": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "propertyList" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/PropertyList"
-          }
-        }
-      }
-    },
-    "CreateProductsResponseBody": {
-      "properties": {
-        "productType": {
-          "type": "string",
-		  "description": "Indicates the Id of the Blueprint product from which the product is created"
-        },
-        "productId": {
-          "type": "string",
-		  "description": "The unique identifier of the product created from the blueprint product"
-        },
-        "productName": {
-          "type": "string",
-		  "description": "Indicates the description of the product created from the blueprint product"
-        },
-        "productDescription": {
-          "type": "string",
-		  "description": "Indicates the full description of the product created from the blueprint product"
-        },
-        "availableCurrency": {
-          "type": "array",
-		  "description": "Indicates the list of currencies available for the product created",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
-          },
-          "items": {
-            "$ref": "#/definitions/ProductCurrencyObject"
-          }
-        },
-        "effectiveDate": {
-          "type": "string",
-		  "description": "Indicates the date on which the product is created or amended in Transact system"
-        },
-        "version": {
-          "type": "string",
-		  "description": "Indicates the version of the Product created or ameded"
-        },
-        "productAttributes": {
-          "type": "array",
-		  "description": "Indicates the availability of the product created from the blueprint product",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
-          },
-          "items": {
-            "$ref": "#/definitions/ProductFieldsObject"
-          }
-        },
-        "propertyList": {
-          "type": "array",
-		  "description": "Indicates the list of properties exposed in the blueprint product",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
-          },
-          "items": {
-            "$ref": "#/definitions/ProductPropertyList"
+          "items" : {
+            "$ref" : "#/definitions/PropertyList"
           }
         }
       }
     },
-    "PropertyList": {
-      "type": "object",
-      "properties": {
-        "property": {
-          "type": "string"
+    "CreateProductsResponseBody" : {
+      "properties" : {
+        "productType" : {
+          "type" : "string",
+          "description" : "Indicates the Id of the Blueprint product from which the product is created"
         },
-        "propertyName": {
-          "type": "string"
+        "productId" : {
+          "type" : "string",
+          "description" : "The unique identifier of the product created from the blueprint product"
         },
-        "description": {
-          "type": "string"
+        "productName" : {
+          "type" : "string",
+          "description" : "Indicates the description of the product created from the blueprint product"
         },
-        "currencyDependent": {
-          "type": "boolean"
+        "productDescription" : {
+          "type" : "string",
+          "description" : "Indicates the full description of the product created from the blueprint product"
         },
-        "mandatory": {
-          "type": "boolean"
+        "availableCurrency" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
+          },
+          "description" : "Indicates the list of currencies available for the product created",
+          "items" : {
+            "$ref" : "#/definitions/ProductCurrencyObject"
+          }
         },
-        "conditionList": {
-          "$ref": "#/definitions/conditionList"
+        "effectiveDate" : {
+          "type" : "string",
+          "description" : "Indicates the date on which the product is created or amended in Transact system"
+        },
+        "version" : {
+          "type" : "string",
+          "description" : "Indicates the version of the Product created or ameded"
+        },
+        "productAttributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
+          },
+          "description" : "Indicates the availability of the product created from the blueprint product",
+          "items" : {
+            "$ref" : "#/definitions/ProductFieldsObject"
+          }
+        },
+        "propertyList" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
+          },
+          "description" : "Indicates the list of properties exposed in the blueprint product",
+          "items" : {
+            "$ref" : "#/definitions/ProductPropertyList"
+          }
+        }
+      }
+    },
+    "PropertyList" : {
+      "type" : "object",
+      "properties" : {
+        "property" : {
+          "type" : "string"
+        },
+        "propertyName" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "currencyDependent" : {
+          "type" : "boolean"
+        },
+        "mandatory" : {
+          "type" : "boolean"
+        },
+        "conditionList" : {
+          "$ref" : "#/definitions/conditionList"
         }
       },
-      "xml": {
-        "name": "propertyList"
+      "xml" : {
+        "name" : "propertyList"
       }
     },
-    "ProductPropertyList": {
-      "type": "object",
-      "properties": {
-        "property": {
-          "type": "string"
+    "ProductPropertyList" : {
+      "type" : "object",
+      "properties" : {
+        "property" : {
+          "type" : "string"
         },
-        "conditionList": {
-          "$ref": "#/definitions/ProductConditionList"
+        "conditionList" : {
+          "$ref" : "#/definitions/ProductConditionList"
         }
       },
-      "xml": {
-        "name": "propertyList"
+      "xml" : {
+        "name" : "propertyList"
       }
     },
-    "conditionList": {
-      "type": "array",
-      "xml": {
-        "name": "tag",
-        "wrapped": true
-      },
-      "items": {
-        "$ref": "#/definitions/currencies"
+    "conditionList" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/currencies"
       }
     },
-    "ProductConditionList": {
-      "type": "array",
-      "xml": {
-        "name": "tag",
-        "wrapped": true
-      },
-      "items": {
-        "$ref": "#/definitions/ProductCurrencies"
+    "ProductConditionList" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ProductCurrencies"
       }
     },
-    "currencies": {
-      "type": "object",
-      "properties": {
-        "conditionName": {
-          "type": "string"
+    "currencies" : {
+      "type" : "object",
+      "properties" : {
+        "conditionName" : {
+          "type" : "string"
         },
-        "description": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "contextDescription": {
-          "type": "string"
+        "contextDescription" : {
+          "type" : "string"
         },
-        "baseCondition": {
-          "type": "string"
+        "baseCondition" : {
+          "type" : "string"
         },
-        "currencies": {
-          "$ref": "#/definitions/ArrayTag"
+        "currencies" : {
+          "$ref" : "#/definitions/ArrayTag"
         }
       }
     },
-    "ProductCurrencies": {
-      "type": "object",
-      "properties": {
-        "conditionName": {
-          "type": "string"
+    "ProductCurrencies" : {
+      "type" : "object",
+      "properties" : {
+        "conditionName" : {
+          "type" : "string"
         },
-        "currencies": {
-          "$ref": "#/definitions/ProductArrayTag"
+        "currencies" : {
+          "$ref" : "#/definitions/ProductArrayTag"
         }
       }
     },
-    "ArrayTag": {
-      "type": "array",
-      "xml": {
-        "name": "tag",
-        "wrapped": true
-      },
-      "items": {
-        "$ref": "#/definitions/Attributes"
+    "ArrayTag" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Attributes"
       }
     },
-    "ProductArrayTag": {
-      "type": "array",
-      "xml": {
-        "name": "tag",
-        "wrapped": true
-      },
-      "items": {
-        "$ref": "#/definitions/ProductAttributes"
+    "ProductArrayTag" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ProductAttributes"
       }
     },
-    "Attributes": {
-      "type": "object",
-      "properties": {
-        "currencyCode": {
-          "type": "string"
+    "Attributes" : {
+      "type" : "object",
+      "properties" : {
+        "currencyCode" : {
+          "type" : "string"
         },
-        "currencyName": {
-          "type": "string"
+        "currencyName" : {
+          "type" : "string"
         },
-        "periodAllowed": {
-          "type": "boolean"
+        "periodAllowed" : {
+          "type" : "boolean"
         },
-        "attributes": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "attributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/FieldsObject"
+          "items" : {
+            "$ref" : "#/definitions/FieldsObject"
           }
         }
       }
     },
-    "ProductAttributes": {
-      "type": "object",
-      "properties": {
-        "currencyCode": {
-          "type": "string"
+    "ProductAttributes" : {
+      "type" : "object",
+      "properties" : {
+        "currencyCode" : {
+          "type" : "string"
         },
-        "periodAllowed": {
-          "type": "boolean"
+        "periodAllowed" : {
+          "type" : "boolean"
         },
-        "attributes": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "attributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/ProductFieldsObject"
+          "items" : {
+            "$ref" : "#/definitions/ProductFieldsObject"
           }
         }
       }
     },
-    "FieldsObject": {
-      "type": "object",
-      "properties": {
-        "attribute": {
-          "type": "string"
+    "FieldsObject" : {
+      "type" : "object",
+      "properties" : {
+        "attribute" : {
+          "type" : "string"
         },
-        "attributeType": {
-          "type": "string"
+        "attributeType" : {
+          "type" : "string"
         },
-        "repeatable": {
-          "type": "boolean"
+        "repeatable" : {
+          "type" : "boolean"
         },
-        "description": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "fields": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "fields" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/FieldArray"
+          "items" : {
+            "$ref" : "#/definitions/FieldArray"
           }
         }
       }
     },
-    "ProductFieldsObject": {
-      "type": "object",
-      "properties": {
-        "attribute": {
-          "type": "string"
+    "ProductFieldsObject" : {
+      "type" : "object",
+      "properties" : {
+        "attribute" : {
+          "type" : "string"
         },
-        "fields": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "fields" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/ProductFieldArray"
+          "items" : {
+            "$ref" : "#/definitions/ProductFieldArray"
           }
         }
       }
     },
-    "ProductFieldArray": {
-      "type": "object",
-      "properties": {
-        "field": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+    "ProductFieldArray" : {
+      "type" : "object",
+      "properties" : {
+        "field" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/ProductFieldObject"
+          "items" : {
+            "$ref" : "#/definitions/ProductFieldObject"
           }
         }
       }
     },
-    "FieldArray": {
-      "type": "object",
-      "properties": {
-        "field": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+    "FieldArray" : {
+      "type" : "object",
+      "properties" : {
+        "field" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/FieldObject"
+          "items" : {
+            "$ref" : "#/definitions/FieldObject"
           }
         }
       }
     },
-    "FieldObject": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
+    "FieldObject" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
         },
-        "defaultValue": {
-          "type": "string"
+        "defaultValue" : {
+          "type" : "string"
         },
-        "dataType": {
-          "type": "string"
+        "dataType" : {
+          "type" : "string"
         },
-        "displayOnly": {
-          "type": "boolean"
+        "displayOnly" : {
+          "type" : "boolean"
         },
-        "maximumLength": {
-          "type": "integer"
+        "maximumLength" : {
+          "type" : "integer"
         },
-        "description": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "label": {
-          "type": "string"
+        "label" : {
+          "type" : "string"
         },
-        "mandatory": {
-          "type": "boolean"
+        "mandatory" : {
+          "type" : "boolean"
         },
-        "exclude": {
-          "type": "boolean"
+        "exclude" : {
+          "type" : "boolean"
         },
-        "optionList": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "optionList" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/optionsObject"
+          "items" : {
+            "$ref" : "#/definitions/optionsObject"
           }
         },
-        "attribute": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "attribute" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/FieldsObject"
+          "items" : {
+            "$ref" : "#/definitions/FieldsObject"
           }
         }
       }
     },
-    "ProductFieldObject": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
+    "ProductFieldObject" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
         },
-        "value": {
-          "type": "string"
+        "value" : {
+          "type" : "string"
         },
-        "exclude": {
-          "type": "boolean"
+        "exclude" : {
+          "type" : "boolean"
         },
-        "attribute": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "attribute" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/ProductFieldsObject"
+          "items" : {
+            "$ref" : "#/definitions/ProductFieldsObject"
           }
         }
       }
     },
-    "optionsObject": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
+    "optionsObject" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
         },
-        "desription": {
-          "type": "string",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "desription" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           }
         }
       }
     },
-    "currencyObject": {
-      "type": "object",
-      "properties": {
-        "currencyCode": {
-          "type": "string"
+    "currencyObject" : {
+      "type" : "object",
+      "properties" : {
+        "currencyCode" : {
+          "type" : "string"
         },
-        "currencyName": {
-          "type": "string"
+        "currencyName" : {
+          "type" : "string"
         },
-        "include": {
-          "type": "boolean",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "include" : {
+          "type" : "boolean",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           }
         }
       }
     },
-    "ProductCurrencyObject": {
-      "type": "object",
-      "properties": {
-        "currencyCode": {
-          "type": "string"
+    "ProductCurrencyObject" : {
+      "type" : "object",
+      "properties" : {
+        "currencyCode" : {
+          "type" : "string"
         },
-        "include": {
-          "type": "boolean",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "include" : {
+          "type" : "boolean",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           }
         }
       }
     },
-    "Products": {
-      "properties": {
-        "header": {
-          "$ref": "#/definitions/PayloadHeader"
+    "Products" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
         },
-        "body": {
-          "$ref": "#/definitions/ProductsBody"
+        "body" : {
+          "$ref" : "#/definitions/ProductsBody"
         }
       },
-      "description": "Products"
+      "description" : "Products"
     },
-    "ProductsBody": {
-      "type": "object",
-      "properties": {
-        "productAttributes": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "productAttribute": {
-                "type": "string",
-                "description": "Indicates the Attributes available for the Blue Print Product/Product Type such as Product dates,Line of Business, Organization, Channel",
-                "minLength": 0,
-                "maxLength": 17
+    "ProductsBody" : {
+      "type" : "object",
+      "properties" : {
+        "productAttributes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "productAttribute" : {
+                "type" : "string",
+                "description" : "Indicates the Attributes available for the Blue Print Product/Product Type such as Product dates,Line of Business, Organization, Channel",
+                "minLength" : 0,
+                "maxLength" : 17
               },
-              "productFields": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "attributeFieldName": {
-                      "type": "string",
-                      "description": "Indicates the name of the fields attached to the attribute/attribute type",
-                      "minLength": 0,
-                      "maxLength": 18
+              "productFields" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "attributeFieldName" : {
+                      "type" : "string",
+                      "description" : "Indicates the name of the fields attached to the attribute/attribute type",
+                      "minLength" : 0,
+                      "maxLength" : 18
                     },
-                    "attributeFieldValue": {
-                      "type": "string",
-                      "description": "Indicates the value of the fields attached to the attribute/attribute type",
-                      "minLength": 0,
-                      "maxLength": 19
+                    "attributeFieldValue" : {
+                      "type" : "string",
+                      "description" : "Indicates the value of the fields attached to the attribute/attribute type",
+                      "minLength" : 0,
+                      "maxLength" : 19
                     }
                   }
                 }
@@ -5831,40 +5603,40 @@
             }
           }
         },
-        "propertyConditions": {
-          "type": "array",
-          "description": "Indicates the Id of the condition in the format 'Property-ConditionName-Currency-Period'",
-          "items": {
-            "type": "object",
-            "properties": {
-              "propertyCondition": {
-                "type": "string",
-                "description": "Indicates the Id of the condition in the format 'Property-ConditionName-Currency-Period'",
-                "minLength": 0,
-                "maxLength": 18
+        "propertyConditions" : {
+          "type" : "array",
+          "description" : "Indicates the Id of the condition in the format 'Property-ConditionName-Currency-Period'",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "propertyCondition" : {
+                "type" : "string",
+                "description" : "Indicates the Id of the condition in the format 'Property-ConditionName-Currency-Period'",
+                "minLength" : 0,
+                "maxLength" : 18
               },
-              "fields": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "attribute": {
-                      "type": "string",
-                      "description": "Indicates an attribute id under which fields and its meta can be defined",
-                      "minLength": 0,
-                      "maxLength": 9
+              "fields" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "attribute" : {
+                      "type" : "string",
+                      "description" : "Indicates an attribute id under which fields and its meta can be defined",
+                      "minLength" : 0,
+                      "maxLength" : 9
                     },
-                    "fieldName": {
-                      "type": "string",
-                      "description": "The name of the field",
-                      "minLength": 0,
-                      "maxLength": 9
+                    "fieldName" : {
+                      "type" : "string",
+                      "description" : "The name of the field",
+                      "minLength" : 0,
+                      "maxLength" : 9
                     },
-                    "fieldValue": {
-                      "type": "string",
-                      "description": "Indicates the value of the field ",
-                      "minLength": 0,
-                      "maxLength": 10
+                    "fieldValue" : {
+                      "type" : "string",
+                      "description" : "Indicates the value of the field ",
+                      "minLength" : 0,
+                      "maxLength" : 10
                     }
                   }
                 }
@@ -5872,33 +5644,33 @@
             }
           }
         },
-        "errors": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "errorType": {
-                "type": "string",
-                "description": "Indicates the Type of error raised during product proof and publish",
-                "minLength": 0,
-                "maxLength": 15
+        "errors" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "errorType" : {
+                "type" : "string",
+                "description" : "Indicates the Type of error raised during product proof and publish",
+                "minLength" : 0,
+                "maxLength" : 15
               },
-              "errorInfo": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "errorSource": {
-                      "type": "string",
-                      "description": "Indicates the Source of error message such as Application name and fields",
-                      "minLength": 0,
-                      "maxLength": 11
+              "errorInfo" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "errorSource" : {
+                      "type" : "string",
+                      "description" : "Indicates the Source of error message such as Application name and fields",
+                      "minLength" : 0,
+                      "maxLength" : 11
                     },
-                    "errorMessage": {
-                      "type": "string",
-                      "description": "Indicates the error message raised during product proof and publish",
-                      "minLength": 0,
-                      "maxLength": 12
+                    "errorMessage" : {
+                      "type" : "string",
+                      "description" : "Indicates the error message raised during product proof and publish",
+                      "minLength" : 0,
+                      "maxLength" : 12
                     }
                   }
                 }
@@ -5906,128 +5678,128 @@
             }
           }
         },
-        "productType": {
-          "type": "string",
-          "description": "Indicates the description of the Blue print product type",
-          "minLength": 0,
-          "maxLength": 11
+        "productType" : {
+          "type" : "string",
+          "description" : "Indicates the description of the Blue print product type",
+          "minLength" : 0,
+          "maxLength" : 11
         },
-        "productId": {
-          "type": "string",
-          "description": "The identifier of the product",
-          "minLength": 0,
-          "maxLength": 9
+        "productId" : {
+          "type" : "string",
+          "description" : "The identifier of the product",
+          "minLength" : 0,
+          "maxLength" : 9
         },
-        "productDescription": {
-          "type": "string",
-          "description": "Indicates the Description of the product",
-          "minLength": 0,
-          "maxLength": 18
+        "productDescription" : {
+          "type" : "string",
+          "description" : "Indicates the Description of the product",
+          "minLength" : 0,
+          "maxLength" : 18
         },
-        "availableCurrency": {
-          "type": "string",
-          "description": "Indicates the list of currencies available under the Blueprint product/product type",
-          "minLength": 0,
-          "maxLength": 17
+        "availableCurrency" : {
+          "type" : "string",
+          "description" : "Indicates the list of currencies available under the Blueprint product/product type",
+          "minLength" : 0,
+          "maxLength" : 17
         },
-        "effectiveDate": {
-          "type": "string",
-          "description": "Indicates the date on which the product is created in Transact system",
-          "minLength": 0,
-          "maxLength": 13
+        "effectiveDate" : {
+          "type" : "string",
+          "description" : "Indicates the date on which the product is created in Transact system",
+          "minLength" : 0,
+          "maxLength" : 13
         },
-        "version": {
-          "type": "string",
-          "description": "Indicates the version of the Product created from Micro-service",
-          "minLength": 0,
-          "maxLength": 7
+        "version" : {
+          "type" : "string",
+          "description" : "Indicates the version of the Product created from Micro-service",
+          "minLength" : 0,
+          "maxLength" : 7
         },
-        "importStatus": {
-          "type": "string",
-          "description": "Indicates the status of the product created,i.e Product Published/Errors if any",
-          "minLength": 0,
-          "maxLength": 12
+        "importStatus" : {
+          "type" : "string",
+          "description" : "Indicates the status of the product created,i.e Product Published/Errors if any",
+          "minLength" : 0,
+          "maxLength" : 12
         },
-        "importHistory": {
-          "type": "string",
-          "description": "Indicates the Flag to determine the history of the Product created",
-          "minLength": 0,
-          "maxLength": 13
+        "importHistory" : {
+          "type" : "string",
+          "description" : "Indicates the Flag to determine the history of the Product created",
+          "minLength" : 0,
+          "maxLength" : 13
         },
-        "retry": {
-          "type": "string",
-          "description": "Indicates an option to retry the product creation",
-          "minLength": 0,
-          "maxLength": 5
+        "retry" : {
+          "type" : "string",
+          "description" : "Indicates an option to retry the product creation",
+          "minLength" : 0,
+          "maxLength" : 5
         },
-        "importType": {
-          "type": "string",
-          "description": "Indicates the Flag to determine the type of Import,i.e AA",
-          "minLength": 0,
-          "maxLength": 10
+        "importType" : {
+          "type" : "string",
+          "description" : "Indicates the Flag to determine the type of Import,i.e AA",
+          "minLength" : 0,
+          "maxLength" : 10
         }
       }
     },
-    "ProductsResponse": {
-      "properties": {
-        "header": {
-          "$ref": "#/definitions/ScreenHeader"
+    "ProductsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
         },
-        "body": {
-          "$ref": "#/definitions/ProductsResponseBody"
+        "body" : {
+          "$ref" : "#/definitions/ProductsResponseBody"
         }
       }
     },
-    "CreateProductsResponse": {
-      "properties": {
-        "header": {
-          "$ref": "#/definitions/ScreenHeader"
+    "CreateProductsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
         },
-        "body": {
-          "$ref": "#/definitions/CreateProductsResponseBody"
+        "body" : {
+          "$ref" : "#/definitions/CreateProductsResponseBody"
         }
       }
     },
-    "UpdateProductsResponse": {
-      "properties": {
-        "header": {
-          "$ref": "#/definitions/ScreenHeader"
+    "UpdateProductsResponse" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/ScreenHeader"
         },
-        "body": {
-          "$ref": "#/definitions/CreateProductsResponseBody"
+        "body" : {
+          "$ref" : "#/definitions/CreateProductsResponseBody"
         }
       }
     },
-    "ProductsResponseBody": {
-      "type": "object",
-      "properties": {
-        "productAttributes": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "productAttribute": {
-                "type": "string",
-                "description": "Indicates the Attributes  available for the Blue Print Product/Product Type such as Product dates,Line of Business, Organization, Channel",
-                "minLength": 0,
-                "maxLength": 17
+    "ProductsResponseBody" : {
+      "type" : "object",
+      "properties" : {
+        "productAttributes" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "productAttribute" : {
+                "type" : "string",
+                "description" : "Indicates the Attributes  available for the Blue Print Product/Product Type such as Product dates,Line of Business, Organization, Channel",
+                "minLength" : 0,
+                "maxLength" : 17
               },
-              "productFields": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "attributeFieldName": {
-                      "type": "string",
-                      "description": "Indicates the name of the fields attached to the attribute/attribute type",
-                      "minLength": 0,
-                      "maxLength": 18
+              "productFields" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "attributeFieldName" : {
+                      "type" : "string",
+                      "description" : "Indicates the name of the fields attached to the attribute/attribute type",
+                      "minLength" : 0,
+                      "maxLength" : 18
                     },
-                    "attributeFieldValue": {
-                      "type": "string",
-                      "description": "Indicates the value of the fields attached to the attribute/attribute type",
-                      "minLength": 0,
-                      "maxLength": 19
+                    "attributeFieldValue" : {
+                      "type" : "string",
+                      "description" : "Indicates the value of the fields attached to the attribute/attribute type",
+                      "minLength" : 0,
+                      "maxLength" : 19
                     }
                   }
                 }
@@ -6035,40 +5807,40 @@
             }
           }
         },
-        "propertyConditions": {
-          "type": "array",
-          "description": "Indicates the Id of the condition in the format 'Property-ConditionName-Currency-Period'",
-          "items": {
-            "type": "object",
-            "properties": {
-              "propertyCondition": {
-                "type": "string",
-                "description": "Indicates the Id of the condition in the format 'Property-ConditionName-Currency-Period'",
-                "minLength": 0,
-                "maxLength": 18
+        "propertyConditions" : {
+          "type" : "array",
+          "description" : "Indicates the Id of the condition in the format 'Property-ConditionName-Currency-Period'",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "propertyCondition" : {
+                "type" : "string",
+                "description" : "Indicates the Id of the condition in the format 'Property-ConditionName-Currency-Period'",
+                "minLength" : 0,
+                "maxLength" : 18
               },
-              "fields": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "attribute": {
-                      "type": "string",
-                      "description": "Indicates the Id of the EbApiAttribute application to which fields and meta defined",
-                      "minLength": 0,
-                      "maxLength": 9
+              "fields" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "attribute" : {
+                      "type" : "string",
+                      "description" : "Indicates the Id of the EbApiAttribute application to which fields and meta defined",
+                      "minLength" : 0,
+                      "maxLength" : 9
                     },
-                    "fieldName": {
-                      "type": "string",
-                      "description": "The name of the field",
-                      "minLength": 0,
-                      "maxLength": 9
+                    "fieldName" : {
+                      "type" : "string",
+                      "description" : "The name of the field",
+                      "minLength" : 0,
+                      "maxLength" : 9
                     },
-                    "fieldValue": {
-                      "type": "string",
-                      "description": "Indicates the value of the fields attached to the attribute/attribute type",
-                      "minLength": 0,
-                      "maxLength": 10
+                    "fieldValue" : {
+                      "type" : "string",
+                      "description" : "Indicates the value of the fields attached to the attribute/attribute type",
+                      "minLength" : 0,
+                      "maxLength" : 10
                     }
                   }
                 }
@@ -6076,33 +5848,33 @@
             }
           }
         },
-        "errors": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "errorType": {
-                "type": "string",
-                "description": "Indicates the Type of error raised during product proof and publish",
-                "minLength": 0,
-                "maxLength": 15
+        "errors" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "errorType" : {
+                "type" : "string",
+                "description" : "Indicates the Type of error raised during product proof and publish",
+                "minLength" : 0,
+                "maxLength" : 15
               },
-              "errorInfo": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "errorSource": {
-                      "type": "string",
-                      "description": "Indicates the Source of error message such as Application name and field",
-                      "minLength": 0,
-                      "maxLength": 11
+              "errorInfo" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "errorSource" : {
+                      "type" : "string",
+                      "description" : "Indicates the Source of error message such as Application name and field",
+                      "minLength" : 0,
+                      "maxLength" : 11
                     },
-                    "errorMessage": {
-                      "type": "string",
-                      "description": "Indicates the error message raised during product proof and publish",
-                      "minLength": 0,
-                      "maxLength": 12
+                    "errorMessage" : {
+                      "type" : "string",
+                      "description" : "Indicates the error message raised during product proof and publish",
+                      "minLength" : 0,
+                      "maxLength" : 12
                     }
                   }
                 }
@@ -6110,65 +5882,65 @@
             }
           }
         },
-        "productType": {
-          "type": "string",
-          "description": "Indicates the Id(s) of a Blueprint product from which an actual product can be created",
-          "minLength": 0,
-          "maxLength": 11
+        "productType" : {
+          "type" : "string",
+          "description" : "Indicates the Id(s) of a Blueprint product from which an actual product can be created",
+          "minLength" : 0,
+          "maxLength" : 11
         },
-        "productId": {
-          "type": "string",
-          "description": "The identifier of the product",
-          "minLength": 0,
-          "maxLength": 9
+        "productId" : {
+          "type" : "string",
+          "description" : "The identifier of the product",
+          "minLength" : 0,
+          "maxLength" : 9
         },
-        "productDescription": {
-          "type": "string",
-          "description": "Indicates the Description of the product",
-          "minLength": 0,
-          "maxLength": 18
+        "productDescription" : {
+          "type" : "string",
+          "description" : "Indicates the Description of the product",
+          "minLength" : 0,
+          "maxLength" : 18
         },
-        "availableCurrency": {
-          "type": "string",
-          "description": "Indicates the list of currencies available under the Blueprint product/product type",
-          "minLength": 0,
-          "maxLength": 17
+        "availableCurrency" : {
+          "type" : "string",
+          "description" : "Indicates the list of currencies available under the Blueprint product/product type",
+          "minLength" : 0,
+          "maxLength" : 17
         },
-        "effectiveDate": {
-          "type": "string",
-          "description": "Indicates the date on which the product is created in Transact system",
-          "minLength": 0,
-          "maxLength": 13
+        "effectiveDate" : {
+          "type" : "string",
+          "description" : "Indicates the date on which the product is created in Transact system",
+          "minLength" : 0,
+          "maxLength" : 13
         },
-        "version": {
-          "type": "string",
-          "description": "Indicates the version of the Product created from Microservice",
-          "minLength": 0,
-          "maxLength": 7
+        "version" : {
+          "type" : "string",
+          "description" : "Indicates the version of the Product created from Microservice",
+          "minLength" : 0,
+          "maxLength" : 7
         },
-        "importStatus": {
-          "type": "string",
-          "description": "Indicates the status of the product created,i.e Product Published/Errors if any",
-          "minLength": 0,
-          "maxLength": 12
+        "importStatus" : {
+          "type" : "string",
+          "description" : "Indicates the status of the product created,i.e Product Published/Errors if any",
+          "minLength" : 0,
+          "maxLength" : 12
         },
-        "importHistory": {
-          "type": "string",
-          "description": "Indicates the Flag to determine the history of the Product created",
-          "minLength": 0,
-          "maxLength": 13
+        "importHistory" : {
+          "type" : "string",
+          "description" : "Indicates the Flag to determine the history of the Product created",
+          "minLength" : 0,
+          "maxLength" : 13
         },
-        "retry": {
-          "type": "string",
-          "description": "Indicates an option to retry the product creation",
-          "minLength": 0,
-          "maxLength": 5
+        "retry" : {
+          "type" : "string",
+          "description" : "Indicates an option to retry the product creation",
+          "minLength" : 0,
+          "maxLength" : 5
         },
-        "importType": {
-          "type": "string",
-          "description": "Indicates the Flag to determine the type of Import,i.e AA",
-          "minLength": 0,
-          "maxLength": 10
+        "importType" : {
+          "type" : "string",
+          "description" : "Indicates the Flag to determine the type of Import,i.e AA",
+          "minLength" : 0,
+          "maxLength" : 10
         }
       }
     },
@@ -6184,138 +5956,137 @@
       "description" : "PropertyFieldsResponse"
     },
     "PropertyFieldsResponseBody" : {
-      "properties": {
-        "propertyId": {
-          "type": "string",
-          "description": "Contains the virtual business feature which contains one or more functional conditions. For example, Activity Charges feature abstracts the Activity Charges, Activity Restriction and Fees classes",
-          "maxLength": 100
+      "properties" : {
+        "propertyId" : {
+          "type" : "string",
+          "description" : "Contains the virtual business feature which contains one or more functional conditions. For example, Activity Charges feature abstracts the Activity Charges, Activity Restriction and Fees classes",
+          "maxLength" : 100
         },
-        "conditionName": {
-          "type": "string",
-          "description": "The identifier of the product condition",
-          "maxLength": 100
+        "conditionName" : {
+          "type" : "string",
+          "description" : "The identifier of the product condition",
+          "maxLength" : 100
         },
-        "description": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "longDescription": {
-          "type": "string"
+        "longDescription" : {
+          "type" : "string"
         },
-        "effectiveDate": {
-          "type": "string"
+        "effectiveDate" : {
+          "type" : "string"
         },
-        "attributes": {
-      "type" : "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "attributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-      "items" : {
-            "$ref": "#/definitions/FeatureFieldsObject"
+          "items" : {
+            "$ref" : "#/definitions/FeatureFieldsObject"
           }
         }
       }
     },
-    "FeatureFieldsObject": {
-        "type" : "object",
-        "properties" : {
-        "attribute": {
-          "type": "string"
+    "FeatureFieldsObject" : {
+      "type" : "object",
+      "properties" : {
+        "attribute" : {
+          "type" : "string"
         },
-        "attributeType": {
-          "type": "string"
+        "attributeType" : {
+          "type" : "string"
         },
-        "repeatable": {
-          "type": "boolean"
+        "repeatable" : {
+          "type" : "boolean"
         },
-        "description": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "attributeRule": {
-          "type": "string"
+        "attributeRule" : {
+          "type" : "string"
         },
-        "fields": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "fields" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/FieldArray"
+          "items" : {
+            "$ref" : "#/definitions/FieldArray"
           }
         }
       }
     },
-    
-    "FeatureFieldArray": {
-      "type": "object",
-      "properties": {
-        "field": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+    "FeatureFieldArray" : {
+      "type" : "object",
+      "properties" : {
+        "field" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/FeatureFieldObject"
+          "items" : {
+            "$ref" : "#/definitions/FeatureFieldObject"
           }
         }
       }
     },
-    "FeatureFieldObject": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
+    "FeatureFieldObject" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
         },
-        "defaultValue": {
-          "type": "string"
+        "defaultValue" : {
+          "type" : "string"
         },
-        "dataType": {
-          "type": "string"
+        "dataType" : {
+          "type" : "string"
         },
-        "displayOnly": {
-          "type": "boolean"
+        "displayOnly" : {
+          "type" : "boolean"
         },
-        "maximumLength": {
-          "type": "integer"
+        "maximumLength" : {
+          "type" : "integer"
         },
-        "description": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "label": {
-          "type": "string"
+        "label" : {
+          "type" : "string"
         },
-        "mandatory": {
-          "type": "boolean"
+        "mandatory" : {
+          "type" : "boolean"
         },
-        "fieldRule": {
-          "type": "string"
+        "fieldRule" : {
+          "type" : "string"
         },
-        "hidden": {
-          "type": "boolean"
+        "hidden" : {
+          "type" : "boolean"
         },
-        "multiple": {
-          "type": "boolean"
+        "multiple" : {
+          "type" : "boolean"
         },
-        "optionList": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "optionList" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/optionsObject"
+          "items" : {
+            "$ref" : "#/definitions/optionsObject"
           }
         },
-        "attribute": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "attribute" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/FieldsObject"
+          "items" : {
+            "$ref" : "#/definitions/FieldsObject"
           }
         }
       }
@@ -6370,92 +6141,92 @@
       },
       "description" : "ConditionGenerator"
     },
-     "CreateConditionGeneratorResponseBody": {
-      "properties": {
-        "propertyId": {
-          "type": "string",
-          "description": "Contains the virtual business feature which contains one or more functional conditions. For example, Activity Charges feature abstracts the Activity Charges, Activity Restriction and Fees classes",
-          "maxLength": 100
+    "CreateConditionGeneratorResponseBody" : {
+      "properties" : {
+        "propertyId" : {
+          "type" : "string",
+          "description" : "Contains the virtual business feature which contains one or more functional conditions. For example, Activity Charges feature abstracts the Activity Charges, Activity Restriction and Fees classes",
+          "maxLength" : 100
         },
-        "conditionName": {
-          "type": "string",
-          "description": "The identifier of the product condition",
-          "maxLength": 100
+        "conditionName" : {
+          "type" : "string",
+          "description" : "The identifier of the product condition",
+          "maxLength" : 100
         },
-        "description": {
-          "type": "string"
+        "description" : {
+          "type" : "string"
         },
-        "longDescription": {
-          "type": "string"
+        "longDescription" : {
+          "type" : "string"
         },
-        "effectiveDate": {
-          "type": "string"
+        "effectiveDate" : {
+          "type" : "string"
         },
-        "attributes": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "attributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/ConditionFieldsObject"
+          "items" : {
+            "$ref" : "#/definitions/ConditionFieldsObject"
           }
         }
       }
     },
-    "ConditionFieldsObject": {
-      "type": "object",
-      "properties": {
-        "attribute": {
-          "type": "string"
+    "ConditionFieldsObject" : {
+      "type" : "object",
+      "properties" : {
+        "attribute" : {
+          "type" : "string"
         },
-        "repeatable": {
-          "type": "boolean"
+        "repeatable" : {
+          "type" : "boolean"
         },
-        "fields": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "fields" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/ConditionFieldArray"
+          "items" : {
+            "$ref" : "#/definitions/ConditionFieldArray"
           }
         }
       }
     },
-    "ConditionFieldArray": {
-      "type": "object",
-      "properties": {
-        "field": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+    "ConditionFieldArray" : {
+      "type" : "object",
+      "properties" : {
+        "field" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/ConditionFieldObject"
+          "items" : {
+            "$ref" : "#/definitions/ConditionFieldObject"
           }
         }
       }
     },
-    "ConditionFieldObject": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
+    "ConditionFieldObject" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
         },
-        "value": {
-          "type": "string"
+        "value" : {
+          "type" : "string"
         },
-        "attribute": {
-          "type": "array",
-          "xml": {
-            "name": "tag",
-            "wrapped": true
+        "attribute" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "tag",
+            "wrapped" : true
           },
-          "items": {
-            "$ref": "#/definitions/ConditionFieldsObject"
+          "items" : {
+            "$ref" : "#/definitions/ConditionFieldsObject"
           }
         }
       }
@@ -6654,8 +6425,8 @@
           }
         }
       }
-    }, 
-   "ProductCatalogueResponse" : {
+    },
+    "ProductCatalogueResponse" : {
       "properties" : {
         "header" : {
           "$ref" : "#/definitions/QueryHeader"
@@ -6770,7 +6541,7 @@
                   "type" : "array",
                   "items" : {
                     "type" : "object",
-                    "properties" : {                      
+                    "properties" : {
                       "interestId" : {
                         "type" : "string",
                         "description" : "Identifier of the Interest component. Id component consists of Product/Arrangement Id,Property,Currency,Period,Variation,Effective date"

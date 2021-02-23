@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/customers/{customerId}/loans" : {
@@ -23,7 +23,8 @@
           "in" : "path",
           "description" : "The identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100336"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -45,11 +46,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -63,12 +59,6 @@
               "$ref" : "#/definitions/CustomerLoansResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -79,6 +69,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -123,11 +119,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -141,12 +132,6 @@
               "$ref" : "#/definitions/LoansResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -157,6 +142,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -173,7 +164,8 @@
           "in" : "path",
           "description" : "The identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100336"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -195,11 +187,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -213,12 +200,6 @@
               "$ref" : "#/definitions/CustomerDepositsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -229,6 +210,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -273,11 +260,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -291,12 +273,6 @@
               "$ref" : "#/definitions/DepositsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -307,6 +283,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -345,11 +327,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -363,12 +340,6 @@
               "$ref" : "#/definitions/CustomerArrangementDetailsResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -379,6 +350,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -395,7 +372,8 @@
           "in" : "path",
           "description" : "The identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100336"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -414,11 +392,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
           "required" : false,
           "type" : "string"
         }, {
@@ -435,12 +408,6 @@
               "$ref" : "#/definitions/CustomerExternalResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -451,6 +418,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -467,7 +440,8 @@
           "in" : "path",
           "description" : "The identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100337"
         }, {
           "name" : "arrangementId",
           "in" : "query",
@@ -477,25 +451,21 @@
         }, {
           "name" : "productLine",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "productGroup",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "product",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "currency",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -519,11 +489,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the company, following the format CCGGGLLLL, where: CC is the country code, GGG is Company Group Code and LLLL is the Local Code. Country Code must be a valid countryCode, Company Group Code must be 3 numeric characters in the range 001-999 and must be a valid companyGroup. The Local Code is 4 numeric characters in the range 0001-9999, e.g. GB0010001",
@@ -537,12 +502,6 @@
               "$ref" : "#/definitions/CustomerClosedExternalResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -554,14 +513,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -632,49 +599,39 @@
         "properties" : {
           "loanAccountId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "loanProduct" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "loanCurrency" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 3
           },
           "loanAmount" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "loanBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "loanInterestRate" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "loanInterestType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "loanStartDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "loanNextPayDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "loanEndDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "productName" : {
             "type" : "string",
@@ -683,12 +640,10 @@
           },
           "customerShortName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "roleDisplayName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -738,8 +693,7 @@
       "type" : "object",
       "properties" : {
         "message" : {
-          "type" : "string",
-          "description" : ""
+          "type" : "string"
         },
         "type" : {
           "type" : "string",
@@ -818,49 +772,39 @@
           },
           "loanAccountId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "loanProduct" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "loanCurrency" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 3
           },
           "loanAmount" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "loanBalance" : {
-            "type" : "number",
-            "description" : ""
+            "type" : "number"
           },
           "loanInterestRate" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "loanInterestType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "loanStartDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "loanNextPayDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "loanEndDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "productName" : {
             "type" : "string",
@@ -869,12 +813,10 @@
           },
           "customerShortName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "roleDisplayName" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -902,7 +844,6 @@
               "properties" : {
                 "depInterestRate" : {
                   "type" : "array",
-                  "description" : "",
                   "items" : {
                     "type" : "string"
                   }
@@ -912,44 +853,35 @@
           },
           "depAccountId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "depProduct" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "depCurrency" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 3
           },
           "depAmount" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "depInterestType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "depStartDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "depEndDate" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "depBalance" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "depNextPayDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           }
         }
       }
@@ -977,7 +909,6 @@
               "properties" : {
                 "depInterestRate" : {
                   "type" : "array",
-                  "description" : "",
                   "items" : {
                     "type" : "string"
                   }
@@ -987,48 +918,38 @@
           },
           "depAccountId" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "depProduct" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "depCurrency" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 3
           },
           "depAmount" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "depInterestType" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "depStartDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "depEndDate" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "depBalance" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "depNextPayDate" : {
             "type" : "string",
-            "format" : "date",
-            "description" : ""
+            "format" : "date"
           },
           "depProductDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -1057,7 +978,6 @@
               "properties" : {
                 "productLine" : {
                   "type" : "string",
-                  "description" : "",
                   "maxLength" : 35
                 },
                 "productGroupIds" : {
@@ -1077,7 +997,6 @@
                       },
                       "customerRole" : {
                         "type" : "string",
-                        "description" : "",
                         "maxLength" : 30
                       }
                     }
@@ -1116,22 +1035,18 @@
             "maxLength" : 17
           },
           "customer" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customerShortName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "customerRole" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "productLine" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "productName" : {
@@ -1140,8 +1055,7 @@
             "maxLength" : 30
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }
@@ -1168,22 +1082,18 @@
             "maxLength" : 17
           },
           "customer" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "customerShortName" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           },
           "customerRole" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 30
           },
           "productLine" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 10
           },
           "productName" : {
@@ -1192,12 +1102,10 @@
             "maxLength" : 30
           },
           "productDescription" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           },
           "productCode" : {
-            "type" : "string",
-            "description" : ""
+            "type" : "string"
           }
         }
       }

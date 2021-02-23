@@ -9,7 +9,7 @@
   "basePath" : "/api/v1.0.0/",
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
+    "apiKey" : [ ]
   } ],
   "paths" : {
     "/product/products" : {
@@ -39,11 +39,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -56,12 +51,6 @@
               "$ref" : "#/definitions/ProductMarketingCatalogueResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -72,6 +61,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -116,11 +111,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -133,12 +123,6 @@
               "$ref" : "#/definitions/SavingsAccountCatalogResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -149,6 +133,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -193,11 +183,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -210,12 +195,6 @@
               "$ref" : "#/definitions/CurrentAccountCatalogResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -226,6 +205,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -252,19 +237,16 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -288,11 +270,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -305,12 +282,6 @@
               "$ref" : "#/definitions/TermDepositsCatalogResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -321,6 +292,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -347,25 +324,21 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -389,11 +362,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -406,12 +374,6 @@
               "$ref" : "#/definitions/ShortTermFinanceCatalogResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -422,6 +384,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -448,25 +416,21 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -490,11 +454,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -507,12 +466,6 @@
               "$ref" : "#/definitions/PersonalLoanCatalogResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -523,6 +476,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -549,25 +508,21 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -591,11 +546,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -608,12 +558,6 @@
               "$ref" : "#/definitions/MortgageCatalogResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -624,6 +568,12 @@
             "description" : "SystemQueryErrorResponse",
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
+            }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
             }
           }
         }
@@ -650,25 +600,21 @@
         }, {
           "name" : "minTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxTerm",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "minAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "maxAmount",
           "in" : "query",
-          "description" : "",
           "required" : false,
           "type" : "string"
         }, {
@@ -692,11 +638,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "required" : false,
@@ -707,12 +648,6 @@
             "description" : "HomePurchaseCatalogResponse",
             "schema" : {
               "$ref" : "#/definitions/HomePurchaseCatalogResponse"
-            }
-          },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
             }
           },
           "400" : {
@@ -726,14 +661,22 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
+    "apiKey" : {
+      "type" : "apiKey",
+      "name" : "Authorization",
+      "in" : "header"
     }
   },
   "definitions" : {
@@ -802,7 +745,6 @@
         "properties" : {
           "catalogue" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 35
           }
         }
@@ -958,17 +900,14 @@
           },
           "creditInterestType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "creditBaseRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "creditIntMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1012,32 +951,26 @@
           },
           "creditInterestType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "creditBaseRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "creditIntMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "debitIntType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "drBaseIntRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "debitIntMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1081,17 +1014,14 @@
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "rateType" : {
@@ -1101,12 +1031,10 @@
           },
           "baseInterestRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1150,22 +1078,18 @@
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "rateType" : {
@@ -1175,12 +1099,10 @@
           },
           "baseInterestRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1224,22 +1146,18 @@
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "rateType" : {
@@ -1249,12 +1167,10 @@
           },
           "baseInterestRate" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestMargin" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1293,27 +1209,22 @@
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestRateType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }
@@ -1352,27 +1263,22 @@
           },
           "minTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxTerm" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "minAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "maxAmount" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           },
           "interestRateType" : {
             "type" : "string",
-            "description" : "",
             "maxLength" : 100
           }
         }

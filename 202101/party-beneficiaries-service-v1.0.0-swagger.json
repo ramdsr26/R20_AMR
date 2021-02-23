@@ -7,17 +7,13 @@
   },
   "host" : "api.temenos.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/party/beneficiaries/{beneficiaryId}" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Update beneficiary details",
         "description" : "Updates an existing beneficiary",
         "operationId" : "updateBeneficiary",
@@ -27,7 +23,8 @@
           "in" : "path",
           "description" : "Indicates the Id of beneficiary when beneficiary details are stored",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "EN9415700007"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -43,12 +40,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -74,12 +65,6 @@
               "$ref" : "#/definitions/BeneficiaryResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -91,11 +76,16 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       },
       "delete" : {
-        "tags" : [ ],
         "summary" : "Remove beneficiary",
         "description" : "Delete an existing beneficiary record",
         "operationId" : "deleteBeneficiary",
@@ -105,7 +95,8 @@
           "in" : "path",
           "description" : "Indicates the Id of beneficiary when beneficiary details are stored",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "EN9415700007"
         }, {
           "in" : "body",
           "name" : "payload",
@@ -121,12 +112,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -152,12 +137,6 @@
               "$ref" : "#/definitions/BeneficiaryResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -169,13 +148,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/beneficiaries" : {
       "post" : {
-        "tags" : [ ],
         "summary" : "Create beneficiary",
         "description" : "Create a new beneficiary",
         "operationId" : "createBeneficiary",
@@ -195,12 +179,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -226,12 +204,6 @@
               "$ref" : "#/definitions/BeneficiaryResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -243,13 +215,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/beneficiaries/beneficiariesApprovals/{beneficiaryId}" : {
       "put" : {
-        "tags" : [ ],
         "summary" : "Approve beneficiary",
         "description" : "Approve an existing beneficiary record",
         "operationId" : "approveBeneficiary",
@@ -261,12 +238,6 @@
           "required" : true,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -292,12 +263,6 @@
               "$ref" : "#/definitions/BeneficiaryResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -309,13 +274,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/beneficiaries/cancellations/{beneficiaryId}" : {
       "delete" : {
-        "tags" : [ ],
         "summary" : "Reject beneficiary",
         "description" : "Reject an existing beneficiary record",
         "operationId" : "rejectBeneficiary",
@@ -341,12 +311,6 @@
           "required" : false,
           "type" : "boolean"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -372,12 +336,6 @@
               "$ref" : "#/definitions/BeneficiaryResponse"
             }
           },
-          "default" : {
-            "description" : "ScreenErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/ScreenErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessScreenErrorResponse",
             "schema" : {
@@ -389,13 +347,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemScreenErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "ScreenErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/ScreenErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/beneficiaries" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of beneficiary record details for a customers",
         "description" : "Retrieves customer beneficiary details",
         "operationId" : "getCustomerBeneficiary",
@@ -405,7 +368,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "100283"
         }, {
           "name" : "nickName",
           "in" : "query",
@@ -430,12 +394,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -464,12 +422,6 @@
               "$ref" : "#/definitions/CustomerBeneficiaryResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -481,13 +433,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     },
     "/party/customers/{customerId}/onlineBeneficiaries" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "Retrieves the list of beneficiaries details for specific customer",
         "description" : "Retrieves customer beneficiaries details",
         "operationId" : "getCustomerBeneficiaries",
@@ -497,7 +454,8 @@
           "in" : "path",
           "description" : "Identifier of the customer",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "190098"
         }, {
           "name" : "externalBeneficiaryFlag",
           "in" : "query",
@@ -531,12 +489,6 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
-          "required" : false,
-          "type" : "string"
-        }, {
           "name" : "companyId",
           "in" : "header",
           "description" : "The identifier of the underlying Entity/Company/Branch.",
@@ -562,12 +514,6 @@
               "$ref" : "#/definitions/CustomerBeneficiariesResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -579,15 +525,18 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         }
       }
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
@@ -646,7 +595,62 @@
           "$ref" : "#/definitions/BeneficiaryBody"
         }
       },
-      "description" : "Beneficiary"
+      "description" : "Beneficiary",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Beneficiary BIC is missing. Only name provided",
+              "id" : "FT-BIC.BEN.CODE.MISSING.NAME.GIVEN",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "bankName" : "string",
+          "beneficiaryAddress" : "string",
+          "preferredPaymentProduct" : "string",
+          "beneficiaryOurCharges" : "string",
+          "paymentCountry" : "string",
+          "beneficiaryBICIBANNames" : [ {
+            "beneficiaryBICIBANName" : "DRESDNER BANK AG"
+          } ],
+          "beneficiaryBIC" : "string",
+          "customerReference" : "string",
+          "customerId" : "100336",
+          "linkToBeneficiaryId" : "string",
+          "paymentDetails" : [ {
+            "paymentDetail" : "string"
+          } ],
+          "accountWithBankSortCode" : "string",
+          "accountWithBank" : "string",
+          "beneficiaryCountryName" : "string",
+          "beneficiaryIBAN" : "DE89370400440532013000",
+          "beneficiaryAccountId" : "string",
+          "beneficiaryNickNames" : [ {
+            "beneficiaryNickName" : "Ozil"
+          } ],
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "beneficiaryBICIBAN" : "string",
+          "transactionType" : "string",
+          "paymentCurrencyId" : "USD",
+          "beneficiaryCustomerId" : "Ozil",
+          "recordStatus" : "string",
+          "preferredPaymentAmount" : 0,
+          "bankSortCode" : "string",
+          "beneficiaryBICIBANCity" : "string",
+          "postCode" : "string",
+          "defaultNarrative" : "string",
+          "shortName" : "string",
+          "beneficiaryAddressCity" : "string"
+        }
+      }
     },
     "BeneficiaryBody" : {
       "type" : "object",
@@ -1554,11 +1558,11 @@
             "description" : "City of the beneficiary account. For example: London, Dallas etc.",
             "maxLength" : 35
           },
-        "postCode" : {
-          "type" : "string",
-          "description" : "Identifies the address postal code for the customer.",
-          "maxLength" : 35
-        },
+          "postCode" : {
+            "type" : "string",
+            "description" : "Identifies the address postal code for the customer.",
+            "maxLength" : 35
+          },
           "beneficiaryCountryName" : {
             "type" : "string",
             "description" : "Creditor country name details",
@@ -1777,6 +1781,138 @@
             "type" : "string",
             "description" : "Contains the date and time separated by '-'"
           }
+        }
+      }
+    },
+    "deleteBeneficiary" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BeneficiaryBody"
+        }
+      },
+      "description" : "Beneficiary",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Beneficiary BIC is missing. Only name provided",
+              "id" : "FT-BIC.BEN.CODE.MISSING.NAME.GIVEN",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "bankName" : "string",
+          "beneficiaryAddress" : "string",
+          "preferredPaymentProduct" : "string",
+          "beneficiaryOurCharges" : "string",
+          "paymentCountry" : "string",
+          "beneficiaryBICIBANNames" : [ {
+            "beneficiaryBICIBANName" : "DRESDNER BANK AG"
+          } ],
+          "beneficiaryBIC" : "string",
+          "customerReference" : "string",
+          "customerId" : "100336",
+          "linkToBeneficiaryId" : "string",
+          "paymentDetails" : [ {
+            "paymentDetail" : "string"
+          } ],
+          "accountWithBankSortCode" : "string",
+          "accountWithBank" : "string",
+          "beneficiaryCountryName" : "string",
+          "beneficiaryIBAN" : "DE89370400440532013000",
+          "beneficiaryAccountId" : "string",
+          "beneficiaryNickNames" : [ {
+            "beneficiaryNickName" : "Ozil"
+          } ],
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "beneficiaryBICIBAN" : "string",
+          "transactionType" : "string",
+          "paymentCurrencyId" : "USD",
+          "beneficiaryCustomerId" : "Ozil",
+          "recordStatus" : "string",
+          "preferredPaymentAmount" : 0,
+          "bankSortCode" : "string",
+          "beneficiaryBICIBANCity" : "string",
+          "postCode" : "string",
+          "defaultNarrative" : "string",
+          "shortName" : "string",
+          "beneficiaryAddressCity" : "string"
+        }
+      }
+    },
+    "updateBeneficiary" : {
+      "properties" : {
+        "header" : {
+          "$ref" : "#/definitions/PayloadHeader"
+        },
+        "body" : {
+          "$ref" : "#/definitions/BeneficiaryBody"
+        }
+      },
+      "description" : "Beneficiary",
+      "example" : {
+        "header" : {
+          "audit" : {
+            "versionNumber" : "string"
+          },
+          "override" : {
+            "overrideDetails" : [ {
+              "code" : "string",
+              "description" : "Beneficiary BIC is missing. Only name provided",
+              "id" : "FT-BIC.BEN.CODE.MISSING.NAME.GIVEN",
+              "responseCode" : "string"
+            } ]
+          }
+        },
+        "body" : {
+          "bankName" : "string",
+          "beneficiaryAddress" : "string",
+          "preferredPaymentProduct" : "string",
+          "beneficiaryOurCharges" : "string",
+          "paymentCountry" : "string",
+          "beneficiaryBICIBANNames" : [ {
+            "beneficiaryBICIBANName" : "DRESDNER BANK AG"
+          } ],
+          "beneficiaryBIC" : "string",
+          "customerReference" : "string",
+          "customerId" : "100336",
+          "linkToBeneficiaryId" : "string",
+          "paymentDetails" : [ {
+            "paymentDetail" : "string"
+          } ],
+          "accountWithBankSortCode" : "string",
+          "accountWithBank" : "string",
+          "beneficiaryCountryName" : "string",
+          "beneficiaryIBAN" : "DE89370400440532013000",
+          "beneficiaryAccountId" : "string",
+          "beneficiaryNickNames" : [ {
+            "beneficiaryNickName" : "Ozil"
+          } ],
+          "overrides" : [ {
+            "override" : "string"
+          } ],
+          "beneficiaryBICIBAN" : "string",
+          "transactionType" : "string",
+          "paymentCurrencyId" : "USD",
+          "beneficiaryCustomerId" : "Ozil",
+          "recordStatus" : "string",
+          "preferredPaymentAmount" : 0,
+          "bankSortCode" : "string",
+          "beneficiaryBICIBANCity" : "string",
+          "postCode" : "string",
+          "defaultNarrative" : "string",
+          "shortName" : "string",
+          "beneficiaryAddressCity" : "string"
         }
       }
     }

@@ -7,17 +7,13 @@
   },
   "host" : "api.server.com",
   "basePath" : "/api/v1.0.0/",
-  "tags" : [ ],
   "schemes" : [ "http", "https" ],
   "security" : [ {
-    "basicAuth" : [ ]
-  }, {
     "apiKey" : [ ]
   } ],
   "paths" : {
     "/holdings/facilities/{facilityId}/drawdowns/productCatalogues" : {
       "get" : {
-        "tags" : [ ],
         "summary" : "API for fetching the facility product catalog",
         "description" : "API for fetching the facility product catalog-deprecated. The new URL is: api/v1.0.0/holdings/creditAgreements/facilities/{facilityId}/drawingProducts",
         "operationId" : "getFacilityProductCatalog",
@@ -27,7 +23,8 @@
           "in" : "path",
           "description" : "Unique identifier (contract number) of the facility",
           "required" : true,
-          "type" : "string"
+          "type" : "string",
+          "x-example" : "AA19108G1JTP"
         }, {
           "name" : "page_size",
           "in" : "query",
@@ -46,12 +43,6 @@
           "name" : "page_token",
           "in" : "query",
           "description" : "Unique id expected to get as part of response from t24 on every enquiry request.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "credentials",
-          "in" : "header",
-          "description" : "Username and password to authenticate the API against core-banking.",
           "required" : false,
           "type" : "string"
         }, {
@@ -86,12 +77,6 @@
               "$ref" : "#/definitions/FacilityProductCatalogResponse"
             }
           },
-          "default" : {
-            "description" : "QueryErrorResponse",
-            "schema" : {
-              "$ref" : "#/definitions/QueryErrorResponse"
-            }
-          },
           "400" : {
             "description" : "BusinessQueryErrorResponse",
             "schema" : {
@@ -103,6 +88,12 @@
             "schema" : {
               "$ref" : "#/definitions/SystemQueryErrorResponse"
             }
+          },
+          "default" : {
+            "description" : "QueryErrorResponse",
+            "schema" : {
+              "$ref" : "#/definitions/QueryErrorResponse"
+            }
           }
         },
         "deprecated" : true
@@ -110,9 +101,6 @@
     }
   },
   "securityDefinitions" : {
-    "basicAuth" : {
-      "type" : "basic"
-    },
     "apiKey" : {
       "type" : "apiKey",
       "name" : "Authorization",
