@@ -1,0 +1,892 @@
+{
+    "swagger": "2.0",
+    "info":
+    {
+        "description": "Provider-Initiate Payment - Deprecated, as its an unused endpoint",
+        "version": "v1.0.0",
+        "title": "Initiate Payment"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api/v1.0.0/",
+    "schemes": [ "http", "https" ],
+    "security": [
+    {
+        "basicAuth": [ ]
+    } ],
+    "paths":
+    {
+        "/order/payments/initiate":
+        {
+            "post":
+            {
+                "operationId": "createPaymentTransfer",
+                "produces": [ "application/json" ],
+                "parameters": [
+                {
+                    "in": "body",
+                    "name": "payload",
+                    "description": "body Payload",
+                    "required": true,
+                    "schema":
+                    {
+                        "$ref": "#/definitions/PaymentTransfer"
+                    }
+                },
+                {
+                    "name": "validate_only",
+                    "in": "query",
+                    "description": "The identifier to indicate if it is set to only validate or not.",
+                    "required": false,
+                    "type": "boolean"
+                },
+                {
+                    "name": "credentials",
+                    "in": "header",
+                    "description": "Username and password to authenticate the API against core-banking.",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "companyId",
+                    "in": "header",
+                    "description": "The identifier of the underlying Entity/Company/Branch.",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "deviceId",
+                    "in": "header",
+                    "description": "Identifies the device type",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "userRole",
+                    "in": "header",
+                    "description": "User who initiated the transaction",
+                    "required": false,
+                    "type": "string"
+                } ],
+                "responses":
+                {
+                    "200":
+                    {
+                        "description": "PaymentTransferResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/PaymentTransferResponse"
+                        }
+                    },
+                    "default":
+                    {
+                        "description": "ScreenErrorResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/ScreenErrorResponse"
+                        }
+                    },
+                    "400":
+                    {
+                        "description": "BusinessScreenErrorResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/BusinessScreenErrorResponse"
+                        }
+                    },
+                    "500":
+                    {
+                        "description": "SystemScreenErrorResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/SystemScreenErrorResponse"
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        }
+    },
+    "securityDefinitions":
+    {
+        "basicAuth":
+        {
+            "type": "basic"
+        }
+    },
+    "definitions":
+    {
+        "PayloadHeader":
+        {
+            "properties":
+            {
+                "override":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "overrideDetails":
+                        {
+                            "type": "array",
+                            "items":
+                            {
+                                "type": "object",
+                                "properties":
+                                {
+                                    "id":
+                                    {
+                                        "type": "string",
+                                        "description": "The identifier of the override."
+                                    },
+                                    "description":
+                                    {
+                                        "type": "string",
+                                        "description": "The actual override message."
+                                    },
+                                    "code":
+                                    {
+                                        "type": "string",
+                                        "description": "The code related to override message."
+                                    },
+                                    "responseCode":
+                                    {
+                                        "type": "string",
+                                        "description": "The user input to accept/reject the override."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "audit":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "versionNumber":
+                        {
+                            "type": "string",
+                            "description": "The CURR.NO. of the record"
+                        }
+                    }
+                }
+            }
+        },
+        "PaymentTransfer":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/PayloadHeader"
+                },
+                "body":
+                {
+                    "$ref": "#/definitions/PaymentTransferBody"
+                }
+            },
+            "description": "PaymentTransfer"
+        },
+        "PaymentTransferBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "benName":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "debitAccountId":
+                            {
+                                "type": "string",
+                                "description": "Indicates the debit account number of the payment or transaction.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "beneficiaryName":
+                            {
+                                "type": "string",
+                                "description": "Short title or short name of the beneficiary",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "beneficiaryAccountId":
+                            {
+                                "type": "string",
+                                "description": "Unique account identifier of the beneficiary account number.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "benAddressLine":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "beneficiaryIBAN":
+                            {
+                                "type": "string",
+                                "description": "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "beneficiaryAddressLine1":
+                            {
+                                "type": "string",
+                                "description": "Address of the beneficiary or credit account.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "beneficiaryCountryId":
+                            {
+                                "type": "string",
+                                "description": "Country of the beneficiary account number. For example: US, IN, EU",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "benTown":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "beneficiaryAddressCity":
+                            {
+                                "type": "string",
+                                "description": "City of the beneficiary account. For example: London, Dallas etc.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "acctWithBk":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "creditorAgentBIC":
+                            {
+                                "type": "string",
+                                "description": "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "creditorAgentNationalCode":
+                            {
+                                "type": "string",
+                                "description": "National code of the creditor account. For example: EU, US etc.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "remittanceInformation":
+                {
+                    "type": "array",
+                    "description": "Indicates the remittance information that is supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "creditReference":
+                            {
+                                "type": "string",
+                                "description": "Reference quoted by the credit account for a payment",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "paymentDetail":
+                            {
+                                "type": "string",
+                                "description": "Indicates the payment details for the beneficiary to apply the payment.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "chargeBearer":
+                            {
+                                "type": "string",
+                                "description": "Bearer of the charges of the order. For example: BEN(All transaction charges are to be borne by the beneficiary customer.), OUR(All transaction charges are to be borne by the ordering customer.), SHA(Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "creditCurrencyId":
+                {
+                    "type": "string",
+                    "description": "Specifies the credit currency. For example: USD, EUR etc.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditAmount":
+                {
+                    "type": "string",
+                    "description": "Amount to be credited in a payment transaction",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "executionDate":
+                {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction."
+                },
+                "debitReference":
+                {
+                    "type": "string",
+                    "description": "Reference for debit party of a payment transaction",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "endToEndReference":
+                {
+                    "type": "string",
+                    "description": "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                }
+            }
+        },
+        "ScreenHeader":
+        {
+            "properties":
+            {
+                "id":
+                {
+                    "type": "string",
+                    "description": "The Identifier of the record created"
+                },
+                "status":
+                {
+                    "type": "string",
+                    "description": "Status of the API(success/failed)"
+                },
+                "transactionStatus":
+                {
+                    "type": "string",
+                    "description": "The status of the transaction"
+                },
+                "uniqueIdentifier":
+                {
+                    "type": "string",
+                    "description": "The unique identifier/Message Reference of the record created."
+                },
+                "audit":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "T24_time":
+                        {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Time taken to response by T24"
+                        },
+                        "versionNumber":
+                        {
+                            "type": "string",
+                            "description": "The CURR.NO. of the record"
+                        },
+                        "requestParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the request by IRIS"
+                        },
+                        "responseParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the response by IRIS"
+                        }
+                    }
+                }
+            }
+        },
+        "PaymentTransferResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ScreenHeader"
+                },
+                "body":
+                {
+                    "$ref": "#/definitions/PaymentTransferResponseBody"
+                }
+            },
+            "description": "PaymentTransferResponse"
+        },
+        "PaymentTransferResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "benName":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "debitAccountId":
+                            {
+                                "type": "string",
+                                "description": "Indicates the debit account number of the payment or transaction.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "beneficiaryName":
+                            {
+                                "type": "string",
+                                "description": "Short title or short name of the beneficiary",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "beneficiaryAccountId":
+                            {
+                                "type": "string",
+                                "description": "Unique account identifier of the beneficiary account number.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "benAddressLine":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "beneficiaryIBAN":
+                            {
+                                "type": "string",
+                                "description": "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "beneficiaryAddressLine1":
+                            {
+                                "type": "string",
+                                "description": "Address of the beneficiary or credit account.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "beneficiaryCountryId":
+                            {
+                                "type": "string",
+                                "description": "Country of the beneficiary account number. For example: US, IN, EU",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "benTown":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "beneficiaryAddressCity":
+                            {
+                                "type": "string",
+                                "description": "City of the beneficiary account. For example: London, Dallas etc.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "acctWithBk":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "creditorAgentBIC":
+                            {
+                                "type": "string",
+                                "description": "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "creditorAgentNationalCode":
+                            {
+                                "type": "string",
+                                "description": "National code of the creditor account. For example: EU, US etc.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "remittanceInformation":
+                {
+                    "type": "array",
+                    "description": "Indicates the remittance information that is supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "creditReference":
+                            {
+                                "type": "string",
+                                "description": "Reference quoted by the credit account for a payment",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "paymentDetail":
+                            {
+                                "type": "string",
+                                "description": "Indicates the payment details for the beneficiary to apply the payment.",
+                                "minLength": 0,
+                                "maxLength": 55
+                            },
+                            "chargeBearer":
+                            {
+                                "type": "string",
+                                "description": "Bearer of the charges of the order. For example: BEN(All transaction charges are to be borne by the beneficiary customer.), OUR(All transaction charges are to be borne by the ordering customer.), SHA(Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+                                "minLength": 0,
+                                "maxLength": 55
+                            }
+                        }
+                    }
+                },
+                "creditCurrencyId":
+                {
+                    "type": "string",
+                    "description": "Specifies the credit currency. For example: USD, EUR etc.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditAmount":
+                {
+                    "type": "string",
+                    "description": "Amount to be credited in a payment transaction",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "executionDate":
+                {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction."
+                },
+                "debitReference":
+                {
+                    "type": "string",
+                    "description": "Reference for debit party of a payment transaction",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "endToEndReference":
+                {
+                    "type": "string",
+                    "description": "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                }
+            }
+        },
+        "ErrorHeader":
+        {
+            "properties":
+            {
+                "id":
+                {
+                    "type": "string",
+                    "description": "The Identifier of the record created"
+                },
+                "status":
+                {
+                    "type": "string",
+                    "description": "Status of the API(success/failed)"
+                },
+                "transactionStatus":
+                {
+                    "type": "string",
+                    "description": "The status of the transaction"
+                },
+                "uniqueIdentifier":
+                {
+                    "type": "string",
+                    "description": "The unique identifier/Message Reference of the record created."
+                },
+                "audit":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "T24_time":
+                        {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Time taken to response by T24"
+                        },
+                        "versionNumber":
+                        {
+                            "type": "string",
+                            "description": "The CURR.NO. of the record"
+                        },
+                        "requestParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the request by IRIS"
+                        },
+                        "responseParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the response by IRIS"
+                        }
+                    }
+                }
+            }
+        },
+        "overrideBody":
+        {
+            "properties":
+            {
+                "overrideDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "id":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the override."
+                            },
+                            "description":
+                            {
+                                "type": "string",
+                                "description": "The actual override message."
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The code related to override message."
+                            },
+                            "options":
+                            {
+                                "type": "array",
+                                "description": "The usable options for the override.",
+                                "items":
+                                {
+                                    "type": "string"
+                                }
+                            },
+                            "type":
+                            {
+                                "type": "string",
+                                "description": "The type of the override."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ScreenErrorResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ErrorHeader"
+                },
+                "error":
+                {
+                    "$ref": "#/definitions/ScreenErrorResponseBody"
+                },
+                "override":
+                {
+                    "$ref": "#/definitions/overrideBody"
+                }
+            },
+            "description": "ScreenErrorResponse"
+        },
+        "ScreenErrorResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "errorDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "fieldName":
+                            {
+                                "type": "string",
+                                "description": "The name of the field"
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the error message"
+                            },
+                            "message":
+                            {
+                                "type": "string",
+                                "description": "The actual t24 error message "
+                            }
+                        }
+                    }
+                },
+                "type":
+                {
+                    "type": "string",
+                    "description": "The identifier of error type: "
+                }
+            }
+        },
+        "BusinessScreenErrorResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ErrorHeader"
+                },
+                "error":
+                {
+                    "$ref": "#/definitions/BusinessScreenErrorResponseBody"
+                },
+                "override":
+                {
+                    "$ref": "#/definitions/overrideBody"
+                }
+            },
+            "description": "BusinessScreenErrorResponse"
+        },
+        "BusinessScreenErrorResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "errorDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "fieldName":
+                            {
+                                "type": "string",
+                                "description": "The name of the field"
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the error message"
+                            },
+                            "message":
+                            {
+                                "type": "string",
+                                "description": "The actual t24 error message for bad requests"
+                            }
+                        }
+                    }
+                },
+                "type":
+                {
+                    "type": "string",
+                    "description": "The identifier of error type: Business"
+                }
+            }
+        },
+        "SystemScreenErrorResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ErrorHeader"
+                },
+                "error":
+                {
+                    "$ref": "#/definitions/SystemScreenErrorResponseBody"
+                },
+                "override":
+                {
+                    "$ref": "#/definitions/overrideBody"
+                }
+            },
+            "description": "SystemScreenErrorResponse"
+        },
+        "SystemScreenErrorResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "errorDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "fieldName":
+                            {
+                                "type": "string",
+                                "description": "The name of the field"
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the error message"
+                            },
+                            "message":
+                            {
+                                "type": "string",
+                                "description": "The actual t24 error message caused by server"
+                            }
+                        }
+                    }
+                },
+                "type":
+                {
+                    "type": "string",
+                    "description": "The identifier of error type: System"
+                }
+            }
+        }
+    }
+}

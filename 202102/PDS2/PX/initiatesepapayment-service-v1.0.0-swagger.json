@@ -1,0 +1,740 @@
+{
+    "swagger": "2.0",
+    "info":
+    {
+        "description": "Provider - Initiate Sepapayment - Deprecated, as its an unused endpoint",
+        "version": "v1.0.0",
+        "title": "Initiate Sepapayment"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api/v1.0.0/",
+    "schemes": [ "http", "https" ],
+    "security": [
+    {
+        "basicAuth": [ ]
+    } ],
+    "paths":
+    {
+        "/party/payment":
+        {
+            "post":
+            {
+                "operationId": "createSepapayment",
+                "produces": [ "application/json" ],
+                "parameters": [
+                {
+                    "in": "body",
+                    "name": "payload",
+                    "description": "body Payload",
+                    "required": true,
+                    "schema":
+                    {
+                        "$ref": "#/definitions/Sepapayment"
+                    }
+                },
+                {
+                    "name": "validate_only",
+                    "in": "query",
+                    "description": "The identifier to indicate if it is set to only validate or not.",
+                    "required": false,
+                    "type": "boolean"
+                },
+                {
+                    "name": "credentials",
+                    "in": "header",
+                    "description": "Username and password to authenticate the API against core-banking.",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "companyId",
+                    "in": "header",
+                    "description": "The identifier of the underlying Entity/Company/Branch.",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "deviceId",
+                    "in": "header",
+                    "description": "Identifies the device type",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "userRole",
+                    "in": "header",
+                    "description": "User who initiated the transaction",
+                    "required": false,
+                    "type": "string"
+                } ],
+                "responses":
+                {
+                    "200":
+                    {
+                        "description": "SepapaymentResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/SepapaymentResponse"
+                        }
+                    },
+                    "default":
+                    {
+                        "description": "ScreenErrorResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/ScreenErrorResponse"
+                        }
+                    },
+                    "400":
+                    {
+                        "description": "BusinessScreenErrorResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/BusinessScreenErrorResponse"
+                        }
+                    },
+                    "500":
+                    {
+                        "description": "SystemScreenErrorResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/SystemScreenErrorResponse"
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        }
+    },
+    "securityDefinitions":
+    {
+        "basicAuth":
+        {
+            "type": "basic"
+        }
+    },
+    "definitions":
+    {
+        "PayloadHeader":
+        {
+            "properties":
+            {
+                "override":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "overrideDetails":
+                        {
+                            "type": "array",
+                            "items":
+                            {
+                                "type": "object",
+                                "properties":
+                                {
+                                    "id":
+                                    {
+                                        "type": "string",
+                                        "description": "The identifier of the override."
+                                    },
+                                    "description":
+                                    {
+                                        "type": "string",
+                                        "description": "The actual override message."
+                                    },
+                                    "code":
+                                    {
+                                        "type": "string",
+                                        "description": "The code related to override message."
+                                    },
+                                    "responseCode":
+                                    {
+                                        "type": "string",
+                                        "description": "The user input to accept/reject the override."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "audit":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "versionNumber":
+                        {
+                            "type": "string",
+                            "description": "The CURR.NO. of the record"
+                        }
+                    }
+                }
+            }
+        },
+        "Sepapayment":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/PayloadHeader"
+                },
+                "body":
+                {
+                    "$ref": "#/definitions/SepapaymentBody"
+                }
+            },
+            "description": "Sepapayment"
+        },
+        "SepapaymentBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "endToEndReference":
+                {
+                    "type": "string",
+                    "description": "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "debitAccountId":
+                {
+                    "type": "string",
+                    "description": "Indicates the debit account number of the payment or transaction.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditAmount":
+                {
+                    "type": "string",
+                    "description": "Amount to be credited in a payment transaction",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditCurrencyId":
+                {
+                    "type": "string",
+                    "description": "Specifies the credit currency. For example: USD, EUR etc.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditAccountId":
+                {
+                    "type": "string",
+                    "description": "Credit account identifier of the payment or transaction",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditorName":
+                {
+                    "type": "string",
+                    "description": "Name or short title of the credit account",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditorAddress":
+                {
+                    "type": "string",
+                    "description": "Address of the creditor or beneficiary account",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditorAgentBIC":
+                {
+                    "type": "string",
+                    "description": "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "purpose":
+                {
+                    "type": "string",
+                    "description": "Purpose identifier of the payment or transaction, for SEPA payments in general.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "chargeType":
+                {
+                    "type": "string",
+                    "description": "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "chargeAmount":
+                {
+                    "type": "string",
+                    "description": "Retrieves the Charge Amount after redeem",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "paymentDetail":
+                {
+                    "type": "string",
+                    "description": "Indicates the payment details for the beneficiary to apply the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "structuredCreditorReference":
+                {
+                    "type": "string",
+                    "description": "Contains description of the credit account reference",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "executionDate":
+                {
+                    "type": "string",
+                    "description": "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction.",
+                    "minLength": 0,
+                    "maxLength": 55
+                }
+            }
+        },
+        "ScreenHeader":
+        {
+            "properties":
+            {
+                "id":
+                {
+                    "type": "string",
+                    "description": "The Identifier of the record created"
+                },
+                "status":
+                {
+                    "type": "string",
+                    "description": "Status of the API(success/failed)"
+                },
+                "transactionStatus":
+                {
+                    "type": "string",
+                    "description": "The status of the transaction"
+                },
+                "uniqueIdentifier":
+                {
+                    "type": "string",
+                    "description": "The unique identifier/Message Reference of the record created."
+                },
+                "audit":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "T24_time":
+                        {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Time taken to response by T24"
+                        },
+                        "versionNumber":
+                        {
+                            "type": "string",
+                            "description": "The CURR.NO. of the record"
+                        },
+                        "requestParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the request by IRIS"
+                        },
+                        "responseParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the response by IRIS"
+                        }
+                    }
+                }
+            }
+        },
+        "SepapaymentResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ScreenHeader"
+                },
+                "body":
+                {
+                    "$ref": "#/definitions/SepapaymentResponseBody"
+                }
+            },
+            "description": "SepapaymentResponse"
+        },
+        "SepapaymentResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "endToEndReference":
+                {
+                    "type": "string",
+                    "description": "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "debitAccountId":
+                {
+                    "type": "string",
+                    "description": "Indicates the debit account number of the payment or transaction.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditAmount":
+                {
+                    "type": "string",
+                    "description": "Amount to be credited in a payment transaction",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditCurrencyId":
+                {
+                    "type": "string",
+                    "description": "Specifies the credit currency. For example: USD, EUR etc.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditAccountId":
+                {
+                    "type": "string",
+                    "description": "Credit account identifier of the payment or transaction",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditorName":
+                {
+                    "type": "string",
+                    "description": "Name or short title of the credit account",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditorAddress":
+                {
+                    "type": "string",
+                    "description": "Address of the creditor or beneficiary account",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditorAgentBIC":
+                {
+                    "type": "string",
+                    "description": "BIC(Business Identifier Code) code used by an agent in a payment transaction. The BIC consists of 8 or 11 alphanumeric characters, comprising a Business party prefix (previous institution code), country code, business party suffix and branch identifier. The BIC Code structure is defined by the international standard under ISO 9362:2014 and country code ISO 3166-1. BIC Codes Examples: BARCGB22XXX or DEUTDEFFXXX or BNPAFRPPXXX",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "purpose":
+                {
+                    "type": "string",
+                    "description": "Purpose identifier of the payment or transaction, for SEPA payments in general.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "chargeType":
+                {
+                    "type": "string",
+                    "description": "Indicates the charge types which are applicable for the transaction. Example: CORRBKCHG",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "chargeAmount":
+                {
+                    "type": "string",
+                    "description": "Retrieves the Charge Amount after redeem",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "paymentDetail":
+                {
+                    "type": "string",
+                    "description": "Indicates the payment details for the beneficiary to apply the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "structuredCreditorReference":
+                {
+                    "type": "string",
+                    "description": "Contains description of the credit account reference",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "executionDate":
+                {
+                    "type": "string",
+                    "description": "Date on which the transaction or payment gets processed, i.e. the processing date of the transaction.",
+                    "minLength": 0,
+                    "maxLength": 55
+                }
+            }
+        },
+        "ErrorHeader":
+        {
+            "properties":
+            {
+                "id":
+                {
+                    "type": "string",
+                    "description": "The Identifier of the record created"
+                },
+                "status":
+                {
+                    "type": "string",
+                    "description": "Status of the API(success/failed)"
+                },
+                "transactionStatus":
+                {
+                    "type": "string",
+                    "description": "The status of the transaction"
+                },
+                "uniqueIdentifier":
+                {
+                    "type": "string",
+                    "description": "The unique identifier/Message Reference of the record created."
+                },
+                "audit":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "T24_time":
+                        {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Time taken to response by T24"
+                        },
+                        "versionNumber":
+                        {
+                            "type": "string",
+                            "description": "The CURR.NO. of the record"
+                        },
+                        "requestParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the request by IRIS"
+                        },
+                        "responseParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the response by IRIS"
+                        }
+                    }
+                }
+            }
+        },
+        "overrideBody":
+        {
+            "properties":
+            {
+                "overrideDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "id":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the override."
+                            },
+                            "description":
+                            {
+                                "type": "string",
+                                "description": "The actual override message."
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The code related to override message."
+                            },
+                            "options":
+                            {
+                                "type": "array",
+                                "description": "The usable options for the override.",
+                                "items":
+                                {
+                                    "type": "string"
+                                }
+                            },
+                            "type":
+                            {
+                                "type": "string",
+                                "description": "The type of the override."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ScreenErrorResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ErrorHeader"
+                },
+                "error":
+                {
+                    "$ref": "#/definitions/ScreenErrorResponseBody"
+                },
+                "override":
+                {
+                    "$ref": "#/definitions/overrideBody"
+                }
+            },
+            "description": "ScreenErrorResponse"
+        },
+        "ScreenErrorResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "errorDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "fieldName":
+                            {
+                                "type": "string",
+                                "description": "The name of the field"
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the error message"
+                            },
+                            "message":
+                            {
+                                "type": "string",
+                                "description": "The actual t24 error message "
+                            }
+                        }
+                    }
+                },
+                "type":
+                {
+                    "type": "string",
+                    "description": "The identifier of error type: "
+                }
+            }
+        },
+        "BusinessScreenErrorResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ErrorHeader"
+                },
+                "error":
+                {
+                    "$ref": "#/definitions/BusinessScreenErrorResponseBody"
+                },
+                "override":
+                {
+                    "$ref": "#/definitions/overrideBody"
+                }
+            },
+            "description": "BusinessScreenErrorResponse"
+        },
+        "BusinessScreenErrorResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "errorDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "fieldName":
+                            {
+                                "type": "string",
+                                "description": "The name of the field"
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the error message"
+                            },
+                            "message":
+                            {
+                                "type": "string",
+                                "description": "The actual t24 error message for bad requests"
+                            }
+                        }
+                    }
+                },
+                "type":
+                {
+                    "type": "string",
+                    "description": "The identifier of error type: Business"
+                }
+            }
+        },
+        "SystemScreenErrorResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ErrorHeader"
+                },
+                "error":
+                {
+                    "$ref": "#/definitions/SystemScreenErrorResponseBody"
+                },
+                "override":
+                {
+                    "$ref": "#/definitions/overrideBody"
+                }
+            },
+            "description": "SystemScreenErrorResponse"
+        },
+        "SystemScreenErrorResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "errorDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "fieldName":
+                            {
+                                "type": "string",
+                                "description": "The name of the field"
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the error message"
+                            },
+                            "message":
+                            {
+                                "type": "string",
+                                "description": "The actual t24 error message caused by server"
+                            }
+                        }
+                    }
+                },
+                "type":
+                {
+                    "type": "string",
+                    "description": "The identifier of error type: System"
+                }
+            }
+        }
+    }
+}

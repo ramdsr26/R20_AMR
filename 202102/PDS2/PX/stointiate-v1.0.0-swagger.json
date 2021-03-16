@@ -1,0 +1,719 @@
+{
+    "swagger": "2.0",
+    "info":
+    {
+        "description": "stointiate - Deprecated, as its an unused endpoint",
+        "version": "v1.0.0",
+        "title": "stointiate"
+    },
+    "host": "localhost:9089",
+    "basePath": "/api/v1.0.0/",
+    "schemes": [ "http", "https" ],
+    "security": [
+    {
+        "basicAuth": [ ]
+    } ],
+    "paths":
+    {
+        "/party/standingorders/{Standingorderid}/create":
+        {
+            "post":
+            {
+                "operationId": "createStandingOrder",
+                "produces": [ "application/json" ],
+                "parameters": [
+                {
+                    "name": "Standingorderid",
+                    "in": "path",
+                    "description": "The unique standing order identifier",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "in": "body",
+                    "name": "payload",
+                    "description": "body Payload",
+                    "required": true,
+                    "schema":
+                    {
+                        "$ref": "#/definitions/StandingOrder"
+                    }
+                },
+                {
+                    "name": "validate_only",
+                    "in": "query",
+                    "description": "The identifier to indicate if it is set to only validate or not.",
+                    "required": false,
+                    "type": "boolean"
+                },
+                {
+                    "name": "credentials",
+                    "in": "header",
+                    "description": "Username and password to authenticate the API against core-banking.",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "companyId",
+                    "in": "header",
+                    "description": "The identifier of the underlying Entity/Company/Branch.",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "deviceId",
+                    "in": "header",
+                    "description": "Identifies the device type",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "userRole",
+                    "in": "header",
+                    "description": "User who initiated the transaction",
+                    "required": false,
+                    "type": "string"
+                } ],
+                "responses":
+                {
+                    "200":
+                    {
+                        "description": "StandingOrderResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/StandingOrderResponse"
+                        }
+                    },
+                    "default":
+                    {
+                        "description": "ScreenErrorResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/ScreenErrorResponse"
+                        }
+                    },
+                    "400":
+                    {
+                        "description": "BusinessScreenErrorResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/BusinessScreenErrorResponse"
+                        }
+                    },
+                    "500":
+                    {
+                        "description": "SystemScreenErrorResponse",
+                        "schema":
+                        {
+                            "$ref": "#/definitions/SystemScreenErrorResponse"
+                        }
+                    }
+                },
+                "deprecated": true
+            }
+        }
+    },
+    "securityDefinitions":
+    {
+        "basicAuth":
+        {
+            "type": "basic"
+        }
+    },
+    "definitions":
+    {
+        "PayloadHeader":
+        {
+            "properties":
+            {
+                "override":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "overrideDetails":
+                        {
+                            "type": "array",
+                            "items":
+                            {
+                                "type": "object",
+                                "properties":
+                                {
+                                    "id":
+                                    {
+                                        "type": "string",
+                                        "description": "The identifier of the override."
+                                    },
+                                    "description":
+                                    {
+                                        "type": "string",
+                                        "description": "The actual override message."
+                                    },
+                                    "code":
+                                    {
+                                        "type": "string",
+                                        "description": "The code related to override message."
+                                    },
+                                    "responseCode":
+                                    {
+                                        "type": "string",
+                                        "description": "The user input to accept/reject the override."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "audit":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "versionNumber":
+                        {
+                            "type": "string",
+                            "description": "The CURR.NO. of the record"
+                        }
+                    }
+                }
+            }
+        },
+        "StandingOrder":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/PayloadHeader"
+                },
+                "body":
+                {
+                    "$ref": "#/definitions/StandingOrderBody"
+                }
+            },
+            "description": "StandingOrder"
+        },
+        "StandingOrderBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "endToEndReference":
+                {
+                    "type": "string",
+                    "description": "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "beneficiaryIBAN":
+                {
+                    "type": "string",
+                    "description": "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "BIC":
+                {
+                    "type": "string",
+                    "description": "The BIC code of the Beneficiary bank",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "ultimateCreditor":
+                {
+                    "type": "string",
+                    "description": "Contains the actual creditor account number",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditorAddress":
+                {
+                    "type": "string",
+                    "description": "Address of the creditor or beneficiary account",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "instructionIdReference":
+                {
+                    "type": "string",
+                    "description": "Indicates the SEPA purpose of the SEPA Payment",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "paymentDetail":
+                {
+                    "type": "string",
+                    "description": "Indicates the payment details for the beneficiary to apply the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "currentFrequencyDate":
+                {
+                    "type": "string",
+                    "description": "Indicates the date based on current frequency",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "currentEndDate":
+                {
+                    "type": "string",
+                    "description": "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "debitCurrency":
+                {
+                    "type": "string",
+                    "description": "Currency of the debit account. For example: USD, EUR etc.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "currentAmountBalance":
+                {
+                    "type": "string",
+                    "description": "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "beneficiaryOurCharges":
+                {
+                    "type": "string",
+                    "description": "Indicates the bearer of the charges. For example: BEN( All transaction charges are to be borne by the beneficiary customer.), OUR (All transaction charges are to be borne by the ordering customer.), SHA (Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+                    "minLength": 0,
+                    "maxLength": 55
+                }
+            }
+        },
+        "ScreenHeader":
+        {
+            "properties":
+            {
+                "id":
+                {
+                    "type": "string",
+                    "description": "The Identifier of the record created"
+                },
+                "status":
+                {
+                    "type": "string",
+                    "description": "Status of the API(success/failed)"
+                },
+                "transactionStatus":
+                {
+                    "type": "string",
+                    "description": "The status of the transaction"
+                },
+                "uniqueIdentifier":
+                {
+                    "type": "string",
+                    "description": "The unique identifier/Message Reference of the record created."
+                },
+                "audit":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "T24_time":
+                        {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Time taken to response by T24"
+                        },
+                        "versionNumber":
+                        {
+                            "type": "string",
+                            "description": "The CURR.NO. of the record"
+                        },
+                        "requestParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the request by IRIS"
+                        },
+                        "responseParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the response by IRIS"
+                        }
+                    }
+                }
+            }
+        },
+        "StandingOrderResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ScreenHeader"
+                },
+                "body":
+                {
+                    "$ref": "#/definitions/StandingOrderResponseBody"
+                }
+            },
+            "description": "StandingOrderResponse"
+        },
+        "StandingOrderResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "endToEndReference":
+                {
+                    "type": "string",
+                    "description": "Indicates the end to end reference for the payment. This field can be provided by the person who instructs the payment and this flows through the lifecycle of the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "beneficiaryIBAN":
+                {
+                    "type": "string",
+                    "description": "International Bank Account Number (IBAN) of the beneficiary account, required only for International transfers/payments outside the Bank. For example: GB98 MIDL07009312345678, FR7630006000011234567890189",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "BIC":
+                {
+                    "type": "string",
+                    "description": "The BIC code of the Beneficiary bank",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "ultimateCreditor":
+                {
+                    "type": "string",
+                    "description": "Contains the actual creditor account number",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "creditorAddress":
+                {
+                    "type": "string",
+                    "description": "Address of the creditor or beneficiary account",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "instructionIdReference":
+                {
+                    "type": "string",
+                    "description": "Indicates the SEPA purpose of the SEPA Payment",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "paymentDetail":
+                {
+                    "type": "string",
+                    "description": "Indicates the payment details for the beneficiary to apply the payment.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "currentFrequencyDate":
+                {
+                    "type": "string",
+                    "description": "Indicates the date based on current frequency",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "currentEndDate":
+                {
+                    "type": "string",
+                    "description": "Identifies the current end date of the standing order for the currency, amount and frequency specified. When the bank has received from the customer clear instructions which stipulate that the standing order must  only be executed during a determined period of time.  This is the date of the last execution of the standing order or when the customer has requested the bank to pay a certain amount during a determined period of time and then another amount starting from that date. In this case, this field specifies the end date of the first standing order amount.  After that date the second amount will then be executed.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "debitCurrency":
+                {
+                    "type": "string",
+                    "description": "Currency of the debit account. For example: USD, EUR etc.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "currentAmountBalance":
+                {
+                    "type": "string",
+                    "description": "Indicates the amount of the Standing Order.Incase of Balance Maintenance Standing Order, this field will define the Balance to be maintained in the Account.",
+                    "minLength": 0,
+                    "maxLength": 55
+                },
+                "beneficiaryOurCharges":
+                {
+                    "type": "string",
+                    "description": "Indicates the bearer of the charges. For example: BEN( All transaction charges are to be borne by the beneficiary customer.), OUR (All transaction charges are to be borne by the ordering customer.), SHA (Transaction charges on the Sender's side are to be borne by the ordering customer, transaction charges on the Receiver's side are to be borne by the beneficiary customer.)",
+                    "minLength": 0,
+                    "maxLength": 55
+                }
+            }
+        },
+        "ErrorHeader":
+        {
+            "properties":
+            {
+                "id":
+                {
+                    "type": "string",
+                    "description": "The Identifier of the record created"
+                },
+                "status":
+                {
+                    "type": "string",
+                    "description": "Status of the API(success/failed)"
+                },
+                "transactionStatus":
+                {
+                    "type": "string",
+                    "description": "The status of the transaction"
+                },
+                "uniqueIdentifier":
+                {
+                    "type": "string",
+                    "description": "The unique identifier/Message Reference of the record created."
+                },
+                "audit":
+                {
+                    "type": "object",
+                    "properties":
+                    {
+                        "T24_time":
+                        {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Time taken to response by T24"
+                        },
+                        "versionNumber":
+                        {
+                            "type": "string",
+                            "description": "The CURR.NO. of the record"
+                        },
+                        "requestParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the request by IRIS"
+                        },
+                        "responseParse_time":
+                        {
+                            "type": "number",
+                            "description": "Time taken to parse the response by IRIS"
+                        }
+                    }
+                }
+            }
+        },
+        "overrideBody":
+        {
+            "properties":
+            {
+                "overrideDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "id":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the override."
+                            },
+                            "description":
+                            {
+                                "type": "string",
+                                "description": "The actual override message."
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The code related to override message."
+                            },
+                            "options":
+                            {
+                                "type": "array",
+                                "description": "The usable options for the override.",
+                                "items":
+                                {
+                                    "type": "string"
+                                }
+                            },
+                            "type":
+                            {
+                                "type": "string",
+                                "description": "The type of the override."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ScreenErrorResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ErrorHeader"
+                },
+                "error":
+                {
+                    "$ref": "#/definitions/ScreenErrorResponseBody"
+                },
+                "override":
+                {
+                    "$ref": "#/definitions/overrideBody"
+                }
+            },
+            "description": "ScreenErrorResponse"
+        },
+        "ScreenErrorResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "errorDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "fieldName":
+                            {
+                                "type": "string",
+                                "description": "The name of the field"
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the error message"
+                            },
+                            "message":
+                            {
+                                "type": "string",
+                                "description": "The actual t24 error message "
+                            }
+                        }
+                    }
+                },
+                "type":
+                {
+                    "type": "string",
+                    "description": "The identifier of error type: "
+                }
+            }
+        },
+        "BusinessScreenErrorResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ErrorHeader"
+                },
+                "error":
+                {
+                    "$ref": "#/definitions/BusinessScreenErrorResponseBody"
+                },
+                "override":
+                {
+                    "$ref": "#/definitions/overrideBody"
+                }
+            },
+            "description": "BusinessScreenErrorResponse"
+        },
+        "BusinessScreenErrorResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "errorDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "fieldName":
+                            {
+                                "type": "string",
+                                "description": "The name of the field"
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the error message"
+                            },
+                            "message":
+                            {
+                                "type": "string",
+                                "description": "The actual t24 error message for bad requests"
+                            }
+                        }
+                    }
+                },
+                "type":
+                {
+                    "type": "string",
+                    "description": "The identifier of error type: Business"
+                }
+            }
+        },
+        "SystemScreenErrorResponse":
+        {
+            "properties":
+            {
+                "header":
+                {
+                    "$ref": "#/definitions/ErrorHeader"
+                },
+                "error":
+                {
+                    "$ref": "#/definitions/SystemScreenErrorResponseBody"
+                },
+                "override":
+                {
+                    "$ref": "#/definitions/overrideBody"
+                }
+            },
+            "description": "SystemScreenErrorResponse"
+        },
+        "SystemScreenErrorResponseBody":
+        {
+            "type": "object",
+            "properties":
+            {
+                "errorDetails":
+                {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties":
+                        {
+                            "fieldName":
+                            {
+                                "type": "string",
+                                "description": "The name of the field"
+                            },
+                            "code":
+                            {
+                                "type": "string",
+                                "description": "The identifier of the error message"
+                            },
+                            "message":
+                            {
+                                "type": "string",
+                                "description": "The actual t24 error message caused by server"
+                            }
+                        }
+                    }
+                },
+                "type":
+                {
+                    "type": "string",
+                    "description": "The identifier of error type: System"
+                }
+            }
+        }
+    }
+}
